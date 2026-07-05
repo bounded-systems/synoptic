@@ -12,7 +12,8 @@
     "synoptic-project": "project.mjs",
     "synoptic-coverage": "coverage.mjs",
     "synoptic-axioms": "axioms.mjs",
-    "synoptic-ledger": "ledger.mjs"
+    "synoptic-ledger": "ledger.mjs",
+    "synoptic-derive": "derive.mjs"
   },
   "scripts": {
     "validate": "node validate.mjs"
