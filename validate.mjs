@@ -104,10 +104,17 @@ const LAYERS = [
   },
   {
     name: "website",
+    // Config-driven: a site lists the website gates it wants; the engine runs each
+    // over dist from the pinned kit. No gate implementation lives in the site — it
+    // declares `gates`, the engine owns the running. Defaults to axe if unspecified.
     run: (cfg) => {
-      const out = [];
-      if (cfg.dist) out.push(["axe-gate.mjs", [abs(cfg.dist)]]);
-      return out;
+      const dist = cfg.dist ? abs(cfg.dist) : null;
+      const gates = cfg.gates ?? (dist ? ["axe-gate.mjs"] : []);
+      return gates.map((g) =>
+        typeof g === "string"
+          ? [g, [dist]]
+          : [g.gate, (g.args ?? ["$dist"]).map((a) => (a === "$dist" ? dist : abs(a)))]
+      );
     },
   },
 ];
