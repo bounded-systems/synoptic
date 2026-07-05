@@ -1,0 +1,31 @@
+LAYERS.md
+  s_70508ca017cb29::t_d2d3590b7999d0 1-39
+README.md
+  s_70508ca017cb29::t_381dabeb0d7633 1-32
+generators/gen-jsonld.mjs
+  s_70508ca017cb29::t_c68925b838bce6 1-127
+generators/gen-lattice.mjs
+  s_70508ca017cb29::t_d01d02a680935c 1-121
+generators/gen-prose-corpus.mjs
+  s_70508ca017cb29::t_6ecb086cb99140 1-29
+package.json
+  s_70508ca017cb29::t_ea2e15f482222e 1-11
+synoptic.config.example.json
+  s_70508ca017cb29::t_8a4d2c0c83f806 1-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "4d2ad35ed4e65531169a7597112fd7e3dc0d161b",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
