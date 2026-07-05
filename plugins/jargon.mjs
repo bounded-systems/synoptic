@@ -1,4 +1,5 @@
 // jargon plugin — the grounded vocabulary as a DefinedTermSet (term → source).
+export const kind = "parse"; // assists evidence → graph
 export const id = "jargon";
 export async function parse(ctx) {
   const j = ctx.readMaybe("data/jargon.json") ?? {};

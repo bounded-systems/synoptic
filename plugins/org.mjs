@@ -1,4 +1,5 @@
 // org plugin — the Organization root node from the site's content tokens.
+export const kind = "parse"; // assists evidence → graph
 export const id = "org";
 export async function parse(ctx) {
   const s = ctx.readMaybe("content/strings.json") ?? {};

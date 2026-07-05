@@ -1,5 +1,6 @@
 // packages plugin — the org's packages as SoftwareSourceCode, linked by buildsOn
 // (registry edges). This is the RDF spine: nodes + @id references between them.
+export const kind = "parse"; // assists evidence → graph
 export const id = "packages";
 export async function parse(ctx) {
   const reg = ctx.readMaybe("data/registry.json") ?? { nodes: [], edges: [] };

@@ -1,5 +1,6 @@
 // lattice plugin — the contract lattice (gen-lattice's data) piped into the graph as
 // a Dataset with each verified contract a PropertyValue. Pipes into jsonld.
+export const kind = "parse"; // assists evidence → graph
 export const id = "lattice";
 export async function parse(ctx) {
   const l = ctx.readMaybe("data/lattice.json");
