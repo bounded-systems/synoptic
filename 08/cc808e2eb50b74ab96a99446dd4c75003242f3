@@ -1,0 +1,21 @@
+verify.mjs
+  s_70508ca017cb29::t_4250524f78c575 1-52
+package.json
+  s_70508ca017cb29::t_f06e274efe35f1 6-22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "08cc808e2eb50b74ab96a99446dd4c75003242f3",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
