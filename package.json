@@ -9,7 +9,8 @@
     "synoptic-prose-corpus": "generators/gen-prose-corpus.mjs",
     "synoptic-lattice": "generators/gen-lattice.mjs",
     "synoptic-verify": "verify.mjs",
-    "synoptic-project": "project.mjs"
+    "synoptic-project": "project.mjs",
+    "synoptic-coverage": "coverage.mjs"
   },
   "scripts": {
     "validate": "node validate.mjs"
