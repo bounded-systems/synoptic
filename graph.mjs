@@ -11,6 +11,7 @@
 //   parse(ctx) -> node[]     ctx = { read, readMaybe, site, base, esc }
 import { mkdir, writeFile } from "node:fs/promises";
 import { readFileSync, existsSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { dirname, join } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -25,8 +26,19 @@ const out = outArg.startsWith("/") ? outArg : join(CWD, outArg);
 const config = JSON.parse(readFileSync(join(CWD, "synoptic.config.json"), "utf8"));
 const g = config.graph ?? {};
 const base = (g.id ? g.id.replace(/#.*$/, "") : `https://${config.site}`).replace(/\/$/, "");
+const sha256 = (buf) => createHash("sha256").update(buf).digest("hex");
+
+// Track the evidence each plugin reads — so the evidence→graph derivation is
+// attestable: which source (by digest) produced which node, by which plugin. This is
+// why plugins attach at clean ends — the material list is exact.
+const materials = [];
+let current = null;
 const ctx = {
-  read: (rel) => JSON.parse(readFileSync(join(CWD, rel), "utf8")),
+  read: (rel) => {
+    const bytes = readFileSync(join(CWD, rel));
+    if (current) materials.push({ plugin: current, uri: rel, digest: sha256(bytes) });
+    return JSON.parse(bytes);
+  },
   readMaybe: (rel) => { try { return ctx.read(rel); } catch { return null; } },
   site: config.site,
   base,
@@ -43,11 +55,28 @@ async function load(name) {
 }
 
 const nodes = [];
+const provenance = []; // one in-toto statement per parse plugin: evidence → nodes
 for (const name of g.plugins ?? []) {
   const mod = await load(name);
+  current = name;
+  const before = materials.length;
   const produced = (await mod.parse(ctx)) ?? [];
+  current = null;
   nodes.push(...produced);
-  console.log(`  + ${name}: ${produced.length} node(s)`);
+  const mats = materials.slice(before);
+  provenance.push({
+    _type: "https://in-toto.io/Statement/v1",
+    subject: produced.map((n) => ({ name: n["@id"], digest: { sha256: sha256(Buffer.from(JSON.stringify(n))) } })),
+    predicateType: "https://bounded.tools/synoptic/parse/v1",
+    predicate: {
+      plugin: name,
+      kind: mod.kind ?? "parse",
+      assists: "evidence→graph",
+      resolvedDependencies: mats.map((m) => ({ uri: m.uri, digest: { sha256: m.digest } })),
+      builder: { id: "https://github.com/bounded-systems/synoptic" },
+    },
+  });
+  console.log(`  + ${name}: ${produced.length} node(s) ← ${mats.length} evidence file(s)`);
 }
 
 // BRIDGE: link the root node to other sites' @ids (the LD in JSON-LD).
@@ -65,4 +94,8 @@ const doc = {
 };
 await mkdir(dirname(out), { recursive: true });
 await writeFile(out, JSON.stringify(doc, null, 2) + "\n");
+// the derivation provenance: each node traces to its evidence via its parse plugin.
+const provOut = out.replace(/\.json$/, ".provenance.json");
+await writeFile(provOut, JSON.stringify(provenance, null, 2) + "\n");
 console.log(`✓ ${out} — ${nodes.length} node(s) from ${(g.plugins ?? []).length} plugin(s)${g.bridge?.length ? `, bridged to ${g.bridge.length} site(s)` : ""}`);
+console.log(`✓ ${provOut} — ${provenance.length} parse attestation(s) (evidence → graph, by digest)`);
