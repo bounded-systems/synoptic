@@ -16,7 +16,8 @@
     "synoptic-derive": "derive.mjs",
     "synoptic-merkle": "merkle.mjs",
     "synoptic-graph": "graph.mjs",
-    "synoptic-sbom": "sbom.mjs"
+    "synoptic-sbom": "sbom.mjs",
+    "synoptic-build-site": "build-site.mjs"
   },
   "scripts": {
     "validate": "node validate.mjs"

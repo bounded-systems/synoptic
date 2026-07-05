@@ -49,6 +49,21 @@ for (const stmt of prov) {
   }
 }
 
+// UNROLL the graph's edges into the SBOM: buildsOn → DEPENDS_ON. Now the SBOM isn't a
+// flat list — it's the full dependency graph, so a query gives the transitive closure
+// (every claim a claim rests on), and standard SBOM tooling reads the relationships.
+for (const n of graph["@graph"] ?? []) {
+  if (!n["@id"]) continue;
+  const nid = id("claim-" + n["@id"]);
+  for (const dep of n.buildsOn ?? []) {
+    relationships.push({ spdxElementId: nid, relationshipType: "DEPENDS_ON", relatedSpdxElement: id("claim-" + dep["@id"]) });
+  }
+  // structural links (isPartOf) as CONTAINS, so the org ⊇ its packages is in the BOM
+  if (n.isPartOf?.["@id"]) {
+    relationships.push({ spdxElementId: id("claim-" + n.isPartOf["@id"]), relationshipType: "CONTAINS", relatedSpdxElement: nid });
+  }
+}
+
 const sbom = {
   spdxVersion: "SPDX-2.3",
   dataLicense: "CC0-1.0",
