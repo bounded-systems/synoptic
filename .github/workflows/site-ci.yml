@@ -11,7 +11,10 @@ on:
       kit-ref:        { type: string, default: "v0.12.0" }
       build-command:  { type: string, default: "npm run build" }
       node-version:   { type: string, default: "22" }
-      sign:           { type: boolean, default: true }
+      # Sign only claims with no basis. Routine checks are DERIVABLE — they re-prove
+      # themselves on re-run, so signing them adds no basis. Off by default; the only
+      # required signature is a human vouching for an axiom (the authorization gate).
+      sign:           { type: boolean, default: false }
       browser:        { type: boolean, default: false }
       browser-gates:  { type: string, default: "axe-gate.mjs" }
 jobs:
