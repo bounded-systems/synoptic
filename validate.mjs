@@ -29,6 +29,19 @@ const CWD = process.cwd();
 const sha256 = (buf) => createHash("sha256").update(buf).digest("hex");
 const digestOf = (p) => (existsSync(p) ? sha256(readFileSync(p)) : sha256(Buffer.from("")));
 
+// The rung each check's verdict actually reaches (see PROOF.md). Signing adds
+// `attested` on top of this, orthogonally — a signed derivable check is derivable
+// AND attested, not proven.
+const PROOF_TYPE = {
+  "token-grounding": "grounded", // establishes a figure→proof trace
+  "claim-discipline": "derivable", // pure re-runnable proxy
+  "grammar-repetition": "derivable",
+  "doc-scope": "derivable",
+  "shacl-runner": "derivable", // decides conformance for this input
+  "shacl": "derivable",
+  "axe": "derivable",
+};
+
 // an in-toto Statement attesting a check's verdict over the artifact it checked.
 // Signed by CI (cosign keyless, OIDC) — a verifiable per-check result.
 function attestation({ site, layer, gate, result, materials }) {
@@ -41,6 +54,7 @@ function attestation({ site, layer, gate, result, materials }) {
       layer,
       gate,
       result, // "pass" | "fail"
+      proofType: PROOF_TYPE[gate] ?? "derivable", // the rung this verdict reaches
       strict,
       builder: { id: "https://github.com/bounded-systems/synoptic" },
     },
