@@ -1,0 +1,28 @@
+sbom.mjs
+  s_70508ca017cb29::t_4c7e5cb94f8bcf 62
+  s_d882bc691a04a8::t_108dfe75d6ff0e 1-61,63
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "829e1bd3c747bf77da24752dd3e0a4f9ca3beaf1",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    },
+    "s_d882bc691a04a8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0982d239-6cc6-42b2-893f-907a5aba1511",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
