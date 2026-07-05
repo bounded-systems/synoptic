@@ -1,0 +1,53 @@
+name: site-ci
+# THE site CI, implemented once. A site calls this reusable workflow and configures
+# it via synoptic.config.json + a few inputs — no CI implementation in the site.
+# Builds the site, runs every gate the config declares (from the pinned kit), and on
+# push signs + verifies each check (keyless OIDC → Rekor). Change the CI once here,
+# every site inherits it.
+on:
+  workflow_call:
+    inputs:
+      synoptic-ref:   { type: string, default: "v0.3.0" }
+      kit-ref:        { type: string, default: "v0.12.0" }
+      build-command:  { type: string, default: "npm run build" }
+      node-version:   { type: string, default: "22" }
+      sign:           { type: boolean, default: true }
+jobs:
+  site:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with: { repository: bounded-systems/synoptic, ref: "${{ inputs.synoptic-ref }}", path: .synoptic, persist-credentials: false }
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with: { repository: bounded-systems/conformance-kit, ref: "${{ inputs.kit-ref }}", path: .conformance-kit, persist-credentials: false }
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with: { node-version: "${{ inputs.node-version }}" }
+      - run: npm ci
+      - run: npm --prefix .conformance-kit ci --omit=dev || npm --prefix .conformance-kit install --omit=dev
+      - run: ${{ inputs.build-command }}
+      - run: node .synoptic/generators/gen-prose-corpus.mjs
+      - name: validate (all declared gates)
+        run: |
+          if [ "${{ github.event_name }}" = "push" ] && [ "${{ inputs.sign }}" = "true" ]; then
+            CK_GATES="$PWD/.conformance-kit/gates" node .synoptic/validate.mjs --attest attestations
+          else
+            CK_GATES="$PWD/.conformance-kit/gates" node .synoptic/validate.mjs
+          fi
+      - name: install cosign
+        if: github.event_name == 'push' && inputs.sign
+        uses: sigstore/cosign-installer@d7d6bc7722e3daa8354c50bcb52f4837da5e9b6a # v3.7.0
+      - name: sign each check attestation (keyless, OIDC)
+        if: github.event_name == 'push' && inputs.sign
+        run: for f in attestations/*.intoto.json; do cosign sign-blob --yes --bundle "$f.sigstore.json" "$f"; done
+      - name: verify the checks (vs this reusable workflow's identity)
+        if: github.event_name == 'push' && inputs.sign
+        run: |
+          node .synoptic/verify.mjs attestations \
+            --identity "https://github.com/bounded-systems/synoptic/.github/workflows/site-ci.yml@refs/tags/${{ inputs.synoptic-ref }}"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: github.event_name == 'push' && inputs.sign
+        with: { name: check-attestations, path: attestations/ }
