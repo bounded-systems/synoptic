@@ -1,0 +1,23 @@
+generators/gen-jsonld.mjs
+  s_70508ca017cb29::t_a7b61cf39b470a 17
+generators/gen-lattice.mjs
+  s_70508ca017cb29::t_09ce14c3e35d1b 24
+generators/gen-prose-corpus.mjs
+  s_70508ca017cb29::t_eb61f3150c7879 14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "3aa39384f251ef2c06985ce1ee2b8262975ac666",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
