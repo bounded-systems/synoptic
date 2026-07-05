@@ -14,7 +14,8 @@
     "synoptic-axioms": "axioms.mjs",
     "synoptic-ledger": "ledger.mjs",
     "synoptic-derive": "derive.mjs",
-    "synoptic-merkle": "merkle.mjs"
+    "synoptic-merkle": "merkle.mjs",
+    "synoptic-graph": "graph.mjs"
   },
   "scripts": {
     "validate": "node validate.mjs"
