@@ -1,0 +1,23 @@
+secret-scan.mjs
+  s_70508ca017cb29::t_89ace1f0bc5dd9 27-30
+  s_70508ca017cb29::t_f02d45cfbc10dd 45-46
+  s_70508ca017cb29::t_ea3d107ef02bdc 24-26
+  s_70508ca017cb29::t_d9bee4a15ecf33 31-33,42-44
+  s_70508ca017cb29::t_2cf561b66a50ae 47-49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "2bbc47b1f2065b857ebbfdeb126ac016a0c9c106",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
