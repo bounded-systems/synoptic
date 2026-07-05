@@ -53,9 +53,13 @@ function renderNode(n) {
     (n.description ? ` <span class="node__desc">${esc(n.description)}</span>` : "") +
     (deps.length ? ` <span class="node__deps">→ ${deps.join(", ")}</span>` : "") + `</li>`;
 }
-function renderPage(page, ns) {
+function renderPage(page, ns, casId) {
   const qDesc = page.query?.type ? `${page.query.type}${page.query.where ? " where " + JSON.stringify(page.query.where) : ""}` : "all";
-  return `<section class="g" aria-labelledby="h-${esc(page.id)}" data-page="${esc(page.id)}" data-query="${esc(qDesc)}" data-provenance="/components/graph-site.provenance.json">
+  // data-cas is the digest of the SOURCE subgraph (the input, stored in /cas), NOT of
+  // this HTML — so inlining it is not self-referencing. The element proves "I am the
+  // projection of attested CAS artifact <casId>"; anyone refetches /cas/<casId> and
+  // re-projects to verify. The OUTPUT html digest lives in the sidecar attestation.
+  return `<section class="g" aria-labelledby="h-${esc(page.id)}" data-page="${esc(page.id)}" data-query="${esc(qDesc)}" data-cas="${casId}" data-provenance="/components/graph-site.provenance.json">
   <h2 id="h-${esc(page.id)}">${esc(page.title ?? page.id)} <span class="g__n">(${ns.length})</span></h2>
   <ul class="nodes">
 ${ns.map(renderNode).join("\n")}
@@ -64,11 +68,19 @@ ${ns.map(renderNode).join("\n")}
 }
 
 await mkdir(join(outDir, "components"), { recursive: true });
+await mkdir(join(outDir, "cas"), { recursive: true });
 const sections = [], provenance = [];
 for (const page of pages) {
   const matched = nodes.filter((n) => matches(n, page.query));
   if (!matched.length) continue;
-  const html = renderPage(page, matched).trim() + "\n";
+  // content-address the SOURCE subgraph and store it in /cas. data-cas points here —
+  // to the input, not the output — so the proof is not self-referencing. sha256(this
+  // file) === casId is a pure fact anyone can recompute; re-projecting it must yield
+  // this element.
+  const subgraph = JSON.stringify(matched);
+  const casId = sha(subgraph);
+  await writeFile(join(outDir, "cas", `${casId.slice(7)}.json`), subgraph + "\n");
+  const html = renderPage(page, matched, casId).trim() + "\n";
   const digest = sha(html);
   await writeFile(join(outDir, "components", `${page.id}.html`), html);
   provenance.push({
@@ -78,6 +90,7 @@ for (const page of pages) {
     predicate: {
       kind: "project", assists: "graph→site",
       query: page.query ?? {}, // the SEMANTIC SCOPE — content chosen by kind/property
+      casSource: casId, // the input artifact (in /cas) the element's data-cas points to
       resolvedDependencies: matched.map((n) => ({ uri: n["@id"], digest: { sha256: sha(JSON.stringify(n)).slice(7) } })),
       designMaterials: designDeps,
       builder: { id: "https://github.com/bounded-systems/synoptic" },
