@@ -1,0 +1,21 @@
+PROOF.md
+  s_70508ca017cb29::t_ebb7bb5f0c36c0 19-21,25-47
+proof/Proof.lean
+  s_70508ca017cb29::t_c10a3f4ca8eed4 1-66
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "214b85f5592ba79c736f352ac22a0f3935480f96",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
