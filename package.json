@@ -13,7 +13,8 @@
     "synoptic-coverage": "coverage.mjs",
     "synoptic-axioms": "axioms.mjs",
     "synoptic-ledger": "ledger.mjs",
-    "synoptic-derive": "derive.mjs"
+    "synoptic-derive": "derive.mjs",
+    "synoptic-merkle": "merkle.mjs"
   },
   "scripts": {
     "validate": "node validate.mjs"
