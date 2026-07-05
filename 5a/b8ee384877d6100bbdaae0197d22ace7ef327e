@@ -1,0 +1,27 @@
+PLUGINS.md
+  s_70508ca017cb29::t_8f45d535c72fae 1-38
+plugins/jargon.mjs
+  s_70508ca017cb29::t_ffaa78f315a6c0 2
+plugins/lattice.mjs
+  s_70508ca017cb29::t_8617d88ab4bd4b 3
+plugins/org.mjs
+  s_70508ca017cb29::t_89623001cd63a9 2
+plugins/packages.mjs
+  s_70508ca017cb29::t_38873f8d7ea27c 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "5ab8ee384877d6100bbdaae0197d22ace7ef327e",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
