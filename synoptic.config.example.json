@@ -1,0 +1,10 @@
+{
+  "site": "bounded.tools",
+  "_note": "Each site declares its artifacts per layer; synoptic runs the pinned conformance-kit gate for each. Omit a layer to skip it.",
+  "layers": {
+    "tokens":   { "tokens": "content/strings.json", "grounding": "data/audit/grounding.json" },
+    "jsonld":   { "shapes": "contract/jsonld.shapes.ttl", "doc": "dist/json.ld" },
+    "markdown": { "proseCorpus": "prose-corpus.json", "docCorpus": "doc-corpus.json" },
+    "website":  { "dist": "dist" }
+  }
+}
