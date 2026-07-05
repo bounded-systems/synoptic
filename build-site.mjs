@@ -23,6 +23,10 @@ const graph = JSON.parse(await readFile(join(CWD, graphPath), "utf8"));
 const nodes = graph["@graph"] ?? [];
 const byId = new Map(nodes.map((n) => [n["@id"], n]));
 const short = (id) => (byId.get(id)?.name) ?? id.replace(/^.*#/, "#");
+// the design subgraph (palette tokens) — the DESIGN material every component draws from,
+// so each component's attestation traces to its design, not just its content.
+const palette = nodes.filter((n) => [].concat(n["@type"])[0] === "PropertyValue" && n.isPartOf?.["@id"]?.endsWith("#palette"));
+const designDeps = palette.map((t) => ({ uri: t["@id"], digest: { sha256: sha(JSON.stringify(t)).slice(7) } }));
 
 // group by @type (a simple, testable projection; closed-subgraph split can refine it)
 const groups = new Map();
@@ -40,7 +44,9 @@ function renderNode(n) {
     (terms ? ` <span class="node__deps">${terms} terms</span>` : "") + `</li>`;
 }
 function renderGroup(type, ns) {
-  return `<section class="g" aria-labelledby="h-${esc(type)}">
+  // inspectable in the DOM: the element names its component + where its attestation
+  // lives, so "inspect this part" resolves to its content + design provenance.
+  return `<section class="g" aria-labelledby="h-${esc(type)}" data-component="${esc(type)}" data-provenance="/components/graph-site.provenance.json">
   <h2 id="h-${esc(type)}">${esc(type)} <span class="g__n">(${ns.length})</span></h2>
   <ul class="nodes">
 ${ns.map(renderNode).join("\n")}
@@ -61,7 +67,10 @@ for (const [type, ns] of groups) {
     predicateType: "https://bounded.tools/synoptic/project/v1",
     predicate: {
       kind: "project", assists: "graph→site", subgraph: type,
+      // content material = the subgraph nodes; design material = the palette tokens.
+      // A component is inspectable to BOTH: what it asserts, and how it's styled.
       resolvedDependencies: ns.map((n) => ({ uri: n["@id"], digest: { sha256: sha(JSON.stringify(n)).slice(7) } })),
+      designMaterials: designDeps,
       builder: { id: "https://github.com/bounded-systems/synoptic" },
     },
   });

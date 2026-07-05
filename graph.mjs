@@ -40,6 +40,12 @@ const ctx = {
     return JSON.parse(bytes);
   },
   readMaybe: (rel) => { try { return ctx.read(rel); } catch { return null; } },
+  readText: (rel) => {
+    const bytes = readFileSync(join(CWD, rel));
+    if (current) materials.push({ plugin: current, uri: rel, digest: sha256(bytes) });
+    return bytes.toString("utf8");
+  },
+  readTextMaybe: (rel) => { try { return ctx.readText(rel); } catch { return null; } },
   site: config.site,
   base,
   esc: (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"),
