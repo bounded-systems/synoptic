@@ -46,6 +46,25 @@ So signing appears at *both* ends, and they are not the same act:
 reproducible *and* non-repudiably ours. It is not `proven` the copy is good (the gate
 is a proxy), and it is not `axiomatic` — no human vouched, a machine ran a heuristic.
 
+### Sign only what has no basis
+
+A signature is only *needed* where there is nothing else to check against:
+
+| proofType | its basis | needs a signature? |
+|---|---|---|
+| `derivable` | the re-derivation (recompute it) | no — recompute instead |
+| `grounded` | the pointer to a primary source | no — follow the pointer |
+| `proven` | the proof term (re-check the kernel) | no — re-check |
+| `axiomatic` | **nothing but a human's word** | **yes — the signature IS the basis** |
+
+So the **required** signature is axiom-only: the authorization gate signs claims with
+no basis, because that human vouch is the only thing standing under them. Signing a
+`derivable` fact or a check verdict is *optional convenience* — a consumer who doesn't
+want to recompute can trust the signature instead — but it adds no basis the claim
+didn't already have. This is why fewer axioms is the goal: **every axiom is a required
+signature, and every required signature is trust you can't check.** Drive axioms down,
+and the mandatory-trust surface shrinks with them; everything else proves itself.
+
 ## Honest reading of our checks
 
 - **prose proxies** (`claim-discipline`, `grammar-repetition`, `doc-scope`) →
