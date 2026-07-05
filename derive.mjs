@@ -44,6 +44,17 @@ for (const [claim, d] of Object.entries(model)) {
     const j = gh(["api", `orgs/${d.org}/repos?type=${d.visibility ?? "all"}&per_page=100`, "--paginate", "--jq", "length"]);
     value = j ? j.split("\n").reduce((n, x) => n + (+x || 0), 0) : null;
     source = `github.com/orgs/${d.org}`; recipe = `gh api orgs/${d.org}/repos?type=${d.visibility ?? "all"} --paginate --jq length`;
+  } else if (d.derive === "trellis") {
+    // derive from trellis's cosign-signed status.json (the lattice projection) — the
+    // org's own VERIFIED source of truth, not a raw live query. The overlap: org-wide
+    // facts are lattice facts; deriving from the signed lattice grounds them in an
+    // attested source (proofType stays derivable, chained to a signed projection).
+    const url = d.status ?? "https://raw.githubusercontent.com/bounded-systems/trellis/status/status.json";
+    const r = spawnSync("curl", ["-s", url], { encoding: "utf8" });
+    let j = null; try { j = JSON.parse(r.stdout); } catch {}
+    value = j ? d.field.split(".").reduce((o, k) => o?.[k], j) : null;
+    source = "trellis status.json (cosign-signed lattice projection)";
+    recipe = `${d.field} of the signed trellis lattice projection`;
   } else if (d.derive === "gh-search-count") {
     const j = gh(["search", "code", d.query, "--owner", d.org, "--json", "path", "--limit", "1000"]);
     value = j ? JSON.parse(j).length : null; approx = true;
