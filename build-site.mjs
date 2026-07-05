@@ -54,6 +54,14 @@ function renderNode(n) {
     (deps.length ? ` <span class="node__deps">→ ${deps.join(", ")}</span>` : "") + `</li>`;
 }
 function renderPage(page, ns, casId) {
+  // a hero section renders its identity node as the page header (name → h1, description
+  // → lede) instead of a bullet — the same shape on every site (org name / person name).
+  if (page.render === "hero") {
+    const n = ns[0] ?? {};
+    return `<header class="hero" data-page="${esc(page.id)}" data-cas="${casId}" data-provenance="/components/graph-site.provenance.json">
+  <h1>${esc(n.name ?? page.title ?? page.id)}</h1>${n.description ? `\n  <p class="lede">${esc(n.description)}</p>` : ""}
+</header>`;
+  }
   const qDesc = page.query?.type ? `${page.query.type}${page.query.where ? " where " + JSON.stringify(page.query.where) : ""}` : "all";
   // data-cas is the digest of the SOURCE subgraph (the input, stored in /cas), NOT of
   // this HTML — so inlining it is not self-referencing. The element proves "I am the
@@ -92,17 +100,21 @@ function fullPage(page, sectionHtml, casId) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 :root{${vars}}
-body{font-family:${v("font", "system-ui,sans-serif")};color:${v("text", "#111")};background:${v("surface", "#fff")};max-width:46rem;margin:0 auto;padding:2rem 1rem;line-height:1.6}
-h1,h2{color:${v("accent", "inherit")}}
-.g__n{opacity:.6;font-weight:400}
-.nodes{list-style:none;padding:0}
-.node{padding:.5rem 0;border-bottom:1px solid ${v("border", "#e5e5e5")}}
+*{box-sizing:border-box}
+body{font-family:${v("font", "system-ui,sans-serif")};color:${v("text", "#111")};background:${v("surface", "#fff")};max-width:44rem;margin:0 auto;padding:3rem 1.25rem;line-height:1.6}
+.hero{margin:0 0 3rem}
+.hero h1{font-size:clamp(2rem,6vw,3rem);line-height:1.1;margin:0 0 .5rem;color:${v("accent", "inherit")}}
+.lede{font-size:1.15rem;opacity:.85;margin:0;max-width:36rem}
+h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin:2.75rem 0 .75rem;font-weight:600}
+.g__n{opacity:.5;font-weight:400}
+.nodes{list-style:none;padding:0;margin:0}
+.node{padding:.65rem 0;border-bottom:1px solid ${v("border", "#e5e5e5")}}
 .node__name{font-weight:600}
 .node__desc{opacity:.85}
-.node__deps{opacity:.6;font-size:.85em}
-footer{margin-top:2.5rem;padding-top:1rem;border-top:1px solid ${v("border", "#e5e5e5")};font-size:.8rem;opacity:.75}
+.node__deps{display:block;opacity:.55;font-size:.8em;margin-top:.15rem}
+footer{margin-top:3rem;padding-top:1rem;border-top:1px solid ${v("border", "#e5e5e5")};font-size:.78rem;opacity:.7;line-height:1.5}
 a{color:${v("accent", "inherit")}}
-code{font-family:${v("mono", "ui-monospace,monospace")};font-size:.9em}
+code{font-family:${v("mono", "ui-monospace,monospace")};font-size:.85em}
 </style>
 </head>
 <body>
@@ -138,7 +150,7 @@ async function buildSection(sec) {
   const subgraph = JSON.stringify(matched);
   const casId = sha(subgraph);
   await writeFile(join(outDir, "cas", `${casId.slice(7)}.json`), subgraph + "\n");
-  const html = renderPage({ id: sec.id ?? sec.title ?? "section", title: sec.title, query: sec.query }, matched, casId).trim() + "\n";
+  const html = renderPage({ id: sec.id ?? sec.title ?? "section", title: sec.title, query: sec.query, render: sec.render }, matched, casId).trim() + "\n";
   const md = renderSectionMd(sec, matched, casId);
   return { html, md, casId, matched, query: sec.query ?? {} };
 }
