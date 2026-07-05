@@ -16,16 +16,35 @@ for *truth*. The ladder has two axes, not one.
 
 | value | proof object | establishes | trusted base |
 |---|---|---|---|
-| `asserted` | a sentence | nothing (trust the claimant) | the claimant |
-| `grounded` | a citation / trace | a *pointer* to a primary source | the source + the link |
-| `attested` | a signature (cosign/Rekor) | **who** signed & **when**, non-repudiably — authorship, not truth | Fulcio + Rekor + the identity |
+| `axiomatic` | a **human-signed** assertion | a *starting truth* everything else derives from — accountable to a named person | **the human who signed it** |
+| `grounded` | a citation / trace | a *pointer* to an axiom (primary source) | the axiom + the link |
+| `attested` | a signature (cosign/Rekor) | **who** signed a *derivation* & **when**, non-repudiably — authorship, not truth | Fulcio + Rekor + the identity |
 | `derivable` | a re-runnable check / digest | the **computation reproduces** this output | the checker + runtime |
 | `proven` | a proof **term** `t : P` | the **proposition holds, ∀**, from axioms | the kernel + the axioms |
 
-`attested` is **orthogonal**: signing a check adds it on top of whatever the check's
-own `proofType` is. A signed `claim-discipline` verdict is `derivable` **and**
-`attested` — reproducible *and* non-repudiably ours. It is not `proven` that the
-copy is good; the gate is a proxy and says so.
+### Axioms are the leaves, and only a human signs them
+
+`axiomatic` is the **foundation**, not the weakest scrap. Every proof bottoms out in
+axioms — unproven starting points. The question is never "can we avoid axioms?" but
+"**whose** axioms, and are they **owned?**" So the rule:
+
+> **A machine attests a *derivation*; only a human vouches for an *axiom*.**
+
+CI keyless signing (OIDC → Rekor) proves *a computation ran* — it cannot take
+responsibility for a *starting truth*. That needs a person's signature. The string
+proof atoms (`grounding.json`) are exactly this: a named human asserts "these figures
+are true" and signs it; the whole grounded chain derives from that. An **unsigned**
+axiom is a floating assumption (worthless); a **human-signed** axiom is accountable —
+you know whose neck is on the line.
+
+So signing appears at *both* ends, and they are not the same act:
+- **human signs an axiom** → responsibility for a truth (the floor; the buck stops here).
+- **identity attests a derivation** → the computation happened (`attested`, above).
+
+`attested` remains **orthogonal**: CI signing adds it on top of a check's own
+`proofType`. A signed `claim-discipline` verdict is `derivable` **and** `attested` —
+reproducible *and* non-repudiably ours. It is not `proven` the copy is good (the gate
+is a proxy), and it is not `axiomatic` — no human vouched, a machine ran a heuristic.
 
 ## Honest reading of our checks
 
