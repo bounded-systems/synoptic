@@ -6,6 +6,9 @@ export const kind = "parse";
 export const id = "palette";
 export async function parse(ctx) {
   const css = ctx.readTextMaybe("brand/tokens/tokens.css")
+    ?? ctx.readTextMaybe("node_modules/@bounded-systems/brand/tokens/tokens.css")
+    ?? ctx.readTextMaybe("node_modules/@bdelanghe/brand/tokens/tokens.css")
+    ?? ctx.readTextMaybe("dist/brand/tokens/tokens.css")
     ?? ctx.readTextMaybe("vendor/brand/tokens/tokens.css")
     ?? ctx.readTextMaybe("styles.css") ?? "";
   const classify = (n) =>
