@@ -10,7 +10,8 @@
     "synoptic-lattice": "generators/gen-lattice.mjs",
     "synoptic-verify": "verify.mjs",
     "synoptic-project": "project.mjs",
-    "synoptic-coverage": "coverage.mjs"
+    "synoptic-coverage": "coverage.mjs",
+    "synoptic-axioms": "axioms.mjs"
   },
   "scripts": {
     "validate": "node validate.mjs"
