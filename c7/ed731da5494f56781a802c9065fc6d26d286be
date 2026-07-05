@@ -1,0 +1,26 @@
+merkle.mjs
+  s_70508ca017cb29::t_99ed48fd16e32a 37,40,43-71,81
+  s_70508ca017cb29::t_b201e11f5a3f02 72-74
+  s_70508ca017cb29::t_762dcaaed36a83 34-36
+  s_70508ca017cb29::t_8a8371776a5012 38-39
+  s_70508ca017cb29::t_ff1ab63858114c 41-42
+  s_70508ca017cb29::t_361983bbe87d7e 75-80
+package.json
+  s_70508ca017cb29::t_9391f763be51dd 16-17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "c7ed731da5494f56781a802c9065fc6d26d286be",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
