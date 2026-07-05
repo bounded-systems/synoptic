@@ -1,0 +1,20 @@
+.github/workflows/site-ci.yml
+  s_70508ca017cb29::t_587892028ee64b 10,15-16
+  s_70508ca017cb29::t_4022922ee02d7e 56-80
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "b3e7425b968b5e406135a348599321fb14ad2cc2",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
