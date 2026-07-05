@@ -7,11 +7,13 @@ name: site-ci
 on:
   workflow_call:
     inputs:
-      synoptic-ref:   { type: string, default: "v0.3.0" }
+      synoptic-ref:   { type: string, default: "v0.4.0" }
       kit-ref:        { type: string, default: "v0.12.0" }
       build-command:  { type: string, default: "npm run build" }
       node-version:   { type: string, default: "22" }
       sign:           { type: boolean, default: true }
+      browser:        { type: boolean, default: false }
+      browser-gates:  { type: string, default: "axe-gate.mjs" }
 jobs:
   site:
     runs-on: ubuntu-latest
@@ -51,3 +53,28 @@ jobs:
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: github.event_name == 'push' && inputs.sign
         with: { name: check-attestations, path: attestations/ }
+
+  # Browser gates on WebKit (tezcatl), not Chromium — the org's own renderer, a Nix
+  # flake. Separate macOS job so the engine owns WebKit provisioning; the site just
+  # sets `browser: true`. See BROWSER.md.
+  browser:
+    if: ${{ inputs.browser }}
+    runs-on: macos-14
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with: { repository: bounded-systems/conformance-kit, ref: "${{ inputs.kit-ref }}", path: .conformance-kit, persist-credentials: false }
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with: { node-version: "${{ inputs.node-version }}" }
+      - run: npm ci
+      - run: npm --prefix .conformance-kit ci --omit=dev || npm --prefix .conformance-kit install --omit=dev
+      - run: ${{ inputs.build-command }}
+      - uses: DeterminateSystems/nix-installer-action@21a544727d0c62386e78b4befe52d19ad12692e3 # v12
+      - name: browser gates on WebKit (tezcatl)
+        run: |
+          for g in ${{ inputs.browser-gates }}; do
+            echo "→ $g on tezcatl/WebKit"
+            AXE_RUNNER=tezcatl nix shell github:bdelanghe/tezcatl-flake -c node ".conformance-kit/gates/$g" dist
+          done
