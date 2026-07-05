@@ -11,7 +11,7 @@ import { readdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
+const ROOT = process.cwd(); // the consuming site, not the engine
 const stripHtml = (s) => s.replace(/<(script|style|pre|code)[\s\S]*?<\/\1>/gi, " ").replace(/<[^>]+>/g, " ").replace(/&[a-z]+;/gi, " ");
 const stripMd = (s) => s.replace(/^---[\s\S]*?---/, "").replace(/```[\s\S]*?```/g, " ").replace(/`[^`]*`/g, " ").replace(/[#>*_\[\]()!|-]/g, " ");
 

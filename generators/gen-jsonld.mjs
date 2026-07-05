@@ -14,7 +14,7 @@ import { access, mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
+const ROOT = process.cwd(); // the consuming site, not the engine
 const DIST = join(ROOT, "dist");
 const SITE = "https://bounded.tools";
 const exists = async (p) => access(p).then(() => true, () => false);

@@ -21,7 +21,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
+const ROOT = process.cwd(); // the consuming site, not the engine
 const DATA = join(ROOT, "data", "lattice.json");
 const SRC =
   "https://raw.githubusercontent.com/bounded-systems/trellis/status/status.json";
