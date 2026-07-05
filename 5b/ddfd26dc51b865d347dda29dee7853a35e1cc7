@@ -1,0 +1,21 @@
+validate.mjs
+  s_70508ca017cb29::t_cf95fd3c73cdb8 106-108,120-121,124-130
+  s_70508ca017cb29::t_1216f69075726c 8,10-14,16-18
+  s_70508ca017cb29::t_9ccdcad3a9a5b4 26-27,29-48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "5bddfd26dc51b865d347dda29dee7853a35e1cc7",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
