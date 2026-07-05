@@ -90,7 +90,7 @@ code{font-family:var(--font-mono,ui-monospace,monospace)}
 </style>
 </head>
 <body>
-<main>
+<main data-page-root="${casId}">
 ${sectionHtml}</main>
 <footer>Generated from the graph. Every element carries <code>data-cas</code> — the digest of its source artifact in <a href="/cas/${casId.slice(7)}.json"><code>/cas</code></a> — so any part is provably a genuine artifact (<code>synoptic verify-artifact</code>). Data: <a href="/json.ld">/json.ld</a>.</footer>
 </body>
@@ -98,44 +98,73 @@ ${sectionHtml}</main>
 `;
 }
 
+// Merkle root over a list of digests (pairwise, duplicate last if odd) — the same
+// construction as the org root (Merkle.lean). A page is the root of its sections; the
+// site is the root of its pages; a digest at the top commits the whole tree.
+function merkleRoot(hashes) {
+  if (hashes.length === 0) return sha("");
+  let level = hashes.map((h) => (h.startsWith("sha256:") ? h : "sha256:" + h));
+  while (level.length > 1) {
+    const next = [];
+    for (let i = 0; i < level.length; i += 2) next.push(sha(level[i] + (level[i + 1] ?? level[i])));
+    level = next;
+  }
+  return level[0];
+}
+
 await mkdir(join(outDir, "components"), { recursive: true });
 await mkdir(join(outDir, "cas"), { recursive: true });
-const sections = [], provenance = [];
-for (const page of pages) {
-  const matched = nodes.filter((n) => matches(n, page.query));
-  if (!matched.length) continue;
-  // content-address the SOURCE subgraph and store it in /cas. data-cas points here —
-  // to the input, not the output — so the proof is not self-referencing. sha256(this
-  // file) === casId is a pure fact anyone can recompute; re-projecting it must yield
-  // this element.
+const sections = [], provenance = [], leaves = [];
+// build ONE section: content-address its source subgraph in /cas (data-cas points to
+// the input, not the output → not self-referencing), render it.
+async function buildSection(sec) {
+  const matched = nodes.filter((n) => matches(n, sec.query));
   const subgraph = JSON.stringify(matched);
   const casId = sha(subgraph);
   await writeFile(join(outDir, "cas", `${casId.slice(7)}.json`), subgraph + "\n");
-  const html = renderPage(page, matched, casId).trim() + "\n";
-  const digest = sha(html);
-  await writeFile(join(outDir, "components", `${page.id}.html`), html);
-  // a routed page becomes a REAL page at /<route>/ — the live, graph-projected page
-  if (page.route) {
-    await mkdir(join(outDir, page.route), { recursive: true });
-    await writeFile(join(outDir, page.route, "index.html"), fullPage(page, html, casId));
-    console.log(`  ▸▸ /${page.route} — full page from the graph (data-cas inlined, provable)`);
+  const html = renderPage({ id: sec.id ?? sec.title ?? "section", title: sec.title, query: sec.query }, matched, casId).trim() + "\n";
+  return { html, casId, matched, query: sec.query ?? {} };
+}
+
+for (const page of pages) {
+  const secs = page.sections ?? [{ id: page.id, title: page.title, query: page.query }];
+  const built = [];
+  for (const sec of secs) { const b = await buildSection(sec); if (b.matched.length) built.push(b); }
+  if (!built.length) continue;
+  const pageHtml = built.map((b) => b.html).join("\n");
+  // a page is the Merkle root of its sections; each section a leaf (its source digest)
+  const pageRoot = merkleRoot(built.map((b) => b.casId));
+  await writeFile(join(outDir, "components", `${page.id}.html`), pageHtml);
+  // route "" → index.html (the home, fully projected); "corpus" → /corpus/. No hand-
+  // authored HTML: the routed page IS the projection.
+  if (page.route !== undefined) {
+    const dir = page.route === "" ? outDir : join(outDir, page.route);
+    await mkdir(dir, { recursive: true });
+    await writeFile(join(dir, "index.html"), fullPage(page, pageHtml, pageRoot));
+    console.log(`  ▸▸ ${page.route === "" ? "index.html" : "/" + page.route} — ${built.length} section(s) from the graph, page root ${pageRoot.slice(0, 16)}…`);
   }
   provenance.push({
     _type: "https://in-toto.io/Statement/v1",
-    subject: [{ name: `page/${page.id}`, digest: { sha256: digest.slice(7) } }],
+    subject: [{ name: `page/${page.id}`, digest: { sha256: pageRoot.slice(7) } }],
     predicateType: "https://bounded.tools/synoptic/project/v1",
     predicate: {
       kind: "project", assists: "graph→site",
-      query: page.query ?? {}, // the SEMANTIC SCOPE — content chosen by kind/property
-      casSource: casId, // the input artifact (in /cas) the element's data-cas points to
-      resolvedDependencies: matched.map((n) => ({ uri: n["@id"], digest: { sha256: sha(JSON.stringify(n)).slice(7) } })),
+      pageRoot, // Merkle root of the page's section artifacts
+      sections: built.map((b) => ({ query: b.query, casSource: b.casId })),
       designMaterials: designDeps,
       builder: { id: "https://github.com/bounded-systems/synoptic" },
     },
   });
-  sections.push(html);
-  console.log(`  ▸ page/${page.id} — query {${JSON.stringify(page.query ?? {})}} → ${matched.length} node(s) · ${digest.slice(0, 19)}…`);
+  sections.push(pageHtml);
+  leaves.push({ page: page.id, route: page.route ?? null, cas: pageRoot }); // a Merkle leaf
 }
 await writeFile(join(outDir, "graph-page.html"), `<main class="graph-page">\n<h1>Generated from the graph, by query</h1>\n${sections.join("\n")}\n</main>\n`);
 await writeFile(join(outDir, "components", "graph-site.provenance.json"), JSON.stringify(provenance, null, 2) + "\n");
+
+// the SITE Merkle root — over the pages (each a leaf = its source-subgraph digest). The
+// site is a Merkle tree: element (data-cas) → page → site. This root commits the WHOLE
+// projected site; no hand-authored HTML sits outside it.
+const siteRoot = merkleRoot(leaves.map((l) => l.cas));
+await writeFile(join(outDir, "site.merkle.json"), JSON.stringify({ root: siteRoot, leaves }, null, 2) + "\n");
 console.log(`✓ ${outDir}/graph-page.html — ${provenance.length} page(s), each a query-bounded scope`);
+console.log(`✓ ${outDir}/site.merkle.json — site is a Merkle tree · root ${siteRoot.slice(0, 22)}…`);

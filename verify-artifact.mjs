@@ -20,7 +20,12 @@ const rd = (p) => readFileSync(p, "utf8");
 
 const html = rd(join(dist, "graph-page.html"));
 const prov = JSON.parse(rd(join(dist, "components", "graph-site.provenance.json")));
-const bound = new Set(prov.map((s) => s.predicate.casSource));
+// a source is "bound" if any attestation names it — either a single-page casSource or a
+// section's casSource within a composed page.
+const bound = new Set(prov.flatMap((s) => [
+  s.predicate.casSource,
+  ...(s.predicate.sections ?? []).map((x) => x.casSource),
+].filter(Boolean)));
 
 const re = /data-page="([^"]+)"[^>]*data-cas="(sha256:[a-f0-9]+)"/g;
 let m, checked = 0, bad = 0;
