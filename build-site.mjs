@@ -67,9 +67,23 @@ ${ns.map(renderNode).join("\n")}
 </section>`;
 }
 
+// the Markdown projection — same graph, same source digest, rendered as .md. data-cas
+// rides in an HTML comment (valid Markdown) so the .md is provable the same way.
+function renderNodeMd(n) {
+  const deps = (n.buildsOn ?? n.worksFor ?? []).map((d) => short(d["@id"]));
+  return `- **${n.name ?? short(n["@id"])}**${n.description ? " — " + n.description : ""}${deps.length ? ` _(→ ${deps.join(", ")})_` : ""}`;
+}
+function renderSectionMd(sec, ns, casId) {
+  return `## ${sec.title ?? sec.id ?? "Section"}\n\n<!-- data-cas: ${casId} — /cas/${casId.slice(7)}.json -->\n\n${ns.map(renderNodeMd).join("\n")}\n`;
+}
+
 // a FULL standalone page (real route), styled from the palette tokens, data-cas inlined.
+// The projection references tokens SEMANTICALLY via config.build.theme (role → the
+// site's own token name), so it's not over-fit — each site maps its palette to roles.
 function fullPage(page, sectionHtml, casId) {
   const vars = palette.map((t) => `${t.name}:${t.value};`).join("");
+  const th = config.build?.theme ?? {};
+  const v = (role, fb) => (th[role] ? `var(${th[role]},${fb})` : fb);
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -78,15 +92,17 @@ function fullPage(page, sectionHtml, casId) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 :root{${vars}}
-body{font-family:var(--font-body,system-ui,sans-serif);color:var(--color-fg,#111);background:var(--color-bg,#fff);max-width:46rem;margin:0 auto;padding:2rem 1rem;line-height:1.5}
+body{font-family:${v("font", "system-ui,sans-serif")};color:${v("text", "#111")};background:${v("surface", "#fff")};max-width:46rem;margin:0 auto;padding:2rem 1rem;line-height:1.6}
+h1,h2{color:${v("accent", "inherit")}}
 .g__n{opacity:.6;font-weight:400}
 .nodes{list-style:none;padding:0}
-.node{padding:.4rem 0;border-bottom:1px solid var(--color-border,#eee)}
+.node{padding:.5rem 0;border-bottom:1px solid ${v("border", "#e5e5e5")}}
 .node__name{font-weight:600}
-.node__desc{opacity:.8}
+.node__desc{opacity:.85}
 .node__deps{opacity:.6;font-size:.85em}
-footer{margin-top:2rem;font-size:.8rem;opacity:.7}
-code{font-family:var(--font-mono,ui-monospace,monospace)}
+footer{margin-top:2.5rem;padding-top:1rem;border-top:1px solid ${v("border", "#e5e5e5")};font-size:.8rem;opacity:.75}
+a{color:${v("accent", "inherit")}}
+code{font-family:${v("mono", "ui-monospace,monospace")};font-size:.9em}
 </style>
 </head>
 <body>
@@ -123,7 +139,8 @@ async function buildSection(sec) {
   const casId = sha(subgraph);
   await writeFile(join(outDir, "cas", `${casId.slice(7)}.json`), subgraph + "\n");
   const html = renderPage({ id: sec.id ?? sec.title ?? "section", title: sec.title, query: sec.query }, matched, casId).trim() + "\n";
-  return { html, casId, matched, query: sec.query ?? {} };
+  const md = renderSectionMd(sec, matched, casId);
+  return { html, md, casId, matched, query: sec.query ?? {} };
 }
 
 for (const page of pages) {
@@ -141,7 +158,10 @@ for (const page of pages) {
     const dir = page.route === "" ? outDir : join(outDir, page.route);
     await mkdir(dir, { recursive: true });
     await writeFile(join(dir, "index.html"), fullPage(page, pageHtml, pageRoot));
-    console.log(`  ▸▸ ${page.route === "" ? "index.html" : "/" + page.route} — ${built.length} section(s) from the graph, page root ${pageRoot.slice(0, 16)}…`);
+    // the Markdown projection sibling — same content, same source digests, provable
+    const pageMd = `# ${page.title ?? page.id}\n\n${built.map((b) => b.md).join("\n")}\n\n---\nGenerated from the graph · page root \`${pageRoot}\` · every item traces to \`/cas\` (verify: \`synoptic verify-artifact\`) · data: [/json.ld](/json.ld)\n`;
+    await writeFile(join(dir, "index.md"), pageMd);
+    console.log(`  ▸▸ ${page.route === "" ? "index.html" : "/" + page.route} — ${built.length} section(s), html + md, page root ${pageRoot.slice(0, 16)}…`);
   }
   provenance.push({
     _type: "https://in-toto.io/Statement/v1",
