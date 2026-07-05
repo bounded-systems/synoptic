@@ -24,7 +24,7 @@ const out = outArg.startsWith("/") ? outArg : join(CWD, outArg);
 
 const config = JSON.parse(readFileSync(join(CWD, "synoptic.config.json"), "utf8"));
 const g = config.graph ?? {};
-const base = g.id ? g.id.replace(/#.*$/, "") : `https://${config.site}`;
+const base = (g.id ? g.id.replace(/#.*$/, "") : `https://${config.site}`).replace(/\/$/, "");
 const ctx = {
   read: (rel) => JSON.parse(readFileSync(join(CWD, rel), "utf8")),
   readMaybe: (rel) => { try { return ctx.read(rel); } catch { return null; } },
