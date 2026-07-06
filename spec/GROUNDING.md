@@ -205,3 +205,26 @@ Apply the normative-vs-non-normative rule to the WG's *own* material:
 
 These **inform** (process, rationale, authoring model); only the published **normative
 spec** grounds.
+
+## Prior art — reuse vs novel (so we don't reinvent)
+
+Honest map: below the substrate, **use the library**; the substrate is where our energy goes.
+
+**REUSE (commodity — prefer the existing implementation):**
+- color math (rgb/p3→oklch, ΔE) → **colorjs.io** / **culori** (retire our hand-rolled matrices)
+- typed values → **CSS Typed OM** `computedStyleMap()` (native; our `value/*` re-derives it)
+- CSS parse / canonicalize → **lightningcss** · css-tree · postcss
+- computed styles → **tezcatl** (WebKit) now / **Stylo + Taffy** (hermetic) later
+- contrast / a11y → **axe-core** · pa11y (we rebuilt for a *hermetic* stack — deliberate)
+- sitemap · robots · SBOM · DTCG → standard formats we **emit**, not reinvent
+
+**OURS (novel — the actual contribution):**
+- **CAS + claims + a PROOF LADDER over typed CSS values** — atoms, `merkle(key,value)`
+  declarations, `axiom`/`derivable`. Perkeep-with-proofs, applied to a site. Nothing else
+  does this.
+- **One graph → aligned projections** (HTML/MD/JSON-LD/CSS/DTCG/sitemap) with
+  `verify-artifact` provenance + a site Merkle root.
+- **Grounding-as-proofType** — spec-grounding treated as `grounded` claims (this doc).
+
+**Rule:** if a spec or a maintained library already does it, ground on / use that. Spend
+our effort only on the substrate (CAS/claims/proof/graph) — the part that doesn't exist.
