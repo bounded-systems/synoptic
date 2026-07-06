@@ -38,6 +38,7 @@ CG    Community Group Report    de-facto, not W3C track  (DTCG)
 | relative / mix (future) | **CSS Color 5** · WD 2026-05 | w3.org/TR/css-color-5/ | color-mix(), relative color (provisional) |
 | `canonicalize` lengths | **CSS Values 3** · CRD / **4** · WD | w3.org/TR/css-values-3/ · -4/ | canonical unit rem, `<dimension>`/`<number>`/`<percentage>` |
 | hermetic cascade | **CSS Cascade 4/5/6** · CR/CR/WD | w3.org/TR/css-cascade-5/ | @layer, @scope, all:revert, @property — deterministic cascade; see hermetic-css.md |
+| containment (bounded scope) | **CSS Contain 1** · **REC** | w3.org/TR/css-contain-1/ | `contain`/`content-visibility` — browser-enforced bounded subtree = component = audit cell; see hermetic-css.md |
 | `value-stages.md` | **CSS Cascade 5** · CR + **CSSOM** · WD | w3.org/TR/css-cascade-5/ · cssom-1/ | declared→…→resolved (derivation chain) |
 | `value/color`      | **CSS Color 4** · CR | w3.org/TR/css-color-4/ | structured oklch { colorSpace, l, c, h, alpha } |
 | `value/dimension`  | **CSS Values 4** · WD §6 | w3.org/TR/css-values-4/ | length, canonical unit rem |
