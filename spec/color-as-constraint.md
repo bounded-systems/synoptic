@@ -23,6 +23,7 @@ object ([[constraints]], [[color-properties]]):
 | **Gamut** | a value must be realizable: `C ≤ ceiling(L, H)`; the ceiling is a lens, pinched at the L extremes | the edges of the board |
 | **Degeneracy** | α = 0 → one transparent; C = 0 → hue gone; L = 0/100 → black/white | pre-filled corners, no freedom |
 | **Contrast** *(coupling)* | a *text* cell's value must clear its tier (4.5 / 7 / 3 : 1) against its *bg* cell — a relation **between** cells | the row/column rule — two related cells can't be too close |
+| **CVD** *(coupling)* | two cells that must be *told apart* can't rely only on hue on a confusable axis — the distinction must survive on **lightness** (color-vision deficiency, ~1/12 men, deletes hue channels, keeps lightness) | a second "these two can't collide" rule, on a channel the first didn't cover |
 | **Powerless** | C < JND → the hue is noise → collapse to neutral | you can't write a digit no one can read |
 
 **Contrast is the coupling force** — like Sudoku's rows and columns, it's a relation *between*

@@ -14,6 +14,10 @@
     "wcag-2_2-1_4_11-AA": {
       "$type": "contrast-requirement",
       "$value": { "standard": "WCAG", "version": "2.2", "date": "2023-10-05", "sc": "1.4.11", "name": "Non-text Contrast", "level": "AA", "kind": "non-text", "ratio": { "nonText": 3.0 }, "url": "https://www.w3.org/TR/WCAG22/#non-text-contrast" }
+    },
+    "wcag-2_2-1_4_1-A": {
+      "$type": "use-of-color-requirement",
+      "$value": { "standard": "WCAG", "version": "2.2", "date": "2023-10-05", "sc": "1.4.1", "name": "Use of Color", "level": "A", "rule": "color must not be the ONLY visual means of conveying information — a distinction must also survive on a non-hue channel. Lightness is the CVD-robust axis (color-vision deficiency, ~1/12 men, collapses hue channels but leaves lightness intact), so a pair distinguished by lightness passes by construction; a pair distinguished only by hue along a confusable axis (e.g. red vs green at equal lightness) fails. Check: near-dupe under CVD simulation (Brettel/Viénot) must exceed the JND, OR the pair must differ in lightness.", "url": "https://www.w3.org/TR/WCAG22/#use-of-color" }
     }
   },
   "tierMap": {
