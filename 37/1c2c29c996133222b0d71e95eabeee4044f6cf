@@ -1,0 +1,20 @@
+PLAN-declare-all-leaves.md
+  s_70508ca017cb29::t_0f769c159d8670 39-43,46-52,55-61,65-80
+  s_70508ca017cb29::t_c6721c072141c6 81
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "371c2c29c996133222b0d71e95eabeee4044f6cf",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
