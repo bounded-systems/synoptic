@@ -53,6 +53,7 @@ CG    Community Group Report    de-facto, not W3C track  (DTCG)
 | `spec/claim.schema.json` | **in-toto/SLSA** + **W3C VC** · REC | slsa.dev · w3.org/TR/vc-data-model/ | attestations / claims + proof + signer |
 | `proof/*.lean` | **Lean 4** kernel | leanprover | kernel-verified theorems |
 | signing | **Sigstore** (Fulcio/Rekor/OIDC) | sigstore.dev | keyless axiom signatures |
+| namespaces (all) | **XML-Names** REC · **CSS-NS 3** CR · **JSON-LD** REC · **RFC 3986** | w3.org/TR/xml-names/ · css-namespaces/ | see NAMESPACES.md — our vocabulary registry |
 | `graph` / `/json.ld` | **JSON-LD 1.1** · **REC** + schema.org | w3.org/TR/json-ld11/ | the normalized linked graph |
 | `sbom` | **SPDX 2.3** · ISO/IEC 5962 | spdx.dev | the claims SBOM |
 
