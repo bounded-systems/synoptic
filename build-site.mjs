@@ -147,7 +147,7 @@ function merkleRoot(hashes) {
 
 await mkdir(join(outDir, "components"), { recursive: true });
 await mkdir(join(outDir, "cas"), { recursive: true });
-const sections = [], provenance = [], leaves = [];
+const sections = [], provenance = [], leaves = [], routes = [];
 // content-address one value (a string / token) as a LEAF, stored in /cas.
 async function leafOf(value) {
   const s = JSON.stringify(value);
@@ -191,6 +191,7 @@ for (const page of pages) {
     // the Markdown projection sibling — same content, same source digests, provable
     const pageMd = `# ${page.title ?? page.id}\n\n${built.map((b) => b.md).join("\n")}\n\n---\nGenerated from the graph · page root \`${pageRoot}\` · every item traces to \`/cas\` (verify: \`synoptic verify-artifact\`) · data: [/json.ld](/json.ld)\n`;
     await writeFile(join(dir, "index.md"), pageMd);
+    routes.push(page.route); // for the sitemap + page-check
     console.log(`  ▸▸ ${page.route === "" ? "index.html" : "/" + page.route} — ${built.length} section(s), html + md, page root ${pageRoot.slice(0, 16)}…`);
   }
   provenance.push({
@@ -218,3 +219,20 @@ const siteRoot = merkleRoot(leaves.map((l) => l.cas));
 await writeFile(join(outDir, "site.merkle.json"), JSON.stringify({ root: siteRoot, leaves }, null, 2) + "\n");
 console.log(`✓ ${outDir}/graph-page.html — ${provenance.length} page(s), each a query-bounded scope`);
 console.log(`✓ ${outDir}/site.merkle.json — site is a Merkle tree · root ${siteRoot.slice(0, 22)}…`);
+
+// ALWAYS emit a sitemap of every routed page, and CHECK each one exists — so every page
+// is enumerable and verifiable (no silent 404s like /who ever again).
+const siteBase = (config.graph?.id ? config.graph.id.replace(/#.*$/, "") : `https://${config.site}`).replace(/\/$/, "");
+const urls = routes.map((r) => `${siteBase}/${r ? r + "/" : ""}`);
+await writeFile(join(outDir, "sitemap.xml"),
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${u}</loc></url>`).join("\n")}\n</urlset>\n`);
+await writeFile(join(outDir, "sitemap.json"),
+  JSON.stringify({ site: config.site, pages: routes.map((r, i) => ({ route: r, url: urls[i] })) }, null, 2) + "\n");
+let missing = 0;
+for (const r of routes) {
+  const f = join(r === "" ? outDir : join(outDir, r), "index.html");
+  try { if ((await readFile(f, "utf8")).trim().length === 0) throw new Error("empty"); }
+  catch { missing++; console.log(`  ✗ page ${r === "" ? "/" : "/" + r + "/"} missing or empty`); }
+}
+console.log(`✓ ${outDir}/sitemap.xml — ${routes.length} page(s) listed${missing ? `; ❌ ${missing} MISSING` : ", all present + non-empty"}`);
+if (missing) process.exit(1);
