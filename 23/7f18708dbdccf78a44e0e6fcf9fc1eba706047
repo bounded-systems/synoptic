@@ -1,0 +1,20 @@
+brand-gen.mjs
+  s_70508ca017cb29::t_473f04f63c3711 40,56-59
+  s_70508ca017cb29::t_9e345d2c216372 41-55
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "237f18708dbdccf78a44e0e6fcf9fc1eba706047",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
