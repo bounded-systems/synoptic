@@ -4,6 +4,8 @@
 //   lengths → <n>rem                 one relative unit (px ÷ root), rounded (no float noise)
 //   zero    → 0                      canonical
 //   numbers → trimmed
+import { NAMED } from "./named-colors.mjs";
+import { SYSTEM } from "./system-colors.mjs";
 const round = (n, d = 4) => { const f = 10 ** d; return Math.round(n * f) / f; };
 
 // sRGB 0-255 → OKLCH
@@ -38,6 +40,9 @@ export function canonicalize(value, rootPx = 16) {
   let v = value.trim();
   // whole-value color forms
   let m;
+  const lc = v.toLowerCase();
+  if (SYSTEM[lc]) return SYSTEM[lc].name;                                 // system color: a semantic KEY, kept canonical (theme-resolved)
+  if (Object.prototype.hasOwnProperty.call(NAMED, lc)) v = NAMED[lc];      // named color → its hex, then to oklch below
   if ((m = v.match(/^rgba?\(\s*([\d.]+)[ ,]+([\d.]+)[ ,]+([\d.]+)(?:\s*[,/]\s*([\d.]+%?))?\s*\)$/i))) {
     const a = m[4] ? (m[4].endsWith("%") ? parseFloat(m[4]) / 100 : parseFloat(m[4])) : 1;
     return color(+m[1], +m[2], +m[3], a);
