@@ -14,6 +14,8 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { join } from "node:path";
+import { canonicalizeTyped } from "./canonicalize.mjs";
+import { axisName } from "./axis-name.mjs";
 
 const CWD = process.cwd();
 const argv = (f) => { const i = process.argv.indexOf(f); return i >= 0 ? process.argv[i + 1] : undefined; };
@@ -58,6 +60,21 @@ function renderNode(b) {
     (n.description ? ` <span class="node__desc" data-cas="${strings.description ?? ""}">${esc(n.description)}</span>` : "") +
     (deps.length ? ` <span class="node__deps">→ ${deps.join(", ")}</span>` : "") + `</li>`;
 }
+// a palette swatch: the token node rendered in the GROUNDED form — swatch + name (a leaf,
+// data-cas) + OKLCh + per-axis name (axis-name) + the raw value. A VIEW of the palette that
+// already lives in the graph; each site renders its OWN tokens. No new design system.
+function renderSwatch(b) {
+  const { n, strings, nodeRoot } = b;
+  const val = String(n.value ?? "");
+  let meta = "";
+  try {
+    const t = canonicalizeTyped(val);
+    if (t.$type === "color") meta = `<span class="sw__ok">oklch(${t.l}% ${t.c} ${t.h})</span><span class="sw__axis">${esc(axisName(t).name)}</span>`;
+  } catch { /* non-color token: name + value only */ }
+  return `    <figure class="sw" data-node-root="${nodeRoot}"><div class="sw__chip" style="background:${esc(val)}"></div>` +
+    `<figcaption><b class="sw__name" data-cas="${strings.name ?? nodeRoot}">${esc(n.name)}</b>${meta}<span class="sw__val" data-cas="${strings.value ?? ""}">${esc(val)}</span></figcaption></figure>`;
+}
+
 function renderPage(page, built, casId) {
   // hero: the identity node's STRINGS are the leaves (name on h1, description on lede),
   // each with its own data-cas; the section root rides data-section-root.
@@ -67,6 +84,16 @@ function renderPage(page, built, casId) {
     return `<header class="hero" data-page="${esc(page.id)}" data-section-root="${casId}" data-provenance="/components/graph-site.provenance.json">
   <h1 data-cas="${b.strings.name ?? ""}">${esc(n.name ?? page.title ?? page.id)}</h1>${n.description ? `\n  <p class="lede" data-cas="${b.strings.description ?? ""}">${esc(n.description)}</p>` : ""}
 </header>`;
+  }
+  // palette: the design tokens rendered as swatches (grounded form). Same query-bounded,
+  // Merkle-rooted section as any other page — each swatch a node, its name/value leaves.
+  if (page.render === "palette") {
+    return `<section class="g palette" aria-labelledby="h-${esc(page.id)}" data-page="${esc(page.id)}" data-section-root="${casId}" data-provenance="/components/graph-site.provenance.json">
+  <h2 id="h-${esc(page.id)}">${esc(page.title ?? page.id)} <span class="g__n">(${built.length})</span></h2>
+  <div class="swatches">
+${built.map(renderSwatch).join("\n")}
+  </div>
+</section>`;
   }
   const qDesc = page.query?.type ? `${page.query.type}${page.query.where ? " where " + JSON.stringify(page.query.where) : ""}` : "all";
   // strings are the leaves (each has data-cas); the node carries data-node-root (Merkle
@@ -120,6 +147,13 @@ h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;opacity:.6;marg
 footer{margin-top:3rem;padding-top:1rem;border-top:1px solid ${v("border", "#e5e5e5")};font-size:.78rem;opacity:.7;line-height:1.5}
 a{color:${v("accent", "inherit")}}
 code{font-family:${v("mono", "ui-monospace,monospace")};font-size:.85em}
+.palette .swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(12rem,1fr));gap:1rem}
+.sw{margin:0;border:1px solid ${v("border", "#e5e5e5")};border-radius:12px;overflow:hidden;background:rgba(128,128,128,.05)}
+.sw__chip{height:5rem}
+.sw figcaption{padding:.6rem .7rem;display:flex;flex-direction:column;gap:.12rem;font-family:${v("mono", "ui-monospace,monospace")};font-size:.72rem}
+.sw__name{font-weight:600}
+.sw__axis{font-family:${v("font", "system-ui,sans-serif")};opacity:.9;margin:.1rem 0}
+.sw__ok{opacity:.6}.sw__val{opacity:.45;letter-spacing:.03em}
 </style>
 </head>
 <body>
@@ -158,7 +192,7 @@ async function leafOf(value) {
 // a node's leaves are its STRING fields; the node is their Merkle root.
 async function buildNode(n) {
   const strings = {};
-  for (const f of ["name", "description", "tagline"]) if (n[f] != null && n[f] !== "") strings[f] = await leafOf(n[f]);
+  for (const f of ["name", "description", "tagline", "value"]) if (n[f] != null && n[f] !== "") strings[f] = await leafOf(n[f]);
   const nodeRoot = merkleRoot(Object.values(strings));
   return { n, strings, nodeRoot };
 }
@@ -174,7 +208,7 @@ async function buildSection(sec) {
 }
 
 for (const page of pages) {
-  const secs = page.sections ?? [{ id: page.id, title: page.title, query: page.query }];
+  const secs = page.sections ?? [{ id: page.id, title: page.title, query: page.query, render: page.render }];
   const built = [];
   for (const sec of secs) { const b = await buildSection(sec); if (b.matched.length) built.push(b); }
   if (!built.length) continue;
