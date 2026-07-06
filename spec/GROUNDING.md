@@ -288,3 +288,25 @@ maturity, they move.** So the vendored `spec/typed-om.webidl` is a **pinned snap
 by copying the spec'"'"'s WebIDL, bumping the date, and re-running `gen-value-schemas` — the
 generated `value/*` then updates from the new pin. Track next in the next-drafts table
 (Typed OM 2 is where color/math land).
+
+## Color spaces & derivation (CSS Color 5) — beyond oklch
+
+oklch is our **canonical** space (perceptual, device-independent). CSS Color 5 adds two
+layers we ground while keeping oklch as the comparison space:
+
+**Wide / print spaces — the general `CSSColor` form.** Beyond sRGB/oklch, CSS has lab, lch,
+oklab, xyz, wide-gamut RGB (display-p3, rec2020, a98, prophoto), and via **`@color-profile`**
+(CSS Color 5 §5.4) arbitrary ICC profiles: **`device-cmyk`** (4-ink) and CMYKOGV (7-ink)
+print (FOGRA/SWOP). A CMYK color resolves to a known Lab/oklch (**soft-proof**), so oklch
+stays canonical; to *specify* print you carry profile + channels. `value/color`
+**generalizes to Typed OM `CSSColor(colorSpace, channels, alpha)`** — `colorSpace: oklch`
+default, `{profile, channels}` the escape hatch for print/wide, with an oklch soft-proof
+alongside. Grounded: CSS Color 5 §5.4 · Typed OM `CSSColor`.
+
+**Derived colors — the relationship layer (proofType `derivable`).** A color can be a
+FUNCTION of others: `color-mix(in oklab, A, B 40%)` (§11.1, precise serialization) and
+relative color `oklch(from A l c calc(h - 120))`. These are **derivations, not axioms** — a
+mixed/rotated color is derivable from its inputs. In the proof ladder: a tonal ramp IS a
+base at stepped L (relative), an accent IS a mix — so a 42-color palette compresses to a few
+**base axioms + derivable claims**, signed only at the base. Grounded: CSS Color 5
+(color-mix, relative color) · [[project_check_layers]] proof ladder.
