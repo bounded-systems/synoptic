@@ -1,6 +1,6 @@
 {
   "name": "@bounded-systems/synoptic",
-  "version": "0.9.5",
+  "version": "0.10.0",
   "description": "Site-build engine: the layered validation pipeline (tokens → json-ld → markdown → website) both bounded.tools and personal sites consume. Checks live here, not in each site.",
   "type": "module",
   "bin": {
@@ -20,7 +20,8 @@
     "synoptic-build-site": "build-site.mjs",
     "synoptic-secret-scan": "secret-scan.mjs",
     "synoptic-inspect": "inspect.mjs",
-    "synoptic-verify-artifact": "verify-artifact.mjs"
+    "synoptic-verify-artifact": "verify-artifact.mjs",
+    "herbarium": "herbarium.mjs"
   },
   "scripts": {
     "validate": "node validate.mjs"
