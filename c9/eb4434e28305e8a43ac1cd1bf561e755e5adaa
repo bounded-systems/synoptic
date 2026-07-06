@@ -1,0 +1,21 @@
+color-review.mjs
+  s_70508ca017cb29::t_4e875a3218735a 1-35
+package.json
+  s_70508ca017cb29::t_73ec49c1d9cc18 3,33-34
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "c9eb4434e28305e8a43ac1cd1bf561e755e5adaa",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
