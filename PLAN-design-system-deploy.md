@@ -146,3 +146,35 @@ Not synoptic, not prx. `site.git` builds the public bounded.tools site:
 `robertdelanghe.dev` is a SEPARATE site (`bdelanghe.git` `_site/`, own Nix flake) — trace its
 build the same way when its turn comes. The synoptic `render:"palette"`/DTCG work is a
 reference implementation; the shipping logic gets re-expressed as a `site.git` gen-* script.
+
+## STATUS (2026-07-06) — blog PR up; color system spec complete
+
+**Blog PR: [bounded-systems/site#170](https://github.com/bounded-systems/site/pull/170)** —
+"Colors Are Coordinates" (essay + the "A palette is a Sudoku" section). Content-complete,
+2 files (`blog/colors-are-coordinates.md` + `data/audit/catalog.json`), clean off `main`.
+Passes gen-blog, check-reader/seo/jargon/emphasis/outline, emit-catalog --check, semantic, axe,
+conformance, contracts, site/site. **One gate red — `structure-audit`** (new page → structure.json
+stale). Regen needs the Nix toolchain (vendored audit imports `linkedom` + pinned Node; won't
+run in a sandbox). TO FINISH, in the site repo's Nix dev shell:
+```
+npm run build
+STRUCTURE_BASELINE=integrity/structure-audit/structure.json node vendor/conformance-kit/integrity/structure-audit/audit.mjs dist
+git add integrity/structure-audit/structure.json && git commit
+```
+Then CI green → merge → gated Nix/Cloudflare deploy.
+
+**Real generator (corrected):** the public bounded.tools site is `bounded-systems/site.git`
+(`bounded-tools-site`) — custom `build.mjs` + `scripts/gen-*.mjs`, blog = `blog/*.md`, vendored
+`@bounded-systems/brand` (needs `npm install`), deploy = hermetic Nix → Sigstore → OCI → cosign
+→ `wrangler` (Cloudflare). NOT synoptic's build-site.mjs (that's the reference impl).
+
+**Color system — COMPLETE spec (in synoptic, pushed):** `spec/color-model.md` (theory) ·
+`color-tokens.md` (values = typed objects, CAS-named, no roles) · `color-properties.{md,json}`
+(keys = property names; constraint derived from property; tiers) · `constraints.json` (WCAG as
+pinned content-addressed objects) · `color-as-constraint.md` (the capstone — constraints as
+forces, palette as equilibrium, Sudoku) · `proof/Contrast.lean`. Nothing left to invent.
+
+**Next (implementation, real PRs into mature repos):** brand `tokens.json` → the 31 typed-object
+CAS atoms; `css-project` keys declarations by property; baobab reads `constraints.json` by
+address; then the `/design/colors` route + DTCG per site (engine done in synoptic v0.19.x,
+re-express as a `site.git` gen-* script). robertdelanghe.dev separate (`bdelanghe/_site` + Nix).
