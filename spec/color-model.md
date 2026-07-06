@@ -252,3 +252,30 @@ finer than ~1° is **phantom** — thousandths of a degree 3,000× too fine, mil
 The same point in every per-axis color system (single-axis, no composites): **OKLCh** `L% C H`
 (ours) · **CIELCh** `L* C* h` · **CIELab** `L* a* b*` · **HSL** `H S% L%` · **HSV** `H S% V%` ·
 **Munsell** `H V/C` (~approx, empirical). Exact where closed-form; Munsell flagged approximate.
+
+## 10. Warm/cool — hue collapsed to one axis (Ou et al. 2004)
+
+Hue reduces to a single **warm↔cool** scalar: `WC = −0.5 + 0.02·C*^1.07·cos(h*−50°)` (CIELab).
+In oklch hue:
+- **Warmest:** h ≈ **43°** (red-orange) · **Coolest:** h ≈ **219°** (blue) — near-opposite.
+- **Boundary (warm = cool):** h ≈ **144°** (green — lands on the green unique hue) and **319°**
+  (magenta). Green is the pivot; the warm↔cool axis is orange↔blue.
+- **AAA mutes temperature too:** max warmth amplitude drops from **2.15** (full gamut) to **0.48**
+  (AAA light band) — accessibility flattens hue *and* warm/cool, since `WC ∝ C*`.
+
+## 11. The pinned scale — our own JND-quantized grid
+
+Each axis is pinned to fixed steps a comfortable multiple of its JND (§2) — *less granular, more
+pinned*, so neighbors are clearly distinct, not barely:
+
+| axis | JND | our step | levels | step/JND |
+|---|---|---|---|---|
+| L | ~2% | **5%** | 21 (0..100) | 2.5× |
+| C | ~10% ceiling | **25% of gamut ceiling** | 5 (0..100) | ~2.5× |
+| H | ~3° (max C) | **15°** | 24 | 5× |
+| α | ~7% | **25%** | 5 | ~3.5× |
+
+`quantize()` snaps any color to the grid. The whole addressable space is **finite**:
+`21 L × 24 H × 4 C × 4 α + 21 L × 4 α (neutral) + 1 (transparent) = 8,149 pinned colors`
+(all in-gamut, since C is a fraction of the ceiling). bounded.tools' 42 colors → **33 grid
+cells**. A design system uses a handful of these 8,149 — the scarcity is the point.
