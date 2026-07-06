@@ -1,0 +1,27 @@
+gen-value-schemas.mjs
+  s_70508ca017cb29::t_29f55ab975269f 39,45,55
+package.json
+  s_70508ca017cb29::t_f2822e80703e50 3
+spec/GROUNDING.md
+  s_70508ca017cb29::t_aaff53e276453a 247-253
+spec/typed-om.webidl
+  s_70508ca017cb29::t_ff4016a5f58600 1-4,6-8,11-33,35-36,39,41-43,46-114
+spec/value/generated/color.schema.json
+  s_70508ca017cb29::t_858477756e5a83 1-40
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "26945b5f23b85e8920b772c79b41248316dbd549",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
