@@ -94,3 +94,22 @@ breaking changes land); pin the dated snapshot and re-check on churn.
 
 **Rule:** grounding cites the *current* stable; this table names the *next* so we're not
 surprised. When a next draft reaches CR/REC, re-ground and note the diff.
+
+## Verification sources — grounding the grounding
+
+Citing a spec is `grounded`; **validating against the machine-readable spec data is
+stronger** (derivable, not asserted). The CSS WG ships the tooling:
+
+| Source | What | Use |
+|---|---|---|
+| **webref** · `@webref/css` `@webref/idl` · w3c/webref | machine-readable terms / properties / value-types extracted from **all** web specs, versioned | **derive & verify** GROUNDING rows + our value-type coverage from the actual spec definitions — grounding becomes a **derivable** claim, not an axiom |
+| **css-validator** · w3c/css-validator | the W3C CSS Validation Service (Java) | validate our **emitted** CSS projection |
+| **csswg-test / WPT** · web-platform-tests | the official CSS conformance test suite | conformance-test a **pinned engine** (Stylo/Taffy) |
+| **css-aam** · w3c/css-aam | CSS Accessibility API Mappings | ground the a11y layer (with `contrast`) |
+| **ARIA APG** · w3c/aria-practices | WAI-ARIA Authoring Practices | accessibility patterns |
+| **csswg-drafts** · w3c/csswg-drafts (Bikeshed) | the editor's drafts source | the *next-draft* text (trajectory table) |
+
+**Meta:** *webref grounds the grounding.* Pull "CSS Color 4 defines `oklch`" from webref
+(extracted from the spec) instead of hand-asserting it — then GROUNDING.md itself is
+`derivable`, the loop is: cite spec → verify vs webref → conformance-test vs WPT →
+validate output vs css-validator.
