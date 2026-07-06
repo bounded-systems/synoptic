@@ -1,6 +1,6 @@
 {
   "name": "@bounded-systems/synoptic",
-  "version": "0.14.7",
+  "version": "0.14.8",
   "description": "Site-build engine: the layered validation pipeline (tokens → json-ld → markdown → website) both bounded.tools and personal sites consume. Checks live here, not in each site.",
   "type": "module",
   "bin": {
@@ -32,7 +32,8 @@
     "synoptic-gen-value-schemas": "gen-value-schemas.mjs",
     "synoptic-name-values": "name-values.mjs",
     "synoptic-color-review": "color-review.mjs",
-    "synoptic-derive-tokens": "derive-tokens.mjs"
+    "synoptic-derive-tokens": "derive-tokens.mjs",
+    "synoptic-color-health": "color-health.mjs"
   },
   "scripts": {
     "validate": "node validate.mjs"
