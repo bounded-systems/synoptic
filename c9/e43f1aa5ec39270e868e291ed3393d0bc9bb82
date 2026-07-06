@@ -1,0 +1,27 @@
+check-pages.mjs
+  s_70508ca017cb29::t_2f2ccf4a869369 10-15,17,19-26,28
+tokens-audit.mjs
+  s_70508ca017cb29::t_62fee135b01017 34-45
+  s_70508ca017cb29::t_6af808962d1576 21,55-58
+  s_70508ca017cb29::t_b3ad3f4c07f3e2 18-20
+  s_70508ca017cb29::t_babd14dc72859e 22-24,31-33
+  s_70508ca017cb29::t_9796109c5fb124 46-48,52-54
+  s_70508ca017cb29::t_5aedee03da9d81 59
+  s_70508ca017cb29::t_1d6bcf7a312b8b 1-17,25-30,49-51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "c9e43f1aa5ec39270e868e291ed3393d0bc9bb82",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
