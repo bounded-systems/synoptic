@@ -183,10 +183,28 @@ terms in CSS Color 4 §9.2 (Oklab/OkLCh) and OKLab itself.
   `light-dark()` / `color-scheme` name a *scheme* (not an L position); `transparent` names only
   the α=0 endpoint.
 
-**Summary:** axis *names* are formal (CSS Color 4); hue *cardinals* are formal (OKLab unique
-hues); full positional naming is **Munsell / ISCC-NBS**, not CSS. Our content-names sidestep
-all of it — `oklch-l-c-h-α` names by coordinates, so no naming standard is needed; Munsell/
-ISCC-NBS/unique-hue labels are optional *derived* claims on top.
+### Single-axis names vs composite names — the distinction that matters
+
+The names worth having are **per-axis** — a name for a position on **one** axis, holding the
+others irrelevant — not **composite** names that fuse all axes into one word:
+
+| kind | names one axis? | examples |
+|---|---|---|
+| **single-axis** ✓ | yes — the model we use | **hue:** unique hues (red/yellow/green/blue), Munsell `R YR Y GY G BG B PB P RP` · **L:** Munsell Value 0–10 (`light`/`dark`) · **C:** Munsell Chroma 0–max, ISCC-NBS `grayish…vivid` |
+| **composite** ✗ | no — fuses L+C+H | the 148 CSS named colors (`burlywood`), ISCC-NBS *full* descriptors (`light bluish green`) |
+
+**Munsell *is* the per-axis system** — it names Hue, Value, and Chroma **independently**, each
+on its own scale, then composes them *positionally* as `5R 4/14` (Hue 5R, Value 4, Chroma 14).
+That is exactly our `(H, L%, C%)` model — one axis at a time — with Munsell as its 1905
+precedent. The **unique hues** are the pure hue-axis cardinals; **CSS named colors are the
+opposite** — composite words that encode all three axes at once (which is why they collapse to
+"one hue at different L%/C%" in §7).
+
+**So:** formal *single-axis* names exist (unique hues; Munsell H/V/C), and they line up with
+our axes. Composite names (CSS 148, ISCC-NBS phrases) fuse axes and aren't what we want. Our
+content-name `oklch-l-c-h-α` *is* a per-axis coordinate name — Munsell notation in oklch — so
+no naming standard is needed; a single-axis label (unique hue, Munsell value) is an optional
+*derived* claim on **one** coordinate.
 
 ## References (naming systems)
 
