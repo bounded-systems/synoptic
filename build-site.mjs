@@ -191,7 +191,9 @@ for (const page of pages) {
     // the Markdown projection sibling — same content, same source digests, provable
     const pageMd = `# ${page.title ?? page.id}\n\n${built.map((b) => b.md).join("\n")}\n\n---\nGenerated from the graph · page root \`${pageRoot}\` · every item traces to \`/cas\` (verify: \`synoptic verify-artifact\`) · data: [/json.ld](/json.ld)\n`;
     await writeFile(join(dir, "index.md"), pageMd);
-    routes.push(page.route); // for the sitemap + page-check
+    // carry each page's Merkle ROOT into the sitemap (our namespace extension) so the
+    // sitemap is a checkable manifest, not just a URL list.
+    routes.push({ route: page.route, root: pageRoot, sections: built.length });
     console.log(`  ▸▸ ${page.route === "" ? "index.html" : "/" + page.route} — ${built.length} section(s), html + md, page root ${pageRoot.slice(0, 16)}…`);
   }
   provenance.push({
@@ -224,30 +226,50 @@ console.log(`✓ ${outDir}/site.merkle.json — site is a Merkle tree · root ${
 // The sitemap is DATA (spec/sitemap.schema.json); the XML is a converted VIEW of it, so
 // the data is the source of truth (and could later be a claim set, like DTCG).
 const siteBase = (config.graph?.id ? config.graph.id.replace(/#.*$/, "") : `https://${config.site}`).replace(/\/$/, "");
+// priority is a STRICT SORT: distinct, strictly-decreasing by declared order (home
+// first), so the priorities are a total order over the pages — no ties; emitted in order.
+const ordered = [...routes].sort((a, b) => (a.route === "" ? -1 : b.route === "" ? 1 : 0));
+const n = ordered.length || 1;
+const rank = new Map(ordered.map((x, i) => [x.route, i]));
+// the sitemap AS DATA (spec/sitemap.schema.json), EXTENDED via our own namespace
+// (sitemaps.org sanctions namespace extension): each page carries its Merkle ROOT, so the
+// sitemap is a CHECKABLE MANIFEST — check-pages can verify a page's actual root matches
+// its declared root (tamper-evidence, not just HTTP 200).
+const SYN_NS = "https://bounded.tools/schemas/synoptic/1.0";
 const sitemap = {
-  urlset: routes.map((r) => ({
-    loc: `${siteBase}/${r ? r + "/" : ""}`,
-    changefreq: "weekly",
-    priority: r === "" ? 1.0 : 0.8,
-  })),
+  urlset: routes
+    .map((x) => ({
+      loc: `${siteBase}/${x.route ? x.route + "/" : ""}`,
+      changefreq: "weekly",
+      priority: +((n - rank.get(x.route)) / n).toFixed(4),
+      synoptic: { root: x.root, sections: x.sections },
+    }))
+    .sort((a, b) => b.priority - a.priority),
 };
 await writeFile(join(outDir, "sitemap.json"), JSON.stringify(sitemap, null, 2) + "\n");
-// convert data → the sitemaps.org 0.9 XML serialization.
+// convert data → sitemaps.org 0.9 XML, extended with the synoptic namespace.
 const sitemapToXml = (sm) =>
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+  `<?xml version="1.0" encoding="UTF-8"?>\n` +
+  `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n` +
+  `        xmlns:synoptic="${SYN_NS}"\n` +
+  `        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n` +
+  `        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd ${SYN_NS} ${SYN_NS}/sitemap.xsd">\n` +
   sm.urlset.map((u) =>
     `  <url>\n    <loc>${u.loc}</loc>` +
-    (u.lastmod ? `\n    <lastmod>${u.lastmod}</lastmod>` : "") +
     (u.changefreq ? `\n    <changefreq>${u.changefreq}</changefreq>` : "") +
-    (u.priority != null ? `\n    <priority>${u.priority.toFixed(1)}</priority>` : "") +
+    (u.priority != null ? `\n    <priority>${u.priority}</priority>` : "") +
+    (u.synoptic?.root ? `\n    <synoptic:root>${u.synoptic.root}</synoptic:root>` : "") +
     `\n  </url>`).join("\n") +
   `\n</urlset>\n`;
 await writeFile(join(outDir, "sitemap.xml"), sitemapToXml(sitemap));
+// robots.txt — how crawlers FIND the sitemap (robotstxt.org). Allow all; point at the map.
+await writeFile(join(outDir, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${siteBase}/sitemap.xml\n`);
+// page-check: every listed page's index.html exists + is non-empty (build fails if not).
 let missing = 0;
-for (const r of routes) {
-  const f = join(r === "" ? outDir : join(outDir, r), "index.html");
+for (const x of routes) {
+  const f = join(x.route === "" ? outDir : join(outDir, x.route), "index.html");
   try { if ((await readFile(f, "utf8")).trim().length === 0) throw new Error("empty"); }
-  catch { missing++; console.log(`  ✗ page ${r === "" ? "/" : "/" + r + "/"} missing or empty`); }
+  catch { missing++; console.log(`  ✗ page ${x.route === "" ? "/" : "/" + x.route + "/"} missing or empty`); }
 }
-console.log(`✓ ${outDir}/sitemap.{json,xml} — ${sitemap.urlset.length} page(s)${missing ? `; ❌ ${missing} MISSING` : ", all present + non-empty"}`);
+console.log(`✓ ${outDir}/sitemap.{json,xml} + robots.txt — ${sitemap.urlset.length} page(s)${missing ? `; ❌ ${missing} MISSING` : ", all present"}`);
 if (missing) process.exit(1);

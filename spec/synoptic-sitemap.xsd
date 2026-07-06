@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="https://bounded.tools/schemas/synoptic/1.0"
+            xmlns="https://bounded.tools/schemas/synoptic/1.0"
+            elementFormDefault="qualified">
+  <xsd:annotation><xsd:documentation>
+    Synoptic sitemap extension for the sitemaps.org 0.9 protocol. Makes the sitemap a
+    CHECKABLE MANIFEST: each &lt;url&gt; carries its page's Merkle root, so a verifier can
+    confirm the served page matches its declared root (not just that it returns 200).
+  </xsd:documentation></xsd:annotation>
+  <xsd:element name="root">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:pattern value="sha256:[a-f0-9]{64}"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  <xsd:element name="sections" type="xsd:nonNegativeInteger"/>
+</xsd:schema>
