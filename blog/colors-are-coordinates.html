@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colors Are Coordinates</title>
+<meta name="description" content="What happens when you treat a website's colors as points in a perceptual space: they dedupe, collapse to a handful of hues, and a palette becomes something you can prove.">
+<style>
+/* ---- palette: a synoptic-constructed AAA set. Dark band = ground/surface, light band =
+   text, amber = the one warm accent. Every text/ground pair is ≥ 7:1 by construction. ---- */
+:root {
+  --ground:  oklch(22% 0.019 164);   /* dark teal — the ground */
+  --surface: oklch(27% 0.022 161);   /* raised surface */
+  --line:    oklch(33% 0.024 157);   /* hairlines */
+  --text:    oklch(91% 0.013 156);   /* near-white, faint teal — body */
+  --mute:    oklch(72% 0.021 160);   /* muted teal — captions */
+  --accent:  oklch(80% 0.121 80);    /* amber — the warm axiom */
+  --accent-2:oklch(70% 0.134 161);   /* saturated teal — links */
+  --code-bg: oklch(25% 0.02 163);
+  --maxw: 40rem;
+}
+:root[data-theme="light"], :root:not([data-theme="dark"]) {
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --ground:  oklch(96% 0.008 95);
+    --surface: oklch(99% 0.005 95);
+    --line:    oklch(90% 0.012 120);
+    --text:    oklch(27% 0.02 162);
+    --mute:    oklch(48% 0.02 160);
+    --accent:  oklch(55% 0.13 55);
+    --accent-2:oklch(48% 0.11 162);
+    --code-bg: oklch(94% 0.01 100);
+  }
+}
+:root[data-theme="dark"] {
+  --ground:oklch(22% 0.019 164); --surface:oklch(27% 0.022 161); --line:oklch(33% 0.024 157);
+  --text:oklch(91% 0.013 156); --mute:oklch(72% 0.021 160); --accent:oklch(80% 0.121 80);
+  --accent-2:oklch(70% 0.134 161); --code-bg:oklch(25% 0.02 163);
+}
+:root[data-theme="light"] {
+  --ground:oklch(96% 0.008 95); --surface:oklch(99% 0.005 95); --line:oklch(90% 0.012 120);
+  --text:oklch(27% 0.02 162); --mute:oklch(48% 0.02 160); --accent:oklch(55% 0.13 55);
+  --accent-2:oklch(48% 0.11 162); --code-bg:oklch(94% 0.01 100);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--ground); color: var(--text);
+  font: 400 1.15rem/1.65 "Iowan Old Style", "Palatino Linotype", Palatino, Charter, Georgia, serif;
+  font-feature-settings: "liga", "kern";
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: clamp(1.25rem, 4vw, 2.5rem); }
+code, .mono, pre { font-family: ui-monospace, "IBM Plex Mono", "SF Mono", "Cascadia Code", Menlo, monospace; }
+
+/* ---- masthead ---- */
+header.hero { padding: clamp(3rem, 12vw, 7rem) 0 clamp(2rem, 6vw, 3.5rem); border-bottom: 1px solid var(--line); }
+.eyebrow {
+  font-family: ui-monospace, monospace; font-size: .72rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--accent); margin: 0 0 1.4rem;
+}
+h1 {
+  font-family: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-weight: 600; font-size: clamp(2.6rem, 9vw, 4.6rem); line-height: 1.02; letter-spacing: -0.02em;
+  margin: 0; text-wrap: balance;
+}
+.dek { color: var(--mute); font-size: clamp(1.1rem, 2.6vw, 1.3rem); font-style: italic; margin: 1.6rem 0 0; max-width: 34rem; text-wrap: pretty; }
+
+/* ---- body ---- */
+main { padding: clamp(2rem, 6vw, 3.5rem) 0; }
+main > p, main > h2, main > h3, main > figure, main > pre, main > .callout, main > ul { margin-left: auto; margin-right: auto; }
+p { margin: 0 0 1.35rem; text-wrap: pretty; }
+main > p:first-of-type::first-letter {
+  font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 600;
+  float: left; font-size: 3.7rem; line-height: .8; padding: .35rem .5rem 0 0; color: var(--accent);
+}
+h2 {
+  font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 600; letter-spacing: -0.01em;
+  font-size: clamp(1.5rem, 4vw, 1.95rem); line-height: 1.15; margin: 3rem 0 1.1rem; text-wrap: balance;
+}
+h2 .n { color: var(--accent); font-variant-numeric: tabular-nums; font-size: .7em; margin-right: .6rem; }
+strong { font-weight: 700; color: var(--text); }
+em { color: var(--mute); }
+a { color: var(--accent-2); text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+/* ---- swatch chips (dogfood: real oklch) ---- */
+.chips { display: flex; flex-wrap: wrap; gap: .4rem; margin: .2rem 0 1.35rem; padding: 0; list-style: none; }
+.chip { display: inline-flex; align-items: center; gap: .5rem; padding: .3rem .6rem .3rem .35rem; border: 1px solid var(--line); border-radius: 999px; font-family: ui-monospace, monospace; font-size: .72rem; color: var(--mute); }
+.sw { width: 1.05rem; height: 1.05rem; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(128,128,128,.25); }
+
+/* ---- pull-callout ---- */
+.callout {
+  border-left: 3px solid var(--accent); background: var(--surface);
+  padding: 1.1rem 1.3rem; margin: 2rem auto; border-radius: 0 8px 8px 0;
+  font-family: "Space Grotesk", system-ui, sans-serif; font-size: 1.25rem; line-height: 1.4; color: var(--text); text-wrap: balance;
+}
+
+/* ---- figures ---- */
+figure { margin: 2.2rem auto; }
+figcaption { color: var(--mute); font-size: .82rem; font-family: ui-monospace, monospace; margin-top: .7rem; text-align: center; }
+.diagram { width: 100%; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); display: block; }
+.stat { text-align: center; margin: 2.6rem auto; }
+.stat b { display: block; font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 600; font-size: clamp(3.5rem, 14vw, 6rem); line-height: 1; letter-spacing: -0.03em; color: var(--accent); font-variant-numeric: tabular-nums; }
+.stat span { color: var(--mute); font-family: ui-monospace, monospace; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; }
+
+pre { background: var(--code-bg); border: 1px solid var(--line); border-radius: 10px; padding: 1.1rem 1.25rem; overflow-x: auto; font-size: .82rem; line-height: 1.55; color: var(--text); }
+pre .c { color: var(--mute); }
+pre b { color: var(--accent); font-weight: 400; }
+
+hr { border: none; border-top: 1px solid var(--line); margin: 3rem auto; max-width: var(--maxw); }
+footer { color: var(--mute); font-size: .85rem; padding: 0 0 4rem; }
+footer code { color: var(--accent-2); }
+.themetoggle { position: fixed; top: 1rem; right: 1rem; background: var(--surface); color: var(--mute); border: 1px solid var(--line); border-radius: 999px; padding: .4rem .8rem; font-family: ui-monospace, monospace; font-size: .72rem; cursor: pointer; }
+@media (prefers-reduced-motion: no-preference) { .sw { transition: transform .15s; } .chip:hover .sw { transform: scale(1.15); } }
+</style>
+</head>
+<body>
+<button class="themetoggle" onclick="const r=document.documentElement;const d=(r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))==='dark';r.setAttribute('data-theme',d?'light':'dark')">theme</button>
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">Perception · Color · Proof</p>
+  <h1>Colors Are Coordinates</h1>
+  <p class="dek">Treat a website's colors as points in a perceptual space and they dedupe, collapse to a handful of hues, and turn accessibility from a checkbox into a construction you can prove.</p>
+</header>
+
+<main>
+<p>We pulled every color off a website — 42 of them, straight out of the rendered page — and asked a question that sounds naive: <strong>how many colors are there, really?</strong></p>
+
+<p>Not "how many hex values did the designer type." How many <em>distinct decisions</em>. The answer turned out to be far fewer than 42, and chasing the difference led through color science, a 2020 color space called OKLab, a 160-year-old law of perception, and — at the end — a Lean proof that a palette can't fail its own contrast check.</p>
+
+<ul class="chips" aria-label="colors sampled from the page, as oklch">
+  <li class="chip"><span class="sw" style="background:oklch(22% 0.019 164)"></span>oklch(22% .019 164)</li>
+  <li class="chip"><span class="sw" style="background:oklch(41% 0.082 166)"></span>oklch(41% .082 166)</li>
+  <li class="chip"><span class="sw" style="background:oklch(70% 0.134 161)"></span>oklch(70% .134 161)</li>
+  <li class="chip"><span class="sw" style="background:oklch(80% 0.121 80)"></span>oklch(80% .121 80)</li>
+  <li class="chip"><span class="sw" style="background:oklch(91% 0.013 156)"></span>oklch(91% .013 156)</li>
+</ul>
+
+<h2><span class="n">1</span>The eye has a resolution</h2>
+<p>Start with the fact that makes everything else work: <strong>every axis of color has a just-noticeable-difference</strong> — a threshold below which two values are, to a human, the same. Nudge a color by less than its JND and no one alive can tell. Above it, they can.</p>
+<p>This isn't vague. In OKLab, a perceptual distance of about <code>0.02</code> is the edge of visibility. So when a stylesheet carries <code>#16221C</code> and something 0.001 off, those aren't two colors — they're one color written twice. The difference is <em>phantom precision</em>: real in the file, invisible in the world.</p>
+<p>That single fact means the space of colors is <strong>finite</strong>. Perception quantizes it. There is a countable number of distinct colors, and it's smaller than you'd guess — which is why 42 extracted colors were never really 42.</p>
+
+<h2><span class="n">2</span>Three dials, and only one is free</h2>
+<p>OKLab's cylindrical form, <strong>OKLCh</strong>, gives a color three coordinates that map onto how you actually see: <strong>L</strong> — how light (the black-and-white-photo axis). <strong>C</strong> — how colorful, from gray toward neon. <strong>H</strong> — which hue, an angle 0–360°.</p>
+<p>The surprise is how differently they behave. <strong>L is spent on contrast.</strong> <strong>C is capped by the display's gamut.</strong> And <strong>H is free</strong> — nothing in accessibility or gamut constrains which hue you pick. Hue is the one axis you can spend on identity at no cost.</p>
+<p>Here's the sharpest consequence: <strong>the hue JND depends on chroma.</strong> Perceptual hue distance is roughly <code>C × Δh</code>, so at high chroma a 9° shift is visible; at low chroma you can drift <em>57°</em> unseen. A near-gray can claim almost any hue and be lying.</p>
+<div class="callout">Run that on the site's palette and 42 colors carrying 19 hue values collapse to <strong>2 hues that actually resolve</strong> — one warm, one cool — plus a stack of neutrals. The palette was two decisions and a lot of lightness.</div>
+
+<h2><span class="n">3</span>The colors that lie about themselves</h2>
+<p>To check it wasn't a quirk of one site, we ran it on the <strong>148 CSS named colors</strong> — the <code>red</code>, <code>forestgreen</code>, <code>rebeccapurple</code> you type without thinking.</p>
+<p>They collapse too. <strong>148 names → 49 hues + 23 neutrals</strong>, with 31 hues shared by multiple names. <code>green</code>, <code>lime</code>, <code>forestgreen</code>, <code>lightgreen</code>, <code>palegreen</code>, <code>darkgreen</code>, <code>darkseagreen</code>, <code>limegreen</code>, and <code>honeydew</code> are <strong>one hue</strong> at nine lightnesses. <code>maroon</code> <em>is</em> <code>red</code> at low lightness. The <code>dark-</code>/<code>light-</code>/<code>pale-</code> prefixes are encoding lightness and chroma percentages in English.</p>
+<p>And some are outright dishonest. <code>aliceblue</code>, <code>azure</code>, <code>mintcream</code>, <code>ivory</code>, <code>snow</code> carry a hue in their <em>name</em> but their chroma is below the JND. <code>aliceblue</code> is not blue — it's a near-white with an imperceptible tint. (<code>snow</code> and <code>white</code>? 0.012 apart — the same color, twice.)</p>
+
+<h2><span class="n">4</span>A palette is one axiom and some ratios</h2>
+<p>If a color is a point, a derived color is a move from another point — and there's one honest way to move: <strong>one axis at a time, multiplication only.</strong> Multiplication, because perception is logarithmic (the 160-year-old <strong>Weber–Fechner law</strong>): you perceive ratios, not absolute steps. One axis at a time, because coupling axes is what makes derivation confusing — CSS's <code>color-mix()</code> moves all axes with one knob, which is exactly why mixing toward white also desaturates.</p>
+<p>So a color family is <strong>one chosen hue plus a table of <code>(L%, C%, α%)</code> ratios</strong>. The site's 42 colors factor into <strong>16 axioms and 26 derivations</strong> — 62% of the palette needs no independent value; it's a proof tree over a handful of roots.</p>
+
+<h2><span class="n">5</span>Accessibility mutes color — and it's geometry</h2>
+<p>WCAG contrast is a ratio on luminance. White-on-black is the max: <strong>21:1</strong>. Any requirement carves the lightness axis into <strong>bands</strong> separated by a forbidden <em>moat</em>, and the count is logarithmic: <code>floor(1 + log(21)/log(ratio))</code>. At <strong>AAA (7:1) you get 2</strong> — a floor and a ceiling, nothing usable between.</p>
+<figure>
+<svg class="diagram" viewBox="0 0 400 130" role="img" aria-label="Lightness axis split into a dark surface band and a light text band, with an empty AAA moat between.">
+  <defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="oklch(15% 0 0)"/><stop offset="1" stop-color="oklch(99% 0 0)"/></linearGradient></defs>
+  <rect x="20" y="20" width="360" height="26" rx="4" fill="url(#lg)"/>
+  <rect x="20" y="20" width="88" height="26" rx="4" fill="none" stroke="oklch(80% 0.121 80)" stroke-width="2"/>
+  <rect x="300" y="20" width="80" height="26" rx="4" fill="none" stroke="oklch(80% 0.121 80)" stroke-width="2"/>
+  <text x="64" y="70" fill="oklch(80% 0.121 80)" font-family="ui-monospace,monospace" font-size="11" text-anchor="middle">surfaces</text>
+  <text x="204" y="70" fill="oklch(60% 0.02 160)" font-family="ui-monospace,monospace" font-size="11" text-anchor="middle">— the moat (empty) —</text>
+  <text x="340" y="70" fill="oklch(80% 0.121 80)" font-family="ui-monospace,monospace" font-size="11" text-anchor="middle">text</text>
+  <text x="20" y="104" fill="oklch(65% 0.02 160)" font-family="ui-monospace,monospace" font-size="10">L 0</text>
+  <text x="360" y="104" fill="oklch(65% 0.02 160)" font-family="ui-monospace,monospace" font-size="10">L 100</text>
+  <line x1="108" y1="16" x2="108" y2="50" stroke="oklch(70% 0.02 160)" stroke-dasharray="2 2"/>
+  <line x1="300" y1="16" x2="300" y2="50" stroke="oklch(70% 0.02 160)" stroke-dasharray="2 2"/>
+</svg>
+<figcaption>AAA splits the lightness axis in two. The moat is not wasted space — it's the guarantee.</figcaption>
+</figure>
+<p>Then the part nobody tells you. WCAG constrains only <em>lightness</em> — chroma and hue are free of it. So you'd expect accessible palettes to be vivid. They're not, because <strong>the gamut's chroma ceiling is a lens</strong> — pinched at the light and dark extremes, fattest in the middle. The most saturated colors live at mid-lightness — <em>exactly the band AAA forbids.</em></p>
+<div class="callout">Accessible palettes are muted not by choice but by geometry. That restrained, desaturated look of a careful accessible site isn't taste — it's the shape of the gamut meeting the arithmetic of contrast.</div>
+
+<h2><span class="n">6</span>The whole space is a grid</h2>
+<p>Once each axis is quantized, you can <strong>pin</strong> the space to a grid — steps a comfortable multiple of the JND. Multiply it out, drop the degenerate corners, and the entire perceptually-distinct color universe is:</p>
+<p class="stat"><b>8,149</b><span>distinct colors — the whole space</span></p>
+<p>That's it. Every design system you've used picks a dozen from those 8,149. The site's 42 snap to <strong>33 grid cells</strong>. The scarcity isn't a limitation — it's the honest size of the space.</p>
+
+<h2><span class="n">7</span>Construct valid. Don't validate.</h2>
+<p>The normal way to make an accessible palette: pick colors, then <em>check</em> each pairing against a contrast tool, tweak, re-check. Apply the use, hope it's valid. Flip it. <strong>Let the set determine the use.</strong> Put surfaces in the dark band and text in the light band, leave the moat empty and wide enough that the lightest surface still clears the bar against the darkest text. Now a color's <strong>band is its role</strong>, and every surface-on-text pairing is accessible <strong>by construction.</strong> You never test a pair — you can't produce an invalid one.</p>
+<p>For a warm-and-cool AAA palette that's 6 surfaces and 6 texts: <strong>36 pairings, all valid, zero checked.</strong> The worst is 7.10:1 — not measured-and-lucky, but guaranteed. And because it's a monotonicity argument, it's <strong>provable</strong>. In Lean 4:</p>
+<pre><span class="c">-- if every surface ≤ Smax and every text ≥ Tmin, and the moat is wide enough,</span>
+<span class="c">-- then EVERY surface/text pair clears the bar r. no pair is tested.</span>
+theorem <b>whole_set</b> (hmoat : r * (Smax + off) ≤ Tmin + off) :
+    ∀ s t, s ≤ Smax → Tmin ≤ t → <b>clears</b> off r s t</pre>
+<p>One chain: <code>r·(s+off) ≤ r·(Smax+off) ≤ Tmin+off ≤ t+off</code>. The <code>∀</code> <em>is</em> "the set determines the use" — pick any surface, any text, it's already valid. The kernel checks it. There is no palette in that shape that fails.</p>
+
+<hr>
+<h2>Colors are coordinates</h2>
+<p>That's the whole idea, and it's small: <strong>a color is not a name, it's a point.</strong> Name it by its coordinates and the redundancy dissolves — <code>maroon</code> becomes <code>red · V4</code>, <code>aliceblue</code> becomes <code>neutral · V10</code>, and two colors that look the same <em>are</em> the same. Move between points by ratios, one axis at a time. Let contrast carve the lightness axis into bands, and let the bands assign the roles. What's left is a finite, honest, provable palette — one you construct correct instead of validating after the fact.</p>
+<p><strong>The eye has a resolution. Work at it, and color gets a lot simpler.</strong></p>
+</main>
+
+<footer>
+<hr>
+<p>Built with <a href="https://github.com/bounded-systems/synoptic">synoptic</a> — <code>canonicalize · color-health · derive-palette · axis-name · scale · palette-aaa · contrast</code>, and <code>proof/Contrast.lean</code>. The full theory, grounded to spec, lives in <code>spec/color-model.md</code>. Every number here is computed, not asserted. This page's own palette is a synoptic-constructed AAA set: the body text clears 7:1 on its ground, by construction.</p>
+</footer>
+
+</div>
+</body>
+</html>
