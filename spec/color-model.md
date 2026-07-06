@@ -232,3 +232,23 @@ Applied, it re-proves §7 on individual colors: `#800000` maroon → **`red · V
 at low value — the composite name dissolves); `#F0F8FF` aliceblue → **`neutral · V10`** (the
 composite name lies; there is no hue). bounded.tools reads as `teal*`/`green`/`amber` across
 V2–V9 at various chroma — **2 hues, a value ladder, a chroma range**, in three independent axes.
+
+### Hue is non-uniform — name it above/below a unique hue, and coarsely
+
+The 4 unique hues are **unevenly spaced** in oklch angle: red 29° → yellow 110° (gap 80°) →
+green 143° (gap **33°**) → blue 264° (gap **122°**) → red (gap 125°). `yellow→green` is **3.7×
+tighter** than `green→blue`, so equal angle ≠ equal perceptual hue, and an absolute angle is a
+poor name. `axis-name` names a hue **above/below its nearest unique hue** (`orange = below
+yellow 39°`, `violet = above blue 39°`).
+
+**The universal hue step.** Hue JND = ΔEOK / C, *finest at max chroma* (C=0.4): **≈ 2.9°**
+(≈ 1.4° at the strictest ΔEOK 0.01). Below it, **no chroma** can show a hue difference. The
+wheel holds at most **~126 hues** (max chroma) · ~31 at C 0.1 · ~6 near-gray. Hue precision
+finer than ~1° is **phantom** — thousandths of a degree 3,000× too fine, millionths
+3,000,000×. `round(H, 2)` = 0.01° is 300× finer than the floor: harmless, far beyond meaningful.
+
+### Other per-axis systems — `color-systems`
+
+The same point in every per-axis color system (single-axis, no composites): **OKLCh** `L% C H`
+(ours) · **CIELCh** `L* C* h` · **CIELab** `L* a* b*` · **HSL** `H S% L%` · **HSV** `H S% V%` ·
+**Munsell** `H V/C` (~approx, empirical). Exact where closed-form; Munsell flagged approximate.

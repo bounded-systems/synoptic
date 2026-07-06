@@ -30,7 +30,12 @@ export function axisName(t) {
   const h = nearestHue(t.h);
   const cp = Math.round(100 * t.c / (ceil(t.l, t.h) || 1));
   const tier = CHROMA_TIER(cp);
-  return { hue: h.name, hueUnique: !!h.unique, value, valueName: VALUE_NAME[value], chromaPct: cp, chromaTier: tier, alpha, name: `${h.name}${h.unique ? "" : "*"} · V${value} · C${cp}% (${tier})${alpha < 100 ? " · α" + alpha + "%" : ""}` };
+  // ABOVE/BELOW the nearest UNIQUE hue — signed offset (+ above / − below). Since the unique
+  // hues are unevenly spaced, this direction is more honest than an absolute angle.
+  const uh = Object.entries(UNIQUE).map(([n, a]) => ({ n, d: ((t.h - a + 540) % 360) - 180 })).reduce((a, b) => Math.abs(b.d) < Math.abs(a.d) ? b : a);
+  const dir = Math.abs(uh.d) < 0.5 ? "at" : uh.d > 0 ? "above" : "below";
+  const rel = `${dir} ${uh.n}${dir === "at" ? "" : " " + Math.abs(Math.round(uh.d)) + "°"}`;
+  return { hue: h.name, hueUnique: !!h.unique, hueRel: rel, uniqueHue: uh.n, uniqueOffset: Math.round(uh.d), value, valueName: VALUE_NAME[value], chromaPct: cp, chromaTier: tier, alpha, name: `${h.name}${h.unique ? "" : "*"} (${rel}) · V${value} · C${cp}% (${tier})${alpha < 100 ? " · α" + alpha + "%" : ""}` };
 }
 
 // CLI: name colors from a css-tokens.json, or --demo
