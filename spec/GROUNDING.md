@@ -182,3 +182,17 @@ pipeline, typed at the source.
 and no element-tree approximation — the hermetic, browser-native form of css-project +
 partition. Both ED (provisional); tezcatl/WebKit support is partial, so this is the
 *direction*, with `getComputedStyle` + element signatures the working path today.
+
+### CSS WG process & community (informative — never grounds)
+
+Apply the normative-vs-non-normative rule to the WG's *own* material:
+- **csswg-wiki** · wiki.csswg.org — community docs, meeting notes, planning.
+- **wiki/ideas** · wiki.csswg.org/ideas — future-feature brainstorming. **NOT specs** —
+  never ground in these; they're pre-proposal.
+- **wiki/spec** · wiki.csswg.org/spec — *how* CSS specs are authored (Bikeshed,
+  conventions). A **model for how we write our own** spec docs (`spec/*.md`, the schemas):
+  definitions first, normative markers, dated versions, conformance.
+- **csswg-drafts issues** — where decisions are debated (the *why* / rationale).
+
+These **inform** (process, rationale, authoring model); only the published **normative
+spec** grounds.
