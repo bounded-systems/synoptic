@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bounded.tools/synoptic/spec/color-properties.json",
+  "$description": "The CSS properties that accept a <color> value, each mapped to the WCAG success criterion and contrast tier that govern it. The KEY is the full property name (grounded, not an invented role); the constraint is DERIVED from the property. Source of the property set: webref (which properties accept <color>). Contrast tiers: WCAG 2.2 SC 1.4.3 (AA), 1.4.6 (AAA), 1.4.11 (non-text AA). A checker (baobab/contrast) reads the tier off the property name; the ratio depends on the target level.",
+  "tiers": {
+    "text":     { "wcag": ["1.4.3", "1.4.6"], "minRatio": { "aa": 4.5, "aaLarge": 3.0, "aaa": 7.0, "aaaLarge": 4.5 }, "note": "text on its background; large = >=24px or >=18.66px bold" },
+    "non-text": { "wcag": ["1.4.11"], "minRatio": { "aa": 3.0, "aaa": 3.0 }, "note": "3:1 vs adjacent colors, when it conveys boundary / state / info" },
+    "ground":   { "wcag": [], "minRatio": {}, "note": "not itself constrained; it is the reference the text is measured against" },
+    "exempt":   { "wcag": ["1.4.3"], "minRatio": {}, "note": "decorative / incidental — no contrast requirement" }
+  },
+  "properties": {
+    "color":                    { "tier": "text",     "pairedWith": "background-color", "spec": "css-color-4", "note": "foreground text" },
+    "-webkit-text-fill-color":  { "tier": "text",     "pairedWith": "background-color", "spec": "css-text-decor" },
+    "-webkit-text-stroke-color":{ "tier": "text",     "pairedWith": "background-color", "spec": "css-text-decor" },
+
+    "background-color":         { "tier": "ground",   "spec": "css-backgrounds-3" },
+
+    "border-top-color":         { "tier": "non-text", "spec": "css-backgrounds-3" },
+    "border-right-color":       { "tier": "non-text", "spec": "css-backgrounds-3" },
+    "border-bottom-color":      { "tier": "non-text", "spec": "css-backgrounds-3" },
+    "border-left-color":        { "tier": "non-text", "spec": "css-backgrounds-3" },
+    "border-block-start-color": { "tier": "non-text", "spec": "css-logical-1" },
+    "border-block-end-color":   { "tier": "non-text", "spec": "css-logical-1" },
+    "border-inline-start-color":{ "tier": "non-text", "spec": "css-logical-1" },
+    "border-inline-end-color":  { "tier": "non-text", "spec": "css-logical-1" },
+    "outline-color":            { "tier": "non-text", "spec": "css-ui-4", "alsoWcag": ["2.4.7", "2.4.11"], "note": "focus indicator — also Focus Visible / Focus Appearance" },
+    "column-rule-color":        { "tier": "non-text", "spec": "css-multicol-1" },
+    "text-decoration-color":    { "tier": "non-text", "spec": "css-text-decor-4", "alsoWcag": ["1.4.1"], "note": "underline — if the sole link indicator, also Use of Color" },
+    "text-emphasis-color":      { "tier": "non-text", "spec": "css-text-decor-4" },
+    "caret-color":              { "tier": "non-text", "spec": "css-ui-4", "note": "text cursor; often transient — 3:1 recommended, not strictly required" },
+    "accent-color":             { "tier": "non-text", "spec": "css-ui-4", "note": "form-control accent — essential parts need 3:1" },
+
+    "fill":                     { "tier": "non-text", "spec": "svg2", "note": "3:1 for MEANINGFUL graphics; decorative -> exempt" },
+    "stroke":                   { "tier": "non-text", "spec": "svg2", "note": "3:1 for meaningful graphics; decorative -> exempt" },
+    "stop-color":               { "tier": "exempt",   "spec": "svg2", "note": "gradient stop — decorative unless it is the meaningful graphic" },
+    "flood-color":              { "tier": "exempt",   "spec": "filter-effects-1" },
+    "lighting-color":           { "tier": "exempt",   "spec": "filter-effects-1" }
+  }
+}
