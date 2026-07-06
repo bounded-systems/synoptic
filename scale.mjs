@@ -26,6 +26,9 @@ export function quantize(t) {
   const cap = ceil(L, H) || 1;
   const Cpct = Math.min(100, snap(100 * t.c / cap, 25));
   const C = +(Cpct / 100 * cap).toFixed(4);
+  // re-check powerless AFTER pinning: a low tier of a low ceiling can fall below the chroma
+  // JND, leaving a hue no one can see — collapse those to neutral (no false hue distinctions).
+  if (C < 0.02) return { L, Cpct: 0, H: null, Apct, neutral: true, oklch: `oklch(${L}% 0 0 / ${Apct / 100})` };
   return { L, Cpct, H, Apct, oklch: `oklch(${L}% ${C} ${H} / ${Apct / 100})` };
 }
 if (process.argv[1] && process.argv[1].includes("scale")) {
