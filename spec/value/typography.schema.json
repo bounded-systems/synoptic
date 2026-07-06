@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bounded.tools/synoptic/spec/value/typography.schema.json",
+  "title": "Typography",
+  "description": "A composite typographic style (DTCG §9.8; CSS Fonts 3/4). A STRUCTURE of typed sub-atoms — fontFamily + fontSize + fontWeight + lineHeight + letterSpacing — so a typography atom is a MERKLE of its sub-atoms (like shadow). Each sub-value may be a literal value atom OR a reference to another token. The 'microcopy at the macro level' unit.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$type":         { "const": "typography" },
+    "fontFamily":    { "$ref": "fontFamily.schema.json" },
+    "fontSize":      { "$ref": "dimension.schema.json" },
+    "fontWeight":    { "$ref": "number.schema.json" },
+    "lineHeight":    { "$ref": "number.schema.json", "description": "unitless multiplier of fontSize (DTCG SHOULD)" },
+    "letterSpacing": { "$ref": "dimension.schema.json" }
+  },
+  "required": ["$type", "fontFamily", "fontSize"]
+}
