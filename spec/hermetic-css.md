@@ -40,3 +40,29 @@ and get the same atoms, byte-for-byte. That's exactly what `derivable` promises 
 `verify-artifact`/the merkle roots assume. A non-hermetic cascade would make the resolved
 atoms non-reproducible — the claim would be `derivable` in name only. So hermetic CSS
 isn't a style preference; it's what makes the value layer's proof types **true**.
+
+## Containment — the browser declaring a bounded scope (CSS Contain 1 · REC)
+
+`contain: layout | style | paint | size` is the browser-native way to **declare that a
+subtree is a self-contained, independent unit** — its internals don't affect the outside,
+and nothing ambient leaks in. This is the *enforcement* the hermetic recipe was missing,
+and it's the bounded-systems ethos down to the pixel:
+
+```
+bounded authority  →  bounded scopes (pages, components, queries)  →  bounded rendering (contain)
+```
+
+A **contained subtree is, at once:**
+- a **hermetic** unit — isolation, browser-enforced (not just convention);
+- a **component** boundary — our projected component = a contained subtree;
+- an **audit partition** cell — auditable in isolation, matching the MECE partition;
+- a **scope** — pairs with `@scope`/`@layer`/`all: revert` for full determinism.
+
+Values: `layout` (independent layout), `style` (scoped counters/quotes), `paint` (clip to
+box), `size` (box size independent of contents); `content` = layout+paint+style;
+`strict` = all. `content-visibility: auto` additionally skips off-screen rendering
+(performance + the CRT critical-render path).
+
+**So our CSS projection emits `contain` on each component root** — the boundary the model
+already declares (a component, a query scope) becomes a boundary the *browser* enforces.
+The bound is no longer a claim we make; it's a fact the runtime keeps.
