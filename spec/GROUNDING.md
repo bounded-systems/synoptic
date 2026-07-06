@@ -414,3 +414,29 @@ large-text/UI (3:1). Distinct-color budget per band = `π·Cmax² / JND²` ≈ 2
 Grounded: OKLab/OKLCh axes + CSS scaling (CSS Color 4 §9.2; a,b ±0.4 = ±100%, C 0.4 = 100%),
 sRGB gamut, WCAG contrast, JND. The trilogy: L = accessibility budget (bands), C = gamut-
 capped at the L you're forced to, H = free.
+
+### Derivations are per-axis affine maps (color-mix = the coupled slice)
+
+Your insight, formalized: **every color derivation is a per-axis affine map** on
+(L, C, H, α) — `channel' = k·channel + o`, one `(k, o)` per axis. That single form unifies
+the "different call trees":
+
+| derivation | L | C | H | α |
+|---|---|---|---|---|
+| tint | ×k +o | ×k | — | — |
+| shade | ×k | ×k | — | — |
+| fade | — | — | — | ×k |
+| L-step | +o | — | — | — |
+| hue-rotate | — | — | +o | — |
+
+- **`color-mix(A, target, t)` = the SAME `t` on every axis** (one knob, coupled) — it moves
+  along a straight line toward the target and can **never hold an axis**. That coupling is
+  *exactly* why it drags chroma when it lifts lightness: tint/shade move L **and** C together.
+- **relative-color `oklch(from A …)` = `(k, o)` chosen per axis** (four knobs), including
+  **identity (—) = hold**. L-step holds C, H; hue-rotate holds L, C — impossible for mix.
+
+So `color-mix` is the **diagonal (equal-`t`) slice** of the full per-axis affine group;
+relative-color **is** the group. The canonical derivation record is just **4 (scale, offset)
+pairs**; whether it renders as `color-mix` or `oklch(from …)` is a surface choice, not a
+different operation. Grounded: CSS Color 5 (color-mix §11, relative color) · the palette
+proof tree ([[project_check_layers]]).
