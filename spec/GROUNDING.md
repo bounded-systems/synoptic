@@ -169,3 +169,16 @@ is correct but **inconclusive** until a viewport-capable engine runs it (tezcatl
 re-derivation of the Typed OM; grounding it there means the browser's own type system is
 the authority. Migration path: extract via Typed OM, canonicalize (oklch/rem), CAS — same
 pipeline, typed at the source.
+
+### Houdini — more (box tree + Typed OM 2)
+
+| Source | What | Use |
+|---|---|---|
+| **Box Tree API** · drafts.css-houdini.org/box-tree-api/ · ED | the native **box tree** (layout boxes, incl. anonymous + generated) — the *used-value structure* below the DOM | the browser-native version of `partition`: partition by **box**, not just element; the true layout tree for used values (post-layout `reflow`) |
+| **CSS Typed OM 2** · drafts.css-houdini.org/css-typed-om-2/ · ED | next Typed OM — more `CSSStyleValue` types, richer `computedStyleMap()` | the forward target for typed extraction (track per next-drafts) |
+
+**So the extraction has a native pair:** **Typed OM** (typed *values*) + **Box Tree API**
+(the *boxes* they apply to). Together = typed atoms on real layout boxes, no string parsing
+and no element-tree approximation — the hermetic, browser-native form of css-project +
+partition. Both ED (provisional); tezcatl/WebKit support is partial, so this is the
+*direction*, with `getComputedStyle` + element signatures the working path today.
