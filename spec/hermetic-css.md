@@ -66,3 +66,28 @@ box), `size` (box size independent of contents); `content` = layout+paint+style;
 **So our CSS projection emits `contain` on each component root** — the boundary the model
 already declares (a component, a query scope) becomes a boundary the *browser* enforces.
 The bound is no longer a claim we make; it's a fact the runtime keeps.
+
+## The engine — browser vs standalone (for hermetic extraction)
+
+Computing styles needs a CSS engine, but **not necessarily a browser.** The engine is
+layered, and each layer has a standalone implementation (W3C software index:
+w3.org/Style/CSS/software):
+
+| Layer | Standalone | Gives us |
+|---|---|---|
+| parse (CSS→AST) | **lightningcss** (Rust) · css-tree/postcss (JS) | the declared rules |
+| cascade → **computed** value | **Servo Stylo** (Rust; Firefox's style system) | computed atoms (no layout) |
+| layout → **used** value | **Taffy** (Rust flex/grid/block) · Yoga | resolved percentages, post-layout |
+| full (parse+cascade+layout+paint) | **Servo** · **WeasyPrint** (Py→PDF) · Prince | everything, no browser |
+
+**Today:** `tezcatl` = WebKit = a full browser — one call gives `getComputedStyle`
+(resolved values). Fast to adopt, but a browser is a *moving target* with ambient state.
+
+**Hermetic direction:** a **Nix-pinned, standalone engine** (Stylo for computed +
+Taffy for used, or WeasyPrint) is deterministic, version-locked, and light — the same
+hermeticity this doc demands of the *cascade*, applied to the *engine that computes it*.
+And `value-stages.md` tells us which layer each proof type needs: **computed → Stylo
+alone**; **used → + Taffy**. Take exactly that layer, no more.
+
+So: tezcatl now; the org's own pinned "computed-style" engine later — analogous to how
+tezcatl is the org's own headless renderer, but CSS-only and hermetic.
