@@ -1,0 +1,52 @@
+/* @bounded-systems/brand — the design system, generated from the synoptic color model.
+ *
+ * Colors: TWO hues (teal ~165 cool · amber ~80 warm) + neutrals, AAA-CONSTRUCTED — every
+ *   text/surface pair is ≥ 7:1 by construction (spec/color-model.md · proof/Contrast.lean).
+ *   Surfaces live in the dark band, text in the light band, the moat between is empty.
+ * Type + space: ratio scales (perception is logarithmic — Weber–Fechner).
+ * Each token is a coordinate in OKLCh; the role names are the design-system's public API,
+ *   the oklch values are the atoms (provenance via the graph/CAS).
+ */
+:root {
+  color-scheme: light dark;
+
+  /* ── surfaces · dark band (teal, L 22–33) ── */
+  --surface:        oklch(22% 0.019 165);   /* ground        · V2 */
+  --surface-raised: oklch(27% 0.022 162);   /* card          · V3 */
+  --surface-line:   oklch(33% 0.024 158);   /* hairline      · V3 */
+
+  /* ── text · light band (teal-tinted, AAA on every surface) ── */
+  --text:           oklch(91% 0.013 156);   /* body          · V9 */
+  --text-muted:     oklch(77% 0.021 160);   /* caption       · V8 (AAA floor on raised) */
+
+  /* ── accent · the two chosen hues ── */
+  --accent:         oklch(80% 0.121 80);    /* amber warm    · large-text / UI */
+  --accent-cool:    oklch(70% 0.134 161);   /* teal cool     · links */
+
+  /* ── semantic aliases (role → atom) ── */
+  --link:   var(--accent-cool);
+  --border: var(--surface-line);
+
+  /* ── type · ratio 1.25 (major third) ── */
+  --font-display: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --font-body:    "Iowan Old Style", "Palatino Linotype", Charter, Georgia, serif;
+  --font-mono:    ui-monospace, "IBM Plex Mono", "SF Mono", Menlo, monospace;
+  --text-xs: 0.8rem; --text-sm: 0.9rem; --text-base: 1rem;
+  --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.9531rem; --text-3xl: 2.4414rem;
+
+  /* ── space · ratio 1.5 ── */
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem;
+  --space-4: 1rem; --space-6: 1.5rem; --space-8: 2.25rem; --space-12: 3.375rem;
+
+  /* ── radius ── */
+  --radius: 0.5rem; --radius-full: 999px;
+}
+
+/* light theme — bands invert (light ground, dark text), same two hues, AAA preserved */
+@media (prefers-color-scheme: light) {
+  :root {
+    --surface: oklch(96% 0.008 95); --surface-raised: oklch(99% 0.005 95); --surface-line: oklch(90% 0.012 120);
+    --text: oklch(27% 0.02 162); --text-muted: oklch(48% 0.02 160);
+    --accent: oklch(55% 0.13 55); --accent-cool: oklch(48% 0.11 162);
+  }
+}
