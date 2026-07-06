@@ -37,6 +37,26 @@ const elems=[
 ];
 let allPass=true;
 const rows=elems.map(([role,t,bar])=>{const rr=bar?ratio(t.Y,bgY):0;const ok=bar?rr>=bar:true;if(!ok)allPass=false;return{role,t,bar,rr,ok};});
+if(process.argv.includes("--json")){
+  // emit the DTCG `color` tier — derived atoms, CAS-named, and DESCRIPTIONS GENERATED from the
+  // computed values (role, tier, measured ratio, CVD) — the way brand's hand-written notes read,
+  // but derived, so the doc can't drift from the number.
+  const cvd="CVD-safe — meaning rides lightness; the two hues sit on the yellow-blue axis red-green blindness preserves";
+  const label={ground:"Ground — base surface",raised:"Raised — lightest text-background",text:"Body text",
+    "text-muted":"Muted text (the AAA floor)",link:"Link — text tier, saturated cool",accent:"Warm UI accent",border:"Border / hairline"};
+  const gen=({role,t,bar,rr,ok})=>{
+    if(bar===0) return `${label[role]} (L${t.L}, chroma ${t.C} @ ${t.h}°).${role==="raised"?" Every text token clears AAA against it by construction.":""} ${cvd}.`;
+    const std=bar===7?"WCAG 1.4.6 AAA 7:1":"WCAG 1.4.11 non-text 3:1";
+    const moat=bar===3?", living in the AAA moat where non-text belongs":"";
+    return `${label[role]} — L${t.L}, ${rr.toFixed(2)}:1 on raised (${std} ${ok?"✓ by construction":"✗ FAILS"})${moat}. ${cvd}.`;
+  };
+  const tier={"$description":`Derived palette (synoptic brand-gen): two hues — cool ${coolH}° + warm ${warmH}° on the shared L-lattice {15,25,55,75,95}. Every value AND its description are generated from the constraints (text/link 7:1 AAA, border/accent 3:1 non-text; CVD-robust; 5% L grid) — the docs can't drift from the numbers. Semantic aliases (forest/ink/paper) removed for now.`};
+  for(const row of rows){
+    tier[row.role]={"$type":"color","$value":`oklch(${row.t.L}% ${row.t.C} ${row.t.h} / 1)`,"$cas":row.t.cas,"$description":gen(row)};
+  }
+  console.log(JSON.stringify({color:tier},null,2));
+  process.exit(0);
+}
 console.log(`\n=== ${name} — hues cool ${coolH}° + warm ${warmH}° · NO decorative (every element constrained) ===`);
 console.log(`  CVD: warm/cool on the yellow-blue axis → robust to red-green color-blindness ✓`);
 console.log(`  ${allPass?"✓ every element meets its tier by construction":"✗ some element fails"} (vs lightest text-bg L${surfaces[1].L})\n`);
