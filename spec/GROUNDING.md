@@ -18,15 +18,19 @@ Read a W3C Spec"):
   *powerless* hue). Read the terminology before the rules.
 - **Conformance section.** It says what "conforming" means and to whom — that's the bar
   we validate against.
-- **Status = grounding strength.** Check https://www.w3.org/Style/CSS/current-work first.
+- **Status = grounding strength**, per the **W3C process** (grounded in
+  w3.org/standards/types/ — the maturity levels are authoritative, not our labels). Check
+  w3.org/Style/CSS/current-work for a CSS spec's status.
 
 ```
-REC   Recommendation            final, stable            ← strongest grounding
-CR/CRD Candidate Recommendation  near-final, testable
-WD    Working Draft             provisional, may change  ← pin the date, expect churn
-ED    Editor's Draft            most provisional
-CG    Community Group Report    de-facto, not W3C track  (DTCG)
-—     de-facto / IETF / ISO     no W3C status
+REC        Recommendation            a web standard, final, stable   ← strongest grounding
+CR / CRD   Candidate Recommendation  (Snapshot | Draft) near-final, testable
+WD / FPWD  Working Draft             in development, may change       ← pin the date, expect churn
+ED         Editor's Draft            most provisional (csswg-drafts)
+Note/Stmt  W3C Note / Statement      NOT a standard (informative)
+Registry   Registry track           a maintained list
+CG         Community Group Report    de-facto, not W3C track          (DTCG)
+—          IETF RFC / ISO / de-facto other body's status             (sitemaps.org, SPDX)
 ```
 
 ## Registry
@@ -113,3 +117,20 @@ stronger** (derivable, not asserted). The CSS WG ships the tooling:
 (extracted from the spec) instead of hand-asserting it — then GROUNDING.md itself is
 `derivable`, the loop is: cite spec → verify vs webref → conformance-test vs WPT →
 validate output vs css-validator.
+
+## Horizontal review — the cross-cutting concerns
+
+W3C reviews every spec against **horizontal concerns**; so should our work. Grounded, with
+relevance (privacy is low for CSS, per note):
+
+| Concern | Authority | Relevance to us |
+|---|---|---|
+| **Accessibility** | **WAI** · w3.org/WAI/standards-guidelines/ — **WCAG 2.1/2.2** (content, REC) · **ARIA** (roles/states) · **ATAG** (authoring) · **UAAG** (user agents) · **css-aam** | **HIGH** — `contrast` (WCAG), ARIA roles in the graph/projection, css-aam mappings; a11y is a first-class projection concern |
+| **Internationalization** | **W3C i18n** · w3.org/mission/internationalization/ — **CSS Writing Modes 3** (logical props, direction), character model, `lang`, bidi | **MEDIUM** — we already extract logical props (`border-block-end`, `padding-inline`); the projection must be direction-aware (`dir`, logical over physical) |
+| **Security** | **W3C security** · w3.org/mission/security/ | **LOW** for CSS; **HIGH** for the claim/signing layer (Sigstore, in-toto, OIDC — already grounded), and `secret-scan` on the public projection |
+| **Privacy** | **W3C privacy** · w3.org/mission/privacy/ | **LOW** for CSS (per note); relevant only if the graph carries PII — `secret-scan --allow email` already gates the projection |
+
+**Rule:** for anything user-facing, run the horizontal check. A11y (WCAG/ARIA, logical
+props) is first-class; security lives in the claim layer; privacy is guarded by
+secret-scan. Prefer **logical** properties over physical, and keep the graph direction-
+and language-aware.
