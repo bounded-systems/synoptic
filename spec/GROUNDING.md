@@ -391,3 +391,26 @@ does arbitrary per-channel math — so **every color-mix is a special case of it
 --uniform` rewrites all derivations into that single form. So the palette is: **N signed
 axioms + a proof tree of one universal operation** (color-mix is semantic sugar naming the
 intent). What relative-color adds that mix can't: constant-chroma L steps and hue rotation.
+
+### AAA and the chroma ceiling — accessibility mutes color (a gamut consequence)
+
+WCAG constrains only **L** (AAA → 2 bands: dark surfaces + light text, mid-L moat forbidden).
+C and H are free *of WCAG* — but the sRGB **chroma ceiling** (max in-gamut C by L) is a lens:
+pinched at the extremes, fat in the middle.
+
+```
+L 24  Cmax 0.16   AAA dark band — LOW ceiling (can't be dark AND vivid)
+L 50–67 Cmax ~0.30  the MOAT — most saturated, and FORBIDDEN for text/bg under AAA
+L 90  Cmax 0.24   AAA light band — moderate
+```
+
+So AAA banishes you to the pinched ends and forbids the vivid middle → **AAA palettes are
+inherently muted, dark surfaces most of all** (this is geometry, not taste — bounded.tools'
+low chroma is *forced* by being AAA, not chosen). Design consequences: put color in the
+*light* band (more room), keep dark surfaces near-neutral, reserve saturated mid-tones for
+large-text/UI (3:1). Distinct-color budget per band = `π·Cmax² / JND²` ≈ 200 (dark) / 450
+(light) colors — the scarcity is entirely in **L**; H and C have enormous unused room.
+
+Grounded: OKLab/OKLCh axes + CSS scaling (CSS Color 4 §9.2; a,b ±0.4 = ±100%, C 0.4 = 100%),
+sRGB gamut, WCAG contrast, JND. The trilogy: L = accessibility budget (bands), C = gamut-
+capped at the L you're forced to, H = free.
