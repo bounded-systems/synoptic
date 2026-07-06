@@ -1,6 +1,13 @@
 // CSS Typed OM (css-typed-om + css-typed-om-2) — the AUTHORITATIVE WebIDL, vendored
-// verbatim from the spec. gen-value-schemas derives value/* from THIS (or @webref/idl in
-// CI). Source: drafts.css-houdini.org/css-typed-om/
+// verbatim. gen-value-schemas derives value/* from THIS (or @webref/idl in CI).
+//
+// PIN — Houdini specs are EDITOR'S DRAFTS (ED, provisional, they MOVE). This is a vendored
+// SNAPSHOT, pinned so the grounding is hermetic:
+//   spec:     CSS Typed OM Level 1 + 2  (css-typed-om, css-typed-om-2)
+//   source:   drafts.css-houdini.org/css-typed-om/ · github.com/w3c/csswg-drafts (Bikeshed)
+//   status:   ED (no W3C maturity; pin the snapshot, expect churn)
+//   vendored: 2026-07-06  (bump this date + re-run gen-value-schemas when re-vendoring)
+//   CI:       @webref/idl pins css-typed-om by release; prefer it over this snapshot
 [Exposed=(Window, Worker, PaintWorklet, LayoutWorklet)]
 interface CSSStyleValue {
     stringifier;

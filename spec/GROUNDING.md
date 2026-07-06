@@ -278,3 +278,13 @@ opaque `sha256:…` and the legible inlined name — both derived solely from co
 needing a namespace. Namespaces (`--bs-*`) disambiguate *authored* names that could
 collide; content names *cannot* collide for the same value, so they need none. The `--bs-*`
 tokens become *aliases* pointing at the content-named atom.
+
+## Pinning the Typed OM WebIDL (Houdini = ED)
+
+The Typed OM lives in **Houdini Editor'"'"'s Drafts** (drafts.css-houdini.org) — **ED, no W3C
+maturity, they move.** So the vendored `spec/typed-om.webidl` is a **pinned snapshot**
+(header carries spec + source + `vendored:` date), the same discipline as pinning a dated
+`/TR` version. In CI, prefer **`@webref/idl`** (pins `css-typed-om` by release). Re-vendor
+by copying the spec'"'"'s WebIDL, bumping the date, and re-running `gen-value-schemas` — the
+generated `value/*` then updates from the new pin. Track next in the next-drafts table
+(Typed OM 2 is where color/math land).
