@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bounded.tools/synoptic/spec/sitemap.schema.json",
+  "title": "Sitemap",
+  "description": "The sitemaps.org 0.9 protocol AS DATA. Authored/validated as this shape, then converted to the XML serialization at emit. Two forms: a urlset (a sitemap) or a sitemapindex (for >50k URLs / multiple sitemaps).",
+  "oneOf": [ { "$ref": "#/$defs/urlset" }, { "$ref": "#/$defs/sitemapindex" } ],
+  "$defs": {
+    "urlset": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "urlset": {
+          "type": "array",
+          "description": "MUST have <= 50,000 entries; the XML file MUST be <= 50MB uncompressed.",
+          "maxItems": 50000,
+          "items": { "$ref": "#/$defs/url" }
+        }
+      },
+      "required": ["urlset"]
+    },
+    "url": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "loc":        { "type": "string", "format": "uri", "maxLength": 2048, "description": "REQUIRED. Full URL incl. protocol; must be under the sitemap's host." },
+        "lastmod":    { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}(T\\d{2}:\\d{2}(:\\d{2})?(Z|[+-]\\d{2}:\\d{2})?)?$", "description": "OPTIONAL. W3C Datetime." },
+        "changefreq": { "enum": ["always", "hourly", "daily", "weekly", "monthly", "yearly", "never"], "description": "OPTIONAL. A hint, not a command." },
+        "priority":   { "type": "number", "minimum": 0.0, "maximum": 1.0, "description": "OPTIONAL. Relative to your OWN URLs; default 0.5." }
+      },
+      "required": ["loc"]
+    },
+    "sitemapindex": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sitemapindex": {
+          "type": "array",
+          "maxItems": 50000,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": { "loc": { "type": "string", "format": "uri" }, "lastmod": { "type": "string" } },
+            "required": ["loc"]
+          }
+        }
+      },
+      "required": ["sitemapindex"]
+    }
+  }
+}

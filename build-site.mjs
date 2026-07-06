@@ -220,19 +220,34 @@ await writeFile(join(outDir, "site.merkle.json"), JSON.stringify({ root: siteRoo
 console.log(`✓ ${outDir}/graph-page.html — ${provenance.length} page(s), each a query-bounded scope`);
 console.log(`✓ ${outDir}/site.merkle.json — site is a Merkle tree · root ${siteRoot.slice(0, 22)}…`);
 
-// ALWAYS emit a sitemap of every routed page, and CHECK each one exists — so every page
-// is enumerable and verifiable (no silent 404s like /who ever again).
+// ALWAYS emit a sitemap of every routed page, and CHECK each one exists — no silent 404s.
+// The sitemap is DATA (spec/sitemap.schema.json); the XML is a converted VIEW of it, so
+// the data is the source of truth (and could later be a claim set, like DTCG).
 const siteBase = (config.graph?.id ? config.graph.id.replace(/#.*$/, "") : `https://${config.site}`).replace(/\/$/, "");
-const urls = routes.map((r) => `${siteBase}/${r ? r + "/" : ""}`);
-await writeFile(join(outDir, "sitemap.xml"),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${u}</loc></url>`).join("\n")}\n</urlset>\n`);
-await writeFile(join(outDir, "sitemap.json"),
-  JSON.stringify({ site: config.site, pages: routes.map((r, i) => ({ route: r, url: urls[i] })) }, null, 2) + "\n");
+const sitemap = {
+  urlset: routes.map((r) => ({
+    loc: `${siteBase}/${r ? r + "/" : ""}`,
+    changefreq: "weekly",
+    priority: r === "" ? 1.0 : 0.8,
+  })),
+};
+await writeFile(join(outDir, "sitemap.json"), JSON.stringify(sitemap, null, 2) + "\n");
+// convert data → the sitemaps.org 0.9 XML serialization.
+const sitemapToXml = (sm) =>
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+  sm.urlset.map((u) =>
+    `  <url>\n    <loc>${u.loc}</loc>` +
+    (u.lastmod ? `\n    <lastmod>${u.lastmod}</lastmod>` : "") +
+    (u.changefreq ? `\n    <changefreq>${u.changefreq}</changefreq>` : "") +
+    (u.priority != null ? `\n    <priority>${u.priority.toFixed(1)}</priority>` : "") +
+    `\n  </url>`).join("\n") +
+  `\n</urlset>\n`;
+await writeFile(join(outDir, "sitemap.xml"), sitemapToXml(sitemap));
 let missing = 0;
 for (const r of routes) {
   const f = join(r === "" ? outDir : join(outDir, r), "index.html");
   try { if ((await readFile(f, "utf8")).trim().length === 0) throw new Error("empty"); }
   catch { missing++; console.log(`  ✗ page ${r === "" ? "/" : "/" + r + "/"} missing or empty`); }
 }
-console.log(`✓ ${outDir}/sitemap.xml — ${routes.length} page(s) listed${missing ? `; ❌ ${missing} MISSING` : ", all present + non-empty"}`);
+console.log(`✓ ${outDir}/sitemap.{json,xml} — ${sitemap.urlset.length} page(s)${missing ? `; ❌ ${missing} MISSING` : ", all present + non-empty"}`);
 if (missing) process.exit(1);
