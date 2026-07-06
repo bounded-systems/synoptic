@@ -100,3 +100,29 @@ route is the production form.
 `prx contract init` → `prx plan/implement/author` → `prx plan handoff`, source via `prx scout
 source` (GH/beads/Notion). On merge, `scripts/deploy-notify-front-desk` posts to the board.
 Two PRs (one per site) → CI (token-a11y stays green) → **gated prod deploy ×2 (human approves)**.
+
+## ⛔ BLOCKER (recon correction, 2026-07-06) — wrong engine for deploy
+
+**synoptic's `build-site.mjs` is NOT the production site generator.** Confirmed:
+- No repo uses `synoptic.config.json` + `data/graph.json` at HEAD.
+- The only production generator found is **`prx/packages/prx/scripts/build-site.ts`** (a
+  separate TS implementation).
+- `bounded.tools.git` = a **Bun GitHub-App webhook receiver** (`src/server.ts`: /health,
+  /setup, /api/github/webhooks) — NOT the public site source. Where the public bounded.tools
+  SITE is generated/deployed is still unlocated.
+- `robertdelanghe.dev` = `bdelanghe.git` `_site/` + Nix flake; `_site/build.mjs` not at that
+  path — build path unconfirmed.
+
+**Consequence:** the `render:"palette"` + `/design/tokens.json` capability (synoptic v0.19.1)
+is correct + verified but lives in the WRONG engine to deploy the live sites. It's a reference
+implementation, not the production path.
+
+**Do NOT deploy until resolved.** Real next steps (a proper investigation, its own unit):
+1. Locate the ACTUAL generator + deploy for each public site (start: `prx build-site.ts`; find
+   the bounded.tools site source; trace robertdelanghe.dev's Nix build).
+2. Decide: port the palette capability to `prx`'s `build-site.ts`, OR have prx consume synoptic.
+3. Only then: the per-site route + gated deploy.
+
+**Honest note:** much of the session built color theory/tools in `synoptic` on the assumption
+it was the production engine. The THEORY + tools (color-model, palette page, DTCG, Lean proof,
+blog) are real and correct; the DEPLOY assumption was wrong. Verify the engine FIRST next time.
