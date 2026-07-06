@@ -47,30 +47,35 @@ const pages = config.build?.pages
   ?? [...new Set(nodes.map((n) => [].concat(n["@type"])[0]).filter(Boolean))]
        .map((t) => ({ id: t, title: t, query: { type: t } }));
 
-function renderNode(n) {
+function renderNode(b) {
+  const { n, strings, nodeRoot } = b;
   const deps = (n.buildsOn ?? n.worksFor ?? []).map((d) => esc(short(d["@id"]))); // edges unrolled
-  return `      <li class="node"><span class="node__name">${esc(n.name ?? n["@id"])}</span>` +
-    (n.description ? ` <span class="node__desc">${esc(n.description)}</span>` : "") +
+  // the LEAVES are the STRINGS: each string field carries its own data-cas (a file in
+  // /cas). The node carries data-node-root (Merkle of its string leaves). Edit the
+  // description → only that string leaf moves; the name, the siblings, all byte-identical.
+  return `      <li class="node" data-node-root="${nodeRoot}">` +
+    `<span class="node__name" data-cas="${strings.name ?? nodeRoot}">${esc(n.name ?? n["@id"])}</span>` +
+    (n.description ? ` <span class="node__desc" data-cas="${strings.description ?? ""}">${esc(n.description)}</span>` : "") +
     (deps.length ? ` <span class="node__deps">→ ${deps.join(", ")}</span>` : "") + `</li>`;
 }
-function renderPage(page, ns, casId) {
-  // a hero section renders its identity node as the page header (name → h1, description
-  // → lede) instead of a bullet — the same shape on every site (org name / person name).
+function renderPage(page, built, casId) {
+  // hero: the identity node's STRINGS are the leaves (name on h1, description on lede),
+  // each with its own data-cas; the section root rides data-section-root.
   if (page.render === "hero") {
-    const n = ns[0] ?? {};
-    return `<header class="hero" data-page="${esc(page.id)}" data-cas="${casId}" data-provenance="/components/graph-site.provenance.json">
-  <h1>${esc(n.name ?? page.title ?? page.id)}</h1>${n.description ? `\n  <p class="lede">${esc(n.description)}</p>` : ""}
+    const b = built[0] ?? { n: {}, strings: {} };
+    const n = b.n;
+    return `<header class="hero" data-page="${esc(page.id)}" data-section-root="${casId}" data-provenance="/components/graph-site.provenance.json">
+  <h1 data-cas="${b.strings.name ?? ""}">${esc(n.name ?? page.title ?? page.id)}</h1>${n.description ? `\n  <p class="lede" data-cas="${b.strings.description ?? ""}">${esc(n.description)}</p>` : ""}
 </header>`;
   }
   const qDesc = page.query?.type ? `${page.query.type}${page.query.where ? " where " + JSON.stringify(page.query.where) : ""}` : "all";
-  // data-cas is the digest of the SOURCE subgraph (the input, stored in /cas), NOT of
-  // this HTML — so inlining it is not self-referencing. The element proves "I am the
-  // projection of attested CAS artifact <casId>"; anyone refetches /cas/<casId> and
-  // re-projects to verify. The OUTPUT html digest lives in the sidecar attestation.
-  return `<section class="g" aria-labelledby="h-${esc(page.id)}" data-page="${esc(page.id)}" data-query="${esc(qDesc)}" data-cas="${casId}" data-provenance="/components/graph-site.provenance.json">
-  <h2 id="h-${esc(page.id)}">${esc(page.title ?? page.id)} <span class="g__n">(${ns.length})</span></h2>
+  // strings are the leaves (each has data-cas); the node carries data-node-root (Merkle
+  // of its string leaves); the section carries data-section-root. Editing one string
+  // moves one leaf + the roots on its path — nothing else.
+  return `<section class="g" aria-labelledby="h-${esc(page.id)}" data-page="${esc(page.id)}" data-query="${esc(qDesc)}" data-section-root="${casId}" data-provenance="/components/graph-site.provenance.json">
+  <h2 id="h-${esc(page.id)}">${esc(page.title ?? page.id)} <span class="g__n">(${built.length})</span></h2>
   <ul class="nodes">
-${ns.map(renderNode).join("\n")}
+${built.map(renderNode).join("\n")}
   </ul>
 </section>`;
 }
@@ -143,16 +148,29 @@ function merkleRoot(hashes) {
 await mkdir(join(outDir, "components"), { recursive: true });
 await mkdir(join(outDir, "cas"), { recursive: true });
 const sections = [], provenance = [], leaves = [];
-// build ONE section: content-address its source subgraph in /cas (data-cas points to
-// the input, not the output → not self-referencing), render it.
+// content-address one value (a string / token) as a LEAF, stored in /cas.
+async function leafOf(value) {
+  const s = JSON.stringify(value);
+  const c = sha(s);
+  await writeFile(join(outDir, "cas", `${c.slice(7)}.json`), s + "\n");
+  return c;
+}
+// a node's leaves are its STRING fields; the node is their Merkle root.
+async function buildNode(n) {
+  const strings = {};
+  for (const f of ["name", "description", "tagline"]) if (n[f] != null && n[f] !== "") strings[f] = await leafOf(n[f]);
+  const nodeRoot = merkleRoot(Object.values(strings));
+  return { n, strings, nodeRoot };
+}
+// a section is the Merkle root of its node roots (which are Merkle roots of string leaves).
 async function buildSection(sec) {
   const matched = nodes.filter((n) => matches(n, sec.query));
-  const subgraph = JSON.stringify(matched);
-  const casId = sha(subgraph);
-  await writeFile(join(outDir, "cas", `${casId.slice(7)}.json`), subgraph + "\n");
-  const html = renderPage({ id: sec.id ?? sec.title ?? "section", title: sec.title, query: sec.query, render: sec.render }, matched, casId).trim() + "\n";
+  const built = [];
+  for (const n of matched) built.push(await buildNode(n));
+  const casId = merkleRoot(built.map((b) => b.nodeRoot));
+  const html = renderPage({ id: sec.id ?? sec.title ?? "section", title: sec.title, query: sec.query, render: sec.render }, built, casId).trim() + "\n";
   const md = renderSectionMd(sec, matched, casId);
-  return { html, md, casId, matched, query: sec.query ?? {} };
+  return { html, md, casId, matched, built, query: sec.query ?? {} };
 }
 
 for (const page of pages) {
