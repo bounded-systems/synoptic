@@ -1,0 +1,23 @@
+package.json
+  s_70508ca017cb29::t_ac4eedc13d67f7 3,29-30
+partition.mjs
+  s_70508ca017cb29::t_85496a86716344 1-39
+spec/GROUNDING.md
+  s_70508ca017cb29::t_ea646a9edb340d 56-57
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "85e08174970a7fe1055da1ce9b05ea367e57510e",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
