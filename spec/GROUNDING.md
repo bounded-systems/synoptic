@@ -53,6 +53,8 @@ CG    Community Group Report    de-facto, not W3C track  (DTCG)
 | `spec/claim.schema.json` | **in-toto/SLSA** + **W3C VC** · REC | slsa.dev · w3.org/TR/vc-data-model/ | attestations / claims + proof + signer |
 | `proof/*.lean` | **Lean 4** kernel | leanprover | kernel-verified theorems |
 | signing | **Sigstore** (Fulcio/Rekor/OIDC) | sigstore.dev | keyless axiom signatures |
+| projections (all) | **CSS Syntax 3** · CR + **CommonMark** | w3.org/TR/css-syntax-3/ · commonmark.org | one graph → aligned surfaces; see PROJECTIONS.md |
+| CRT / inline CSS (LATER) | **CSS Style Attributes** · REC | w3.org/TR/css-style-attr/ | critical-CSS sub-projection to inline <style> |
 | `partition` (MECE audit) | **Selectors 3** · **REC** | w3.org/TR/selectors-3/ | signature buckets (tag+classes) partition the DOM; exhaustive + exclusive |
 | responsive (LATER) | **Media Queries 3** · REC / **5** · WD | w3.org/TR/mediaqueries-3/ · mediaqueries-5/ | audits are per-viewport; full surface = partition × breakpoints |
 | namespaces (all) | **XML-Names** REC · **CSS-NS 3** CR · **JSON-LD** REC · **RFC 3986** | w3.org/TR/xml-names/ · css-namespaces/ | see NAMESPACES.md — our vocabulary registry |
