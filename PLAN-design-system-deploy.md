@@ -36,3 +36,26 @@ the epic. Convert to `bd` tasks in the execution session.
 - Style Dictionary owns the generated css — edit `tokens.json`.
 - Respect the active branch; don't clobber in-progress contrast work.
 - Prod deploys are gated; the agent prepares PRs, the human approves the gate.
+
+## P0 reconcile — DONE (read-only audit of the real brand palette, 2026-07-06)
+
+Ran the color-model tools on brand's actual tokens + its `contrast.contract.json`. Findings:
+- **Exact duplicate**: `color-paper` == `color-card-alt` == `#EDEAE1` (two names, one color).
+- **7 powerless hues** (sub-JND tint, name a hue the eye can't see): `color-paper`,
+  `color-forest-tint`, `color-on-forest`, `color-clay-tint`, `grade-aspirational-bg`,
+  `grade-aspirational-on-dark`, `color-card-alt`.
+- **15 near-duplicate pairs** (ΔEOK < 0.02).
+- brand's contract targets **AA (4.5:1)**, not AAA — our "AAA by construction" aimed higher
+  than the product's own bar.
+- The colors ARE bounded.tools' palette (`color-forest`→oklch 41.69/.0817/166; `color-ink`→
+  oklch 23.84/.0204/162.6) — confirmed the site derives from brand.
+
+**Conclusion — what the theory contributes (and what it must NOT duplicate):**
+- **Contrast = baobab's job** (APCA/CVD/non-text > our WCAG-ratio). Do not reinvent.
+- **Unique contribution = color HYGIENE** baobab doesn't cover: powerless-hue detection,
+  near-dupe/exact-dupe merge, gamut — plus oklch grounding. Composes with baobab.
+
+**Concrete first brand PR (execution session):** a color-hygiene check — dedupe
+`color-paper`/`color-card-alt`, flag the 7 powerless tints — edited in `tokens.json` (Style
+Dictionary source), on the active `feat/check-contrast-dogfood-baobab` branch, kept green
+through `token-a11y`. Small, real, non-duplicative. Then blog route → site bumps → gated deploy.
