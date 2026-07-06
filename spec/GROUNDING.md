@@ -477,3 +477,35 @@ Hue is the trap: `perceptual hue distance ≈ C · Δh`, so at low chroma the hu
 the other ~29 chromatic colors are desaturated members whose hue doesn't independently
 resolve. Choosing the JND coarser (0.02 → 0.05) forces ffewer, more-distinct tokens — a
 design lever, not just a dedup threshold. Grounded: CIEDE2000, OKLab geometry, psychophysics.
+
+### References for the JND / perceptual-distance claims (dated authorities)
+
+- **OKLab / OKLCh** — Björn Ottosson, *"A perceptual color space for image processing"*
+  (2020-12-23) · https://bottosson.github.io/posts/oklab/ · (CSS use: CSS Color 4 §9.2,
+  https://www.w3.org/TR/css-color-4/#ok-lab)
+- **CIEDE2000 ΔE** — Sharma, Wu, Dalal, *"The CIEDE2000 Color-Difference Formula:
+  Implementation Notes…"*, Color Res. Appl. 30(1) 21–30 (2005) · impl.:
+  http://www2.ece.rochester.edu/~gsharma/ciede2000/ · standard: **CIE 15:2004** Colorimetry
+- **Weber–Fechner law** — G. T. Fechner, *Elemente der Psychophysik* (1860) — JND ∝ stimulus
+- **Stevens' power law** — S. S. Stevens, *"On the psychophysical law,"* Psychol. Rev.
+  64(3) 153–181 (1957) · doi:10.1037/h0046162
+- **Premultiplied alpha · powerless components** — CSS Color 4 §12.3 / §12.4 (CR) ·
+  https://www.w3.org/TR/css-color-4/#interpolation-alpha ·
+  https://www.w3.org/TR/css-color-4/#powerless
+- **Contrast** — WCAG 2.2 (REC 2023) · https://www.w3.org/TR/WCAG22/ · APCA (WCAG 3 WD) ·
+  https://www.w3.org/TR/wcag-3.0/
+
+### Universal vs. specific: what "2 hues + neutrals" is (and isn't)
+
+**Not a law — a design choice made visible.** bounded.tools *chose* a warm+cool+grays
+palette; a vibrant brand could resolve 6+ hues. What **is** universal:
+1. **The structure** — every palette = (resolvable hues) + neutrals + a per-hue (L%, C%, α%)
+   lattice. Always.
+2. **The method** — hue count is **chroma-weighted** (hue JND ≈ ΔEOK/C); low-chroma colors
+   never add hues. Always.
+3. **The bias toward few** — restraint is good design, **AAA mutes color** (pushes to
+   neutrals + few hues, per the chroma-ceiling result), and JND collapses drift. So *low*
+   hue counts are common — but the *number* is chosen, not forced.
+
+So: the collapse *to* (hues + neutrals + lattice) always happens; **how many hues** is the
+designer's, revealed by the chroma-weighted count — here, 2.
