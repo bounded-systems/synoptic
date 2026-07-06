@@ -1,0 +1,21 @@
+derive-tokens.mjs
+  s_70508ca017cb29::t_a6073210e30351 38-39,41-43,45-48
+package.json
+  s_70508ca017cb29::t_0e830d63a8f656 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "1e621386d28e8b7b3791ea3ca0a756c81d24f6f6",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
