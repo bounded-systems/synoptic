@@ -1,0 +1,26 @@
+canonicalize.mjs
+  s_70508ca017cb29::t_c331baf98be525 31-53
+  s_70508ca017cb29::t_76223f185a99fd 74-78
+spec/value/color.schema.json
+  s_70508ca017cb29::t_b2ba9301ff769a 1-64
+spec/value/dimension.schema.json
+  s_70508ca017cb29::t_aae2209950f6da 1-14
+spec/value/value.schema.json
+  s_70508ca017cb29::t_0d9cb1a9398956 1-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "7fb9f904ae2b694ac9325cde5e91551728438cd1",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
