@@ -6,6 +6,9 @@
 //   numbers → trimmed
 import { NAMED } from "./named-colors.mjs";
 import { SYSTEM } from "./system-colors.mjs";
+// prefer culori (maintained color lib) when installed; fall back to the hand-rolled math
+// (correct + tested, matches culori) when it isn't (e.g. this sandbox). Retire-to-fallback.
+let culori = null; try { culori = await import("culori"); } catch { /* hand-rolled fallback */ }
 const round = (n, d = 4) => { const f = 10 ** d; return Math.round(n * f) / f; };
 
 // sRGB 0-255 → OKLCH
@@ -27,7 +30,10 @@ function rgbToOklch(r, g, b) {
 function emitOklch(L, C, H, a = 1) {
   return `oklch(${round(L, 2)}% ${round(C, 4)} ${round(C < 1e-4 ? 0 : H, 2)} / ${round(a, 3)})`;
 }
-function color(r, g, b, a = 1) { const { L, C, H } = rgbToOklch(r, g, b); return emitOklch(L * 100, C, H, a); }
+function color(r, g, b, a = 1) {
+  if (culori) { const o = culori.oklch({ mode: "rgb", r: r / 255, g: g / 255, b: b / 255 }); return emitOklch((o.l || 0) * 100, o.c || 0, o.h || 0, a); }
+  const { L, C, H } = rgbToOklch(r, g, b); return emitOklch(L * 100, C, H, a);
+}
 // XYZ (D65) → OkLCh — the general path (used for wide-gamut inputs). CSS Color 4 §9.
 function xyzToOklch(X, Y, Z) {
   const l = Math.cbrt(0.8189330101 * X + 0.3618667424 * Y - 0.1288597137 * Z);
@@ -43,6 +49,7 @@ function xyzToOklch(X, Y, Z) {
 // display-p3 (0-1, sRGB transfer, DCI-P3 primaries, D65) → OkLCh. Wide gamut PRESERVED
 // (chroma can exceed the sRGB range) — this is why oklch is the right canonical form.
 function p3color(r, g, b, a = 1) {
+  if (culori) { const o = culori.oklch({ mode: "p3", r, g, b }); return emitOklch((o.l || 0) * 100, o.c || 0, o.h || 0, a); }
   const lin = (c) => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
   const [R, G, B] = [lin(r), lin(g), lin(b)];
   const X = 0.4865709486 * R + 0.2656676932 * G + 0.1982172852 * B;
@@ -91,4 +98,27 @@ export function canonicalize(value, rootPx = 16) {
     if (px === 0) return "0";
     return `${round(px / rootPx, 4)}rem`;
   }).replace(/\brgba?\([^)]*\)/gi, (c) => { const p = c.match(/[\d.]+/g).map(Number); return color(p[0], p[1], p[2], p[3] ?? 1); });
+}
+
+// canonicalizeTyped — the MODERN, STRUCTURED form: a typed value atom per
+// spec/value/*.schema.json, which IS the CSS Typed OM shape (CSSUnitValue {value,unit},
+// CSSKeywordValue {value}, structured color). The string (canonicalize) is the
+// serialization; this is the data. Units are {value, unit:"rem"}, not "1rem".
+export function canonicalizeTyped(value, rootPx = 16) {
+  const s = canonicalize(value, rootPx);
+  let m;
+  if ((m = s.match(/^oklch\(([\d.]+)% ([\d.]+) ([\d.]+) \/ ([\d.]+)\)$/))) return { $type: "color", colorSpace: "oklch", l: +m[1], c: +m[2], h: +m[3], alpha: +m[4] };
+  if (s === "0") return { $type: "dimension", value: 0, unit: "rem" };
+  if ((m = s.match(/^(-?[\d.]+)rem$/))) return { $type: "dimension", value: +m[1], unit: "rem" };
+  if ((m = s.match(/^(-?[\d.]+)%$/))) return { $type: "percentage", value: +m[1], unit: "%" };
+  if (/^-?[\d.]+$/.test(s)) return { $type: "number", value: +s };
+  if (s.includes(",") || /^".*"/.test(s) || /\b(serif|sans-serif|monospace|system-ui)\b/.test(s)) {
+    const list = s.split(",").map((x) => x.trim().replace(/^"|"$/g, ""));
+    const GEN = ["serif", "sans-serif", "monospace", "cursive", "fantasy", "system-ui", "ui-serif", "ui-sans-serif", "ui-monospace", "ui-rounded", "math", "emoji"];
+    const g = list[list.length - 1];
+    return { $type: "fontFamily", value: list, ...(GEN.includes(g) ? { generic: g } : {}) };
+  }
+  if (/^[A-Z]/.test(s)) return { $type: "keyword", value: s, system: true }; // system color keyword
+  if (/^-?[a-z][a-z0-9-]*$/.test(s)) return { $type: "keyword", value: s };
+  return { $type: "unknown", raw: s };
 }

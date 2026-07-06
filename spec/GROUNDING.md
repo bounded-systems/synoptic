@@ -228,3 +228,24 @@ Honest map: below the substrate, **use the library**; the substrate is where our
 
 **Rule:** if a spec or a maintained library already does it, ground on / use that. Spend
 our effort only on the substrate (CAS/claims/proof/graph) — the part that doesn't exist.
+
+## Typed OM → JSON Schema (value/* is the projection)
+
+The **CSS Typed OM** is our value model, native. `spec/value/*.schema.json` **is the
+projection of the Typed OM WebIDL** — *derivable* (`webref` → `webidl2` → Zod → JSON
+Schema), not hand-asserted. No standard Zod-over-Typed-OM exists; we **generate** it from
+webref's IDL (`@webref/idl`).
+
+| CSS Typed OM (WebIDL) | our schema |
+|---|---|
+| `CSSUnitValue { value: double, unit }` | `value/dimension` (unit `rem`) · `value/percentage` · `value/number` |
+| `CSSKeywordValue { value }` | `value/keyword` (incl. system colors) |
+| `CSSStyleValue` (color) | `value/color { colorSpace:oklch, l, c, h, alpha }` |
+| `CSSNumericValue` / `CSSMathValue` | `value/number` (+ `calc()` later) |
+| `CSSStyleValue` (composite) | `value/shadow` · `value/typography` — merkle of sub-atoms |
+
+`canonicalizeTyped()` emits exactly this shape (the modern `{value, unit}` form, not
+`"1rem"`); `element.computedStyleMap()` sources it natively in the browser. So: **extract
+via Typed OM → typed atoms (schema = projected IDL) → canonicalize (oklch/rem, culori) →
+CAS.** Color math via **culori** (nix-provided; hand-rolled fallback). The value layer is
+now the browser's own type system, projected to JSON Schema and content-addressed.
