@@ -154,3 +154,18 @@ github.com/w3c/groups.
 **`reflow` note:** the CSS-a11y TF is where SC 1.4.10 lives (CSS∩a11y). Our `reflow` audit
 is correct but **inconclusive** until a viewport-capable engine runs it (tezcatl `--width`
 → `--eval`, or the pinned responsive engine) — tracked in hermetic-css.md's engine section.
+
+## Houdini & the spec source (the machine-readable substrate)
+
+| Source | What | Use |
+|---|---|---|
+| **csswg-drafts** · github.com/w3c/csswg-drafts (Bikeshed) | the source of **every** CSS spec, in one repo, per-commit | **pin a commit** → hermetic grounding of the spec *text* itself (not just the dated /TR snapshot) |
+| **CSS Typed OM** · Houdini · drafts.css-houdini.org/css-typed-om/ · WD | native typed CSS values: `CSSUnitValue{value,unit}`, `CSSKeywordValue`, `CSSNumericValue`, `CSSStyleValue` | this **IS** our value-type model, browser-native — `element.computedStyleMap()` returns typed values, no string-parsing. Validates `value/*.schema.json`; a cleaner extraction than `getComputedStyle` |
+| **Properties & Values API** · Houdini · drafts.css-houdini.org/css-properties-values-api/ · CR | `@property { syntax; inherits; initial }` — typed, controlled-inheritance custom properties | grounds hermetic-css `@property inherits:false`; typed tokens with a declared `syntax` (`<color>`, `<length>`) |
+| **Paint / Layout API** · Houdini | worklets that participate in render/layout | (later) a projection could ship a paint/layout worklet |
+
+**Key alignment:** `getComputedStyle` → strings (we parse + type them). `computedStyleMap()`
+→ **already-typed** `CSSStyleValue`s = our atoms, for free. Our `spec/value/*` is a
+re-derivation of the Typed OM; grounding it there means the browser's own type system is
+the authority. Migration path: extract via Typed OM, canonicalize (oklch/rem), CAS — same
+pipeline, typed at the source.
