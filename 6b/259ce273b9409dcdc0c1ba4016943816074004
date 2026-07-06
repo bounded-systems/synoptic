@@ -1,0 +1,21 @@
+axis-name.mjs
+  s_70508ca017cb29::t_6c987eb35af77a 37
+  s_70508ca017cb29::t_32ece8be915048 34-36
+  s_70508ca017cb29::t_fcc8f068d56b97 38-40
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "6b259ce273b9409dcdc0c1ba4016943816074004",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
