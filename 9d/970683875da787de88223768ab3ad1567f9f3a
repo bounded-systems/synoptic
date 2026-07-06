@@ -1,0 +1,31 @@
+package.json
+  s_70508ca017cb29::t_0c9be7101f5298 3,40-41
+scale.mjs
+  s_718135bd5fdd3e::t_0c056c09d187c4 1-48
+spec/color-model.md
+  s_70508ca017cb29::t_a370823a0356eb 255-281
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "9d970683875da787de88223768ab3ad1567f9f3a",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    },
+    "s_718135bd5fdd3e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b78cafe7-00a2-460c-8a2e-4f2b98432e5f",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
