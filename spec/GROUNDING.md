@@ -58,7 +58,7 @@ CG         Community Group Report    de-facto, not W3C track          (DTCG)
 | **layout** (LATER) | **CSS Display 3** · CR · **Flexbox 1** · CR · **Grid 2** · CR · **Box 3/4** · **Position 3** | w3.org/TR/css-display-3/ · css-flexbox-1/ · css-grid-2/ | display/flex/grid/position — mostly keyword+number+dimension atoms (already typed); grid track-lists are composites; not yet EXTRACTED (css-project KEYS are design, not structure) |
 | basic UI (LATER) | **CSS UI 3** · REC | w3.org/TR/css-ui-3/ | box-sizing, outline, cursor, text-overflow, resize |
 | logical props / i18n (LATER) | **CSS Writing Modes 3** · REC | w3.org/TR/css-writing-modes-3/ | block/inline logical properties, direction, orientation (we already see border-block-end / padding-inline in the extraction) |
-| `contrast` | **WCAG 2.1** · **REC** | w3.org/TR/WCAG21/ | AA/AAA contrast, large-text thresholds |
+| `contrast` | **WCAG 2.2** · **REC** (2023) | w3.org/TR/WCAG22/ | SC **1.4.3** Contrast (Minimum, AA 4.5/3) + **1.4.6** (Enhanced, AAA 7/4.5); large-text thresholds. 2.2 supersedes 2.1 (backward-compatible; adds Focus Appearance, Target Size, …) |
 | `sitemap.{json,xml}` | **sitemaps.org 0.9** · de-facto + XSD | sitemaps.org/protocol.html | urlset, strict-sort priority; VALIDATES vs official XSD |
 | sitemap `synoptic:` ext | **sitemaps.org** ext · de-facto | sitemaps.org/protocol.html#extending | `<synoptic:root>`; declared in `synoptic-sitemap.xsd` |
 | `robots.txt` | **robotstxt.org** · de-facto | robotstxt.org | User-agent + Sitemap |
@@ -68,7 +68,7 @@ CG         Community Group Report    de-facto, not W3C track          (DTCG)
 | projections (all) | **CSS Syntax 3** · CR + **CommonMark** | w3.org/TR/css-syntax-3/ · commonmark.org | one graph → aligned surfaces; see PROJECTIONS.md |
 | CRT / inline CSS (LATER) | **CSS Style Attributes** · REC | w3.org/TR/css-style-attr/ | critical-CSS sub-projection to inline <style> |
 | `partition` (MECE audit) | **Selectors 3** · **REC** | w3.org/TR/selectors-3/ | signature buckets (tag+classes) partition the DOM; exhaustive + exclusive |
-| responsive (LATER) | **Media Queries 3** · REC / **5** · WD | w3.org/TR/mediaqueries-3/ · mediaqueries-5/ | audits are per-viewport; full surface = partition × breakpoints |
+| responsive + reflow | **Media Queries 3** · REC / **5** · WD + **WCAG 2.2 SC 1.4.10** Reflow (AA) | w3.org/TR/mediaqueries-3/ · w3.org/TR/WCAG22/#reflow | audits are per-viewport; full surface = partition × breakpoints. REFLOW: render at **320 CSS px** width → assert no horizontal scroll (`scrollWidth ≤ clientWidth`), except content needing 2D layout (maps, data tables). Needs viewport control (tezcatl `--width`, or the pinned responsive engine) |
 | namespaces (all) | **XML-Names** REC · **CSS-NS 3** CR · **JSON-LD** REC · **RFC 3986** | w3.org/TR/xml-names/ · css-namespaces/ | see NAMESPACES.md — our vocabulary registry |
 | `graph` / `/json.ld` | **JSON-LD 1.1** · **REC** + schema.org | w3.org/TR/json-ld11/ | the normalized linked graph |
 | `sbom` | **SPDX 2.3** · ISO/IEC 5962 | spdx.dev | the claims SBOM |
