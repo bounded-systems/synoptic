@@ -75,3 +75,28 @@ Then the site generates `/palette/` from ITS OWN brand tokens (bounded.tools →
 form. **Do this in BOTH repos** (bounded.tools.git, robertdelanghe.dev) as PRs → CI → gated
 prod deploy. The standalone `blog/palette.html` (gen-palette-page) is the static preview; the
 route is the production form.
+
+## Route + DTCG — engine DONE (v0.19.1); per-site deploy is a prx work unit
+
+**Engine (synoptic, verified):**
+- `render: "palette"` → the `/design/colors` page (swatch · oklch · per-axis name · value leaf).
+- `/design/tokens.json` → **DTCG** projection (designtokens.org), grouped `color.*`/`space.*`.
+- Route is just a config string: `"route": "design/colors"` (nests, no engine change).
+
+**Per-site config (BOTH sites) — one page each:**
+```json
+{ "id": "design-colors", "title": "Colors", "route": "design/colors", "render": "palette",
+  "query": { "type": "PropertyValue", "where": { "additionalType": "color" } } }
+```
+
+**OPEN reconnaissance (do FIRST in the execution session):**
+- Verify HOW each site builds. `bounded.tools.git` looks like a **TS/Deno project** (package.json,
+  tsconfig, content/strings.json) — confirm it actually runs synoptic `build-site.mjs` +
+  `config.build.pages` before adding the route. Find `robertdelanghe.dev`'s repo (likely under
+  `bdelanghe/`) and its build.
+- Worktrees exist: `bounded.tools/mainx`, `brand/mainx` under `~/.local/state/git/worktrees/...`.
+
+**Orchestration (gh-project-room helps here):** run as a `prx` work unit IN A WORK TREE —
+`prx contract init` → `prx plan/implement/author` → `prx plan handoff`, source via `prx scout
+source` (GH/beads/Notion). On merge, `scripts/deploy-notify-front-desk` posts to the board.
+Two PRs (one per site) → CI (token-a11y stays green) → **gated prod deploy ×2 (human approves)**.
