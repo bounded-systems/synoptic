@@ -249,3 +249,25 @@ webref's IDL (`@webref/idl`).
 via Typed OM → typed atoms (schema = projected IDL) → canonicalize (oklch/rem, culori) →
 CAS.** Color math via **culori** (nix-provided; hand-rolled fallback). The value layer is
 now the browser's own type system, projected to JSON Schema and content-addressed.
+
+## Content names — the name IS the value (Typed OM internal representation, inlined)
+
+`name-values` names each distinct value by **inlining its value** — no namespace, no
+bucketing. This projects the **CSS Typed OM internal representation**
+(drafts.css-houdini.org/css-typed-om/#css-internal-representation — a color's
+`{l,c,h,alpha}`, a length's `{value,unit}`) directly into the name:
+
+```
+oklch-23_84-0_0204-162_64-1   ← the color's internal representation, inlined
+0_25rem · 1rem · 0            ← the dimension, inlined
+space-grotesk--sans-serif    ← the font stack, inlined
+normal · none                ← keywords are themselves
+```
+
+**The name is a human-readable content-address.** Two properties: (1) identical values →
+identical names, always (unique per value — verified 107/107); (2) the value is *legible*
+from the name (unlike the sha256 address). So each atom has two content-addresses: the
+opaque `sha256:…` and the legible inlined name — both derived solely from content, neither
+needing a namespace. Namespaces (`--bs-*`) disambiguate *authored* names that could
+collide; content names *cannot* collide for the same value, so they need none. The `--bs-*`
+tokens become *aliases* pointing at the content-named atom.
