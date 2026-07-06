@@ -1,0 +1,24 @@
+color-health.mjs
+  s_70508ca017cb29::t_b11bacfd69f125 33,45-59
+  s_70508ca017cb29::t_187e0b90a32ca2 30-32
+  s_70508ca017cb29::t_990f50de27c5d3 34-36,42-44
+  s_70508ca017cb29::t_4607cda4e8def9 60-62
+package.json
+  s_70508ca017cb29::t_750fac446efd9d 3,35-36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "fceed2358782e2cec7c6f752e4679d1be758a218",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
