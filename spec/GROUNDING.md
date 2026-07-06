@@ -509,3 +509,20 @@ palette; a vibrant brand could resolve 6+ hues. What **is** universal:
 
 So: the collapse *to* (hues + neutrals + lattice) always happens; **how many hues** is the
 designer's, revealed by the chroma-weighted count — here, 2.
+
+### The 148 named colors validate the model (49 hues + 23 neutrals)
+
+Converting the full CSS Color 4 `<named-color>` set to oklch and applying the chroma-weighted
+hue analysis: **148 names → 49 distinct hues + 23 neutrals**, and **31 hues are shared by 2+
+names**. So most named colors are *the same hue at different (L%, C%)* — the naming invents
+distinctions the color space doesn't have:
+- green hue ~144° holds **9** names (`green, lime, forestgreen, lightgreen, palegreen,
+  darkgreen, darkseagreen, limegreen, honeydew`); magenta ~328° holds 8; cyan ~196° holds 9.
+- `maroon` **is** `red` at low L%; `dark-`/`light-`/`medium-`/`pale-` prefixes literally encode
+  **lightness & chroma percentages** off a shared hue.
+- Named colors that **lie about their hue** (sub-JND tint → counted neutral): `aliceblue`,
+  `azure`, `ghostwhite`, `mintcream`, `ivory`, `linen`, `seashell`, `floralwhite`.
+
+An external, authoritative palette collapses to the exact structure we derived — **hues +
+neutrals + a per-hue (L%, C%, α%) lattice** — with the `dark/light/pale` names as its mixins.
+Grounded: CSS Color 4 §6.1 named colors + OKLab + the chroma-weighted hue JND (≈ ΔEOK/C).
