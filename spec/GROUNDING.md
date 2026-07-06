@@ -329,3 +329,31 @@ color decomposes into a **profile atom** + a **channels atom** `[c,m,y,k…]`; t
   conversion (a proof-ladder call).
 
 Grounded: CSS Color 5 §5.4/§11–14 · `CSSColorProfileRule`.
+
+## Perceptual distance (JND) — the resolution of the value space
+
+The principle under the whole engine: **every value dimension has a just-noticeable-
+difference (JND)** — a threshold below which two values are perceptually identical, above
+which they're distinct. This is *why* canonicalization + content-addressing are principled,
+not arbitrary.
+
+| dimension | perceptual distance | our use |
+|---|---|---|
+| color | **ΔEOK** (oklab distance); ~0.02 ≈ JND, CIEDE2000 ΔE≥1 "just visible" | near-dupe merge (`color-review`), powerless-hue cutoff (`color-health`) |
+| lightness / readability | **WCAG contrast** — a *task* distance (readable, not just distinct) | `contrast`; the L-band/moat geometry |
+| size / weight / spacing | a **ratio** (Weber–Fechner / Stevens: perception ∝ log stimulus) | type/space scales are ratios, not fixed steps |
+
+Consequences:
+1. **Sub-JND differences collapse to one atom** — canonicalization is exactly this (float
+   noise, rounding, invisible tints all reduce to one content-address). A value is *real*
+   only if ≥ 1 JND from its neighbors.
+2. **The atom set is finite and small** — perception quantizes the space; the content atoms
+   are the quanta (42 colors → 16 axioms approaches the count of genuinely distinct
+   decisions).
+3. **Task rules impose distances *larger* than the JND → structure.** "Distinguishable" is
+   the JND floor; "readable" (contrast) → **bands**; "feels like a step" (type) → **scales/
+   ratios**. Moats and ladders are perceptual minimums turned into design rules.
+
+Grounded: color science (ΔE, CIEDE2000, OKLab), psychophysics (Weber–Fechner / Stevens),
+WCAG (task-level contrast). See [[project_check_layers]] — sub-JND = no real distinction to
+axiomatize.
