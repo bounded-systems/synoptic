@@ -36,12 +36,13 @@ function allAttrs(ifaces, name) {
     for (const at of ifaces[n].attrs) if (!(at.name in seen)) { seen[at.name] = at; order.unshift(at); }
   return order;
 }
-const IDL_TO_JSON = { double: "number", "unrestricted double": "number", float: "number", long: "integer", "unsigned long": "integer", USVString: "string", DOMString: "string", ByteString: "string", boolean: "boolean" };
+const IDL_TO_JSON = { CSSColorPercent: "number", CSSColorNumber: "number", CSSColorAngle: "number", CSSOMString: "string", double: "number", "unrestricted double": "number", float: "number", long: "integer", "unsigned long": "integer", USVString: "string", DOMString: "string", ByteString: "string", boolean: "boolean" };
 
 // map a Typed OM interface → our value $type + extra canonical constraints
 const MAP = {
   CSSUnitValue: { $type: "dimension", note: "length in canonical unit rem", extra: { unit: { const: "rem" } } },
   CSSKeywordValue: { $type: "keyword", note: "a CSS keyword / <ident>" },
+  CSSOKLCH: { $type: "color", note: "oklch color (Typed OM 2)", inject: { colorSpace: { const: "oklch" } } },
 };
 
 const ifaces = parse(idl);
@@ -51,6 +52,7 @@ for (const [iface, map] of Object.entries(MAP)) {
   if (!ifaces[iface]) continue;
   const props = { $type: { const: map.$type } };
   const required = ["$type"];
+  for (const [k, v] of Object.entries(map.inject || {})) { props[k] = v; required.push(k); }
   for (const at of allAttrs(ifaces, iface)) {
     props[at.name] = { ...(IDL_TO_JSON[at.type] ? { type: IDL_TO_JSON[at.type] } : {}), ...(map.extra?.[at.name] || {}) };
     required.push(at.name);

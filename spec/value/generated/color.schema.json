@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bounded.tools/synoptic/spec/value/generated/color.schema.json",
+  "title": "Color",
+  "description": "GENERATED from CSS Typed OM `CSSOKLCH` (vendored) — oklch color (Typed OM 2). Do not hand-edit; run gen-value-schemas.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$type": {
+      "const": "color"
+    },
+    "colorSpace": {
+      "const": "oklch"
+    },
+    "alpha": {
+      "type": "number"
+    },
+    "h": {
+      "type": "number"
+    },
+    "c": {
+      "type": "number"
+    },
+    "l": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "$type",
+    "colorSpace",
+    "alpha",
+    "h",
+    "c",
+    "l"
+  ],
+  "x-generatedFrom": {
+    "typedOM": "CSSOKLCH",
+    "source": "vendored"
+  }
+}

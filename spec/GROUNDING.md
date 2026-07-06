@@ -244,6 +244,13 @@ webref's IDL (`@webref/idl`).
 | `CSSNumericValue` / `CSSMathValue` | `value/number` (+ `calc()` later) |
 | `CSSStyleValue` (composite) | `value/shadow` · `value/typography` — merkle of sub-atoms |
 
+**Color generates too** (my earlier L1-only claim was wrong): CSS Typed OM **Level 2**
+has the color interfaces — `CSSOKLCH { l, c, h, alpha }`, `CSSColor { colorSpace, channels,
+alpha }`, `CSSRGB`/`CSSHSL`/`CSSLab`/`CSSLCH`/`CSSOKLab` — so `value/color` is GENERATED
+from `CSSOKLCH` (see spec/value/generated/). Only the *composites* (`shadow`, `typography`)
+and `fontFamily` stay grounded extensions (no distinct Typed OM interface). `var()` refs
+are `CSSUnparsedValue`/`CSSVariableReferenceValue` (§5.3–5.4) — the authored token graph.
+
 `canonicalizeTyped()` emits exactly this shape (the modern `{value, unit}` form, not
 `"1rem"`); `element.computedStyleMap()` sources it natively in the browser. So: **extract
 via Typed OM → typed atoms (schema = projected IDL) → canonicalize (oklch/rem, culori) →
