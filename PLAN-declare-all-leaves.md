@@ -36,21 +36,48 @@ Botanical, matching `trellis` / `baobab`:
 - **`canopy`** — the totality of a tree's leaves.
 - **`prism`** — one input split into its declared spectrum (less botanical).
 
-## The leaf model
+## The leaf model (logic-first, à la Tokens Studio)
+
+A leaf is **not always a raw value.** Following Tokens Studio's logic-first model
+(references, inheritance, calculations — not flat values), leaves split by *how they get
+their value* — which is exactly our proof ladder, one level down:
 
 ```
-Leaf = { id, type, role?, value, address }
-  type:   "token" | "string"
-  role:   token → color|space|type|radius|… ; string → name|description|prose|label|…
-  value:  the atom itself ("content store", "#0C5A42", "16px")
-  address: sha256(value)  — the content address, the /cas key
+Leaf =
+  | Primitive  { id, type, role, value, address }            — AXIOM: a raw atom, declared
+  | Alias      { id, ref: <leaf-id> }                         — DERIVABLE: points at a leaf
+  | Computed   { id, expr: "<leaf-id> * 2" | fn }             — DERIVABLE: computed from leaves
+  type:    "token" | "string"
+  role:    token → color|space|type|radius|… ; string → name|description|prose|label|…
+  address: sha256(resolved value) — the /cas key (aliases/computed resolve first)
 ```
 
-- **Declaration** lives in the registry (below), not in `strings.json`/`registry.json`.
-- **Reference**: a node/content field holds a leaf `id` (or address), never an inline
-  value. Resolution replaces the ref with the declared leaf at compose time.
+- **Declare only the primitives.** Aliases and computed leaves carry their own basis
+  (recompute), so — per "sign only claims with no basis" — **only primitive leaves are
+  axioms and need declaring/signing.** The goal restated: *declare all primitive leaves,
+  derive the rest.* Fewer primitives = smaller trusted base.
+- **Reference**: a node/content field holds a leaf `id`, never an inline value.
+- **History for free**: a leaf's version chain is its digest chain (content-addressed) —
+  "your source of truth finally has history," via `/cas` + git, no extra machinery.
 - **Composition** is unchanged from v0.9.5: node = Merkle(its leaf refs), section =
   Merkle(nodes), page = Merkle(sections), site = Merkle(pages).
+
+## Leaf sets & themes (the bridge, at the atom level)
+
+Tokens Studio combines **token sets** into **themes** for multi-brand. Same here:
+
+```
+set        a named group of declared leaves (e.g. org-tokens, org-prose, personal-prose)
+theme      a site = an ordered stack of sets (shared sets + local sets); later sets win
+```
+
+- **bounded.tools** = `[shared-tokens, shared-prose, bounded-local]`
+- **bdelanghe**    = `[shared-tokens, shared-prose, personal-local]`
+
+A leaf in a shared set resolves to **one address** on both sites — that *is* the bridge,
+at the leaf. Overriding a shared leaf in a local set is a declared, addressed override,
+not a fork. This subsumes the earlier `build.theme` map: the theme is a set stack, not a
+hand-written role→token table.
 
 ## Phases
 
@@ -100,6 +127,9 @@ an undeclared atom, and you can't hide a declaration that proves nothing.
 - `/leaves` projected management page (Phase 5).
 - `leaf-coverage` gate (Phase 6).
 - Migration codemod (`{$value}` → `{$leaf}`), run on both sites (Phase 3).
+- **Interop export**: the registry emits W3C DTCG / Style-Dictionary-compatible token
+  output, so the *token* leaves flow to Tokens Studio / Figma / iOS / Android like any
+  design-token source — we author leaves once, export to every surface.
 
 ## Verification
 
