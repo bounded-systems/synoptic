@@ -440,3 +440,20 @@ relative-color **is** the group. The canonical derivation record is just **4 (sc
 pairs**; whether it renders as `color-mix` or `oklch(from …)` is a surface choice, not a
 different operation. Grounded: CSS Color 5 (color-mix §11, relative color) · the palette
 proof tree ([[project_check_layers]]).
+
+### Degenerate points — where axes stop carrying information
+
+Some regions of color space collapse axes; storing the collapsed axis is redundant noise.
+Ordered by strength:
+
+| condition | what collapses | canonical atom |
+|---|---|---|
+| **α = 0** (full transparency) | **everything** — L, C, H all unobservable; premultiplied interpolation zeroes the channels (CSS Color 4 §12.3) | ONE `oklch(0% 0 0 / 0)` — the compositing identity ("nothing") |
+| **C = 0** (achromatic) | **H** — hue is *powerless* (CSS Color 4 §12.4) | one gray per (L, α) |
+| **L = 0 / 100** (in-gamut ⇒ C→0) | H (and C) | black / white |
+
+Full transparency IS valid — it's the identity element of compositing (`X` over transparent
+= `X`) — but there is exactly **one** of it; all α=0 colors are the same value. `emitOklch`
+now collapses every α=0 to the single transparent atom (the α-axis analog of the powerless-
+hue collapse; the JND on all other axes is infinite when nothing is shown). Grounded: CSS
+Color 4 §12.3 (premultiplied alpha) · §12.4 (powerless components) · [[project_check_layers]].

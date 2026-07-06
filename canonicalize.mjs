@@ -28,6 +28,10 @@ function rgbToOklch(r, g, b) {
 // emit canonical oklch (L given 0-100). The single output form for ALL colors, with the
 // optional alpha ALWAYS set explicitly (no implicit default) — every color is L C H / a.
 function emitOklch(L, C, H, a = 1) {
+  // full transparency is DEGENERATE: at alpha 0 the color is unobservable (and premultiplied
+  // interpolation zeroes its channels), so ALL alpha-0 colors collapse to one transparent
+  // atom — L/C/H below the observability floor. CSS Color 4 §12.3 (premultiplied alpha).
+  if (round(a, 3) === 0) return "oklch(0% 0 0 / 0)";
   return `oklch(${round(L, 2)}% ${round(C, 4)} ${round(C < 1e-4 ? 0 : H, 2)} / ${round(a, 3)})`;
 }
 function color(r, g, b, a = 1) {
