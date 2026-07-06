@@ -213,3 +213,22 @@ no naming standard is needed; a single-axis label (unique hue, Munsell value) is
 - **Munsell** — ASTM D1535 *Standard Practice for Specifying Color by the Munsell System*.
 - **ISCC-NBS** — Kelly & Judd, *Color: Universal Language and Dictionary of Names*, NBS Spec.
   Publ. 440 (1976).
+
+## 9. The applied per-axis naming — `axis-name`
+
+Formalized and applied: each color is named **per axis**, never composite — Munsell-in-oklch.
+
+| axis | name | grounding |
+|---|---|---|
+| **HUE** | 11 landmarks anchored on the **4 OKLab unique hues** — red 29.23°, yellow 109.77°, green 142.5°, blue 264.05° (measured from pure sRGB primaries) — + interpolated blends (marked `*`) | OKLab opponent axes (unique = formal); Munsell hue families |
+| **VALUE** | `V0..V10` = `round(L/10)` — black(0) … white(10) | Munsell Value |
+| **CHROMA** | `C%` of the **gamut ceiling** at (L,H), tiered `neutral · grayish · muted · moderate · strong · vivid` | gamut-relative (our scale); Munsell Chroma / ISCC-NBS saturation |
+| **ALPHA** | opacity % | — |
+
+Output is a **coordinate name** — `teal* · V2 · C37%` — the per-axis analog of Munsell
+`5R 4/14`; no composite word. Neutrals (C<0.02) → `neutral · V#`; α=0 → `transparent`.
+
+Applied, it re-proves §7 on individual colors: `#800000` maroon → **`red · V4 · C98%`** (red
+at low value — the composite name dissolves); `#F0F8FF` aliceblue → **`neutral · V10`** (the
+composite name lies; there is no hue). bounded.tools reads as `teal*`/`green`/`amber` across
+V2–V9 at various chroma — **2 hues, a value ladder, a chroma range**, in three independent axes.
