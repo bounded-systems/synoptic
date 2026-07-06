@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Palette</title>
+<meta name="description" content="The design-system palette, each color in OKLCh with its per-axis name.">
+<style>
+:root{--g:#16221C;--t:#D2E0D8;--l:#888374;--mono:ui-monospace,"IBM Plex Mono",monospace;--disp:"Space Grotesk",system-ui,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--g);color:var(--t);font-family:var(--disp);line-height:1.5}
+.wrap{max-width:64rem;margin:0 auto;padding:clamp(1.5rem,5vw,4rem)}
+header{border-bottom:1px solid var(--l);padding-bottom:1.5rem;margin-bottom:2rem}
+h1{font-weight:600;font-size:clamp(2rem,7vw,3.2rem);letter-spacing:-.02em;margin:0}
+.sub{opacity:.7;font-family:var(--mono);font-size:.8rem;margin:.6rem 0 0}
+h2{font-family:var(--mono);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin:2.5rem 0 1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(13rem,1fr));gap:1rem}
+.sw{margin:0;border:1px solid var(--l);border-radius:12px;overflow:hidden;background:rgba(128,128,128,.06)}
+.chip{height:5.5rem}
+figcaption{padding:.7rem .8rem;display:flex;flex-direction:column;gap:.15rem;font-family:var(--mono);font-size:.72rem}
+figcaption b{font-weight:400;color:var(--t)}
+.axis{opacity:.95;font-family:var(--disp);font-size:.8rem;margin:.1rem 0}
+.ok{opacity:.65}.hex{opacity:.45;letter-spacing:.04em}
+footer{margin-top:3rem;border-top:1px solid var(--l);padding-top:1.2rem;font-family:var(--mono);font-size:.72rem;opacity:.6}
+</style></head><body><div class="wrap">
+<header><h1>Palette</h1><p class="sub">34 tokens · each color in OKLCh + its per-axis name (hue · Value · Chroma% of gamut)</p></header>
+<h2>Brand</h2><div class="grid"><figure class="sw">
+  <div class="chip" style="background:#0C5A42"></div>
+  <figcaption><b>--color-forest</b>
+    <span class="axis">teal* (above green 24°) · V4 · C93% (vivid)</span>
+    <span class="ok">oklch(41.69% 0.0817 166.22)</span>
+    <span class="hex">#0C5A42</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#073D2C"></div>
+  <figcaption><b>--color-forest-deep</b>
+    <span class="axis">teal* (above green 24°) · V3 · C90% (vivid)</span>
+    <span class="ok">oklch(32.14% 0.0619 166.35)</span>
+    <span class="hex">#073D2C</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#EDEAE1"></div>
+  <figcaption><b>--color-paper</b>
+    <span class="axis">neutral · V9 (near-white)</span>
+    <span class="ok">oklch(93.69% 0.0124 91.52)</span>
+    <span class="hex">#EDEAE1</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#FFFFFF"></div>
+  <figcaption><b>--color-card</b>
+    <span class="axis">neutral · V10 (white)</span>
+    <span class="ok">oklch(100% 0 0)</span>
+    <span class="hex">#FFFFFF</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#EDEAE1"></div>
+  <figcaption><b>--color-card-alt</b>
+    <span class="axis">neutral · V9 (near-white)</span>
+    <span class="ok">oklch(93.69% 0.0124 91.52)</span>
+    <span class="hex">#EDEAE1</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#16221C"></div>
+  <figcaption><b>--color-ink</b>
+    <span class="axis">teal* (above green 20°) · V2 · C37% (muted)</span>
+    <span class="ok">oklch(23.84% 0.0204 162.64)</span>
+    <span class="hex">#16221C</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#5C6B63"></div>
+  <figcaption><b>--color-ink-soft</b>
+    <span class="axis">teal* (above green 20°) · V5 · C20% (grayish)</span>
+    <span class="ok">oklch(51.27% 0.022 162.31)</span>
+    <span class="hex">#5C6B63</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#5C6B63"></div>
+  <figcaption><b>--color-ink-mono</b>
+    <span class="axis">teal* (above green 20°) · V5 · C20% (grayish)</span>
+    <span class="ok">oklch(51.27% 0.022 162.31)</span>
+    <span class="hex">#5C6B63</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#888374"></div>
+  <figcaption><b>--color-line</b>
+    <span class="axis">yellow (below yellow 18°) · V6 · C18% (grayish)</span>
+    <span class="ok">oklch(61% 0.0228 91.69)</span>
+    <span class="hex">#888374</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#FFFFFF"></div>
+  <figcaption><b>--color-white</b>
+    <span class="axis">neutral · V10 (white)</span>
+    <span class="ok">oklch(100% 0 0)</span>
+    <span class="hex">#FFFFFF</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#E2EBE6"></div>
+  <figcaption><b>--color-forest-tint</b>
+    <span class="axis">neutral · V9 (near-white)</span>
+    <span class="ok">oklch(93.19% 0.0117 162.04)</span>
+    <span class="hex">#E2EBE6</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#5F8971"></div>
+  <figcaption><b>--color-forest-soft</b>
+    <span class="axis">teal* (above green 16°) · V6 · C43% (muted)</span>
+    <span class="ok">oklch(59.2% 0.0593 158.89)</span>
+    <span class="hex">#5F8971</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#D2E0D8"></div>
+  <figcaption><b>--color-on-forest</b>
+    <span class="axis">neutral · V9 (near-white)</span>
+    <span class="ok">oklch(89.39% 0.0185 161.08)</span>
+    <span class="hex">#D2E0D8</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#BBD1CA"></div>
+  <figcaption><b>--color-on-forest-soft</b>
+    <span class="axis">teal* (above green 32°) · V8 · C16% (grayish)</span>
+    <span class="ok">oklch(84.22% 0.0256 174.61)</span>
+    <span class="hex">#BBD1CA</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#58B196"></div>
+  <figcaption><b>--color-on-forest-line</b>
+    <span class="axis">teal* (above green 29°) · V7 · C70% (strong)</span>
+    <span class="ok">oklch(69.75% 0.0955 171.28)</span>
+    <span class="hex">#58B196</span></figcaption></figure></div><h2>Accents</h2><div class="grid"><figure class="sw">
+  <div class="chip" style="background:#D2E0D8"></div>
+  <figcaption><b>--color-on-forest</b>
+    <span class="axis">neutral · V9 (near-white)</span>
+    <span class="ok">oklch(89.39% 0.0185 161.08)</span>
+    <span class="hex">#D2E0D8</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#BBD1CA"></div>
+  <figcaption><b>--color-on-forest-soft</b>
+    <span class="axis">teal* (above green 32°) · V8 · C16% (grayish)</span>
+    <span class="ok">oklch(84.22% 0.0256 174.61)</span>
+    <span class="hex">#BBD1CA</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#58B196"></div>
+  <figcaption><b>--color-on-forest-line</b>
+    <span class="axis">teal* (above green 29°) · V7 · C70% (strong)</span>
+    <span class="ok">oklch(69.75% 0.0955 171.28)</span>
+    <span class="hex">#58B196</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#9F3E2B"></div>
+  <figcaption><b>--color-clay</b>
+    <span class="axis">red (above red 4°) · V5 · C72% (strong)</span>
+    <span class="ok">oklch(49.39% 0.1334 32.95)</span>
+    <span class="hex">#9F3E2B</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#F9EDE9"></div>
+  <figcaption><b>--color-clay-tint</b>
+    <span class="axis">neutral · V10 (white)</span>
+    <span class="ok">oklch(95.44% 0.0141 39.42)</span>
+    <span class="hex">#F9EDE9</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#8C5818"></div>
+  <figcaption><b>--color-amber</b>
+    <span class="axis">orange* (above red 37°) · V5 · C89% (strong)</span>
+    <span class="ok">oklch(50.76% 0.1018 66.29)</span>
+    <span class="hex">#8C5818</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#F3E8D6"></div>
+  <figcaption><b>--color-amber-tint</b>
+    <span class="axis">orange* (below yellow 30°) · V9 · C44% (muted)</span>
+    <span class="ok">oklch(93.49% 0.0267 80.25)</span>
+    <span class="hex">#F3E8D6</span></figcaption></figure></div><h2>Grades</h2><div class="grid"><figure class="sw">
+  <div class="chip" style="background:#3FB984"></div>
+  <figcaption><b>--grade-enforced</b>
+    <span class="axis">teal* (above green 18°) · V7 · C85% (strong)</span>
+    <span class="ok">oklch(70.45% 0.1337 160.87)</span>
+    <span class="hex">#3FB984</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#E2F5ED"></div>
+  <figcaption><b>--grade-enforced-bg</b>
+    <span class="axis">teal* (above green 26°) · V10 · C34% (muted)</span>
+    <span class="ok">oklch(95.39% 0.0226 168.74)</span>
+    <span class="hex">#E2F5ED</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#28664B"></div>
+  <figcaption><b>--grade-enforced-fg</b>
+    <span class="axis">teal* (above green 20°) · V5 · C77% (strong)</span>
+    <span class="ok">oklch(46.17% 0.0783 162.14)</span>
+    <span class="hex">#28664B</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#9FDCC2"></div>
+  <figcaption><b>--grade-enforced-on-dark</b>
+    <span class="axis">teal* (above green 24°) · V8 · C41% (muted)</span>
+    <span class="ok">oklch(84.57% 0.0722 166.44)</span>
+    <span class="hex">#9FDCC2</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#1C372B"></div>
+  <figcaption><b>--grade-enforced-on-dark-bg</b>
+    <span class="axis">teal* (above green 21°) · V3 · C58% (moderate)</span>
+    <span class="ok">oklch(31.1% 0.04 163.78)</span>
+    <span class="hex">#1C372B</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#C8902F"></div>
+  <figcaption><b>--grade-partial</b>
+    <span class="axis">orange* (below yellow 33°) · V7 · C88% (strong)</span>
+    <span class="ok">oklch(69.16% 0.1278 76.79)</span>
+    <span class="hex">#C8902F</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#F7EEE0"></div>
+  <figcaption><b>--grade-partial-bg</b>
+    <span class="axis">orange* (below yellow 31°) · V10 · C49% (muted)</span>
+    <span class="ok">oklch(95.24% 0.021 79.09)</span>
+    <span class="hex">#F7EEE0</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#665425"></div>
+  <figcaption><b>--grade-partial-fg</b>
+    <span class="axis">orange* (below yellow 21°) · V5 · C73% (strong)</span>
+    <span class="ok">oklch(45.36% 0.069 88.46)</span>
+    <span class="hex">#665425</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#E4C897"></div>
+  <figcaption><b>--grade-partial-on-dark</b>
+    <span class="axis">orange* (below yellow 28°) · V8 · C46% (muted)</span>
+    <span class="ok">oklch(84.47% 0.0715 81.36)</span>
+    <span class="hex">#E4C897</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#2F311F"></div>
+  <figcaption><b>--grade-partial-on-dark-bg</b>
+    <span class="axis">yellow (above yellow 4°) · V3 · C43% (muted)</span>
+    <span class="ok">oklch(30.56% 0.0305 113.38)</span>
+    <span class="hex">#2F311F</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#7E8C83"></div>
+  <figcaption><b>--grade-aspirational</b>
+    <span class="axis">green (above green 15°) · V6 · C14% (grayish)</span>
+    <span class="ok">oklch(62.6% 0.021 157.56)</span>
+    <span class="hex">#7E8C83</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#ECEEEC"></div>
+  <figcaption><b>--grade-aspirational-bg</b>
+    <span class="axis">neutral · V9 (near-white)</span>
+    <span class="ok">oklch(94.7% 0.0034 145.55)</span>
+    <span class="hex">#ECEEEC</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#45524A"></div>
+  <figcaption><b>--grade-aspirational-fg</b>
+    <span class="axis">green (above green 16°) · V4 · C21% (grayish)</span>
+    <span class="ok">oklch(42.46% 0.021 158.37)</span>
+    <span class="hex">#45524A</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#BFC6C1"></div>
+  <figcaption><b>--grade-aspirational-on-dark</b>
+    <span class="axis">neutral · V8 (lightest)</span>
+    <span class="ok">oklch(81.96% 0.0103 155.05)</span>
+    <span class="hex">#BFC6C1</span></figcaption></figure><figure class="sw">
+  <div class="chip" style="background:#25312A"></div>
+  <figcaption><b>--grade-aspirational-on-dark-bg</b>
+    <span class="axis">teal* (above green 17°) · V3 · C29% (grayish)</span>
+    <span class="ok">oklch(29.96% 0.0206 159.28)</span>
+    <span class="hex">#25312A</span></figcaption></figure></div>
+<footer>Generated by <code>synoptic gen-palette-page</code> from the design tokens. Names are per-axis (Munsell-in-oklch), not composite — see <code>spec/color-model.md</code>. Every value is the color's own coordinate.</footer>
+</div></body></html>
