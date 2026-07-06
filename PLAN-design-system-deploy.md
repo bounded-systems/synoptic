@@ -59,3 +59,19 @@ Ran the color-model tools on brand's actual tokens + its `contrast.contract.json
 `color-paper`/`color-card-alt`, flag the 7 powerless tints — edited in `tokens.json` (Style
 Dictionary source), on the active `feat/check-contrast-dogfood-baobab` branch, kept green
 through `token-a11y`. Small, real, non-duplicative. Then blog route → site bumps → gated deploy.
+
+## Palette route — engine DONE, per-site config PENDING (both sites)
+
+`build-site.mjs` now has `render: "palette"` (v0.19.0) — verified. To publish the palette on a
+site, add ONE page to that site's `synoptic.config.json` → `build.pages`:
+
+```json
+{ "id": "palette", "title": "Palette", "route": "palette", "render": "palette",
+  "query": { "type": "PropertyValue", "where": { "additionalType": "color" } } }
+```
+
+Then the site generates `/palette/` from ITS OWN brand tokens (bounded.tools →
+@bounded-systems/brand; robertdelanghe.dev → @bdelanghe/brand), Merkle-rooted, in the grounded
+form. **Do this in BOTH repos** (bounded.tools.git, robertdelanghe.dev) as PRs → CI → gated
+prod deploy. The standalone `blog/palette.html` (gen-palette-page) is the static preview; the
+route is the production form.
