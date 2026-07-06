@@ -126,3 +126,23 @@ implementation, not the production path.
 **Honest note:** much of the session built color theory/tools in `synoptic` on the assumption
 it was the production engine. The THEORY + tools (color-model, palette page, DTCG, Lean proof,
 blog) are real and correct; the DEPLOY assumption was wrong. Verify the engine FIRST next time.
+
+## ✓ RESOLVED — the real generator is `bounded-systems/site.git` (`bounded-tools-site`)
+
+Not synoptic, not prx. `site.git` builds the public bounded.tools site:
+- Custom `build.mjs` + `scripts/gen-*.mjs`; blog = `blog/*.md` via `scripts/gen-blog.mjs`;
+  nav = `data/nav.jsonld`; brand tokens **vendored** (`brand/tokens/build-tokens.mjs`, Style
+  Dictionary); NO synoptic/brand npm dep.
+- Deploy = hermetic Nix (`nix build .#site`) → Sigstore keyless sign → signed OCI to GHCR →
+  cosign-verify → `wrangler deploy` (Cloudflare). Heavy `check` gate suite (axe, a11y-heuristic,
+  focus-budget, structure, SEO, semantic, link-graph, SBOM…).
+
+**So the real ship (in `site.git`, its conventions):**
+1. **Blog** — add `blog/colors-are-coordinates.md` (gen-blog renders it). Low risk.
+2. **Palette page** — new `scripts/gen-palette.mjs` (oklch + axis-name over the vendored
+   `brand/tokens`), wired into `build.mjs`, + a `data/nav.jsonld` entry. Must pass `npm run check`.
+3. Branch → PR → CI (all gates green) → **gated Nix/Cloudflare deploy (human approves)**.
+
+`robertdelanghe.dev` is a SEPARATE site (`bdelanghe.git` `_site/`, own Nix flake) — trace its
+build the same way when its turn comes. The synoptic `render:"palette"`/DTCG work is a
+reference implementation; the shipping logic gets re-expressed as a `site.git` gen-* script.
