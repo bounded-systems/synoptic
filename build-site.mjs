@@ -256,6 +256,27 @@ await writeFile(join(outDir, "site.merkle.json"), JSON.stringify({ root: siteRoo
 console.log(`✓ ${outDir}/graph-page.html — ${provenance.length} page(s), each a query-bounded scope`);
 console.log(`✓ ${outDir}/site.merkle.json — site is a Merkle tree · root ${siteRoot.slice(0, 22)}…`);
 
+// DTCG projection — the palette as design-tokens JSON (designtokens.org / DTCG), a tools-
+// facing sibling of the /design/colors page. Same graph, machine form: importable into
+// Figma / Style Dictionary, and it round-trips with brand's own token pipeline. Grouped by
+// the token's first name segment (color.*, space.*, grade.*), $type from its kind.
+if (palette.length) {
+  const dtcg = { $description: `Design tokens for ${config.site ?? ""}, projected from the graph by synoptic. DTCG format (designtokens.org).` };
+  for (const t of palette) {
+    const name = String(t.name).replace(/^--/, "");
+    const i = name.indexOf("-");
+    const group = i < 0 ? name : name.slice(0, i);
+    const key = i < 0 ? name : name.slice(i + 1);
+    const $type = t.additionalType === "color" ? "color"
+      : /space|size|radius|gap|control|width|height/.test(name) ? "dimension"
+      : t.additionalType === "typography" ? "fontFamily" : "other";
+    (dtcg[group] ??= {})[key] = { $type, $value: t.value };
+  }
+  await mkdir(join(outDir, "design"), { recursive: true });
+  await writeFile(join(outDir, "design", "tokens.json"), JSON.stringify(dtcg, null, 2) + "\n");
+  console.log(`✓ ${outDir}/design/tokens.json — DTCG (${palette.length} tokens, ${Object.keys(dtcg).length - 1} groups)`);
+}
+
 // ALWAYS emit a sitemap of every routed page, and CHECK each one exists — no silent 404s.
 // The sitemap is DATA (spec/sitemap.schema.json); the XML is a converted VIEW of it, so
 // the data is the source of truth (and could later be a claim set, like DTCG).
