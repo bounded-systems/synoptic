@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bounded.tools/synoptic/spec/value/color.schema.json",
+  "title": "Color",
+  "description": "A canonical color in the oklch space (W3C CSS Color 4). This is the STRUCTURE; the atom serializes to the string oklch(l% c h / alpha). Optional params are explicit — alpha is always present (no implicit 1). Normalizing to oklch is normalizing to the standard, and it dedupes colors by MEANING (rgb()/hex/hsl/oklch of one color → one atom).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$type": {
+      "const": "color"
+    },
+    "colorSpace": {
+      "const": "oklch",
+      "description": "the one canonical space."
+    },
+    "l": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "lightness, percent (0 = black, 100 = white)."
+    },
+    "c": {
+      "type": "number",
+      "minimum": 0,
+      "description": "chroma, >= 0 (roughly 0–0.37 within sRGB; unbounded for wide gamut)."
+    },
+    "h": {
+      "type": "number",
+      "minimum": 0,
+      "exclusiveMaximum": 360,
+      "description": "hue, degrees; conventionally 0 when c = 0 (achromatic)."
+    },
+    "alpha": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "opacity — REQUIRED (explicit optional param, no implicit default)."
+    }
+  },
+  "required": [
+    "$type",
+    "colorSpace",
+    "l",
+    "c",
+    "h",
+    "alpha"
+  ],
+  "examples": [
+    {
+      "colorSpace": "oklch",
+      "l": 23.84,
+      "c": 0.0204,
+      "h": 162.64,
+      "alpha": 1
+    },
+    {
+      "colorSpace": "oklch",
+      "l": 0,
+      "c": 0,
+      "h": 0,
+      "alpha": 0
+    }
+  ]
+}

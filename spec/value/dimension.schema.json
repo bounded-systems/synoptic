@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bounded.tools/synoptic/spec/value/dimension.schema.json",
+  "title": "Dimension",
+  "description": "A length in the canonical unit rem (CSS-VALUES-4). value 0 needs no unit. Serializes to <value>rem (or 0).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$type": { "const": "dimension" },
+    "value": { "type": "number" },
+    "unit":  { "const": "rem", "description": "the canonical unit; px resolved to rem via root font-size." }
+  },
+  "required": ["$type", "value", "unit"]
+}
