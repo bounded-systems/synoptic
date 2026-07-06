@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bounded.tools/synoptic/spec/value/percentage.schema.json",
+  "title": "Percentage",
+  "description": "A <percentage> (CSS Values 4 §6.3). value is the numeric part; unit is always %.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": { "$type": { "const": "percentage" }, "value": { "type": "number" }, "unit": { "const": "%" } },
+  "required": ["$type", "value", "unit"]
+}

@@ -38,7 +38,14 @@ CG    Community Group Report    de-facto, not W3C track  (DTCG)
 | relative / mix (future) | **CSS Color 5** · WD 2026-05 | w3.org/TR/css-color-5/ | color-mix(), relative color (provisional) |
 | `canonicalize` lengths | **CSS Values 3** · CRD / **4** · WD | w3.org/TR/css-values-3/ · -4/ | canonical unit rem, `<dimension>`/`<number>`/`<percentage>` |
 | `value-stages.md` | **CSS Cascade 5** · CR + **CSSOM** · WD | w3.org/TR/css-cascade-5/ · cssom-1/ | declared→…→resolved (derivation chain) |
-| `spec/value/*.schema.json` | **DTCG** · CG · 2025.10 | designtokens.org/tr/2025.10/format/ | typed value tokens |
+| `value/color`      | **CSS Color 4** · CR | w3.org/TR/css-color-4/ | structured oklch { colorSpace, l, c, h, alpha } |
+| `value/dimension`  | **CSS Values 4** · WD §6 | w3.org/TR/css-values-4/ | length, canonical unit rem |
+| `value/number`     | **CSS Values 4** · WD §6.2 | w3.org/TR/css-values-4/ | unitless number |
+| `value/percentage` | **CSS Values 4** · WD §6.3 | w3.org/TR/css-values-4/ | `<percentage>` |
+| `value/fontFamily` | **CSS Fonts 4** · WD §5.1 | w3.org/TR/css-fonts-4/ | family stack + generic |
+| `value/keyword`    | **CSS Values 4** / **Cascade 5** | w3.org/TR/css-values-4/ · css-cascade-5/ | `<ident>` + CSS-wide keywords |
+| `value/shadow`     | **CSS Backgrounds 3** · CRD §7 | w3.org/TR/css-backgrounds-3/ | composite: merkle of color+dimensions |
+| all value types    | **DTCG** · CG · 2025.10 | designtokens.org/tr/2025.10/format/ | typed-token alignment (union in value.schema.json) |
 | `contrast` | **WCAG 2.1** · **REC** | w3.org/TR/WCAG21/ | AA/AAA contrast, large-text thresholds |
 | `sitemap.{json,xml}` | **sitemaps.org 0.9** · de-facto + XSD | sitemaps.org/protocol.html | urlset, strict-sort priority; VALIDATES vs official XSD |
 | sitemap `synoptic:` ext | **sitemaps.org** ext · de-facto | sitemaps.org/protocol.html#extending | `<synoptic:root>`; declared in `synoptic-sitemap.xsd` |

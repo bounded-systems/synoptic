@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bounded.tools/synoptic/spec/value/number.schema.json",
+  "title": "Number",
+  "description": "A unitless <number> (CSS Values 4 §6.2). E.g. font-weight 400, line-height 1.2, opacity 0.5. proofType=derivable (resolved).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": { "$type": { "const": "number" }, "value": { "type": "number" } },
+  "required": ["$type", "value"]
+}

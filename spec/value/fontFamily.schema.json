@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bounded.tools/synoptic/spec/value/fontFamily.schema.json",
+  "title": "FontFamily",
+  "description": "An ordered font-family stack (CSS Fonts 4 §5.1). Each item a family name, in fallback order; the last SHOULD be a generic family. DTCG-aligned (fontFamily).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$type": { "const": "fontFamily" },
+    "value": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "generic": { "enum": ["serif", "sans-serif", "monospace", "cursive", "fantasy", "system-ui", "ui-serif", "ui-sans-serif", "ui-monospace", "ui-rounded", "math", "emoji", "fangsong"], "description": "the fallback generic, if the stack ends in one (CSS Fonts 4 §5.1.1)." }
+  },
+  "required": ["$type", "value"]
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bounded.tools/synoptic/spec/value/keyword.schema.json",
+  "title": "Keyword",
+  "description": "A CSS keyword — either a CSS-wide keyword (CSS Cascade 5 §7.3: initial|inherit|unset|revert|revert-layer) or a property-defined <ident> (CSS Values 4: normal, none, auto, …).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$type": { "const": "keyword" },
+    "value": { "type": "string", "pattern": "^-?[a-z][a-z0-9-]*$" },
+    "cssWide": { "type": "boolean", "description": "true if a CSS-wide keyword (initial/inherit/unset/revert/revert-layer)." }
+  },
+  "required": ["$type", "value"]
+}

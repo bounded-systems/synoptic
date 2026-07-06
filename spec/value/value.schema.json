@@ -2,19 +2,14 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://bounded.tools/synoptic/spec/value/value.schema.json",
   "title": "Value",
-  "description": "A canonical CSS value atom, typed. Every extracted value carries a $type (a typing claim) and validates against that type's schema — DTCG-aligned. Colors and dimensions have their own schemas; the rest are inline here. All values are proofType=derivable (resolved values, per value-stages.md); declared values are the axioms.",
+  "description": "A canonical CSS value atom, typed. Every extracted value carries a $type (a typing claim) and validates against that type's schema — DTCG-aligned, each grounded in its CSS spec. All are proofType=derivable (resolved values, per value-stages.md); declared values are the axioms. See GROUNDING.md.",
   "oneOf": [
     { "$ref": "color.schema.json" },
     { "$ref": "dimension.schema.json" },
-    { "$ref": "#/$defs/number" },
-    { "$ref": "#/$defs/fontFamily" },
-    { "$ref": "#/$defs/keyword" },
-    { "$ref": "#/$defs/percentage" }
-  ],
-  "$defs": {
-    "number":     { "type": "object", "additionalProperties": false, "properties": { "$type": { "const": "number" }, "value": { "type": "number" } }, "required": ["$type", "value"], "description": "unitless (font-weight 400, line-height 1.2)" },
-    "fontFamily": { "type": "object", "additionalProperties": false, "properties": { "$type": { "const": "fontFamily" }, "value": { "type": "array", "items": { "type": "string" }, "minItems": 1 } }, "required": ["$type", "value"], "description": "ordered family stack; last is a generic (sans-serif, serif, monospace)" },
-    "keyword":    { "type": "object", "additionalProperties": false, "properties": { "$type": { "const": "keyword" }, "value": { "type": "string", "pattern": "^[a-z-]+$" } }, "required": ["$type", "value"], "description": "a CSS-wide/ident keyword (normal, none, auto)" },
-    "percentage": { "type": "object", "additionalProperties": false, "properties": { "$type": { "const": "percentage" }, "value": { "type": "number" }, "unit": { "const": "%" } }, "required": ["$type", "value", "unit"] }
-  }
+    { "$ref": "number.schema.json" },
+    { "$ref": "percentage.schema.json" },
+    { "$ref": "fontFamily.schema.json" },
+    { "$ref": "keyword.schema.json" },
+    { "$ref": "shadow.schema.json" }
+  ]
 }
