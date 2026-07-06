@@ -10,6 +10,7 @@ import { execFileSync } from "node:child_process";
 import { writeFileSync, mkdirSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { join } from "node:path";
+import { canonicalize } from "./canonicalize.mjs";
 
 const url = process.argv[2];
 if (!url) { console.error("usage: css-project <url> [--out file]"); process.exit(2); }
@@ -25,11 +26,11 @@ const KEYS = Object.keys(ROLE);
 
 // only the RENDERED tree (body subtree, actually displayed + non-empty) — no head/meta/
 // script defaults, no display:none noise.
-const EXTRACT = `(()=>{const KEYS=${JSON.stringify(KEYS)};const seen={};document.querySelectorAll('body, body *').forEach(el=>{const cs=getComputedStyle(el);if(cs.display==='none'||cs.visibility==='hidden'||el.getClientRects().length===0)return;let ctx=(typeof el.className==='string'&&el.className.trim())?el.className.trim().split(/\\s+/)[0]:(el.getAttribute('role')||el.tagName.toLowerCase());ctx=ctx.replace(/[^a-z0-9-]/gi,'').toLowerCase()||'el';for(const p of KEYS){const v=cs.getPropertyValue(p);if(!v)continue;const k=ctx+'|'+p;(seen[k]=seen[k]||[]);if(seen[k].indexOf(v)<0)seen[k].push(v);}});const rs=getComputedStyle(document.documentElement);const tokens={};for(let i=0;i<rs.length;i++){const p=rs[i];if(p.indexOf('--')===0)tokens[p]=rs.getPropertyValue(p).trim();}return JSON.stringify({seen,tokens});})()`;
+const EXTRACT = `(()=>{const KEYS=${JSON.stringify(KEYS)};const seen={};document.querySelectorAll('body, body *').forEach(el=>{const cs=getComputedStyle(el);if(cs.display==='none'||cs.visibility==='hidden'||el.getClientRects().length===0)return;let ctx=(typeof el.className==='string'&&el.className.trim())?el.className.trim().split(/\\s+/)[0]:(el.getAttribute('role')||el.tagName.toLowerCase());ctx=ctx.replace(/[^a-z0-9-]/gi,'').toLowerCase()||'el';for(const p of KEYS){const v=cs.getPropertyValue(p);if(!v)continue;const k=ctx+'|'+p;(seen[k]=seen[k]||[]);if(seen[k].indexOf(v)<0)seen[k].push(v);}});const rs=getComputedStyle(document.documentElement);const tokens={};for(let i=0;i<rs.length;i++){const p=rs[i];if(p.indexOf('--')===0)tokens[p]=rs.getPropertyValue(p).trim();}return JSON.stringify({seen,tokens,rootPx:parseFloat(getComputedStyle(document.documentElement).fontSize)||16});})()`;
 
 const data = JSON.parse(execFileSync("tezcatl", [url, "--eval=" + EXTRACT], { encoding: "utf8", maxBuffer: 128 * 1024 * 1024 }).trim());
 const valToTok = new Map();
-for (const [name, v] of Object.entries(data.tokens || {})) if (!valToTok.has(v)) valToTok.set(v, name);
+for (const [name, v] of Object.entries(data.tokens || {})) { const cv = canonicalize(v, data.rootPx || 16); if (!valToTok.has(cv)) valToTok.set(cv, name); }
 const merkleRoot = (hs) => {
   if (!hs.length) return sha("");
   let lvl = hs.map((h) => (h.startsWith("sha256:") ? h : "sha256:" + h));
@@ -42,7 +43,8 @@ const merkleRoot = (hs) => {
 const keys = new Map(), values = new Map(), decls = [], byCtx = {};
 for (const [k, vals] of Object.entries(data.seen)) {
   const [ctx, prop] = k.split("|");
-  vals.forEach((v, i) => {
+  vals.forEach((rawV, i) => {
+    const v = canonicalize(rawV, data.rootPx || 16);
     const keyStr = `${ctx}.${ROLE[prop]}${vals.length > 1 ? "." + (i + 1) : ""}`;
     const keyAddr = sha(keyStr), valAddr = sha(v);
     keys.set(keyStr, keyAddr); values.set(v, valAddr);
