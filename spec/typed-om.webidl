@@ -120,3 +120,14 @@ interface CSSColor : CSSColorValue {
     attribute CSSKeywordish colorSpace;
     attribute CSSNumberish alpha;
 };
+
+// CSS Color 5 §12.1 — the @color-profile rule's CSSOM interface. NOT a value type (it's a
+// CSSRule); it's the machine shape of a COLOR PROFILE, which we treat as a content atom
+// {name, src, renderingIntent, components}. A profiled/CMYK color = {profile-ref, channels}.
+[Exposed=Window]
+interface CSSColorProfileRule {
+  readonly attribute CSSOMString name;
+  readonly attribute CSSOMString src;
+  readonly attribute CSSOMString renderingIntent;
+  readonly attribute CSSOMString components;
+};

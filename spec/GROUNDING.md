@@ -310,3 +310,22 @@ mixed/rotated color is derivable from its inputs. In the proof ladder: a tonal r
 base at stepped L (relative), an accent IS a mix — so a 42-color palette compresses to a few
 **base axioms + derivable claims**, signed only at the base. Grounded: CSS Color 5
 (color-mix, relative color) · [[project_check_layers]] proof ladder.
+
+## Color profiles as atoms (CSS Color 5 @color-profile / CMYK)
+
+A **color profile** is content, so it's an atom: `{ name, src, renderingIntent, components }`
+— exactly the **`CSSColorProfileRule`** CSSOM shape (§12.1, vendored). A profiled/CMYK/CMYKOGV
+color decomposes into a **profile atom** + a **channels atom** `[c,m,y,k…]`; the color is a
+*claim* `{profile-ref, channels}` + an oklch soft-proof.
+
+- **Serialization = our canonicalization.** `color(--swop5c 0% 70.0% 20.00% .0%)` →
+  `color(--swop5c 0 0.7 0.2 0)` (percentages→0–1 numbers, trailing zeros trimmed, 8-bit
+  round-trip). Content-name: `swop5c-0-0_7-0_2-0`. Same inlined-value scheme as oklch atoms.
+- **Rendering intent** (relative/absolute-colorimetric, perceptual, saturation — ICC) is a
+  descriptor on the profile atom: *how* it gamut-maps.
+- **Defaults** (§13): `:link { color: LinkText }` resolves via **system colors** (our role
+  layer); `@color-profile device-cmyk` defaults to FOGRA39 with a **naive CMYK→sRGB
+  fallback** (§14) — a `derivable` fallback vs the profile-accurate `grounded` ICC
+  conversion (a proof-ladder call).
+
+Grounded: CSS Color 5 §5.4/§11–14 · `CSSColorProfileRule`.
