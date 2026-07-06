@@ -17,16 +17,19 @@ const num=(x)=>String(x).replace(/\./g,"_").replace(/^-/,"neg");
 const mk=(L,h,cf)=>{const C=r(ceil(L,h)*cf,4);return{L:r(L,1),C,h,Y:Y(L,C,h),cas:`oklch-${num(r(L,1))}-${num(C)}-${num(h)}-1`};};
 
 const [name,coolH,warmH]=[process.argv[2]||"brand",+(process.argv[3]||165),+(process.argv[4]||80)];
-// two text backgrounds (dark band); the lighter one sets every floor
-const surfaces=[mk(14,coolH,0.55),mk(22,coolH,0.55)];   // ground, raised
+// snap to a 5% lightness grid so every brand normalizes to the same round steps. Elements
+// snap UP (lighter → more contrast on a dark bg), so snapping NEVER breaks the constraint.
+const gUp=(L)=>Math.min(95,Math.ceil(L/5)*5);
+// two text backgrounds (dark band), on the grid; the lighter one sets every floor
+const surfaces=[mk(15,coolH,0.55),mk(25,coolH,0.55)];   // ground, raised
 const bgY=surfaces[1].Y;
-// DERIVE the lightness where an element first meets `bar` against the lightest text-bg
-const floor=(bar,h,cf)=>{let L=45;while(L<97&&ratio(Y(L,ceil(L,h)*cf,h),bgY)<bar)L+=0.5;return mk(L,h,cf);};
+// DERIVE the lightness where an element first meets `bar`, then snap UP to the grid
+const floor=(bar,h,cf)=>{let L=45;while(L<97&&ratio(Y(L,ceil(L,h)*cf,h),bgY)<bar)L+=0.5;return mk(gUp(L),h,cf);};
 // every element = (role, atom, required ratio). text/link 7:1; border/ui 3:1. none exempt.
 const elems=[
   ["ground",      surfaces[0], 0],
   ["raised",      surfaces[1], 0],
-  ["text",        mk(93,coolH,0.16), 7],          // body — comfortably above the floor
+  ["text",        mk(95,coolH,0.16), 7],          // body — comfortably above the floor
   ["text-muted",  floor(7,coolH,0.30), 7],        // muted — the AAA text floor
   ["link",        floor(7,coolH,0.90), 7],        // link is TEXT → 7:1, saturated cool
   ["accent",      floor(3,warmH,0.90), 3],        // warm UI accent → non-text 3:1
