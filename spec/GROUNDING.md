@@ -526,3 +526,21 @@ distinctions the color space doesn't have:
 An external, authoritative palette collapses to the exact structure we derived — **hues +
 neutrals + a per-hue (L%, C%, α%) lattice** — with the `dark/light/pale` names as its mixins.
 Grounded: CSS Color 4 §6.1 named colors + OKLab + the chroma-weighted hue JND (≈ ΔEOK/C).
+
+### Named-color audit — gamut-clean, but violates every other rule (engine catches all)
+
+Auditing the 148 CSS named colors against our rules:
+- **Gamut: 0 violations** — impossible by construction (sRGB hex; sRGB ⊂ P3). Compliance is free.
+- **10 dishonest hues** (0<C<0.02, name a sub-JND hue): `aliceblue, azure, ghostwhite,
+  mintcream, ivory, floralwhite, lavenderblush, linen, seashell, snow` — + 13 honest neutrals (C=0).
+- **9 exact-duplicate pairs** (same hex, N names): `aqua=cyan`, `fuchsia=magenta`, + 7
+  `gray/grey` spellings → 18 names, 9 colors. Content-addressing collapses these to one atom.
+- **46 near-duplicate pairs** (ΔEOK<0.02): `snow≈white`, `chartreuse≈lawngreen`,
+  `azure≈mintcream`… the off-white end is ~10 near-identical whites — the "which white?" mess.
+- **Degenerate extremes**: exactly one black (L0), one white (L100) — correct.
+
+The X11 set is a legacy convenience list, not a designed system: redundant names, dishonest
+hues, perceptual collisions. Every violation our rules define, the engine catches — exact
+dupes → one atom, near-dupes → merge flags (`color-review`), powerless → flag + `--fix`
+(`color-health`). A good adversarial input; the pipeline passes. Grounded: CSS Color 4 §6.1,
+OKLab, WCAG-adjacent JND.
