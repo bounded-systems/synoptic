@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bounded.tools/synoptic/spec/atom.schema.json",
+  "title": "Atom",
+  "description": "Immutable content-addressed bytes. The CAS unit. address MUST equal sha256 of the canonical value.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "address": { "$ref": "claim.schema.json#/$defs/address" },
+    "value": { "description": "the atom's value (string | number | bool | bytes | canonical JSON)" }
+  },
+  "required": ["address", "value"]
+}

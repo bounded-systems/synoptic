@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bounded.tools/synoptic/spec/claim.schema.json",
+  "title": "Claim",
+  "description": "A typed assertion ABOUT a content-addressed atom (or another claim), carrying a proof type. A claim is itself serialized and content-addressed, so claims can be about claims.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "subject":   { "$ref": "#/$defs/address", "description": "the atom or claim this speaks about" },
+    "predicate": { "enum": ["is-a", "role", "alias-of", "member-of", "derived-from", "composed-of", "signs", "supersedes", "deprecated"] },
+    "object":    { "oneOf": [ { "$ref": "#/$defs/address" }, { "$ref": "#/$defs/literal" } ] },
+    "proofType": { "enum": ["axiom", "grounded", "derivable", "proven"] },
+    "basis":     { "description": "grounded → source address/URL; derivable → the recompute expr/fn id; proven → Lean term id; axiom → absent" },
+    "signer":    { "type": "string", "description": "OIDC/keyless identity. Present ONLY when proofType=axiom." }
+  },
+  "required": ["subject", "predicate", "object", "proofType"],
+  "allOf": [
+    {
+      "$comment": "SIGN ONLY AXIOMS — an axiom MUST be signed; anything else MUST NOT be. The discipline is a structural constraint, strict-checkable.",
+      "if":   { "properties": { "proofType": { "const": "axiom" } } },
+      "then": { "required": ["signer"] },
+      "else": { "not": { "required": ["signer"] } }
+    },
+    {
+      "$comment": "Only axioms lack a basis; every derived claim must cite how it is justified.",
+      "if":   { "properties": { "proofType": { "enum": ["grounded", "derivable", "proven"] } } },
+      "then": { "required": ["basis"] }
+    }
+  ],
+  "$defs": {
+    "address": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "literal": { "type": ["string", "number", "boolean"] }
+  }
+}
