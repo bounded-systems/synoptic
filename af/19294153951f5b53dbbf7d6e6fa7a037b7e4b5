@@ -1,0 +1,23 @@
+canonicalize.mjs
+  s_70508ca017cb29::t_9f207834832619 7-8,43-45
+named-colors.mjs
+  s_70508ca017cb29::t_084effc50a674b 1-6
+system-colors.mjs
+  s_70508ca017cb29::t_b35aa6bd956dca 1-26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "af19294153951f5b53dbbf7d6e6fa7a037b7e4b5",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
