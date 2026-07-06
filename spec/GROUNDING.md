@@ -134,3 +134,23 @@ relevance (privacy is low for CSS, per note):
 props) is first-class; security lives in the claim layer; privacy is guarded by
 secret-scan. Prefer **logical** properties over physical, and keep the graph direction-
 and language-aware.
+
+## W3C groups — the concern owners ("groups as concerns")
+
+Grounding organized by the W3C **group / task-force** that *owns* each area — the group is
+the authority, its charter + repo define the current spec set. Machine-readable list:
+github.com/w3c/groups.
+
+| Concern | W3C group / TF | Owns | Our work |
+|---|---|---|---|
+| **CSS** | **CSS WG** · w3.org/groups/wg/css/ · w3c/csswg-drafts | all CSS modules (color, values, cascade, selectors, fonts, contain, …) | canonicalize, css-project, value types, hermetic-css, partition |
+| **Accessibility** | **WAI**: **AG WG** (WCAG) · **APA WG** · **CSS-a11y TF** · w3.org/WAI/about/groups/task-forces/css-a11y/ · w3c/{wcag,css-a11y,css-aam} | WCAG 2.2, ARIA, css-aam | `contrast`, `reflow`, a11y projection — the CSS∩a11y intersection |
+| **Internationalization** | **i18n WG** | writing modes, bidi, `lang`, character model | logical props, direction-aware projection |
+| **Security / Privacy** | Security IG / Privacy IG (horizontal review) | cross-cutting review | claim/signing layer, `secret-scan` |
+| **Linked Data** | **JSON-LD WG** | JSON-LD 1.1 | the graph / `/json.ld` |
+| **Verifiable Credentials** | **VC WG** | claims + proofs | `claim.schema.json` |
+| **spec tooling** | (CSS WG tools) · w3.org/groups/wg/css/tools/ · **webref** | test suites, webref, validators | verification sources |
+
+**`reflow` note:** the CSS-a11y TF is where SC 1.4.10 lives (CSS∩a11y). Our `reflow` audit
+is correct but **inconclusive** until a viewport-capable engine runs it (tezcatl `--width`
+→ `--eval`, or the pinned responsive engine) — tracked in hermetic-css.md's engine section.
