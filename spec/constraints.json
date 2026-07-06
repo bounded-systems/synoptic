@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bounded.tools/synoptic/spec/constraints.json",
+  "$description": "Accessibility constraints as PINNED, content-addressed objects. A constraint is a typed object (exactly like a color value): the standard, dated version, criterion, level, and required ratio. A declaration's a11y claim REFERENCES one by its content address — it never inlines a bare number. Changing the WCAG version yields a different object (different address), so a claim is provably against a specific, dated standard. Grounded: WCAG 2.2 (REC 2023-10-05).",
+  "requirements": {
+    "wcag-2_2-1_4_3-AA": {
+      "$type": "contrast-requirement",
+      "$value": { "standard": "WCAG", "version": "2.2", "date": "2023-10-05", "sc": "1.4.3", "name": "Contrast (Minimum)", "level": "AA", "kind": "text", "ratio": { "text": 4.5, "largeText": 3.0 }, "url": "https://www.w3.org/TR/WCAG22/#contrast-minimum" }
+    },
+    "wcag-2_2-1_4_6-AAA": {
+      "$type": "contrast-requirement",
+      "$value": { "standard": "WCAG", "version": "2.2", "date": "2023-10-05", "sc": "1.4.6", "name": "Contrast (Enhanced)", "level": "AAA", "kind": "text", "ratio": { "text": 7.0, "largeText": 4.5 }, "url": "https://www.w3.org/TR/WCAG22/#contrast-enhanced" }
+    },
+    "wcag-2_2-1_4_11-AA": {
+      "$type": "contrast-requirement",
+      "$value": { "standard": "WCAG", "version": "2.2", "date": "2023-10-05", "sc": "1.4.11", "name": "Non-text Contrast", "level": "AA", "kind": "non-text", "ratio": { "nonText": 3.0 }, "url": "https://www.w3.org/TR/WCAG22/#non-text-contrast" }
+    }
+  },
+  "tierMap": {
+    "text": ["wcag-2_2-1_4_3-AA", "wcag-2_2-1_4_6-AAA"],
+    "non-text": ["wcag-2_2-1_4_11-AA"],
+    "ground": [],
+    "exempt": []
+  }
+}
