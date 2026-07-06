@@ -35,15 +35,15 @@ archived.sort((a, b) => a.var.localeCompare(b.var));
 const D = [...derived.values()].sort((a, b) => a.type.localeCompare(b.type) || a.name.localeCompare(b.name));
 
 mkdirSync(join(OUT, "archive"), { recursive: true });
-writeFileSync(join(OUT, "tokens.derived.css"), `/* DERIVED tokens — name IS the value (content-addressed). The canonical set. */\n:root {\n${D.map((d) => `  --${d.name}: ${d.css};`).join("\n")}\n}\n`);
+// ACTIVE: the derived tokens, used DIRECTLY (no alias layer).
+writeFileSync(join(OUT, "tokens.derived.css"), `/* DERIVED tokens — name IS the value (content-addressed). The canonical set, used directly. */\n:root {\n${D.map((d) => `  --${d.name}: ${d.css};`).join("\n")}\n}\n`);
 writeFileSync(join(OUT, "tokens.derived.json"), JSON.stringify(D, null, 2) + "\n");
-writeFileSync(join(OUT, "archive/tokens.authored.css"), `/* ARCHIVED — authored semantic vars, NOT derived. Kept only as aliases to the derived\n   atom so legacy CSS resolves; do NOT author against these. Migrate to the derived name. */\n:root {\n${archived.map((a) => `  ${a.var}: var(--${a.derived});`).join("\n")}\n}\n`);
-writeFileSync(join(OUT, "archive/tokens.authored.json"), JSON.stringify(archived, null, 2) + "\n");
+// ARCHIVE: a plain historical record of what the authored --* vars mapped to. NOT emitted
+// as aliases, NOT for use — just a migration ledger so nothing is silently lost.
+writeFileSync(join(OUT, "archive/authored-vars.json"), JSON.stringify({ note: "Historical record of the removed authored vars and the derived atom each named. Not aliases; not for use. Author against the derived tokens directly.", vars: archived }, null, 2) + "\n");
 console.log(`derive-tokens — ${src}\n`);
-console.log(`  DERIVED  (active, content-named): ${D.size ?? D.length} atoms`);
-console.log(`  ARCHIVED (authored --* vars):     ${archived.length} → aliased to derived`);
-console.log(`  → ${OUT}/tokens.derived.css  +  ${OUT}/archive/tokens.authored.css`);
-console.log(`\n  derived sample:`);
+console.log(`  DERIVED  (active, content-named, used directly): ${D.length} atoms`);
+console.log(`  ARCHIVED (authored --* vars, record only):       ${archived.length}`);
+console.log(`  → ${OUT}/tokens.derived.css  ·  archive/authored-vars.json (record, not aliases)`);
+console.log(`\n  derived tokens (used directly):`);
 for (const d of D.filter((x) => x.type === "color").slice(0, 4)) console.log(`     --${d.name}: ${d.css};`);
-console.log(`  archived sample (aliases):`);
-for (const a of archived.slice(0, 4)) console.log(`     ${a.var}: var(--${a.derived});`);
