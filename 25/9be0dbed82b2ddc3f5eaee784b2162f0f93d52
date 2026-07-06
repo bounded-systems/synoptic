@@ -1,0 +1,27 @@
+spec/value/fontFamily.schema.json
+  s_70508ca017cb29::t_d1d470df7dd8cf 1-14
+spec/value/keyword.schema.json
+  s_70508ca017cb29::t_b8746fae4dace0 1-14
+spec/value/number.schema.json
+  s_70508ca017cb29::t_655822bf5451d4 1-10
+spec/value/percentage.schema.json
+  s_70508ca017cb29::t_061cfd13a00708 1-10
+spec/value/value.schema.json
+  s_70508ca017cb29::t_4b4fa8075275c0 5,9-14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "259be0dbed82b2ddc3f5eaee784b2162f0f93d52",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
