@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bounded.tools/synoptic/spec/value/generated/keyword.schema.json",
+  "title": "Keyword",
+  "description": "GENERATED from CSS Typed OM `CSSKeywordValue` (vendored) — a CSS keyword / <ident>. Do not hand-edit; run gen-value-schemas.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$type": {
+      "const": "keyword"
+    },
+    "value": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "$type",
+    "value"
+  ],
+  "x-generatedFrom": {
+    "typedOM": "CSSKeywordValue",
+    "source": "vendored"
+  }
+}

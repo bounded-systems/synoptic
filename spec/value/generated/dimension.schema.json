@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bounded.tools/synoptic/spec/value/generated/dimension.schema.json",
+  "title": "Dimension",
+  "description": "GENERATED from CSS Typed OM `CSSUnitValue` (vendored) — length in canonical unit rem. Do not hand-edit; run gen-value-schemas.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$type": {
+      "const": "dimension"
+    },
+    "unit": {
+      "type": "string",
+      "const": "rem"
+    },
+    "value": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "$type",
+    "unit",
+    "value"
+  ],
+  "x-generatedFrom": {
+    "typedOM": "CSSUnitValue",
+    "source": "vendored"
+  }
+}
