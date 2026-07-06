@@ -1,0 +1,26 @@
+css-project.mjs
+  s_70508ca017cb29::t_4ff6d3d1025b8f 10-12
+  s_70508ca017cb29::t_5207f39cc975f7 28
+  s_70508ca017cb29::t_a759a537e500cf 26-27
+  s_70508ca017cb29::t_c226246c7358f2 33-78
+  s_70508ca017cb29::t_321f842255593a 7-9
+  s_70508ca017cb29::t_7e8de10c93376e 13-15,23-25
+  s_70508ca017cb29::t_c0acce48ada6fb 29-32
+  s_70508ca017cb29::t_e04b65f1cf4734 1-6,16-22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "4dda71d2386f8571e7cdea9527626660ecd81d55",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
