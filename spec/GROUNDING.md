@@ -357,3 +357,37 @@ Consequences:
 Grounded: color science (ΔE, CIEDE2000, OKLab), psychophysics (Weber–Fechner / Stevens),
 WCAG (task-level contrast). See [[project_check_layers]] — sub-JND = no real distinction to
 axiomatize.
+
+### How many bands fit — the contrast/band formula
+
+From a fixed floor (black, luminance 0), levels stack as **ratio steps** of the bar R. The
+maximum possible contrast is **21:1** (white on black = (1+0.05)/(0+0.05)). So the number of
+mutually-contrasting bands is **logarithmic** in the bar:
+
+```
+N_max = floor( 1 + log(21) / log(R) )        R = required contrast ratio
+```
+
+| R | | bands |
+|---|---|---|
+| 1.5:1 | subtle UI | 8 |
+| 2:1 | | 5 |
+| 3:1 | large text / UI | 3 |
+| 4.5:1 | AA body | 3 |
+| 7:1 | AAA body | 2 |
+| 21:1 | white on black | 2 |
+
+It's a **log** because contrast is a *ratio* — each band multiplies the last by R, and you're
+partitioning the fixed 21× range into R-sized factors. Raising the bar doesn't shrink bands
+linearly; it *compresses the ladder logarithmically*. This is the quantitative form of "L
+bands always" — ≥ 2 bands at any bar, and exactly `floor(1 + log21/logR)` from a fixed floor.
+
+### Derivations reduce to one primitive (relative-color)
+
+`color-mix()` reaches a *line* between two colors (tint→white, shade→black, fade→transparent)
+and always changes chroma toward the target. Relative-color `oklch(from base <l><c><h>/<a>)`
+does arbitrary per-channel math — so **every color-mix is a special case of it** (a tint is
+`calc(l * k + t) calc(c * k) h`; a fade is `l c h / calc(alpha * k)`). `derive-palette
+--uniform` rewrites all derivations into that single form. So the palette is: **N signed
+axioms + a proof tree of one universal operation** (color-mix is semantic sugar naming the
+intent). What relative-color adds that mix can't: constant-chroma L steps and hue rotation.

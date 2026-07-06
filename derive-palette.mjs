@@ -24,20 +24,34 @@ function asShade(B, X) { const bl = oklab(B), xl = oklab(X); const d = Math.abs(
 // relative-color pure L step: same C & H, different L
 function asRelL(B, X) { const dh = Math.abs(((X.h - B.h + 540) % 360) - 180); if (Math.abs(X.c - B.c) < 0.004 && dh < 2 && Math.abs(X.l - B.l) > 0.5) return +(X.l - B.l).toFixed(2); return null; }
 
+// two renderers for the SAME derivation params: semantic (color-mix, names the intent) and
+// uniform (relative-color oklch(from…), one universal call tree — color-mix is its subset).
+const UNIFORM = process.argv.includes("--uniform");
+const semantic = (d, b) => d.kind === "fade" ? `color-mix(in oklab, ${b}, transparent ${Math.round(d.t * 100)}%)`
+  : d.kind === "tint" ? `color-mix(in oklab, ${b}, white ${Math.round(d.t * 100)}%)`
+  : d.kind === "shade" ? `color-mix(in oklab, ${b}, black ${Math.round(d.t * 100)}%)`
+  : `oklch(from ${b} calc(l ${d.t > 0 ? "+ " + d.t : "- " + Math.abs(d.t)}) c h)`;
+const uniform = (d, b) => { const k = (1 - d.t).toFixed(3); return d.kind === "fade" ? `oklch(from ${b} l c h / calc(alpha * ${k}))`
+  : d.kind === "tint" ? `oklch(from ${b} calc(l * ${k} + ${d.t.toFixed(3)}) calc(c * ${k}) h)`
+  : d.kind === "shade" ? `oklch(from ${b} calc(l * ${k}) calc(c * ${k}) h)`
+  : `oklch(from ${b} calc(l ${d.t > 0 ? "+ " + (d.t / 100).toFixed(4) : "- " + Math.abs(d.t / 100).toFixed(4)}) c h)`; };
+const render = (d, useVar) => { const b = useVar ? `var(--${nm(d.from)})` : nm(d.from); return UNIFORM ? uniform(d, b) : semantic(d, b); };
+
 const cs = data.values.map((e) => parse(e.value)).filter((t) => t.$type === "color");
 cs.sort((a, b) => b.c - a.c || a.l - b.l); // saturated first → axiom candidates
 const axioms = [], derivations = [];
 for (const X of cs) {
-  if (X.alpha < 1) { const from = { ...X, alpha: 1 }; derivations.push({ X, kind: "fade", from, expr: `color-mix(in oklab, ${nm(from)}, transparent ${Math.round((1 - X.alpha) * 100)}%)` }); continue; }
+  if (X.alpha < 1) { derivations.push({ X, kind: "fade", from: { ...X, alpha: 1 }, t: 1 - X.alpha }); continue; }
   let found = null;
   for (const B of axioms) {
     let t;
-    if ((t = asRelL(B, X)) != null) { found = { kind: "relative-L", from: B, expr: `oklch(from ${nm(B)} calc(l ${t > 0 ? "+ " + t : "- " + Math.abs(t)}) c h)` }; break; }
-    if ((t = asTint(B, X)) != null) { found = { kind: "tint", from: B, expr: `color-mix(in oklab, ${nm(B)}, white ${Math.round(t * 100)}%)` }; break; }
-    if ((t = asShade(B, X)) != null) { found = { kind: "shade", from: B, expr: `color-mix(in oklab, ${nm(B)}, black ${Math.round(t * 100)}%)` }; break; }
+    if ((t = asRelL(B, X)) != null) { found = { kind: "relative-L", from: B, t }; break; }
+    if ((t = asTint(B, X)) != null) { found = { kind: "tint", from: B, t }; break; }
+    if ((t = asShade(B, X)) != null) { found = { kind: "shade", from: B, t }; break; }
   }
   if (found) derivations.push({ X, ...found }); else axioms.push(X);
 }
+for (const d of derivations) d.expr = render(d, false);
 mkdirSync(OUT, { recursive: true });
 writeFileSync(join(OUT, "palette.css"),
   `/* AXIOMS — irreducible base colors (the only 'magic numbers'; sign these). */\n:root {\n${axioms.map((a) => `  --${nm(a)}: ${css(a)};`).join("\n")}\n}\n\n/* DERIVED — provably reconstructable from axioms (proofType: derivable, CSS Color 5). */\n:root {\n${derivations.map((d) => `  --${nm(d.X)}: ${d.expr.replace(/oklch-[\d_neg-]+/g, (m) => "var(--" + m + ")")};`).join("\n")}\n}\n`);
