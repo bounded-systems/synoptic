@@ -5,6 +5,15 @@ authoritative spec (name · **status** · dated) it implements; where a machine 
 exists we validate against it. Spec-grounded work is `grounded` (basis: the spec), never
 `axiomatic`.
 
+**The master index — reference, don't enumerate.** There are ~150 CSS specs (+ levels):
+`drafts.csswg.org/index.html` is the list, **csswg-drafts** (w3c/csswg-drafts) its source,
+**webref** (`@webref/css`) its **machine-readable form** (every spec, status, term,
+value-type). We do NOT hand-transcribe them — that's unbounded and instantly stale. This
+registry is the small set we *implement*; the authoritative *space* is the index, and the
+registry itself should be **derived from webref** (join "specs we use" against webref's
+data), so grounding is a `derivable` view, auto-covering the index, not a hand-typed list.
+The rows below are the current hand-maintained snapshot pending that derivation.
+
 ## How to read a spec (so the grounding is real)
 Grounding means reading the spec *correctly*, not skimming it (cf. A List Apart, "How to
 Read a W3C Spec"):
