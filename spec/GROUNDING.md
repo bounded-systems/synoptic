@@ -457,3 +457,23 @@ Full transparency IS valid — it's the identity element of compositing (`X` ove
 now collapses every α=0 to the single transparent atom (the α-axis analog of the powerless-
 hue collapse; the JND on all other axes is infinite when nothing is shown). Grounded: CSS
 Color 4 §12.3 (premultiplied alpha) · §12.4 (powerless components) · [[project_check_layers]].
+
+### What is a good JND? (and why hue count is chroma-weighted)
+
+There is no single JND — it is **per-axis and context-dependent**. Grounded working values:
+
+| axis | JND (just-noticeable) | note |
+|---|---|---|
+| overall color | **ΔEOK ≈ 0.02** | ≈ CIEDE2000 ΔE 1–2 ("just visible"); our dedup/health threshold |
+| lightness L | ~1–2% | perceptually uniform, so absolute |
+| chroma C | ~0.01–0.02 | absolute-ish |
+| **hue H** | **≈ ΔEOK / C radians** = `0.02/C · 57.3°` | **scales with chroma** — the key one |
+
+Hue is the trap: `perceptual hue distance ≈ C · Δh`, so at low chroma the hue JND explodes
+(C 0.13 → 9°; C 0.05 → 23°; C 0.02 → 57°). A near-gray can drift almost any hue unseen.
+
+**Consequence for "how many hues":** count only where chroma resolves hue. bounded.tools:
+19 raw hue values → **2 perceptually-distinct hues** (a warm ~80° and a cool ~165°) + neutrals;
+the other ~29 chromatic colors are desaturated members whose hue doesn't independently
+resolve. Choosing the JND coarser (0.02 → 0.05) forces ffewer, more-distinct tokens — a
+design lever, not just a dedup threshold. Grounded: CIEDE2000, OKLab geometry, psychophysics.

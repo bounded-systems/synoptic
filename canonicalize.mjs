@@ -31,7 +31,9 @@ function emitOklch(L, C, H, a = 1) {
   // full transparency is DEGENERATE: at alpha 0 the color is unobservable (and premultiplied
   // interpolation zeroes its channels), so ALL alpha-0 colors collapse to one transparent
   // atom — L/C/H below the observability floor. CSS Color 4 §12.3 (premultiplied alpha).
-  if (round(a, 3) === 0) return "oklch(0% 0 0 / 0)";
+  if (round(a, 3) === 0) return "oklch(0% 0 0 / 0)";                    // transparent: ALL axes gone
+  if (round(L, 2) <= 0) return `oklch(0% 0 0 / ${round(a, 3)})`;        // black: L=0 forces C=0, H gone
+  if (round(L, 2) >= 100) return `oklch(100% 0 0 / ${round(a, 3)})`;    // white: L=100 forces C=0, H gone
   return `oklch(${round(L, 2)}% ${round(C, 4)} ${round(C < 1e-4 ? 0 : H, 2)} / ${round(a, 3)})`;
 }
 function color(r, g, b, a = 1) {
