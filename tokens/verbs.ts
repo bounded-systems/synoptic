@@ -111,7 +111,7 @@ export function deriveDimensions(scale: readonly number[], ratio = 1.2): Record<
 /** GENERATE the complete valid type scale — the bounds FORCE the ratio (like the color constraints
  * force the palette): given the floor, ceiling, and markdown's role count, the geometric ratio is
  * DETERMINED, not chosen. Returns the distinct rem sizes, snapped to the geometric grid. */
-export function generateScale(floor = TYPE_SCALE_BOUNDS.floorRem, ceiling = TYPE_SCALE_BOUNDS.ceilingRem, roles = TYPE_SCALE_BOUNDS.maxRoles): Record<string, z.infer<typeof Dimension>> {
+export function generateScale(floor: number = TYPE_SCALE_BOUNDS.floorRem, ceiling: number = TYPE_SCALE_BOUNDS.ceilingRem, roles: number = TYPE_SCALE_BOUNDS.maxRoles): Record<string, z.infer<typeof Dimension>> {
   const ratio = (ceiling / floor) ** (1 / (roles - 1)); // forced by [floor, ceiling] and the role count
   const sizes = Array.from({ length: roles }, (_, i) => Math.round(floor * ratio ** i * 1000) / 1000);
   return deriveDimensions(sizes, ratio);
