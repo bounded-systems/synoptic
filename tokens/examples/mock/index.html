@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mock site — exercises the token engine</title>
+<style>
+  /* root: font-size 100% (the user's default) — every rem floats on it */
+  :root { font-size: 100%; }
+  body {
+    font-family: system-ui, sans-serif;
+    color: #16221c;                 /* near-black ink text */
+    background-color: #edeae1;       /* warm paper surface */
+    max-inline-size: 66ch;           /* measure */
+    margin: 2rem auto;
+    padding: 0 1rem;
+    line-height: 1.5;                /* AAA body */
+  }
+  h1 { font-size: 2.986rem; color: #073d2c; line-height: 1.1; }   /* deep green */
+  h2 { font-size: 2.074rem; color: #0c5a42; line-height: 1.2; }   /* forest */
+  h3 { font-size: 1.44rem; }
+  a  { color: #0c5a42; text-decoration-color: #0c5a42; }          /* forest link */
+  .card {
+    background-color: #16221c;       /* dark surface */
+    color: #e2ebe6;                  /* light text on dark */
+    padding: 1rem;
+    border: 0.125rem solid #58b196;  /* sage border, 2px */
+    border-radius: 0.5rem;
+  }
+  small { font-size: 0.75rem; color: #5c6b63; }                   /* muted */
+  button { background-color: #0c5a42; color: #ffffff; padding: 0.75rem 1.5rem; min-height: 2.75rem; border: 0; }
+</style>
+</head>
+<body>
+  <h1>Colors Are Coordinates</h1>
+  <p>Body copy on paper, with a <a href="#">forest link</a> that clears AAA. The measure caps the line length near sixty-six characters so it stays readable.</p>
+  <h2>A dark surface</h2>
+  <div class="card">
+    <h3>Card title</h3>
+    <p>Light text on a dark surface, a sage border at two pixels, everything in rem.</p>
+    <button type="button">Action</button>
+  </div>
+  <small>Fine print at the readability floor.</small>
+</body>
+</html>
