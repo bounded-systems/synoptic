@@ -58,6 +58,13 @@ export function chromaCeiling(L: number, h: number): number {
   return lo;
 }
 
+/** OKLCh → hex, chroma clamped to the sRGB gamut ceiling so the color is always representable. */
+export function oklchToHex(L: number, C: number, h: number): string {
+  const c = Math.min(C, chromaCeiling(L, h));
+  const rgb = oklchToLinear(L, c, h).map(fromLinear).map((x) => Math.round(clamp(x) * 255));
+  return "#" + rgb.map((x) => x.toString(16).padStart(2, "0")).join("");
+}
+
 const relLum = ([r, g, b]: number[]): number => 0.2126 * r + 0.7152 * g + 0.0722 * b;
 const clamp = (c: number): number => Math.max(0, Math.min(1, c));
 export const luminanceOklch = (L: number, C: number, h: number): number => relLum(oklchToLinear(L, C, h).map(clamp));

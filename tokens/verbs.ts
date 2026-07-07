@@ -19,11 +19,30 @@ import {
   merkleRoot,
   cssOklch,
   oklchString,
+  oklchToHex,
   type Oklch,
   sha,
 } from "./color.ts";
+
+/** deriveSeedPalette — from ONE brand seed color, generate the full palette: warm neutrals faintly
+ * tinted toward the seed hue + the accent ladder (vibrant fill + AA-clearing link). The brand seed
+ * supplies the HUE; the constraints (AAA/AA lightnesses) generate the set. Sudoku the game. */
+export function deriveSeedPalette(seed: string): string[] {
+  const { h, c } = hexToOklch(seed);
+  const tint = 0.014; // a faint neutral tint toward the brand hue — cohesion without color-cast
+  return [
+    oklchToHex(96, tint, h), // surface — warm cream
+    oklchToHex(91, tint * 1.3, h), // wash / light-on-dark
+    oklchToHex(55, tint * 1.6, h), // muted grey
+    oklchToHex(20, tint * 1.2, h), // dark surface
+    oklchToHex(13, tint, h), // text — near-black warm
+    oklchToHex(62, Math.max(c, 0.15), h), // accent — the vibrant brand fill
+    oklchToHex(46, Math.max(c * 0.9, 0.14), h), // link — a darker accent that clears AA on the surface
+  ];
+}
 import { ColorPair, Dimension, Measure, NumberValue, PrimitiveColor, PropertyPair, PropertyToken, RootFontSize } from "./schema.ts";
 import { TYPE_SCALE_BOUNDS } from "./dimension-constraints.ts";
+import { hueName } from "./hue.ts";
 
 /** The color-valued CSS properties, DERIVED from @webref/css (committed artifact). */
 const DERIVED_PROPS: string[] = (JSON.parse(Deno.readTextFileSync(new URL("color-properties.derived.json", import.meta.url))) as { properties: { name: string }[] }).properties.map((p) => p.name);
@@ -51,7 +70,6 @@ function deriveBands(palette: readonly string[]): Record<string, string[]> {
 
 /** Plain-English description generated from the computed contrast (normal + CVD). */
 function describe(hex: string, o: Oklch, bands: Record<string, string[]>): string {
-  const hueName = (h: number): string => { for (const [deg, nm] of [[18, "red"], [45, "clay"], [78, "amber"], [105, "gold"], [140, "lime"], [172, "green"], [195, "teal"], [240, "blue"], [290, "indigo"], [335, "magenta"], [360, "red"]] as [number, string][]) if (h <= deg) return nm; return "red"; };
   const shadeWord = o.l >= 88 ? "very light" : o.l >= 66 ? "light" : o.l >= 44 ? "mid-tone" : o.l >= 24 ? "dark" : "deep";
   let noun: string, useShade = true;
   if (o.c < 0.02) {
