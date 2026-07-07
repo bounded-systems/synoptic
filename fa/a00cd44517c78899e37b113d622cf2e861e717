@@ -1,0 +1,37 @@
+tokens/gen-properties.ts
+  s_70508ca017cb29::t_50c84fdfc7861c 28-29,31,35
+  s_70508ca017cb29::t_9e0deaf1debca2 1-27,30,32-34,36-44
+tokens/gen-typed-om.ts
+  s_70508ca017cb29::t_91784d917ecac1 28
+tokens/schema.ts
+  s_70508ca017cb29::t_08739af1f30350 50-52
+  s_70508ca017cb29::t_266d6eda8ec6b8 6
+tokens/resolve.test.ts
+  s_70508ca017cb29::t_a1aa6d2d462283 1-50
+package.json
+  s_70508ca017cb29::t_76f48b9867f89c 3
+tokens/color-properties.derived.json
+  s_70508ca017cb29::t_562b5dcae4c10f 2,8-9,13-14,18-19,23-24,28-29,33-34,38-39,43-44,48-49,53-54,58-59,63-64,68-69,73-74,78-79,83-84,88-89,93-94,98-99,103-104,108-109,113-114,118-119,123-124,128-129,133-134,138-139,143-144,148-149,153-154,158-159,163-164,168-169,173-174,178-179,183-184,188-189,193-194,198-199,203-204,208-209,213-214,217
+tokens/deno.lock
+  s_70508ca017cb29::t_4821b66c0c296a 5,8-9,20-25,31-33,37-42,49-61
+tokens/properties.ts
+  s_70508ca017cb29::t_8cb531481281a0 1-10
+tokens/typed-om.ts
+  s_70508ca017cb29::t_66df1089840a3c 179-193,195
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "faa00cd44517c78899e37b113d622cf2e861e717",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
