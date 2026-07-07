@@ -1,0 +1,25 @@
+tokens/gen-typed-om.ts
+  s_70508ca017cb29::t_b698492dd29b13 18-21,26-28
+tokens/resolve.ts
+  s_70508ca017cb29::t_ea1073bae2605a 1-84
+package.json
+  s_70508ca017cb29::t_b30ab9839af758 3
+tokens/typed-om.ts
+  s_70508ca017cb29::t_70b0ce1a725f5a 68-71,80,114-178,180
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "f631d9b62e11b4c2067f6d190174eb5df17255c3",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
