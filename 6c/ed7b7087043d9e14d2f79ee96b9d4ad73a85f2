@@ -1,0 +1,21 @@
+tokens/gen-numeric.ts
+  s_70508ca017cb29::t_d5c1b8cc4b44a6 1-38
+tokens/numeric.ts
+  s_70508ca017cb29::t_2440c79d61d513 1-26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "6ced7b7087043d9e14d2f79ee96b9d4ad73a85f2",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
