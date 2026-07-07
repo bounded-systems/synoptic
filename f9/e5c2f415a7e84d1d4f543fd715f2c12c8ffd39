@@ -1,0 +1,24 @@
+tokens/GROUNDING.md
+  s_70508ca017cb29::t_df1e05cd2198c3 1-32,44-45
+  s_70508ca017cb29::t_5fcdfcb5c81d4f 33-43
+tokens/gen-typed-om.ts
+  s_70508ca017cb29::t_6f04d200401a67 30-42,47-48
+tokens/typed-om.ts
+  s_70508ca017cb29::t_586ff81dda5572 2-6,9,19,29,39,49,59,69,79,88,96,103,110,118,125,133,141,149,157,165,173,183,190
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "f9e5c2f415a7e84d1d4f543fd715f2c12c8ffd39",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
