@@ -1,0 +1,37 @@
+tokens/derive.ts
+  s_70508ca017cb29::t_a54900473ef1dd 1-43
+tokens/to-css.ts
+  s_70508ca017cb29::t_a3cd90e9f5b07c 127
+  s_70508ca017cb29::t_a58026f4c079fc 21
+  s_70508ca017cb29::t_99f77e0f9b9aec 18-20
+  s_70508ca017cb29::t_71a5a943518033 8,11-13
+tokens/to-tokens.ts
+  s_70508ca017cb29::t_4612b0eb884b33 9
+  s_70508ca017cb29::t_814dc63789c428 1-8,10-61
+tokens/build-brand.ts
+  s_70508ca017cb29::t_f770effef4ec9c 1-13
+tokens/examples/mock-blue/tokens.dtcg.json
+  s_70508ca017cb29::t_b7b1b8ca144e8c 1-164
+tokens/examples/mock-blue/tokens.sd.json
+  s_70508ca017cb29::t_3ba6866acaaaf3 1-153
+tokens/examples/mock-orange/tokens.dtcg.json
+  s_70508ca017cb29::t_5f83b5f87fed14 1-164
+tokens/examples/mock-orange/tokens.sd.json
+  s_70508ca017cb29::t_c4fd1a342977e0 1-153
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "c41844d99e87697004c29fe93800a1821f8c11aa",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
