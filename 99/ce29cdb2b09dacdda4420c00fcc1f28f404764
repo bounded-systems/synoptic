@@ -1,0 +1,28 @@
+tokens/constants.ts
+  s_70508ca017cb29::t_a56fd7d133fcaa 35-41
+tokens/verbs.ts
+  s_70508ca017cb29::t_bcb72150efd2b4 33-35
+  s_70508ca017cb29::t_fa7b7985e5dbde 26
+tokens/roles.ts
+  s_70508ca017cb29::t_89d6102b62357c 52-53,55-64
+tokens/examples/mock-blue/style.css
+  s_70508ca017cb29::t_f178c9be061462 2-13,36-47,68-77
+tokens/examples/mock-orange/style.css
+  s_70508ca017cb29::t_70801e96d1efef 2-13,36-47,68-77
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "99ce29cdb2b09dacdda4420c00fcc1f28f404764",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
