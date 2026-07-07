@@ -1,0 +1,48 @@
+tokens/config.ts
+  s_70508ca017cb29::t_f4c01c994a44cd 23-24
+  s_70508ca017cb29::t_740c6696604425 5
+  s_70508ca017cb29::t_419026f09b2a67 25
+tokens/hue.ts
+  s_70508ca017cb29::t_3905fc21cb7b36 16,18-20,24
+tokens/verbs.ts
+  s_70508ca017cb29::t_28bd9f782a7619 26
+  s_70508ca017cb29::t_73fe75ddc2acc4 33,35-41
+tokens/cvd-hues.ts
+  s_70508ca017cb29::t_a2501cc13dfb3c 29
+  s_70508ca017cb29::t_d0092894421180 7
+tokens/gen-properties.ts
+  s_70508ca017cb29::t_bda6ec99409b92 72-73,76
+tokens/roles.ts
+  s_70508ca017cb29::t_b92cc4381e2f77 1-5,7-15,17,19-35,37-62,65
+tokens/constants.ts
+  s_70508ca017cb29::t_a304d7bea91d4d 29-33
+  s_70508ca017cb29::t_70400ec5cb387f 1-28,34-38
+tokens/to-css.ts
+  s_70508ca017cb29::t_17717874406fd0 41
+  s_70508ca017cb29::t_d6182aa311dfc5 11,13
+  s_70508ca017cb29::t_22eeaa78044de6 35-36,38-40,42-44
+  s_70508ca017cb29::t_16801d67014fc6 115-118
+  s_70508ca017cb29::t_e07f7f275a177d 14
+  s_70508ca017cb29::t_01ff3bdaf595ec 74,76,80
+  s_70508ca017cb29::t_4e8248fb62d241 50
+  s_70508ca017cb29::t_bddf7eb1448d3c 27
+  s_70508ca017cb29::t_d5ea1690419102 10,84-114,119-136
+tokens/properties.ts
+  s_70508ca017cb29::t_5b668f1cdae32f 8-826
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "4e1bb601653e92e4d595e0dee85cf6b113016538",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
