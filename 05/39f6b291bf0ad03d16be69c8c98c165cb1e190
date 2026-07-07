@@ -1,0 +1,26 @@
+tokens/to-css.ts
+  s_70508ca017cb29::t_9d60379aa1449f 1-7,12-13,15-20,24-25,38-44,46-102,104
+  s_70508ca017cb29::t_7da678c48a690b 21-22,26-36
+tokens/serialize.ts
+  s_70508ca017cb29::t_de2ec264a575fb 33
+  s_70508ca017cb29::t_d63433cea21fe7 7,10,12-15
+  s_70508ca017cb29::t_06e983dc36860e 1-6,8-9,11,16-32,34-48
+tokens/examples/mock/style.css
+  s_70508ca017cb29::t_1e970443c359c3 1-12,15-96
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "0539f6b291bf0ad03d16be69c8c98c165cb1e190",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
