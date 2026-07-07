@@ -1,0 +1,27 @@
+tokens/color.ts
+  s_70508ca017cb29::t_b4373e3316a076 88-101
+tokens/cvd-hues.ts
+  s_70508ca017cb29::t_eec4328cb2f520 2-4,6-7,10-11,18-19,24
+tokens/brands/deep-blue/brand.json
+  s_70508ca017cb29::t_34a8fcb657643a 1-2
+tokens/examples/mock-blue/index.html
+  s_70508ca017cb29::t_c1c9bfb0e38fed 1-20
+tokens/examples/mock-blue/style.css
+  s_70508ca017cb29::t_7909d68b027458 1-165
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "91f894c9743152ea6d889e8c19128ab8ec2f4c7d",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
