@@ -47,18 +47,28 @@ for(const [name,hex] of Object.entries(PRIM)){
   pairs.sort((a,b)=>b.n-a.n);
   // name the color in plain words
   const hueName=(h)=>{for(const[deg,nm]of[[18,"red"],[45,"clay"],[78,"amber"],[105,"gold"],[140,"lime"],[172,"green"],[195,"teal"],[240,"blue"],[290,"indigo"],[335,"magenta"],[360,"red"]])if(h<=deg)return nm;return"red";};
-  const shade=t.l>=88?"very light":t.l>=66?"light":t.l>=44?"mid-tone":t.l>=24?"dark":"deep";
-  const color=t.c<0.02?(t.l>=88?"off-white":t.l<=22?"near-black":"grey"):`${(t.h>=20&&t.h<=110)?"warm ":(t.h>=195&&t.h<=300)?"cool ":""}${hueName(t.h)}`;
+  const shadeWord=t.l>=88?"very light":t.l>=66?"light":t.l>=44?"mid-tone":t.l>=24?"dark":"deep";
+  let noun,useShade=true;
+  if(t.c<0.02){                                   // near-neutral — name it as a grey/white/black
+    if(t.l>=98){noun="pure white";useShade=false;}
+    else if(t.l>=86){noun="off-white";useShade=false;}
+    else if(t.l<=6){noun="pure black";useShade=false;}
+    else if(t.l<=24){noun="near-black";useShade=false;}
+    else noun="grey";
+  } else {
+    noun=`${(t.h>=20&&t.h<=110)?"warm ":(t.h>=195&&t.h<=300)?"cool ":""}${hueName(t.h)}`;
+  }
+  const opener=useShade?`A ${shadeWord} ${noun}.`:`A ${noun}.`;
   let desc;
   if(!pairs.length){
-    desc=`A ${shade} ${color}. It's a background surface — other colors sit on it, rather than it on them.`;
+    desc=`${opener} It's a background surface — other colors sit on it, rather than it on them.`;
   } else {
     const parts=pairs.map(p=>{
       const use=p.bar>=4.5?"text":"borders and dividers";
       const floor=p.bar>=4.5?"the 4.5:1 minimum for readable text":"the 3:1 minimum for non-text";
       return `As ${use} on ${p.band} it reaches ${p.n.toFixed(1)} to 1 — past ${floor} — and still holds ${p.v.toFixed(1)} to 1 for color-blind readers`;
     });
-    desc=`A ${shade} ${color}. ${parts.join("; ")}. So it stays legible for everyone, including the three common kinds of color-blindness.`;
+    desc=`${opener} ${parts.join("; ")}. So it stays legible for everyone, including the three common kinds of color-blindness.`;
   }
   out[name]={ was:name, cas, value:`oklch(${t.l}% ${t.c} ${t.h} / ${t.alpha})`, hex, desc };
 }
