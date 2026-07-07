@@ -8,6 +8,7 @@
     "build": "deno run --allow-read --allow-write build.ts examples/example.palette.json examples",
     "validate": "deno run --allow-read validate.ts",
     "build-brand": "deno run --allow-read --allow-write --allow-run build-brand.ts",
-    "check": "deno run --allow-read --allow-write --allow-run check.ts"
+    "check": "deno run --allow-read --allow-write --allow-run check.ts",
+    "cli": "deno run --allow-read --allow-write --allow-run cli.ts"
   }
 }
