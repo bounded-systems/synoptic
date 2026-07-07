@@ -1,0 +1,218 @@
+{
+  "$source": "@webref/css (listAll)",
+  "$note": "Every CSS property whose value grammar reaches <color>, resolved transitively. `single`=value is a color (color-token settable); else the color is part of a shorthand.",
+  "count": 42,
+  "singleCount": 10,
+  "properties": [
+    {
+      "name": "-webkit-text-fill-color",
+      "takesColor": true,
+      "single": true
+    },
+    {
+      "name": "-webkit-text-stroke",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "-webkit-text-stroke-color",
+      "takesColor": true,
+      "single": true
+    },
+    {
+      "name": "accent-color",
+      "takesColor": true,
+      "single": true
+    },
+    {
+      "name": "background-color",
+      "takesColor": true,
+      "single": true
+    },
+    {
+      "name": "border",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-block",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-block-color",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-block-end",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-block-end-color",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-block-start",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-block-start-color",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-bottom",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-bottom-color",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-color",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-inline",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-inline-color",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-inline-end",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-inline-end-color",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-inline-start",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-inline-start-color",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-left",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-left-color",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-right",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-right-color",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-top",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "border-top-color",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "box-shadow-color",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "caret",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "caret-color",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "color",
+      "takesColor": true,
+      "single": true
+    },
+    {
+      "name": "fill-color",
+      "takesColor": true,
+      "single": true
+    },
+    {
+      "name": "flood-color",
+      "takesColor": true,
+      "single": true
+    },
+    {
+      "name": "lighting-color",
+      "takesColor": true,
+      "single": true
+    },
+    {
+      "name": "outline-color",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "scrollbar-color",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "stop-color",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "stroke-color",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "text-decoration",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "text-decoration-color",
+      "takesColor": true,
+      "single": true
+    },
+    {
+      "name": "text-emphasis",
+      "takesColor": true,
+      "single": false
+    },
+    {
+      "name": "text-emphasis-color",
+      "takesColor": true,
+      "single": true
+    }
+  ]
+}

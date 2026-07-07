@@ -4,6 +4,8 @@
 // against the grounds under normal + CVD (deuteranopia/protanopia/tritanopia, Machado 2009).
 // The doc can't drift from the color, because it's computed from it. All 16 primitives covered.
 import { canonicalizeTyped } from "/tmp/synoptic/canonicalize.mjs";
+import { createHash } from "node:crypto";
+const sha8=(s)=>createHash("sha256").update(s).digest("hex").slice(0,8);  // content address of the color
 
 // --- the real palette (values unchanged) ---
 const PRIM = {
@@ -78,7 +80,7 @@ if(process.argv.includes("--json")){
   // emit the DTCG `primitive` tier — the ONLY tier for now. Keyed by the DERIVED name (CAS oklch);
   // $was keeps the old hand-name for migration; $description is generated from the computed facts.
   const tier={"$description":"Derived primitives — real brand colors, names derived from their oklch coordinates, descriptions generated from computed contrast under normal + deuteranopia/protanopia/tritanopia vision. The only color tier for now (semantic + recipe tiers removed). No old names anywhere: the name IS the color. The doc cannot drift from the value because it is computed from it."};
-  for(const [k,v] of Object.entries(out)) tier[v.cas]={"$type":"color","$value":v.value,"$description":v.desc};
+  for(const [k,v] of Object.entries(out)) tier[v.cas]={"$type":"color","$value":v.value,"$sha":sha8(v.value),"$description":v.desc};
   console.log(JSON.stringify({primitive:tier},null,2));
   process.exit(0);
 }
