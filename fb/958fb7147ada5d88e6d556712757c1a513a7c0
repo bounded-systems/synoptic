@@ -1,0 +1,23 @@
+tokens/extract.ts
+  s_70508ca017cb29::t_af9df3db2de4e0 1-31
+tokens/gen-font.ts
+  s_70508ca017cb29::t_e7402b3ab8a84d 1-27
+tokens/examples/mock/index.html
+  s_70508ca017cb29::t_bc2168fab50409 1-44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "fb958fb7147ada5d88e6d556712757c1a513a7c0",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
