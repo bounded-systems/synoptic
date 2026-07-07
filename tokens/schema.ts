@@ -2,18 +2,18 @@
 // "semantic" tier used to do — and because the schema is the spec, a token that doesn't conform
 // cannot be emitted. Layers: primitive · primitive-pair · property · property-pair · node-pair.
 import { z } from "zod";
+import { CSSOKLCH } from "./typed-om.ts"; // GENERATED from the CSS Typed OM IDL — the real spec type
 
 // ── content addresses ────────────────────────────────────────────────
 export const Sha8 = z.string().regex(/^[0-9a-f]{8}$/, "8-hex content address");
 export const Sha12 = z.string().regex(/^[0-9a-f]{12}$/, "12-hex content address");
 export const Sha64 = z.string().regex(/^[0-9a-f]{64}$/, "merkle root");
 export const CasName = z.string().regex(/^oklch-/, "derived CAS name (name IS the coordinate)");
-export const OklchValue = z.string().regex(/^oklch\(/, "oklch(...) value");
 
-// ── LAYER: primitive — the color atom (name is its coordinate) ────────
+// ── LAYER: primitive — the color atom; $value IS a CSS Typed OM CSSOKLCH ──
 export const PrimitiveColor = z.object({
   $type: z.literal("color"),
-  $value: OklchValue,
+  $value: CSSOKLCH, // the Typed OM internal representation, generated from IDL — not hand-asserted
   $sha: Sha12,
   $description: z.string(),
 });

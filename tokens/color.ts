@@ -84,3 +84,5 @@ export const casName = (o: Oklch): string => {
   return `oklch-${n(o.l)}-${n(o.c)}-${n(o.h)}-${n(o.alpha)}`;
 };
 export const oklchString = (o: Oklch): string => `oklch(${o.l}% ${o.c} ${o.h} / ${o.alpha})`;
+/** The color as a CSS Typed OM CSSOKLCH internal representation (the generated spec type). */
+export const cssOklch = (o: Oklch) => ({ $type: "CSSOKLCH" as const, l: o.l, c: o.c, h: o.h, alpha: o.alpha });

@@ -1,0 +1,299 @@
+{
+  "property": {
+    "$description": "Property tokens — keyed by the full CSS property that reaches <color> (StylePropertyMapReadOnly.keys()), DERIVED from @webref/css. $value is the short SHA of a derived atom, chosen by the property's contrast role.",
+    "-webkit-text-fill-color": {
+      "$type": "color",
+      "$value": "6ed0d3a030be",
+      "$resolvesTo": "oklch-19_44-0_0267-244_92-1",
+      "$role": "text-fg",
+      "$description": "CSS `-webkit-text-fill-color` — text, pairs with background-color at 7:1 AAA. Points to any color with content hash 6ed0d3a030be (currently oklch-19_44-0_0267-244_92-1)."
+    },
+    "-webkit-text-stroke": {
+      "$type": "color",
+      "$value": "6ed0d3a030be",
+      "$resolvesTo": "oklch-19_44-0_0267-244_92-1",
+      "$role": "text-fg",
+      "$description": "CSS `-webkit-text-stroke` — text, pairs with background-color at 7:1 AAA. Points to any color with content hash 6ed0d3a030be (currently oklch-19_44-0_0267-244_92-1)."
+    },
+    "-webkit-text-stroke-color": {
+      "$type": "color",
+      "$value": "6ed0d3a030be",
+      "$resolvesTo": "oklch-19_44-0_0267-244_92-1",
+      "$role": "text-fg",
+      "$description": "CSS `-webkit-text-stroke-color` — text, pairs with background-color at 7:1 AAA. Points to any color with content hash 6ed0d3a030be (currently oklch-19_44-0_0267-244_92-1)."
+    },
+    "accent-color": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `accent-color` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "background-color": {
+      "$type": "color",
+      "$value": "a178b05826cf",
+      "$resolvesTo": "oklch-100-0-0-1",
+      "$role": "background",
+      "$description": "CSS `background-color` — the ground — the background side of every pair. Points to any color with content hash a178b05826cf (currently oklch-100-0-0-1)."
+    },
+    "border": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-block": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-block` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-block-color": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-block-color` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-block-end": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-block-end` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-block-end-color": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-block-end-color` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-block-start": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-block-start` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-block-start-color": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-block-start-color` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-bottom": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-bottom` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-bottom-color": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-bottom-color` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-color": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-color` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-inline": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-inline` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-inline-color": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-inline-color` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-inline-end": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-inline-end` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-inline-end-color": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-inline-end-color` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-inline-start": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-inline-start` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-inline-start-color": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-inline-start-color` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-left": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-left` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-left-color": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-left-color` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-right": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-right` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-right-color": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-right-color` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-top": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-top` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "border-top-color": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `border-top-color` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "box-shadow-color": {
+      "$type": "color",
+      "$value": "a178b05826cf",
+      "$resolvesTo": "oklch-100-0-0-1",
+      "$role": "exempt",
+      "$description": "CSS `box-shadow-color` — decorative — no contrast pair. Points to any color with content hash a178b05826cf (currently oklch-100-0-0-1)."
+    },
+    "caret": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `caret` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "caret-color": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `caret-color` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "color": {
+      "$type": "color",
+      "$value": "6ed0d3a030be",
+      "$resolvesTo": "oklch-19_44-0_0267-244_92-1",
+      "$role": "text-fg",
+      "$description": "CSS `color` — text, pairs with background-color at 7:1 AAA. Points to any color with content hash 6ed0d3a030be (currently oklch-19_44-0_0267-244_92-1)."
+    },
+    "fill-color": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "fg-depends",
+      "$description": "CSS `fill-color` — non-text or text — the node decides (text element vs shape). Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "flood-color": {
+      "$type": "color",
+      "$value": "a178b05826cf",
+      "$resolvesTo": "oklch-100-0-0-1",
+      "$role": "exempt",
+      "$description": "CSS `flood-color` — decorative — no contrast pair. Points to any color with content hash a178b05826cf (currently oklch-100-0-0-1)."
+    },
+    "lighting-color": {
+      "$type": "color",
+      "$value": "a178b05826cf",
+      "$resolvesTo": "oklch-100-0-0-1",
+      "$role": "exempt",
+      "$description": "CSS `lighting-color` — decorative — no contrast pair. Points to any color with content hash a178b05826cf (currently oklch-100-0-0-1)."
+    },
+    "outline-color": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "nontext-fg",
+      "$description": "CSS `outline-color` — non-text, pairs with background-color at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "scrollbar-color": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "self-pair",
+      "$description": "CSS `scrollbar-color` — a self-contained pair (thumb vs track) at 3:1. Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "stop-color": {
+      "$type": "color",
+      "$value": "a178b05826cf",
+      "$resolvesTo": "oklch-100-0-0-1",
+      "$role": "exempt",
+      "$description": "CSS `stop-color` — decorative — no contrast pair. Points to any color with content hash a178b05826cf (currently oklch-100-0-0-1)."
+    },
+    "stroke-color": {
+      "$type": "color",
+      "$value": "2d00ecf1cf24",
+      "$resolvesTo": "oklch-54_99-0_1251-52_03-1",
+      "$role": "fg-depends",
+      "$description": "CSS `stroke-color` — non-text or text — the node decides (text element vs shape). Points to any color with content hash 2d00ecf1cf24 (currently oklch-54_99-0_1251-52_03-1)."
+    },
+    "text-decoration": {
+      "$type": "color",
+      "$value": "6ed0d3a030be",
+      "$resolvesTo": "oklch-19_44-0_0267-244_92-1",
+      "$role": "text-fg",
+      "$description": "CSS `text-decoration` — text, pairs with background-color at 7:1 AAA. Points to any color with content hash 6ed0d3a030be (currently oklch-19_44-0_0267-244_92-1)."
+    },
+    "text-decoration-color": {
+      "$type": "color",
+      "$value": "6ed0d3a030be",
+      "$resolvesTo": "oklch-19_44-0_0267-244_92-1",
+      "$role": "text-fg",
+      "$description": "CSS `text-decoration-color` — text, pairs with background-color at 7:1 AAA. Points to any color with content hash 6ed0d3a030be (currently oklch-19_44-0_0267-244_92-1)."
+    },
+    "text-emphasis": {
+      "$type": "color",
+      "$value": "6ed0d3a030be",
+      "$resolvesTo": "oklch-19_44-0_0267-244_92-1",
+      "$role": "text-fg",
+      "$description": "CSS `text-emphasis` — text, pairs with background-color at 7:1 AAA. Points to any color with content hash 6ed0d3a030be (currently oklch-19_44-0_0267-244_92-1)."
+    },
+    "text-emphasis-color": {
+      "$type": "color",
+      "$value": "6ed0d3a030be",
+      "$resolvesTo": "oklch-19_44-0_0267-244_92-1",
+      "$role": "text-fg",
+      "$description": "CSS `text-emphasis-color` — text, pairs with background-color at 7:1 AAA. Points to any color with content hash 6ed0d3a030be (currently oklch-19_44-0_0267-244_92-1)."
+    }
+  }
+}

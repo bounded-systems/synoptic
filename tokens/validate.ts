@@ -30,14 +30,14 @@ function check(file: string, wrapper: string, schema: z.ZodTypeAny): boolean {
 
 let allOk = true;
 console.log("schema conformance:");
-allOk = check("primitives.derived.json", "primitive", PrimitiveColor) && allOk;
-allOk = check("primitive-pairs.json", "primitive-pairs", ColorPair) && allOk;
-allOk = check("property.tokens.json", "property", PropertyToken) && allOk;
-allOk = check("contrast-pairs.json", "contrast-pairs", PropertyPair) && allOk;
+allOk = check("examples/primitives.derived.json", "primitive", PrimitiveColor) && allOk;
+allOk = check("examples/primitive-pairs.json", "primitive-pairs", ColorPair) && allOk;
+allOk = check("examples/property.tokens.json", "property", PropertyToken) && allOk;
+allOk = check("examples/contrast-pairs.json", "contrast-pairs", PropertyPair) && allOk;
 
 // merkle invariant: recompute each $pairSha and the root
 console.log("\nmerkle invariant:");
-const pp = JSON.parse(Deno.readTextFileSync(new URL("primitive-pairs.json", import.meta.url)));
+const pp = JSON.parse(Deno.readTextFileSync(new URL("examples/primitive-pairs.json", import.meta.url)));
 const pairs = Object.entries(pp["primitive-pairs"]).filter(([k]) => !k.startsWith("$")) as [string, ColorPair][];
 let merkleOk = true;
 for (const [k, p] of pairs) {

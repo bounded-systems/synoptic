@@ -4,8 +4,8 @@
     "verbspec": "jsr:@bounded-systems/verbspec@^0.3.1"
   },
   "tasks": {
-    "validate": "deno run --allow-read validate.ts",
-    "primitives": "deno run verbs.ts primitives",
-    "pairs": "deno run verbs.ts primitive-pairs"
+    "gen-types": "deno run --allow-read --allow-write --allow-env --allow-net gen-typed-om.ts",
+    "build": "deno run --allow-read --allow-write build.ts examples/example.palette.json examples",
+    "validate": "deno run --allow-read validate.ts"
   }
 }

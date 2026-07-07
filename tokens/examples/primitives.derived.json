@@ -1,0 +1,101 @@
+{
+  "primitive": {
+    "$description": "Derived primitives — a palette's real colors, names derived from their oklch coordinates, descriptions generated from computed contrast under normal + deuteranopia/protanopia/tritanopia vision. No brand named; the name IS the color; the doc is computed from the value so it cannot drift.",
+    "oklch-24_09-0_0324-245_83-1": {
+      "$type": "color",
+      "$value": {
+        "$type": "CSSOKLCH",
+        "l": 24.09,
+        "c": 0.0324,
+        "h": 245.83,
+        "alpha": 1
+      },
+      "$sha": "ba4b642be197",
+      "$description": "A dark cool indigo. As text on light backgrounds it reaches 13.0 to 1 — past the 4.5:1 minimum for readable text — and still holds 12.5 to 1 for color-blind readers. So it stays legible for everyone, including the three common kinds of color-blindness."
+    },
+    "oklch-19_44-0_0267-244_92-1": {
+      "$type": "color",
+      "$value": {
+        "$type": "CSSOKLCH",
+        "l": 19.44,
+        "c": 0.0267,
+        "h": 244.92,
+        "alpha": 1
+      },
+      "$sha": "6ed0d3a030be",
+      "$description": "A deep cool indigo. As text on light backgrounds it reaches 14.6 to 1 — past the 4.5:1 minimum for readable text — and still holds 14.1 to 1 for color-blind readers. So it stays legible for everyone, including the three common kinds of color-blindness."
+    },
+    "oklch-34_01-0_0391-238_08-1": {
+      "$type": "color",
+      "$value": {
+        "$type": "CSSOKLCH",
+        "l": 34.01,
+        "c": 0.0391,
+        "h": 238.08,
+        "alpha": 1
+      },
+      "$sha": "9ee4223a8589",
+      "$description": "A dark cool blue. As text on light backgrounds it reaches 9.3 to 1 — past the 4.5:1 minimum for readable text — and still holds 8.8 to 1 for color-blind readers. So it stays legible for everyone, including the three common kinds of color-blindness."
+    },
+    "oklch-68_84-0_0479-236_32-1": {
+      "$type": "color",
+      "$value": {
+        "$type": "CSSOKLCH",
+        "l": 68.84,
+        "c": 0.0479,
+        "h": 236.32,
+        "alpha": 1
+      },
+      "$sha": "921966982c6e",
+      "$description": "A light cool blue. As text on dark backgrounds it reaches 5.9 to 1 — past the 4.5:1 minimum for readable text — and still holds 5.8 to 1 for color-blind readers. So it stays legible for everyone, including the three common kinds of color-blindness."
+    },
+    "oklch-95_17-0_0084-236_56-1": {
+      "$type": "color",
+      "$value": {
+        "$type": "CSSOKLCH",
+        "l": 95.17,
+        "c": 0.0084,
+        "h": 236.56,
+        "alpha": 1
+      },
+      "$sha": "4ae2ee7f674c",
+      "$description": "An off-white. As text on dark backgrounds it reaches 14.2 to 1 — past the 4.5:1 minimum for readable text — and still holds 14.1 to 1 for color-blind readers. So it stays legible for everyone, including the three common kinds of color-blindness."
+    },
+    "oklch-100-0-0-1": {
+      "$type": "color",
+      "$value": {
+        "$type": "CSSOKLCH",
+        "l": 100,
+        "c": 0,
+        "h": 0,
+        "alpha": 1
+      },
+      "$sha": "a178b05826cf",
+      "$description": "A pure white. As text on dark backgrounds it reaches 16.4 to 1 — past the 4.5:1 minimum for readable text — and still holds 16.1 to 1 for color-blind readers. So it stays legible for everyone, including the three common kinds of color-blindness."
+    },
+    "oklch-54_99-0_1251-52_03-1": {
+      "$type": "color",
+      "$value": {
+        "$type": "CSSOKLCH",
+        "l": 54.99,
+        "c": 0.1251,
+        "h": 52.03,
+        "alpha": 1
+      },
+      "$sha": "2d00ecf1cf24",
+      "$description": "A mid-tone warm amber. As borders and dividers on light backgrounds it reaches 4.0 to 1 — past the 3:1 minimum for non-text — and still holds 3.7 to 1 for color-blind readers; As borders and dividers on dark backgrounds it reaches 3.2 to 1 — past the 3:1 minimum for non-text — and still holds 2.7 to 1 for color-blind readers. So it stays legible for everyone, including the three common kinds of color-blindness."
+    },
+    "oklch-92_39-0_0336-73_19-1": {
+      "$type": "color",
+      "$value": {
+        "$type": "CSSOKLCH",
+        "l": 92.39,
+        "c": 0.0336,
+        "h": 73.19,
+        "alpha": 1
+      },
+      "$sha": "fea321a895eb",
+      "$description": "A very light warm amber. As text on dark backgrounds it reaches 13.0 to 1 — past the 4.5:1 minimum for readable text — and still holds 12.5 to 1 for color-blind readers. So it stays legible for everyone, including the three common kinds of color-blindness."
+    }
+  }
+}

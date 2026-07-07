@@ -1,0 +1,300 @@
+{
+  "primitive-pairs": {
+    "$description": "Contrast pairs between the derived atoms — a merkle over the PRE-VALIDATED set. Only valid pairs (>=3:1 normally AND under CVD). Each has a $pairSha; an un-validated combination has none, so it is unconstructable.",
+    "$merkleRoot": "a2d1da74e07510f2e7cc88c07035a778084a1133c37813a518319dd9cfccc76c",
+    "$leafCount": 16,
+    "oklch-24_09-0_0324-245_83-1<>oklch-68_84-0_0479-236_32-1": {
+      "$type": "color-pair",
+      "$pairSha": "e6d6f87d0355",
+      "$colors": [
+        "oklch-24_09-0_0324-245_83-1",
+        "oklch-68_84-0_0479-236_32-1"
+      ],
+      "$colorShas": {
+        "oklch-24_09-0_0324-245_83-1": "ba4b642be197",
+        "oklch-68_84-0_0479-236_32-1": "921966982c6e"
+      },
+      "$ratio": 5.92,
+      "$cvd": 5.83,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-24_09-0_0324-245_83-1<>oklch-95_17-0_0084-236_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "aa9dbcf27677",
+      "$colors": [
+        "oklch-24_09-0_0324-245_83-1",
+        "oklch-95_17-0_0084-236_56-1"
+      ],
+      "$colorShas": {
+        "oklch-24_09-0_0324-245_83-1": "ba4b642be197",
+        "oklch-95_17-0_0084-236_56-1": "4ae2ee7f674c"
+      },
+      "$ratio": 14.24,
+      "$cvd": 14.05,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-24_09-0_0324-245_83-1": {
+      "$type": "color-pair",
+      "$pairSha": "287e08b0dc67",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-24_09-0_0324-245_83-1"
+      ],
+      "$colorShas": {
+        "oklch-100-0-0-1": "a178b05826cf",
+        "oklch-24_09-0_0324-245_83-1": "ba4b642be197"
+      },
+      "$ratio": 16.37,
+      "$cvd": 16.05,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-24_09-0_0324-245_83-1<>oklch-92_39-0_0336-73_19-1": {
+      "$type": "color-pair",
+      "$pairSha": "544070c98c09",
+      "$colors": [
+        "oklch-24_09-0_0324-245_83-1",
+        "oklch-92_39-0_0336-73_19-1"
+      ],
+      "$colorShas": {
+        "oklch-24_09-0_0324-245_83-1": "ba4b642be197",
+        "oklch-92_39-0_0336-73_19-1": "fea321a895eb"
+      },
+      "$ratio": 13.04,
+      "$cvd": 12.51,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-19_44-0_0267-244_92-1<>oklch-68_84-0_0479-236_32-1": {
+      "$type": "color-pair",
+      "$pairSha": "6dee3117941c",
+      "$colors": [
+        "oklch-19_44-0_0267-244_92-1",
+        "oklch-68_84-0_0479-236_32-1"
+      ],
+      "$colorShas": {
+        "oklch-19_44-0_0267-244_92-1": "6ed0d3a030be",
+        "oklch-68_84-0_0479-236_32-1": "921966982c6e"
+      },
+      "$ratio": 6.62,
+      "$cvd": 6.47,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-19_44-0_0267-244_92-1<>oklch-95_17-0_0084-236_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "b3d3feb2f3cc",
+      "$colors": [
+        "oklch-19_44-0_0267-244_92-1",
+        "oklch-95_17-0_0084-236_56-1"
+      ],
+      "$colorShas": {
+        "oklch-19_44-0_0267-244_92-1": "6ed0d3a030be",
+        "oklch-95_17-0_0084-236_56-1": "4ae2ee7f674c"
+      },
+      "$ratio": 15.91,
+      "$cvd": 15.82,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-19_44-0_0267-244_92-1": {
+      "$type": "color-pair",
+      "$pairSha": "f09ea2f97c27",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-19_44-0_0267-244_92-1"
+      ],
+      "$colorShas": {
+        "oklch-100-0-0-1": "a178b05826cf",
+        "oklch-19_44-0_0267-244_92-1": "6ed0d3a030be"
+      },
+      "$ratio": 18.28,
+      "$cvd": 18.07,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-19_44-0_0267-244_92-1<>oklch-54_99-0_1251-52_03-1": {
+      "$type": "color-pair",
+      "$pairSha": "50e3d6ff01e2",
+      "$colors": [
+        "oklch-19_44-0_0267-244_92-1",
+        "oklch-54_99-0_1251-52_03-1"
+      ],
+      "$colorShas": {
+        "oklch-19_44-0_0267-244_92-1": "6ed0d3a030be",
+        "oklch-54_99-0_1251-52_03-1": "2d00ecf1cf24"
+      },
+      "$ratio": 3.6,
+      "$cvd": 3.01,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-19_44-0_0267-244_92-1<>oklch-92_39-0_0336-73_19-1": {
+      "$type": "color-pair",
+      "$pairSha": "8c50bc8c1d7b",
+      "$colors": [
+        "oklch-19_44-0_0267-244_92-1",
+        "oklch-92_39-0_0336-73_19-1"
+      ],
+      "$colorShas": {
+        "oklch-19_44-0_0267-244_92-1": "6ed0d3a030be",
+        "oklch-92_39-0_0336-73_19-1": "fea321a895eb"
+      },
+      "$ratio": 14.56,
+      "$cvd": 14.08,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-34_01-0_0391-238_08-1<>oklch-68_84-0_0479-236_32-1": {
+      "$type": "color-pair",
+      "$pairSha": "efd8f4dd061e",
+      "$colors": [
+        "oklch-34_01-0_0391-238_08-1",
+        "oklch-68_84-0_0479-236_32-1"
+      ],
+      "$colorShas": {
+        "oklch-34_01-0_0391-238_08-1": "9ee4223a8589",
+        "oklch-68_84-0_0479-236_32-1": "921966982c6e"
+      },
+      "$ratio": 4.22,
+      "$cvd": 4.2,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-34_01-0_0391-238_08-1<>oklch-95_17-0_0084-236_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "9761d340234e",
+      "$colors": [
+        "oklch-34_01-0_0391-238_08-1",
+        "oklch-95_17-0_0084-236_56-1"
+      ],
+      "$colorShas": {
+        "oklch-34_01-0_0391-238_08-1": "9ee4223a8589",
+        "oklch-95_17-0_0084-236_56-1": "4ae2ee7f674c"
+      },
+      "$ratio": 10.15,
+      "$cvd": 9.85,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-34_01-0_0391-238_08-1": {
+      "$type": "color-pair",
+      "$pairSha": "0e9686a0b47b",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-34_01-0_0391-238_08-1"
+      ],
+      "$colorShas": {
+        "oklch-100-0-0-1": "a178b05826cf",
+        "oklch-34_01-0_0391-238_08-1": "9ee4223a8589"
+      },
+      "$ratio": 11.67,
+      "$cvd": 11.25,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-34_01-0_0391-238_08-1<>oklch-92_39-0_0336-73_19-1": {
+      "$type": "color-pair",
+      "$pairSha": "e8a56c62bd0e",
+      "$colors": [
+        "oklch-34_01-0_0391-238_08-1",
+        "oklch-92_39-0_0336-73_19-1"
+      ],
+      "$colorShas": {
+        "oklch-34_01-0_0391-238_08-1": "9ee4223a8589",
+        "oklch-92_39-0_0336-73_19-1": "fea321a895eb"
+      },
+      "$ratio": 9.29,
+      "$cvd": 8.77,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-54_99-0_1251-52_03-1<>oklch-95_17-0_0084-236_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "c94b7762e88e",
+      "$colors": [
+        "oklch-54_99-0_1251-52_03-1",
+        "oklch-95_17-0_0084-236_56-1"
+      ],
+      "$colorShas": {
+        "oklch-54_99-0_1251-52_03-1": "2d00ecf1cf24",
+        "oklch-95_17-0_0084-236_56-1": "4ae2ee7f674c"
+      },
+      "$ratio": 4.42,
+      "$cvd": 4,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-54_99-0_1251-52_03-1": {
+      "$type": "color-pair",
+      "$pairSha": "34301537a9f2",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-54_99-0_1251-52_03-1"
+      ],
+      "$colorShas": {
+        "oklch-100-0-0-1": "a178b05826cf",
+        "oklch-54_99-0_1251-52_03-1": "2d00ecf1cf24"
+      },
+      "$ratio": 5.08,
+      "$cvd": 4.62,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-54_99-0_1251-52_03-1<>oklch-92_39-0_0336-73_19-1": {
+      "$type": "color-pair",
+      "$pairSha": "8591aa9ae51e",
+      "$colors": [
+        "oklch-54_99-0_1251-52_03-1",
+        "oklch-92_39-0_0336-73_19-1"
+      ],
+      "$colorShas": {
+        "oklch-54_99-0_1251-52_03-1": "2d00ecf1cf24",
+        "oklch-92_39-0_0336-73_19-1": "fea321a895eb"
+      },
+      "$ratio": 4.04,
+      "$cvd": 3.73,
+      "$clears": [
+        "non-text-3"
+      ]
+    }
+  }
+}

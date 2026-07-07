@@ -1,11 +1,19 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@bounded-systems/verbspec@~0.3.1": "0.3.1",
     "jsr:@std/crypto@1": "1.0.5",
     "jsr:@std/encoding@1": "1.0.11",
+    "npm:@webref/idl@*": "3.81.2_webidl2@24.5.0",
     "npm:zod@^4.4.3": "4.4.3"
   },
   "jsr": {
+    "@bounded-systems/verbspec@0.3.1": {
+      "integrity": "993d7b588363ed8817f7a7ea6c8d2ddb17138f61f87659041705759b4a1ae063",
+      "dependencies": [
+        "npm:zod"
+      ]
+    },
     "@std/crypto@1.0.5": {
       "integrity": "0dcfbb319fe0bba1bd3af904ceb4f948cde1b92979ec1614528380ed308a3b40"
     },
@@ -14,12 +22,22 @@
     }
   },
   "npm": {
+    "@webref/idl@3.81.2_webidl2@24.5.0": {
+      "integrity": "sha512-jxiIRfEALas9WukstOruzSfPPrG7Pqa40ka1ZkPpS2fu4vrFU4STt7jerW4q2MWiGu/3TPUEDr1DUFiHK6ZkMQ==",
+      "dependencies": [
+        "webidl2"
+      ]
+    },
+    "webidl2@24.5.0": {
+      "integrity": "sha512-fxOigKkIem1iAgQ9t4cFOP+kWEA8y6Be/uh50FpJh0FijoeeT/VMrOyJzNLUgjy0rGMEcHeReKDCqj0g9dIe9A=="
+    },
     "zod@4.4.3": {
       "integrity": "sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ=="
     }
   },
   "workspace": {
     "dependencies": [
+      "jsr:@bounded-systems/verbspec@~0.3.1",
       "npm:zod@^4.4.3"
     ]
   }
