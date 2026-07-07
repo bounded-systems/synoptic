@@ -36,27 +36,41 @@ export function checkPair(fg: CSSOKLCH, bg: CSSOKLCH, set: PairSet): { pairSha: 
 
 const same = (a: CSSOKLCH, b: CSSOKLCH) => a.l === b.l && a.c === b.c && a.h === b.h && a.alpha === b.alpha;
 
-/** A resolved node: its computed foreground + its effective background, produced by the adapter. */
+/** A resolved node: its computed foreground + effective background + the state the tier depends on. */
 export interface ResolvedNode {
   id: string;
   color: CSSOKLCH | null; // resolved `color` (or null if it renders no text)
   bg: CSSOKLCH | null; // effective background-color (nearest painted ancestor)
-  bgIndeterminate: boolean; // true when the adjacent region can't be pinned (image/gradient/positioned/opacity)
+  bgIndeterminate: boolean; // adjacent region can't be pinned (image/gradient/positioned/opacity)
+  disabled?: boolean; // disabled/inactive → the pair is EXEMPT from contrast (1.4.3 exception)
+  outline?: { color: CSSOKLCH | null; widthPx: number }; // focus indicator → 2.4.11 (contrast + area)
   children: ResolvedNode[];
 }
+const UNSET = "0".repeat(12);
 
-/** Walk the resolved tree → concrete node-pairs, each RESOLVED (valid/invalid) or INCONCLUSIVE. */
+/** Walk the resolved tree → concrete node-pairs: RESOLVED / INCONCLUSIVE / EXEMPT, each tagged
+ * with the SC it concerns. Text pairs → 1.4.6; disabled → exempt (1.4.3); focus outline → 2.4.11
+ * (contrast AND a >=2px area check the browser adapter reads). */
 export function resolveTree(root: ResolvedNode, set: PairSet): NodePair[] {
   const out: NodePair[] = [];
   const visit = (node: ResolvedNode) => {
     for (const child of node.children) {
-      if (child.color && node.bg && !same(child.color, node.bg)) { // a real pair only when colors differ
-        if (node.bgIndeterminate) {
-          out.push({ $type: "node-pair", $nodes: [node.id, child.id], $pairSha: "0".repeat(12), $status: "inconclusive", $reason: "adjacent painted region indeterminate (image/gradient/positioning/opacity/filter)" });
+      // text pair — child.color on the effective background
+      if (child.color && node.bg && !same(child.color, node.bg)) {
+        if (child.disabled) {
+          out.push({ $type: "node-pair", $nodes: [node.id, child.id], $pairSha: UNSET, $status: "exempt", $concern: "1.4.3", $reason: "disabled/inactive element — exempt from contrast" });
+        } else if (node.bgIndeterminate) {
+          out.push({ $type: "node-pair", $nodes: [node.id, child.id], $pairSha: UNSET, $status: "inconclusive", $concern: "1.4.6", $reason: "adjacent painted region indeterminate (image/gradient/positioning/opacity/filter)" });
         } else {
           const { pairSha, validated } = checkPair(child.color, node.bg, set);
-          out.push({ $type: "node-pair", $nodes: [node.id, child.id], $pairSha: validated ? pairSha : "0".repeat(12), $status: "resolved", $reason: validated ? undefined : "un-validated combination — no $pairSha in the merkle set (a claim that does not hold)" });
+          out.push({ $type: "node-pair", $nodes: [node.id, child.id], $pairSha: validated ? pairSha : UNSET, $status: "resolved", $concern: "1.4.6", $reason: validated ? undefined : "un-validated combination — no $pairSha in the merkle set (a claim that does not hold)" });
         }
+      }
+      // focus pair — outline color vs the adjacent background, PLUS the 2.4.11 area check
+      if (child.outline?.color && node.bg && !child.disabled) {
+        const { pairSha, validated } = checkPair(child.outline.color, node.bg, set);
+        const areaOk = child.outline.widthPx >= 2;
+        out.push({ $type: "node-pair", $nodes: [node.id, `${child.id}:focus`], $pairSha: validated && areaOk ? pairSha : UNSET, $status: "resolved", $concern: "2.4.11", $reason: !areaOk ? `focus outline ${child.outline.widthPx}px < 2px minimum area` : validated ? undefined : "focus outline color un-validated against its background" });
       }
       visit(child);
     }

@@ -6,212 +6,344 @@
     {
       "name": "-webkit-text-fill-color",
       "single": true,
-      "appliesTo": "all elements"
+      "appliesTo": "all elements",
+      "concerns": [
+        "1.4.3",
+        "1.4.6"
+      ]
     },
     {
       "name": "-webkit-text-stroke",
       "single": false,
-      "appliesTo": "See individual properties"
+      "appliesTo": "See individual properties",
+      "concerns": [
+        "1.4.3",
+        "1.4.6"
+      ]
     },
     {
       "name": "-webkit-text-stroke-color",
       "single": true,
-      "appliesTo": "all elements"
+      "appliesTo": "all elements",
+      "concerns": [
+        "1.4.3",
+        "1.4.6"
+      ]
     },
     {
       "name": "accent-color",
       "single": true,
-      "appliesTo": "all elements"
+      "appliesTo": "all elements",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "background-color",
       "single": true,
-      "appliesTo": "all elements"
+      "appliesTo": "all elements",
+      "concerns": []
     },
     {
       "name": "border",
       "single": false,
-      "appliesTo": "see individual properties"
+      "appliesTo": "see individual properties",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-block",
       "single": false,
-      "appliesTo": "see individual properties"
+      "appliesTo": "see individual properties",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-block-color",
       "single": false,
-      "appliesTo": "see individual properties"
+      "appliesTo": "see individual properties",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-block-end",
       "single": false,
-      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-block-end-color",
       "single": false,
-      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-block-start",
       "single": false,
-      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-block-start-color",
       "single": false,
-      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-bottom",
       "single": false,
-      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-bottom-color",
       "single": false,
-      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-color",
       "single": false,
-      "appliesTo": "see individual properties"
+      "appliesTo": "see individual properties",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-inline",
       "single": false,
-      "appliesTo": "see individual properties"
+      "appliesTo": "see individual properties",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-inline-color",
       "single": false,
-      "appliesTo": "see individual properties"
+      "appliesTo": "see individual properties",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-inline-end",
       "single": false,
-      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-inline-end-color",
       "single": false,
-      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-inline-start",
       "single": false,
-      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-inline-start-color",
       "single": false,
-      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-left",
       "single": false,
-      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-left-color",
       "single": false,
-      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-right",
       "single": false,
-      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-right-color",
       "single": false,
-      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-top",
       "single": false,
-      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "border-top-color",
       "single": false,
-      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "box-shadow-color",
       "single": false,
-      "appliesTo": "all elements"
+      "appliesTo": "all elements",
+      "concerns": []
     },
     {
       "name": "caret",
       "single": false,
-      "appliesTo": "text or elements that accept text input"
+      "appliesTo": "text or elements that accept text input",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "caret-color",
       "single": false,
-      "appliesTo": "text or elements that accept text input"
+      "appliesTo": "text or elements that accept text input",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "color",
       "single": true,
-      "appliesTo": "all elements and text"
+      "appliesTo": "all elements and text",
+      "concerns": [
+        "1.4.1",
+        "1.4.3",
+        "1.4.6"
+      ]
     },
     {
       "name": "fill-color",
       "single": true,
-      "appliesTo": "text and SVG shapes"
+      "appliesTo": "text and SVG shapes",
+      "concerns": [
+        "1.1.1",
+        "1.4.11"
+      ]
     },
     {
       "name": "flood-color",
       "single": true,
-      "appliesTo": "feFlood and feDropShadow elements"
+      "appliesTo": "feFlood and feDropShadow elements",
+      "concerns": []
     },
     {
       "name": "lighting-color",
       "single": true,
-      "appliesTo": "feDiffuseLighting and feSpecularLighting elements"
+      "appliesTo": "feDiffuseLighting and feSpecularLighting elements",
+      "concerns": []
     },
     {
       "name": "outline-color",
       "single": false,
-      "appliesTo": "all elements"
+      "appliesTo": "all elements",
+      "concerns": [
+        "1.4.11",
+        "2.4.11",
+        "2.4.13",
+        "2.4.7"
+      ]
     },
     {
       "name": "scrollbar-color",
       "single": false,
-      "appliesTo": "scroll containers"
+      "appliesTo": "scroll containers",
+      "concerns": [
+        "1.4.11"
+      ]
     },
     {
       "name": "stop-color",
       "single": false,
-      "appliesTo": "see individual properties"
+      "appliesTo": "see individual properties",
+      "concerns": []
     },
     {
       "name": "stroke-color",
       "single": false,
-      "appliesTo": "text and SVG shapes"
+      "appliesTo": "text and SVG shapes",
+      "concerns": [
+        "1.1.1",
+        "1.4.11"
+      ]
     },
     {
       "name": "text-decoration",
       "single": false,
-      "appliesTo": "see individual properties"
+      "appliesTo": "see individual properties",
+      "concerns": [
+        "1.4.1",
+        "1.4.3",
+        "1.4.6"
+      ]
     },
     {
       "name": "text-decoration-color",
       "single": true,
-      "appliesTo": "all elements"
+      "appliesTo": "all elements",
+      "concerns": [
+        "1.4.1",
+        "1.4.3",
+        "1.4.6"
+      ]
     },
     {
       "name": "text-emphasis",
       "single": false,
-      "appliesTo": "see individual properties"
+      "appliesTo": "see individual properties",
+      "concerns": [
+        "1.4.3",
+        "1.4.6"
+      ]
     },
     {
       "name": "text-emphasis-color",
       "single": true,
-      "appliesTo": "text"
+      "appliesTo": "text",
+      "concerns": [
+        "1.4.3",
+        "1.4.6"
+      ]
     }
   ]
 }

@@ -39,6 +39,19 @@ Deno.test("same color — parent bg equals child color → no pair (nothing to d
   assertEquals(resolveTree(tree, set).length, 0);
 });
 
+Deno.test("disabled node — exempt from contrast (1.4.3 inactive exception)", () => {
+  const tree = node("page", { bg: ok("#FFFFFF"), children: [node("btn", { color: ok("#7FA0B5"), disabled: true })] });
+  const p = resolveTree(tree, set)[0];
+  assertEquals(p.$status, "exempt");
+  assertEquals(p.$concern, "1.4.3");
+});
+
+Deno.test("focus outline — thin outline fails the 2.4.11 area check", () => {
+  const tree = node("page", { bg: ok("#FFFFFF"), children: [node("link", { outline: { color: ok("#0A1620"), widthPx: 1 } })] });
+  const focus = resolveTree(tree, set).find((p) => p.$concern === "2.4.11");
+  assert(focus && /< 2px/.test(focus.$reason ?? ""), "a 1px outline is flagged for insufficient area");
+});
+
 Deno.test("nested tree — walks parent→child recursively across a re-painted surface", () => {
   const tree = node("page", {
     bg: ok("#FFFFFF"),

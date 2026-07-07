@@ -63,8 +63,9 @@ export const NodePair = z.object({
   $type: z.literal("node-pair"),
   $nodes: z.tuple([z.string(), z.string()]),        // parent, child (resolved, different colors)
   $pairSha: Sha12,                                  // MUST be a ColorPair.$pairSha in the merkle set
-  $status: z.enum(["resolved", "inconclusive"]),
-  $reason: z.string().optional(),                   // when inconclusive: the claimed shortcoming
+  $status: z.enum(["resolved", "inconclusive", "exempt"]), // exempt: disabled/inactive node (1.4.3 exception)
+  $concern: z.string().optional(),                  // the SC this pair is about — 1.4.6 (text), 2.4.11 (focus), …
+  $reason: z.string().optional(),                   // when inconclusive/exempt/failing: the explanation
 });
 export type NodePair = z.infer<typeof NodePair>;
 
