@@ -1,38 +1,96 @@
-/* GENERATED from the derived tokens by to-css.ts — the page had NO CSS until this. */
-/* Each color is @property-registered, so computedStyleMap() reifies it as a typed CSSOKLCH. */
-@property --oklch-0-0-0-1 { syntax: "<color>"; inherits: true; initial-value: oklch(0% 0 0 / 1); }
-@property --oklch-23_84-0_0204-162_64-1 { syntax: "<color>"; inherits: true; initial-value: oklch(23.84% 0.0204 162.64 / 1); }
-@property --oklch-93_69-0_0124-91_52-1 { syntax: "<color>"; inherits: true; initial-value: oklch(93.69% 0.0124 91.52 / 1); }
-@property --oklch-51_39-0_0211-155_37-1 { syntax: "<color>"; inherits: true; initial-value: oklch(51.39% 0.0211 155.37 / 1); }
-@property --oklch-51_27-0_022-162_31-1 { syntax: "<color>"; inherits: true; initial-value: oklch(51.27% 0.022 162.31 / 1); }
-@property --oklch-47_45-0_122-33_85-1 { syntax: "<color>"; inherits: true; initial-value: oklch(47.45% 0.122 33.85 / 1); }
-@property --oklch-61-0_0228-91_69-1 { syntax: "<color>"; inherits: true; initial-value: oklch(61% 0.0228 91.69 / 1); }
-@property --oklch-91_51-0_0236-37_38-1 { syntax: "<color>"; inherits: true; initial-value: oklch(91.51% 0.0236 37.38 / 1); }
-@property --oklch-100-0-0-1 { syntax: "<color>"; inherits: true; initial-value: oklch(100% 0 0 / 1); }
-@property --oklch-95_85-0_0098-87_47-1 { syntax: "<color>"; inherits: true; initial-value: oklch(95.85% 0.0098 87.47 / 1); }
+/* GENERATED from the derived tokens by to-css.ts — TYPE-DRIVEN (serialize() is the only string). */
+/* Each color is @property-registered → computedStyleMap() reifies it as a typed CSSOKLCH. */
+@property --oklch-0-0-0-1 { syntax: "<color>"; inherits: true; initial-value: oklch(0% 0 0); }
+@property --oklch-23_84-0_0204-162_64-1 { syntax: "<color>"; inherits: true; initial-value: oklch(23.84% 0.0204 162.64); }
+@property --oklch-93_69-0_0124-91_52-1 { syntax: "<color>"; inherits: true; initial-value: oklch(93.69% 0.0124 91.52); }
+@property --oklch-51_39-0_0211-155_37-1 { syntax: "<color>"; inherits: true; initial-value: oklch(51.39% 0.0211 155.37); }
+@property --oklch-51_27-0_022-162_31-1 { syntax: "<color>"; inherits: true; initial-value: oklch(51.27% 0.022 162.31); }
+@property --oklch-47_45-0_122-33_85-1 { syntax: "<color>"; inherits: true; initial-value: oklch(47.45% 0.122 33.85); }
+@property --oklch-61-0_0228-91_69-1 { syntax: "<color>"; inherits: true; initial-value: oklch(61% 0.0228 91.69); }
+@property --oklch-91_51-0_0236-37_38-1 { syntax: "<color>"; inherits: true; initial-value: oklch(91.51% 0.0236 37.38); }
+@property --oklch-100-0-0-1 { syntax: "<color>"; inherits: true; initial-value: oklch(100% 0 0); }
+@property --oklch-95_85-0_0098-87_47-1 { syntax: "<color>"; inherits: true; initial-value: oklch(95.85% 0.0098 87.47); }
 
 :root {
-  font-size: clamp(1rem, 0.5rem + 0.5vw, 1.25rem);
-  --oklch-0-0-0-1: oklch(0% 0 0 / 1);
-  --oklch-23_84-0_0204-162_64-1: oklch(23.84% 0.0204 162.64 / 1);
-  --oklch-93_69-0_0124-91_52-1: oklch(93.69% 0.0124 91.52 / 1);
-  --oklch-51_39-0_0211-155_37-1: oklch(51.39% 0.0211 155.37 / 1);
-  --oklch-51_27-0_022-162_31-1: oklch(51.27% 0.022 162.31 / 1);
-  --oklch-47_45-0_122-33_85-1: oklch(47.45% 0.122 33.85 / 1);
-  --oklch-61-0_0228-91_69-1: oklch(61% 0.0228 91.69 / 1);
-  --oklch-91_51-0_0236-37_38-1: oklch(91.51% 0.0236 37.38 / 1);
-  --oklch-100-0-0-1: oklch(100% 0 0 / 1);
-  --oklch-95_85-0_0098-87_47-1: oklch(95.85% 0.0098 87.47 / 1);
-  --surface: var(--oklch-100-0-0-1); --text: var(--oklch-0-0-0-1); --link: var(--oklch-47_45-0_122-33_85-1); --muted: var(--oklch-51_39-0_0211-155_37-1);
-  --surface-dark: var(--oklch-0-0-0-1); --on-dark: var(--oklch-100-0-0-1); --border: var(--oklch-91_51-0_0236-37_38-1);
+  font-size: clamp(1rem, calc(0.5rem + 0.5vw), 1.25rem);
+  --oklch-0-0-0-1: oklch(0% 0 0);
+  --oklch-23_84-0_0204-162_64-1: oklch(23.84% 0.0204 162.64);
+  --oklch-93_69-0_0124-91_52-1: oklch(93.69% 0.0124 91.52);
+  --oklch-51_39-0_0211-155_37-1: oklch(51.39% 0.0211 155.37);
+  --oklch-51_27-0_022-162_31-1: oklch(51.27% 0.022 162.31);
+  --oklch-47_45-0_122-33_85-1: oklch(47.45% 0.122 33.85);
+  --oklch-61-0_0228-91_69-1: oklch(61% 0.0228 91.69);
+  --oklch-91_51-0_0236-37_38-1: oklch(91.51% 0.0236 37.38);
+  --oklch-100-0-0-1: oklch(100% 0 0);
+  --oklch-95_85-0_0098-87_47-1: oklch(95.85% 0.0098 87.47);
+  --surface: var(--oklch-91_51-0_0236-37_38-1);
+  --surface-dark: var(--oklch-23_84-0_0204-162_64-1);
+  --text: var(--oklch-23_84-0_0204-162_64-1);
+  --heading: var(--oklch-23_84-0_0204-162_64-1);
+  --link: var(--oklch-23_84-0_0204-162_64-1);
+  --muted: var(--oklch-47_45-0_122-33_85-1);
+  --on-dark: var(--oklch-91_51-0_0236-37_38-1);
+  --border: var(--oklch-61-0_0228-91_69-1);
 }
-body { margin: 2rem auto; padding: 0 1rem; max-inline-size: 66ch; line-height: 1.5;
-  font-family: system-ui, sans-serif; background-color: var(--surface); color: var(--text); }
-h1 { font-size: 3.031rem; line-height: 1.2; color: var(--text); }
-h2 { font-size: 2.297rem; line-height: 1.2; color: var(--text); }
-h3 { font-size: 1.741rem; color: var(--text); }
-a { color: var(--link); }
-.card { background-color: var(--surface-dark); color: var(--on-dark); border: 0.125rem solid var(--border); border-radius: 0.5rem; padding: 1rem; }
-.card h3, .card a { color: var(--on-dark); }
-small { font-size: 0.758rem; color: var(--muted); }
-button { background-color: var(--link); color: var(--surface); min-height: 2.75rem; padding: 0.75rem 1.5rem; border: 0; border-radius: 0.25rem; }
+
+body {
+  background-color: var(--surface);
+  color: var(--text);
+  max-inline-size: 66ch;
+  line-height: 1.5;
+  font-family: system-ui, sans-serif;
+  margin-block: 2rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+h1 {
+  font-size: 3.031rem;
+  color: var(--heading);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2.297rem;
+  color: var(--heading);
+}
+
+h3 {
+  font-size: 1.741rem;
+}
+
+a {
+  color: var(--link);
+}
+
+.card {
+  background-color: var(--surface-dark);
+  color: var(--on-dark);
+  border-width: 0.125rem;
+  border-style: solid;
+  border-color: var(--border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.card h3 {
+  color: var(--on-dark);
+}
+
+.card a {
+  color: var(--on-dark);
+}
+
+small {
+  font-size: 0.758rem;
+  color: var(--muted);
+}
+
+button {
+  background-color: var(--link);
+  color: var(--surface);
+  min-block-size: 2.75rem;
+  padding-block: 0.75rem;
+  padding-inline: 1.5rem;
+  border-radius: 0.25rem;
+}
