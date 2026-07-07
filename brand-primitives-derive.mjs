@@ -5,7 +5,7 @@
 // The doc can't drift from the color, because it's computed from it. All 16 primitives covered.
 import { canonicalizeTyped } from "/tmp/synoptic/canonicalize.mjs";
 import { createHash } from "node:crypto";
-const sha8=(s)=>createHash("sha256").update(s).digest("hex").slice(0,8);  // content address of the color
+const sha8=(s)=>createHash("sha256").update(s).digest("hex").slice(0,12);  // 12-hex content address of the color (unified with pairs)
 
 // --- the real palette (values unchanged) ---
 const PRIM = {

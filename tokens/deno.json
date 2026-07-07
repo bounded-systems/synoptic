@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "zod": "npm:zod@^4.4.3"
+  },
+  "tasks": {
+    "validate": "deno run --allow-read validate.ts"
+  }
+}
