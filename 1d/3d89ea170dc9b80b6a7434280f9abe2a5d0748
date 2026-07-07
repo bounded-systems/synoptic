@@ -1,0 +1,61 @@
+tokens/to-css.ts
+  s_70508ca017cb29::t_547c386b3d121b 1-56
+tokens/gen-font.ts
+  s_70508ca017cb29::t_6101912733c0db 9-11
+tokens/examples/mock/index.html
+  s_70508ca017cb29::t_1b601e99b744ea 4-7,11,13,15,17
+tokens/brands/bdelanghe/contrast-pairs.json
+  s_70508ca017cb29::t_f0368e22842fc4 1-486
+tokens/brands/bdelanghe/dimensions.derived.json
+  s_70508ca017cb29::t_fafaa1a2d5e820 1-106
+tokens/brands/bdelanghe/palette.json
+  s_70508ca017cb29::t_292e8905fb7045 1
+tokens/brands/bdelanghe/primitive-pairs.json
+  s_70508ca017cb29::t_9f48f4c80064fa 1-493
+tokens/brands/bdelanghe/primitives.derived.json
+  s_70508ca017cb29::t_4681f227b6ed01 1-125
+tokens/brands/bdelanghe/property.tokens.json
+  s_70508ca017cb29::t_084c524879576a 1-299
+tokens/brands/bdelanghe/ratios.json
+  s_70508ca017cb29::t_615aa7124ee303 1
+tokens/brands/bdelanghe/scale.json
+  s_70508ca017cb29::t_847fbfafd2027d 1
+tokens/brands/bounded-systems/contrast-pairs.json
+  s_70508ca017cb29::t_f947981ccbbad5 1-486
+tokens/brands/bounded-systems/dimensions.derived.json
+  s_70508ca017cb29::t_dc5a9b3bfcbbf8 1-106
+tokens/brands/bounded-systems/palette.json
+  s_70508ca017cb29::t_1da05835a27816 1
+tokens/brands/bounded-systems/primitive-pairs.json
+  s_70508ca017cb29::t_070a248c95db26 1-5936
+tokens/brands/bounded-systems/primitives.derived.json
+  s_70508ca017cb29::t_365bf20696dd4b 1-485
+tokens/brands/bounded-systems/property.tokens.json
+  s_70508ca017cb29::t_22c68bb10241c4 1-299
+tokens/brands/bounded-systems/ratios.json
+  s_70508ca017cb29::t_46b882cdd3060b 1
+tokens/brands/bounded-systems/scale.json
+  s_70508ca017cb29::t_3367d720beac90 1
+tokens/deno.lock
+  s_70508ca017cb29::t_b9da6434042a92 10,44-46
+tokens/examples/mock/style.css
+  s_70508ca017cb29::t_07af937e72f848 1-38
+tokens/font.ts
+  s_70508ca017cb29::t_2e7a25c46a4654 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "1d3d89ea170dc9b80b6a7434280f9abe2a5d0748",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
