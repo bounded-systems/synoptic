@@ -31,6 +31,18 @@ export const Dimension = z.object({
 });
 export type Dimension = z.infer<typeof Dimension>;
 
+// ── LAYER: number — a unitless ratio (line-height, scale ratio, text-spacing multiplier). A
+// CSSUnitValue with unit "number". Applied to a dimension it becomes a length (line-height ×
+// font-size), the way a contrast requirement pairs two colors. The 1.5 line-height floor is AAA.
+export const Unitless = CSSUnitValue.refine((v) => v.unit === "number", "a ratio is unitless (unit: number)");
+export const NumberValue = z.object({
+  $type: z.literal("number"),
+  $value: Unitless,
+  $sha: Sha12,
+  $description: z.string(),
+});
+export type NumberValue = z.infer<typeof NumberValue>;
+
 // ── The ROOT font-size — the reference every rem floats on. Must have a rem FLOOR so the user's
 // preference is always respected; a vw term without a rem floor is unconstructable (fails 1.4.4).
 // The fluid form is a clamp() — a CSSMathClamp — with a rem floor and rem cap.

@@ -22,7 +22,7 @@ import {
   type Oklch,
   sha,
 } from "./color.ts";
-import { ColorPair, Dimension, PrimitiveColor, PropertyPair, PropertyToken, RootFontSize } from "./schema.ts";
+import { ColorPair, Dimension, NumberValue, PrimitiveColor, PropertyPair, PropertyToken, RootFontSize } from "./schema.ts";
 
 /** The color-valued CSS properties, DERIVED from @webref/css (committed artifact). */
 const DERIVED_PROPS: string[] = (JSON.parse(Deno.readTextFileSync(new URL("color-properties.derived.json", import.meta.url))) as { properties: { name: string }[] }).properties.map((p) => p.name);
@@ -93,12 +93,14 @@ function describeDim(rem: number): string {
   return `${rem}rem — ${px}px at the default root (font-size: medium), and it scales with the user's setting.${note} A rem, so it resizes and reflows (1.4.4 / 1.4.10) by construction — never a fixed px.`;
 }
 
-/** LAYER: dimension — rem atoms, snapped to a 0.25rem grid. px/em/ch are unconstructable. */
-export function deriveDimensions(scale: readonly number[]): Record<string, z.infer<typeof Dimension>> {
-  const snap = (r: number) => Math.round(r / 0.125) * 0.125; // 0.125rem (2px) grid — fine enough for the 2px focus floor
+/** LAYER: dimension — rem atoms on a GEOMETRIC step function. Size JND is a Weber ratio (~2-3%),
+ * so steps are a fixed ratio (default 1.2, well above the JND), anchored at the root's 1rem — like
+ * a type scale. Values within one JND collapse to the same step. px/em/ch are unconstructable. */
+export function deriveDimensions(scale: readonly number[], ratio = 1.2): Record<string, z.infer<typeof Dimension>> {
+  const snap = (r: number) => (r <= 0 ? 0 : Math.round(ratio ** Math.round(Math.log(r) / Math.log(ratio)) * 1000) / 1000);
   const out: Record<string, z.infer<typeof Dimension>> = {};
   for (const raw of scale) {
-    const v = Math.max(0, snap(raw));
+    const v = snap(raw);
     const value = { $type: "CSSUnitValue" as const, value: v, unit: "rem" };
     out[`rem-${String(v).replace(/\./g, "_")}`] = { $type: "dimension", $value: value, $sha: sha(`${v}rem`), $description: describeDim(v) };
   }
@@ -112,6 +114,28 @@ export function deriveRoot(fluid = true): z.infer<typeof RootFontSize> {
     return { $type: "root-font-size", $css: "medium", $floor: rem(1), $fluid: false, $description: "Root = the CSS keyword `medium` — the user's default font-size, and the anchor of the absolute-size keyword scale. Every rem floats on it; resizes with the user (1.4.4) by construction." };
   }
   return { $type: "root-font-size", $css: "clamp(1rem, 0.5rem + 0.5vw, 1.25rem)", $floor: rem(1), $cap: rem(1.25), $fluid: true, $description: "Root = clamp(1rem, 0.5rem + 0.5vw, 1.25rem) — a CSSMathClamp. Fluid with the viewport, but FLOORED at the user's 1rem (respects Resize 1.4.4) and capped at 1.25rem. Half the preferred term is rem, so it also scales with the user's own font-size setting." };
+}
+
+/** LAYER: number — a unitless ratio (line-height, scale ratio). The 1.5 line-height floor is AAA. */
+function describeNumber(n: number): string {
+  const note = n >= 1.5 ? " Meets the 1.5 minimum line-height for body text (WCAG 1.4.8 AAA)." : n >= 1 ? " Below 1.5 — fine for headings/large text, not body copy." : "";
+  return `A unitless ratio of ${n}.${note} Applied to a length (e.g. line-height × font-size), so it scales with whatever it multiplies.`;
+}
+export function deriveNumbers(ratios: readonly number[], ratio = 1.06): Record<string, z.infer<typeof NumberValue>> {
+  // GEOMETRIC step (Weber JND ~2-3% on the rendered line-box), but PIN 1.5 — the AAA body
+  // line-height floor (1.4.8): a value at/just above 1.5 snaps to exactly 1.5, never below.
+  const snap = (r: number) => {
+    if (r <= 0) return 0;
+    if (r >= 1.5 && r < 1.5 * ratio) return 1.5;
+    return Math.round(ratio ** Math.round(Math.log(r) / Math.log(ratio)) * 1000) / 1000;
+  };
+  const out: Record<string, z.infer<typeof NumberValue>> = {};
+  for (const raw of ratios) {
+    const v = Math.round(snap(raw) * 100) / 100;
+    const value = { $type: "CSSUnitValue" as const, value: v, unit: "number" };
+    out[`n-${String(v).replace(/\./g, "_")}`] = { $type: "number", $value: value, $sha: sha(`${v}number`), $description: describeNumber(v) };
+  }
+  return out;
 }
 
 /** LAYER: primitive-pair — every valid color pair, merkle-committed. */
@@ -217,6 +241,15 @@ export const dimensionsVerb = defineVerb({
   run: ({ scale }) => deriveDimensions(scale),
 });
 
+export const numbersVerb = defineVerb({
+  id: "numbers",
+  summary: "Derive the number tier — unitless ratios (line-heights, scale ratios). The 1.5 line-height floor is WCAG 1.4.8 AAA.",
+  actor: "brand",
+  input: z.object({ ratios: z.array(z.number().positive()).min(1) }),
+  output: z.record(z.string(), NumberValue),
+  run: ({ ratios }) => deriveNumbers(ratios),
+});
+
 export const rootVerb = defineVerb({
   id: "root",
   summary: "The root font-size every rem floats on — clamp() with a rem floor (fluid) or `medium`. A vw term without a rem floor is unconstructable (1.4.4).",
@@ -226,7 +259,7 @@ export const rootVerb = defineVerb({
   run: ({ fluid }) => deriveRoot(fluid),
 });
 
-export const VERBS: Registry = { primitives: primitivesVerb, "primitive-pairs": primitivePairsVerb, "property-tokens": propertyTokensVerb, "contrast-pairs": contrastPairsVerb, dimensions: dimensionsVerb, root: rootVerb };
+export const VERBS: Registry = { primitives: primitivesVerb, "primitive-pairs": primitivePairsVerb, "property-tokens": propertyTokensVerb, "contrast-pairs": contrastPairsVerb, dimensions: dimensionsVerb, numbers: numbersVerb, root: rootVerb };
 
 if (import.meta.main) {
   const result = await dispatch(VERBS, Deno.args, "deno run verbs.ts");
