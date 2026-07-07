@@ -1,0 +1,2 @@
+{ "name": "deep-blue", "seed": "#2563EB", "brandBias": 0.85,
+  "roles": { "accent": { "field": "cool" }, "link": { "field": "cool" }, "border": { "field": "cool" } } }

@@ -85,6 +85,20 @@ const simLum = (hex: string, M: readonly (readonly number[])[]): number => {
 export const contrastCVD = (fg: string, bg: string): number =>
   Math.min(...Object.values(CVD_MATRICES).map((M) => contrast(simLum(fg, M), simLum(bg, M))));
 
+export type CvdType = keyof typeof CVD_MATRICES;
+export const CVD_TYPES = Object.keys(CVD_MATRICES) as CvdType[];
+/** Simulate a color under a color-vision deficiency → hex (Machado 2009, applied in linear RGB). */
+export function cvdSimulate(hex: string, type: CvdType): string {
+  const lin = hexToRgb(hex).map(toLinear), M = CVD_MATRICES[type];
+  return "#" + M.map((row) => fromLinear(clamp(row[0] * lin[0] + row[1] * lin[1] + row[2] * lin[2]))).map((c) => Math.round(clamp(c) * 255).toString(16).padStart(2, "0")).join("");
+}
+/** ΔEOK — OKLab Euclidean distance between two hex colors (the perceptual JND metric). */
+export function deltaEOK(a: string, b: string): number {
+  const lab = (h: string) => { const o = hexToOklch(h); return [o.l / 100, o.c * Math.cos(o.h * Math.PI / 180), o.c * Math.sin(o.h * Math.PI / 180)]; };
+  const [A, B] = [lab(a), lab(b)];
+  return Math.hypot(A[0] - B[0], A[1] - B[1], A[2] - B[2]);
+}
+
 /** Derived CAS name — the coordinate, inlined. */
 export const casName = (o: Oklch): string => {
   const n = (x: number) => String(x).replace(/\./g, "_").replace(/^-/, "neg");
