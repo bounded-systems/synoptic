@@ -15,6 +15,22 @@ export const AAA_CONSTRAINTS = {
   "resize": { sc: "1.4.4", level: "AA", kind: "unit", rule: "lengths in rem (relative), never px", url: `${W}#resize-text` },
 } as const;
 
+/** Heading hierarchy — DECLARE how many sizes so each maps 1:1 to a heading level, and no
+ * "in-between" size tempts choosing by size and SKIPPING a level (h1→h3). This is the type
+ * analogue of the contrast moat: declaring the count sets the moat width between sizes. */
+export const HEADING_HIERARCHY = {
+  sc: ["1.3.1", "2.4.10"],
+  level: "A / AAA",
+  rule: "Each type size maps 1:1 to a heading level (h1…hN) or body. DECLARE the heading depth so the scale has exactly one size per level — extra sizes tempt picking by appearance and skipping a level, which breaks the programmatic heading structure (1.3.1) and the section-heading organization (2.4.10 AAA).",
+  url: `${W}#info-and-relationships`,
+} as const;
+
+/** Distinct sizes a range admits at a step ratio — the MOAT between sizes. Parallel to the
+ * contrast band count `floor(1 + log(21)/log(ratio))`; here the range is ceiling/floor. */
+export function bandCount(floor: number, ceiling: number, stepRatio: number): number {
+  return Math.floor(1 + Math.log(ceiling / floor) / Math.log(stepRatio));
+}
+
 /** The scale's structural bounds — NOT from WCAG, but from markdown's role count + readability. */
 export const TYPE_SCALE_BOUNDS = {
   maxRoles: 7, // markdown/CommonMark: h1–h6 + body — you can't express more type levels
@@ -47,7 +63,8 @@ export const DimensionConstraints = z.object({
   typeScale: z.record(z.string(), z.union([z.number(), z.string()])),
 });
 export const DIMENSION_CONSTRAINTS = {
-  $description: "Dimension + type-scale constraints, paired: WCAG 2.2 AAA floors/ceilings (accessibility) next to markdown/readability scale bounds (structure + perception). A scale is valid only inside all of them.",
+  $description: "Dimension + type-scale constraints, paired: WCAG 2.2 AAA floors/ceilings (accessibility) next to markdown/readability scale bounds (structure + perception) and the heading hierarchy (declare the count → no skipping). A scale is valid only inside all of them.",
   aaa: AAA_CONSTRAINTS,
   typeScale: TYPE_SCALE_BOUNDS,
+  headingHierarchy: HEADING_HIERARCHY,
 };

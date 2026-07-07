@@ -114,7 +114,16 @@ export function deriveDimensions(scale: readonly number[], ratio = 1.2): Record<
 export function generateScale(floor: number = TYPE_SCALE_BOUNDS.floorRem, ceiling: number = TYPE_SCALE_BOUNDS.ceilingRem, roles: number = TYPE_SCALE_BOUNDS.maxRoles): Record<string, z.infer<typeof Dimension>> {
   const ratio = (ceiling / floor) ** (1 / (roles - 1)); // forced by [floor, ceiling] and the role count
   const sizes = Array.from({ length: roles }, (_, i) => Math.round(floor * ratio ** i * 1000) / 1000);
-  return deriveDimensions(sizes, ratio);
+  const dims = deriveDimensions(sizes, ratio);
+  // tag each size with its heading level — one size per level, so the declared count == no skipping
+  const sorted = Object.values(dims).sort((a, b) => b.$value.value - a.$value.value);
+  let h = 1;
+  for (const dim of sorted) {
+    const v = dim.$value.value;
+    const role = v > 1.03 ? `h${h++}` : Math.abs(v - 1) < 0.06 ? "body" : "small";
+    dim.$description += ` Heading role: ${role} — one size per level; declaring the count avoids skipping (WCAG 1.3.1 / 2.4.10).`;
+  }
+  return dims;
 }
 
 /** The ROOT font-size — the reference every rem floats on. Fluid = clamp() with a rem floor. */
