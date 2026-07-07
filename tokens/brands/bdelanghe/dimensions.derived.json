@@ -1,0 +1,106 @@
+{
+  "dimension": {
+    "$description": "Derived dimensions — rem atoms LOCKED to rem (px/em/ch unconstructable: they fail Resize 1.4.4 / Reflow 1.4.10), on a geometric (Weber-JND) step. $root is the fluid clamp() every rem floats on; $measure is the ch reading-width token (≤80ch, 1.4.8). AAA floors noted per atom (2.75rem target 2.5.5, 0.125rem focus 2.4.11).",
+    "$root": {
+      "$type": "root-font-size",
+      "$css": "clamp(1rem, 0.5rem + 0.5vw, 1.25rem)",
+      "$floor": {
+        "$type": "CSSUnitValue",
+        "value": 1,
+        "unit": "rem"
+      },
+      "$cap": {
+        "$type": "CSSUnitValue",
+        "value": 1.25,
+        "unit": "rem"
+      },
+      "$fluid": true,
+      "$description": "Root = clamp(1rem, 0.5rem + 0.5vw, 1.25rem) — a CSSMathClamp. Fluid with the viewport, but FLOORED at the user's 1rem (respects Resize 1.4.4) and capped at 1.25rem. Half the preferred term is rem, so it also scales with the user's own font-size setting."
+    },
+    "$measure": {
+      "$type": "measure",
+      "$value": {
+        "$type": "CSSUnitValue",
+        "value": 66,
+        "unit": "ch"
+      },
+      "$ceiling": {
+        "$type": "CSSUnitValue",
+        "value": 80,
+        "unit": "ch"
+      },
+      "$sha": "4324cbdc0901",
+      "$description": "Reading width 66ch (max 80ch — WCAG 1.4.8 AAA). In ch so ~66 characters per line holds across font sizes; apply as max-width on text containers. One token, not a scale."
+    },
+    "rem-0_579": {
+      "$type": "dimension",
+      "$value": {
+        "$type": "CSSUnitValue",
+        "value": 0.579,
+        "unit": "rem"
+      },
+      "$sha": "3048fcc9ac02",
+      "$description": "0.579rem — 9.26px at the default root (font-size: medium), and it scales with the user's setting. clears the 2px minimum focus outline (WCAG 2.4.11). A rem, so it resizes and reflows (1.4.4 / 1.4.10) by construction — never a fixed px."
+    },
+    "rem-0_694": {
+      "$type": "dimension",
+      "$value": {
+        "$type": "CSSUnitValue",
+        "value": 0.694,
+        "unit": "rem"
+      },
+      "$sha": "c7b98859dee4",
+      "$description": "0.694rem — 11.1px at the default root (font-size: medium), and it scales with the user's setting. clears the 2px minimum focus outline (WCAG 2.4.11). A rem, so it resizes and reflows (1.4.4 / 1.4.10) by construction — never a fixed px."
+    },
+    "rem-0_833": {
+      "$type": "dimension",
+      "$value": {
+        "$type": "CSSUnitValue",
+        "value": 0.833,
+        "unit": "rem"
+      },
+      "$sha": "40556dc8d58c",
+      "$description": "0.833rem — 13.33px at the default root (font-size: medium), and it scales with the user's setting. clears the 2px minimum focus outline (WCAG 2.4.11). A rem, so it resizes and reflows (1.4.4 / 1.4.10) by construction — never a fixed px."
+    },
+    "rem-1": {
+      "$type": "dimension",
+      "$value": {
+        "$type": "CSSUnitValue",
+        "value": 1,
+        "unit": "rem"
+      },
+      "$sha": "b8be0c77cfdc",
+      "$description": "1rem — 16px at the default root (font-size: medium), and it scales with the user's setting. clears the 2px minimum focus outline (WCAG 2.4.11). A rem, so it resizes and reflows (1.4.4 / 1.4.10) by construction — never a fixed px."
+    },
+    "rem-1_2": {
+      "$type": "dimension",
+      "$value": {
+        "$type": "CSSUnitValue",
+        "value": 1.2,
+        "unit": "rem"
+      },
+      "$sha": "a7b00d3ea5b6",
+      "$description": "1.2rem — 19.2px at the default root (font-size: medium), and it scales with the user's setting. clears the 2px minimum focus outline (WCAG 2.4.11). A rem, so it resizes and reflows (1.4.4 / 1.4.10) by construction — never a fixed px."
+    },
+    "rem-1_728": {
+      "$type": "dimension",
+      "$value": {
+        "$type": "CSSUnitValue",
+        "value": 1.728,
+        "unit": "rem"
+      },
+      "$sha": "8be025848367",
+      "$description": "1.728rem — 27.65px at the default root (font-size: medium), and it scales with the user's setting. clears the 2px minimum focus outline (WCAG 2.4.11). A rem, so it resizes and reflows (1.4.4 / 1.4.10) by construction — never a fixed px."
+    },
+    "rem-2_986": {
+      "$type": "dimension",
+      "$value": {
+        "$type": "CSSUnitValue",
+        "value": 2.986,
+        "unit": "rem"
+      },
+      "$sha": "21c707f21046",
+      "$description": "2.986rem — 47.78px at the default root (font-size: medium), and it scales with the user's setting. large enough for a 44px minimum target (WCAG 2.5.5 AAA). A rem, so it resizes and reflows (1.4.4 / 1.4.10) by construction — never a fixed px."
+    }
+  }
+}

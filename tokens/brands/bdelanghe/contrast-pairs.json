@@ -1,0 +1,486 @@
+{
+  "contrast-pairs": {
+    "$description": "Valid contrast pairs, keyed by the two CSS color properties in alphabetical order joined with '<>'. Only foregrounds that require contrast against background-color. Derived from the webref color-property set — palette-independent.",
+    "$tierResolution": "The tier (text vs non-text) is NOT fixed by the property — it comes from the NODE carrying the foreground: text? size (large → 4.5:1)? text-element or shape?",
+    "$treeResolution": "Use RESOLVED colors per node — not the cascade. A concrete pair is a parent→child edge whose resolved colors DIFFER; equal colors = no pair. Background = parent's resolved background-color; foreground = child's resolved color.",
+    "$claimStatus": "RESOLVED (single determinable colors) or INCONCLUSIVE (adjacent region indeterminate: positioning, z-index, overlap, image/gradient, opacity/blend, transforms, filters). For INCONCLUSIVE we CLAIM THE SHORTCOMING, not fix it.",
+    "$containment": "CONTAINED pairs (mark on the element's own background) always resolvable. SPAN pairs (border/outline vs adjacent) resolvable for a solid painted parent, else inconclusive.",
+    "-webkit-text-fill-color<>background-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "-webkit-text-fill-color",
+        "background-color"
+      ],
+      "$foreground": "-webkit-text-fill-color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "text (only ever paints text)",
+      "$note": "The tier and ratio come from the NODE carrying `-webkit-text-fill-color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `-webkit-text-fill-color` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "-webkit-text-stroke<>background-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "-webkit-text-stroke",
+        "background-color"
+      ],
+      "$foreground": "-webkit-text-stroke",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "text (only ever paints text)",
+      "$note": "The tier and ratio come from the NODE carrying `-webkit-text-stroke` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `-webkit-text-stroke` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "-webkit-text-stroke-color<>background-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "-webkit-text-stroke-color",
+        "background-color"
+      ],
+      "$foreground": "-webkit-text-stroke-color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "text (only ever paints text)",
+      "$note": "The tier and ratio come from the NODE carrying `-webkit-text-stroke-color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `-webkit-text-stroke-color` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "accent-color<>background-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "accent-color",
+        "background-color"
+      ],
+      "$foreground": "accent-color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `accent-color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `accent-color` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border"
+      ],
+      "$foreground": "border",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-block": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-block"
+      ],
+      "$foreground": "border-block",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-block` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-block` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-block-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-block-color"
+      ],
+      "$foreground": "border-block-color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-block-color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-block-color` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-block-end": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-block-end"
+      ],
+      "$foreground": "border-block-end",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-block-end` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-block-end` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-block-end-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-block-end-color"
+      ],
+      "$foreground": "border-block-end-color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-block-end-color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-block-end-color` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-block-start": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-block-start"
+      ],
+      "$foreground": "border-block-start",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-block-start` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-block-start` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-block-start-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-block-start-color"
+      ],
+      "$foreground": "border-block-start-color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-block-start-color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-block-start-color` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-bottom": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-bottom"
+      ],
+      "$foreground": "border-bottom",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-bottom` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-bottom` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-bottom-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-bottom-color"
+      ],
+      "$foreground": "border-bottom-color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-bottom-color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-bottom-color` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-color"
+      ],
+      "$foreground": "border-color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-color` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-inline": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-inline"
+      ],
+      "$foreground": "border-inline",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-inline` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-inline` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-inline-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-inline-color"
+      ],
+      "$foreground": "border-inline-color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-inline-color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-inline-color` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-inline-end": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-inline-end"
+      ],
+      "$foreground": "border-inline-end",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-inline-end` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-inline-end` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-inline-end-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-inline-end-color"
+      ],
+      "$foreground": "border-inline-end-color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-inline-end-color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-inline-end-color` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-inline-start": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-inline-start"
+      ],
+      "$foreground": "border-inline-start",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-inline-start` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-inline-start` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-inline-start-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-inline-start-color"
+      ],
+      "$foreground": "border-inline-start-color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-inline-start-color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-inline-start-color` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-left": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-left"
+      ],
+      "$foreground": "border-left",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-left` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-left` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-left-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-left-color"
+      ],
+      "$foreground": "border-left-color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-left-color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-left-color` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-right": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-right"
+      ],
+      "$foreground": "border-right",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-right` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-right` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-right-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-right-color"
+      ],
+      "$foreground": "border-right-color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-right-color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-right-color` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-top": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-top"
+      ],
+      "$foreground": "border-top",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-top` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-top` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>border-top-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "border-top-color"
+      ],
+      "$foreground": "border-top-color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `border-top-color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `border-top-color` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>caret": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "caret"
+      ],
+      "$foreground": "caret",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `caret` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `caret` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>caret-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "caret-color"
+      ],
+      "$foreground": "caret-color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `caret-color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `caret-color` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "color"
+      ],
+      "$foreground": "color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "text (only ever paints text)",
+      "$note": "The tier and ratio come from the NODE carrying `color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `color` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>fill-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "fill-color"
+      ],
+      "$foreground": "fill-color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "depends — text on a <text> node, non-text on a shape",
+      "$note": "The tier and ratio come from the NODE carrying `fill-color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `fill-color` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>outline-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "outline-color"
+      ],
+      "$foreground": "outline-color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "non-text (never text)",
+      "$note": "The tier and ratio come from the NODE carrying `outline-color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `outline-color` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "scrollbar-color<>scrollbar-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "scrollbar-color"
+      ],
+      "$tierFrom": "property (fixed)",
+      "$candidate": "non-text",
+      "$note": "self-contained — thumb vs track, both colors in one property; 3:1."
+    },
+    "background-color<>stroke-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "stroke-color"
+      ],
+      "$foreground": "stroke-color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "depends — text on a <text> node, non-text on a shape",
+      "$note": "The tier and ratio come from the NODE carrying `stroke-color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `stroke-color` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>text-decoration": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "text-decoration"
+      ],
+      "$foreground": "text-decoration",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "text (only ever paints text)",
+      "$note": "The tier and ratio come from the NODE carrying `text-decoration` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `text-decoration` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>text-decoration-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "text-decoration-color"
+      ],
+      "$foreground": "text-decoration-color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "text (only ever paints text)",
+      "$note": "The tier and ratio come from the NODE carrying `text-decoration-color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `text-decoration-color` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>text-emphasis": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "text-emphasis"
+      ],
+      "$foreground": "text-emphasis",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "text (only ever paints text)",
+      "$note": "The tier and ratio come from the NODE carrying `text-emphasis` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `text-emphasis` differs from the parent's resolved background-color; equal colors are skipped."
+    },
+    "background-color<>text-emphasis-color": {
+      "$type": "contrast-pair",
+      "$properties": [
+        "background-color",
+        "text-emphasis-color"
+      ],
+      "$foreground": "text-emphasis-color",
+      "$background": "background-color",
+      "$tierFrom": "node",
+      "$candidate": "text (only ever paints text)",
+      "$note": "The tier and ratio come from the NODE carrying `text-emphasis-color` (text? size? shape?); the property only proposes the candidate.",
+      "$check": "Use RESOLVED colors; a concrete pair is a parent→child edge where the resolved `text-emphasis-color` differs from the parent's resolved background-color; equal colors are skipped."
+    }
+  }
+}

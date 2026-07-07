@@ -7,6 +7,7 @@
     "jsr:@std/encoding@1": "1.0.11",
     "jsr:@std/internal@^1.0.6": "1.0.6",
     "npm:@webref/css@*": "8.6.1_css-tree@3.2.1",
+    "npm:@webref/elements@*": "2.7.1",
     "npm:@webref/idl@*": "3.81.2_webidl2@24.5.0",
     "npm:zod@^4.4.3": "4.4.3"
   },
@@ -39,6 +40,9 @@
       "dependencies": [
         "css-tree"
       ]
+    },
+    "@webref/elements@2.7.1": {
+      "integrity": "sha512-ke5VQWxr7vGket8tObjgNrmQ/+BO7MY1XL9gb0auPnHRzW7EN1Xpv5O237glCd4HWRrro05fBpBFXTPHlb24pw=="
     },
     "@webref/idl@3.81.2_webidl2@24.5.0": {
       "integrity": "sha512-jxiIRfEALas9WukstOruzSfPPrG7Pqa40ka1ZkPpS2fu4vrFU4STt7jerW4q2MWiGu/3TPUEDr1DUFiHK6ZkMQ==",

@@ -1,0 +1,5936 @@
+{
+  "primitive-pairs": {
+    "$description": "Contrast pairs between the derived atoms — a merkle over the PRE-VALIDATED set. Only valid pairs (>=3:1 normally AND under CVD). Each has a $pairSha; an un-validated combination has none, so it is unconstructable.",
+    "$merkleRoot": "8c549ce113151a0f5c0a0030b87049467bc08e1f1b143b035447f0352bc05dcb",
+    "$leafCount": 324,
+    "oklch-0-0-0-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "2caedc84ced4",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-93_69-0_0124-91_52-1": "6dc7fc8aab73"
+      },
+      "$ratio": 17.46,
+      "$cvd": 17.37,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-100-0-0-1": {
+      "$type": "color-pair",
+      "$pairSha": "0c25cf2ed30e",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-100-0-0-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-100-0-0-1": "a178b05826cf"
+      },
+      "$ratio": 21,
+      "$cvd": 21,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-61-0_0228-91_69-1": {
+      "$type": "color-pair",
+      "$pairSha": "6b461b51e9a4",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-61-0_0228-91_69-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-61-0_0228-91_69-1": "a7e6e51ba75e"
+      },
+      "$ratio": 5.55,
+      "$cvd": 5.48,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-80_78-0-0-1": {
+      "$type": "color-pair",
+      "$pairSha": "67aa00b733af",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-80_78-0-0-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-80_78-0-0-1": "33e70c09f224"
+      },
+      "$ratio": 11.54,
+      "$cvd": 11.54,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-85_58-0_0289-165_35-1": {
+      "$type": "color-pair",
+      "$pairSha": "58954e3abc81",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-85_58-0_0289-165_35-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-85_58-0_0289-165_35-1": "cba2c7b6e7a2"
+      },
+      "$ratio": 13.7,
+      "$cvd": 13.52,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-82_77-0_0525-166_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "8ae1399c9ec7",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-82_77-0_0525-166_36-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-82_77-0_0525-166_36-1": "54c29b27ae96"
+      },
+      "$ratio": 12.61,
+      "$cvd": 12.32,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-90_05-0_0261-165_59-1": {
+      "$type": "color-pair",
+      "$pairSha": "7609a96684db",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-90_05-0_0261-165_59-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-90_05-0_0261-165_59-1": "e045e35b40a6"
+      },
+      "$ratio": 15.76,
+      "$cvd": 15.59,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-86_19-0_0811-164_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "a1cc2deab322",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-86_19-0_0811-164_56-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-86_19-0_0811-164_56-1": "b0005ecf9557"
+      },
+      "$ratio": 14.26,
+      "$cvd": 13.78,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-84_8-0_0879-84_45-1": {
+      "$type": "color-pair",
+      "$pairSha": "b8caf82db91c",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-84_8-0_0879-84_45-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-84_8-0_0879-84_45-1": "e222d241bf1b"
+      },
+      "$ratio": 13.15,
+      "$cvd": 12.51,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-71_01-0_0599-167_47-1": {
+      "$type": "color-pair",
+      "$pairSha": "8330f0e546a2",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-71_01-0_0599-167_47-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-71_01-0_0599-167_47-1": "a2e3f3bc5ec0"
+      },
+      "$ratio": 8.39,
+      "$cvd": 8.14,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-79_81-0_1206-79_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "4a8a3864895d",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-79_81-0_1206-79_72-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-79_81-0_1206-79_72-1": "35fbd3bb1bef"
+      },
+      "$ratio": 11.05,
+      "$cvd": 10.17,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-80_53-0_0536-166_8-1": {
+      "$type": "color-pair",
+      "$pairSha": "f1352626bf6f",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-80_53-0_0536-166_8-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-80_53-0_0536-166_8-1": "e3f11ce60ac6"
+      },
+      "$ratio": 11.71,
+      "$cvd": 11.42,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-73_68-0_0677-168_43-1": {
+      "$type": "color-pair",
+      "$pairSha": "c355007e9762",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-73_68-0_0677-168_43-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-73_68-0_0677-168_43-1": "09328151d6c1"
+      },
+      "$ratio": 9.28,
+      "$cvd": 8.97,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-51_27-0_022-162_31-1": {
+      "$type": "color-pair",
+      "$pairSha": "80f80d08263d",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-51_27-0_022-162_31-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-51_27-0_022-162_31-1": "ffc361338b99"
+      },
+      "$ratio": 3.74,
+      "$cvd": 3.69,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-94_7-0_0034-145_55-1": {
+      "$type": "color-pair",
+      "$pairSha": "516c937a6d37",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-94_7-0_0034-145_55-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-94_7-0_0034-145_55-1": "2eb85f917111"
+      },
+      "$ratio": 18.01,
+      "$cvd": 17.99,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-62_6-0_021-157_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "52d8cb05e523",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-62_6-0_021-157_56-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-62_6-0_021-157_56-1": "9396d558715a"
+      },
+      "$ratio": 5.97,
+      "$cvd": 5.91,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-93_11-0_0153-90_24-1": {
+      "$type": "color-pair",
+      "$pairSha": "bf7e5929ca3a",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-93_11-0_0153-90_24-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-93_11-0_0153-90_24-1": "bf7c5ec0dacd"
+      },
+      "$ratio": 17.15,
+      "$cvd": 17.04,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-76_83-0_0209-159_6-1": {
+      "$type": "color-pair",
+      "$pairSha": "c69fc6bd89d9",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-76_83-0_0209-159_6-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-76_83-0_0209-159_6-1": "3d4443f89b55"
+      },
+      "$ratio": 10.16,
+      "$cvd": 10.07,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-83_39-0_1155-160_92-1": {
+      "$type": "color-pair",
+      "$pairSha": "21972f32e9fc",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-83_39-0_1155-160_92-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-83_39-0_1155-160_92-1": "aae9fc42d778"
+      },
+      "$ratio": 13.19,
+      "$cvd": 12.6,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-70_45-0_1337-160_87-1": {
+      "$type": "color-pair",
+      "$pairSha": "be11c312dbd2",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-70_45-0_1337-160_87-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-70_45-0_1337-160_87-1": "5b35b646e013"
+      },
+      "$ratio": 8.48,
+      "$cvd": 8,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-85_75-0_0187-155_76-1": {
+      "$type": "color-pair",
+      "$pairSha": "d9f84abf48d5",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-85_75-0_0187-155_76-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-85_75-0_0187-155_76-1": "37f06466499e"
+      },
+      "$ratio": 13.71,
+      "$cvd": 13.62,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-69_16-0_1278-76_79-1": {
+      "$type": "color-pair",
+      "$pairSha": "ad9ec69de0d0",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-69_16-0_1278-76_79-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-69_16-0_1278-76_79-1": "d1a67fd489e2"
+      },
+      "$ratio": 7.49,
+      "$cvd": 6.74,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-84_57-0_0722-166_44-1": {
+      "$type": "color-pair",
+      "$pairSha": "8a4fbbaeda10",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-84_57-0_0722-166_44-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-84_57-0_0722-166_44-1": "566cf91d0bee"
+      },
+      "$ratio": 13.49,
+      "$cvd": 13.07,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-89_71-0_0143-155_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "73abea640d02",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-89_71-0_0143-155_56-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-89_71-0_0143-155_56-1": "ca76cfd317fe"
+      },
+      "$ratio": 15.52,
+      "$cvd": 15.45,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-84_47-0_0715-81_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "513f2c433380",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-84_47-0_0715-81_36-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-84_47-0_0715-81_36-1": "507da1cd38ae"
+      },
+      "$ratio": 13.01,
+      "$cvd": 12.45,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-66_87-0_0216-154_68-1": {
+      "$type": "color-pair",
+      "$pairSha": "396e828f2ee9",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-66_87-0_0216-154_68-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-66_87-0_0216-154_68-1": "17e272d113c4"
+      },
+      "$ratio": 7.05,
+      "$cvd": 6.99,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-81_96-0_0103-155_05-1": {
+      "$type": "color-pair",
+      "$pairSha": "52b1ed9c4f3c",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-81_96-0_0103-155_05-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-81_96-0_0103-155_05-1": "ee24a3313898"
+      },
+      "$ratio": 12.06,
+      "$cvd": 12.02,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-94_45-0_015-164_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "51a353cf1d52",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-94_45-0_015-164_72-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-94_45-0_015-164_72-1": "425765ba0df1"
+      },
+      "$ratio": 17.95,
+      "$cvd": 17.84,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-0-0-0-1<>oklch-94_9-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "56bf44e41979",
+      "$colors": [
+        "oklch-0-0-0-1",
+        "oklch-94_9-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-0-0-0-1": "2f3b1b5a7388",
+        "oklch-94_9-0_0124-91_52-1": "b16600d6a50d"
+      },
+      "$ratio": 18.1,
+      "$cvd": 18.01,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "9ec4eb5568e1",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-93_69-0_0124-91_52-1": "6dc7fc8aab73"
+      },
+      "$ratio": 13.64,
+      "$cvd": 13.43,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-23_84-0_0204-162_64-1": {
+      "$type": "color-pair",
+      "$pairSha": "b5731bac4e5a",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-23_84-0_0204-162_64-1"
+      ],
+      "$colorShas": {
+        "oklch-100-0-0-1": "a178b05826cf",
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30"
+      },
+      "$ratio": 16.41,
+      "$cvd": 16.25,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-61-0_0228-91_69-1": {
+      "$type": "color-pair",
+      "$pairSha": "e33c728894b0",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-61-0_0228-91_69-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-61-0_0228-91_69-1": "a7e6e51ba75e"
+      },
+      "$ratio": 4.33,
+      "$cvd": 4.24,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-80_78-0-0-1": {
+      "$type": "color-pair",
+      "$pairSha": "f893defc69cd",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-80_78-0-0-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-80_78-0-0-1": "33e70c09f224"
+      },
+      "$ratio": 9.02,
+      "$cvd": 8.93,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-85_58-0_0289-165_35-1": {
+      "$type": "color-pair",
+      "$pairSha": "2f0b875511d1",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-85_58-0_0289-165_35-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-85_58-0_0289-165_35-1": "cba2c7b6e7a2"
+      },
+      "$ratio": 10.7,
+      "$cvd": 10.64,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-82_77-0_0525-166_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "08541cb24248",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-82_77-0_0525-166_36-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-82_77-0_0525-166_36-1": "54c29b27ae96"
+      },
+      "$ratio": 9.86,
+      "$cvd": 9.69,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-90_05-0_0261-165_59-1": {
+      "$type": "color-pair",
+      "$pairSha": "521fceaa12de",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-90_05-0_0261-165_59-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-90_05-0_0261-165_59-1": "e045e35b40a6"
+      },
+      "$ratio": 12.32,
+      "$cvd": 12.27,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-86_19-0_0811-164_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "331a7490fec6",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-86_19-0_0811-164_56-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-86_19-0_0811-164_56-1": "b0005ecf9557"
+      },
+      "$ratio": 11.14,
+      "$cvd": 10.85,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-84_8-0_0879-84_45-1": {
+      "$type": "color-pair",
+      "$pairSha": "7cfef1bf1926",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-84_8-0_0879-84_45-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-84_8-0_0879-84_45-1": "e222d241bf1b"
+      },
+      "$ratio": 10.28,
+      "$cvd": 9.68,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-71_01-0_0599-167_47-1": {
+      "$type": "color-pair",
+      "$pairSha": "dfea3b6c15e8",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-71_01-0_0599-167_47-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-71_01-0_0599-167_47-1": "a2e3f3bc5ec0"
+      },
+      "$ratio": 6.56,
+      "$cvd": 6.41,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-79_81-0_1206-79_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "dd139f896076",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-79_81-0_1206-79_72-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-79_81-0_1206-79_72-1": "35fbd3bb1bef"
+      },
+      "$ratio": 8.63,
+      "$cvd": 7.87,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-80_53-0_0536-166_8-1": {
+      "$type": "color-pair",
+      "$pairSha": "742ff2f7ab4a",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-80_53-0_0536-166_8-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-80_53-0_0536-166_8-1": "e3f11ce60ac6"
+      },
+      "$ratio": 9.15,
+      "$cvd": 8.99,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-73_68-0_0677-168_43-1": {
+      "$type": "color-pair",
+      "$pairSha": "af03cf10a4e6",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-73_68-0_0677-168_43-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-73_68-0_0677-168_43-1": "09328151d6c1"
+      },
+      "$ratio": 7.25,
+      "$cvd": 7.06,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-94_7-0_0034-145_55-1": {
+      "$type": "color-pair",
+      "$pairSha": "026a1370e2d5",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-94_7-0_0034-145_55-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-94_7-0_0034-145_55-1": "2eb85f917111"
+      },
+      "$ratio": 14.07,
+      "$cvd": 13.95,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-62_6-0_021-157_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "dc1d99c494c9",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-62_6-0_021-157_56-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-62_6-0_021-157_56-1": "9396d558715a"
+      },
+      "$ratio": 4.66,
+      "$cvd": 4.65,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-93_11-0_0153-90_24-1": {
+      "$type": "color-pair",
+      "$pairSha": "731d075e9ac3",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-93_11-0_0153-90_24-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-93_11-0_0153-90_24-1": "bf7c5ec0dacd"
+      },
+      "$ratio": 13.4,
+      "$cvd": 13.18,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-76_83-0_0209-159_6-1": {
+      "$type": "color-pair",
+      "$pairSha": "5d7137900ce3",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-76_83-0_0209-159_6-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-76_83-0_0209-159_6-1": "3d4443f89b55"
+      },
+      "$ratio": 7.94,
+      "$cvd": 7.93,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-83_39-0_1155-160_92-1": {
+      "$type": "color-pair",
+      "$pairSha": "a951a3a6106e",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-83_39-0_1155-160_92-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-83_39-0_1155-160_92-1": "aae9fc42d778"
+      },
+      "$ratio": 10.31,
+      "$cvd": 9.92,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-70_45-0_1337-160_87-1": {
+      "$type": "color-pair",
+      "$pairSha": "e52e833dfaa2",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-70_45-0_1337-160_87-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-70_45-0_1337-160_87-1": "5b35b646e013"
+      },
+      "$ratio": 6.63,
+      "$cvd": 6.3,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-85_75-0_0187-155_76-1": {
+      "$type": "color-pair",
+      "$pairSha": "72228d9ec4ee",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-85_75-0_0187-155_76-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-85_75-0_0187-155_76-1": "37f06466499e"
+      },
+      "$ratio": 10.71,
+      "$cvd": 10.71,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-69_16-0_1278-76_79-1": {
+      "$type": "color-pair",
+      "$pairSha": "6cb99d4666d7",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-69_16-0_1278-76_79-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-69_16-0_1278-76_79-1": "d1a67fd489e2"
+      },
+      "$ratio": 5.85,
+      "$cvd": 5.21,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-84_57-0_0722-166_44-1": {
+      "$type": "color-pair",
+      "$pairSha": "7ab0477580f0",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-84_57-0_0722-166_44-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-84_57-0_0722-166_44-1": "566cf91d0bee"
+      },
+      "$ratio": 10.54,
+      "$cvd": 10.29,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-89_71-0_0143-155_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "ccdc213da673",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-89_71-0_0143-155_56-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-89_71-0_0143-155_56-1": "ca76cfd317fe"
+      },
+      "$ratio": 12.13,
+      "$cvd": 12.1,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-84_47-0_0715-81_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "f24d497dea7c",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-84_47-0_0715-81_36-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-84_47-0_0715-81_36-1": "507da1cd38ae"
+      },
+      "$ratio": 10.16,
+      "$cvd": 9.63,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-66_87-0_0216-154_68-1": {
+      "$type": "color-pair",
+      "$pairSha": "0b00e6adf56f",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-66_87-0_0216-154_68-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-66_87-0_0216-154_68-1": "17e272d113c4"
+      },
+      "$ratio": 5.51,
+      "$cvd": 5.5,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-81_96-0_0103-155_05-1": {
+      "$type": "color-pair",
+      "$pairSha": "3dba1eb36ef0",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-81_96-0_0103-155_05-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-81_96-0_0103-155_05-1": "ee24a3313898"
+      },
+      "$ratio": 9.43,
+      "$cvd": 9.38,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-94_45-0_015-164_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "30b368c46ecd",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-94_45-0_015-164_72-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-94_45-0_015-164_72-1": "425765ba0df1"
+      },
+      "$ratio": 14.03,
+      "$cvd": 14.01,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-94_9-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "63429b368c00",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-94_9-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-23_84-0_0204-162_64-1": "04844ca53d30",
+        "oklch-94_9-0_0124-91_52-1": "b16600d6a50d"
+      },
+      "$ratio": 14.15,
+      "$cvd": 13.93,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-61-0_0228-91_69-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "a6ce35f4a567",
+      "$colors": [
+        "oklch-61-0_0228-91_69-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-61-0_0228-91_69-1": "a7e6e51ba75e",
+        "oklch-93_69-0_0124-91_52-1": "6dc7fc8aab73"
+      },
+      "$ratio": 3.15,
+      "$cvd": 3.13,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "079f9027547c",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-93_69-0_0124-91_52-1": "6dc7fc8aab73"
+      },
+      "$ratio": 6.83,
+      "$cvd": 6.38,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "5ba0005947f1",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-93_69-0_0124-91_52-1": "6dc7fc8aab73"
+      },
+      "$ratio": 7.76,
+      "$cvd": 7.59,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "780c00287848",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-93_69-0_0124-91_52-1": "6dc7fc8aab73"
+      },
+      "$ratio": 10.19,
+      "$cvd": 9.72,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "cbce978e5001",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-51_27-0_022-162_31-1": "ffc361338b99",
+        "oklch-93_69-0_0124-91_52-1": "6dc7fc8aab73"
+      },
+      "$ratio": 4.67,
+      "$cvd": 4.57,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "5ece6c972f70",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-93_69-0_0124-91_52-1": "6dc7fc8aab73"
+      },
+      "$ratio": 6.82,
+      "$cvd": 6.68,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "153f6cccb7a5",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-93_69-0_0124-91_52-1": "6dc7fc8aab73"
+      },
+      "$ratio": 12.24,
+      "$cvd": 12.02,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "f11765ddb5d9",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-93_69-0_0124-91_52-1": "6dc7fc8aab73"
+      },
+      "$ratio": 9.94,
+      "$cvd": 9.74,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "182737612fc2",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-93_69-0_0124-91_52-1": "6dc7fc8aab73"
+      },
+      "$ratio": 10.71,
+      "$cvd": 10.37,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "cc9acb8b59ee",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-93_69-0_0124-91_52-1": "6dc7fc8aab73"
+      },
+      "$ratio": 11.05,
+      "$cvd": 11.03,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "7842e4763bed",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-93_69-0_0124-91_52-1": "6dc7fc8aab73"
+      },
+      "$ratio": 11.25,
+      "$cvd": 11.06,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-61-0_0228-91_69-1": {
+      "$type": "color-pair",
+      "$pairSha": "425c521fa049",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-61-0_0228-91_69-1"
+      ],
+      "$colorShas": {
+        "oklch-100-0-0-1": "a178b05826cf",
+        "oklch-61-0_0228-91_69-1": "a7e6e51ba75e"
+      },
+      "$ratio": 3.79,
+      "$cvd": 3.76,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-41_69-0_0817-166_22-1": {
+      "$type": "color-pair",
+      "$pairSha": "6ab84f357216",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-41_69-0_0817-166_22-1"
+      ],
+      "$colorShas": {
+        "oklch-100-0-0-1": "a178b05826cf",
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527"
+      },
+      "$ratio": 8.21,
+      "$cvd": 7.72,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-39_41-0_0224-160_14-1": {
+      "$type": "color-pair",
+      "$pairSha": "d1ab4decb6a3",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-39_41-0_0224-160_14-1"
+      ],
+      "$colorShas": {
+        "oklch-100-0-0-1": "a178b05826cf",
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996"
+      },
+      "$ratio": 9.33,
+      "$cvd": 9.18,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-32_14-0_0619-166_35-1": {
+      "$type": "color-pair",
+      "$pairSha": "5af3fdfd7932",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-32_14-0_0619-166_35-1"
+      ],
+      "$colorShas": {
+        "oklch-100-0-0-1": "a178b05826cf",
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f"
+      },
+      "$ratio": 12.26,
+      "$cvd": 11.75,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-51_27-0_022-162_31-1": {
+      "$type": "color-pair",
+      "$pairSha": "e1d26e459f74",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-51_27-0_022-162_31-1"
+      ],
+      "$colorShas": {
+        "oklch-100-0-0-1": "a178b05826cf",
+        "oklch-51_27-0_022-162_31-1": "ffc361338b99"
+      },
+      "$ratio": 5.62,
+      "$cvd": 5.52,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-42_46-0_021-158_37-1": {
+      "$type": "color-pair",
+      "$pairSha": "9c77fe5cc341",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-42_46-0_021-158_37-1"
+      ],
+      "$colorShas": {
+        "oklch-100-0-0-1": "a178b05826cf",
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07"
+      },
+      "$ratio": 8.21,
+      "$cvd": 8.08,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-62_6-0_021-157_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "e935b25c6ef5",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-62_6-0_021-157_56-1"
+      ],
+      "$colorShas": {
+        "oklch-100-0-0-1": "a178b05826cf",
+        "oklch-62_6-0_021-157_56-1": "9396d558715a"
+      },
+      "$ratio": 3.52,
+      "$cvd": 3.47,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-27_45-0_022-160_99-1": {
+      "$type": "color-pair",
+      "$pairSha": "a203a9257b8e",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-27_45-0_022-160_99-1"
+      ],
+      "$colorShas": {
+        "oklch-100-0-0-1": "a178b05826cf",
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87"
+      },
+      "$ratio": 14.72,
+      "$cvd": 14.54,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-33_28-0_0243-156_63-1": {
+      "$type": "color-pair",
+      "$pairSha": "d6a8fa1c9e2b",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-33_28-0_0243-156_63-1"
+      ],
+      "$colorShas": {
+        "oklch-100-0-0-1": "a178b05826cf",
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf"
+      },
+      "$ratio": 11.95,
+      "$cvd": 11.78,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-31_1-0_04-163_78-1": {
+      "$type": "color-pair",
+      "$pairSha": "c6209a432d50",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-31_1-0_04-163_78-1"
+      ],
+      "$colorShas": {
+        "oklch-100-0-0-1": "a178b05826cf",
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3"
+      },
+      "$ratio": 12.88,
+      "$cvd": 12.54,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-30_56-0_0305-113_38-1": {
+      "$type": "color-pair",
+      "$pairSha": "6d4ee56b7e5c",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-30_56-0_0305-113_38-1"
+      ],
+      "$colorShas": {
+        "oklch-100-0-0-1": "a178b05826cf",
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a"
+      },
+      "$ratio": 13.29,
+      "$cvd": 13.27,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-29_96-0_0206-159_28-1": {
+      "$type": "color-pair",
+      "$pairSha": "539db590f1d2",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-29_96-0_0206-159_28-1"
+      ],
+      "$colorShas": {
+        "oklch-100-0-0-1": "a178b05826cf",
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949"
+      },
+      "$ratio": 13.54,
+      "$cvd": 13.37,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-61-0_0228-91_69-1": {
+      "$type": "color-pair",
+      "$pairSha": "e9eb98d4dc8b",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-61-0_0228-91_69-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-61-0_0228-91_69-1": "a7e6e51ba75e"
+      },
+      "$ratio": 3.24,
+      "$cvd": 3.06,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-61-0_0228-91_69-1<>oklch-94_7-0_0034-145_55-1": {
+      "$type": "color-pair",
+      "$pairSha": "d025480b7744",
+      "$colors": [
+        "oklch-61-0_0228-91_69-1",
+        "oklch-94_7-0_0034-145_55-1"
+      ],
+      "$colorShas": {
+        "oklch-61-0_0228-91_69-1": "a7e6e51ba75e",
+        "oklch-94_7-0_0034-145_55-1": "2eb85f917111"
+      },
+      "$ratio": 3.25,
+      "$cvd": 3.22,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-61-0_0228-91_69-1<>oklch-93_11-0_0153-90_24-1": {
+      "$type": "color-pair",
+      "$pairSha": "127d6be4448c",
+      "$colors": [
+        "oklch-61-0_0228-91_69-1",
+        "oklch-93_11-0_0153-90_24-1"
+      ],
+      "$colorShas": {
+        "oklch-61-0_0228-91_69-1": "a7e6e51ba75e",
+        "oklch-93_11-0_0153-90_24-1": "bf7c5ec0dacd"
+      },
+      "$ratio": 3.09,
+      "$cvd": 3.08,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-61-0_0228-91_69-1": {
+      "$type": "color-pair",
+      "$pairSha": "49a7b9d56a5e",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-61-0_0228-91_69-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-61-0_0228-91_69-1": "a7e6e51ba75e"
+      },
+      "$ratio": 3.89,
+      "$cvd": 3.79,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-61-0_0228-91_69-1": {
+      "$type": "color-pair",
+      "$pairSha": "60dad67840a5",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-61-0_0228-91_69-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-61-0_0228-91_69-1": "a7e6e51ba75e"
+      },
+      "$ratio": 3.16,
+      "$cvd": 3.07,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-61-0_0228-91_69-1": {
+      "$type": "color-pair",
+      "$pairSha": "43e460403246",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-61-0_0228-91_69-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-61-0_0228-91_69-1": "a7e6e51ba75e"
+      },
+      "$ratio": 3.4,
+      "$cvd": 3.27,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-61-0_0228-91_69-1": {
+      "$type": "color-pair",
+      "$pairSha": "489a137befd3",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-61-0_0228-91_69-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-61-0_0228-91_69-1": "a7e6e51ba75e"
+      },
+      "$ratio": 3.51,
+      "$cvd": 3.48,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-61-0_0228-91_69-1": {
+      "$type": "color-pair",
+      "$pairSha": "b16a09dd28a6",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-61-0_0228-91_69-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-61-0_0228-91_69-1": "a7e6e51ba75e"
+      },
+      "$ratio": 3.57,
+      "$cvd": 3.49,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-61-0_0228-91_69-1<>oklch-94_45-0_015-164_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "02a98afb4d2d",
+      "$colors": [
+        "oklch-61-0_0228-91_69-1",
+        "oklch-94_45-0_015-164_72-1"
+      ],
+      "$colorShas": {
+        "oklch-61-0_0228-91_69-1": "a7e6e51ba75e",
+        "oklch-94_45-0_015-164_72-1": "425765ba0df1"
+      },
+      "$ratio": 3.24,
+      "$cvd": 3.19,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-61-0_0228-91_69-1<>oklch-94_9-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "7351746c7e36",
+      "$colors": [
+        "oklch-61-0_0228-91_69-1",
+        "oklch-94_9-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-61-0_0228-91_69-1": "a7e6e51ba75e",
+        "oklch-94_9-0_0124-91_52-1": "b16600d6a50d"
+      },
+      "$ratio": 3.26,
+      "$cvd": 3.25,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-80_78-0-0-1": {
+      "$type": "color-pair",
+      "$pairSha": "65770da61b8e",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-80_78-0-0-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-80_78-0-0-1": "33e70c09f224"
+      },
+      "$ratio": 4.51,
+      "$cvd": 4.24,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-85_58-0_0289-165_35-1": {
+      "$type": "color-pair",
+      "$pairSha": "d547c1917ce4",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-85_58-0_0289-165_35-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-85_58-0_0289-165_35-1": "cba2c7b6e7a2"
+      },
+      "$ratio": 5.36,
+      "$cvd": 5.13,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-82_77-0_0525-166_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "fabdd6b36174",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-82_77-0_0525-166_36-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-82_77-0_0525-166_36-1": "54c29b27ae96"
+      },
+      "$ratio": 4.93,
+      "$cvd": 4.79,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-90_05-0_0261-165_59-1": {
+      "$type": "color-pair",
+      "$pairSha": "210aba7379d9",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-90_05-0_0261-165_59-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-90_05-0_0261-165_59-1": "e045e35b40a6"
+      },
+      "$ratio": 6.17,
+      "$cvd": 5.89,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-86_19-0_0811-164_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "606621df0d0b",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-86_19-0_0811-164_56-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-86_19-0_0811-164_56-1": "b0005ecf9557"
+      },
+      "$ratio": 5.58,
+      "$cvd": 5.46,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-84_8-0_0879-84_45-1": {
+      "$type": "color-pair",
+      "$pairSha": "c017214957e0",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-84_8-0_0879-84_45-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-84_8-0_0879-84_45-1": "e222d241bf1b"
+      },
+      "$ratio": 5.14,
+      "$cvd": 4.6,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-71_01-0_0599-167_47-1": {
+      "$type": "color-pair",
+      "$pairSha": "aa9bd9d6cd29",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-71_01-0_0599-167_47-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-71_01-0_0599-167_47-1": "a2e3f3bc5ec0"
+      },
+      "$ratio": 3.28,
+      "$cvd": 3.22,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-79_81-0_1206-79_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "017ce8536eca",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-79_81-0_1206-79_72-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-79_81-0_1206-79_72-1": "35fbd3bb1bef"
+      },
+      "$ratio": 4.32,
+      "$cvd": 3.74,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-80_53-0_0536-166_8-1": {
+      "$type": "color-pair",
+      "$pairSha": "cfd2b90881a3",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-80_53-0_0536-166_8-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-80_53-0_0536-166_8-1": "e3f11ce60ac6"
+      },
+      "$ratio": 4.58,
+      "$cvd": 4.46,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-73_68-0_0677-168_43-1": {
+      "$type": "color-pair",
+      "$pairSha": "aa9558d034cb",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-73_68-0_0677-168_43-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-73_68-0_0677-168_43-1": "09328151d6c1"
+      },
+      "$ratio": 3.63,
+      "$cvd": 3.56,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-94_7-0_0034-145_55-1": {
+      "$type": "color-pair",
+      "$pairSha": "58b6466e64d7",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-94_7-0_0034-145_55-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-94_7-0_0034-145_55-1": "2eb85f917111"
+      },
+      "$ratio": 7.04,
+      "$cvd": 6.63,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-93_11-0_0153-90_24-1": {
+      "$type": "color-pair",
+      "$pairSha": "2e31eceeff62",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-93_11-0_0153-90_24-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-93_11-0_0153-90_24-1": "bf7c5ec0dacd"
+      },
+      "$ratio": 6.71,
+      "$cvd": 6.26,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-76_83-0_0209-159_6-1": {
+      "$type": "color-pair",
+      "$pairSha": "d413baca86b7",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-76_83-0_0209-159_6-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-76_83-0_0209-159_6-1": "3d4443f89b55"
+      },
+      "$ratio": 3.97,
+      "$cvd": 3.78,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-83_39-0_1155-160_92-1": {
+      "$type": "color-pair",
+      "$pairSha": "fc341ff29ca6",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-83_39-0_1155-160_92-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-83_39-0_1155-160_92-1": "aae9fc42d778"
+      },
+      "$ratio": 5.16,
+      "$cvd": 5.04,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-70_45-0_1337-160_87-1": {
+      "$type": "color-pair",
+      "$pairSha": "2691dfaac8cf",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-70_45-0_1337-160_87-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-70_45-0_1337-160_87-1": "5b35b646e013"
+      },
+      "$ratio": 3.32,
+      "$cvd": 3.26,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-85_75-0_0187-155_76-1": {
+      "$type": "color-pair",
+      "$pairSha": "66614d809b06",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-85_75-0_0187-155_76-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-85_75-0_0187-155_76-1": "37f06466499e"
+      },
+      "$ratio": 5.36,
+      "$cvd": 5.09,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-84_57-0_0722-166_44-1": {
+      "$type": "color-pair",
+      "$pairSha": "a4a59aceaddd",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-84_57-0_0722-166_44-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-84_57-0_0722-166_44-1": "566cf91d0bee"
+      },
+      "$ratio": 5.28,
+      "$cvd": 5.17,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-89_71-0_0143-155_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "1eda6e1d9a90",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-89_71-0_0143-155_56-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-89_71-0_0143-155_56-1": "ca76cfd317fe"
+      },
+      "$ratio": 6.07,
+      "$cvd": 5.75,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-84_47-0_0715-81_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "eaabe666efc7",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-84_47-0_0715-81_36-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-84_47-0_0715-81_36-1": "507da1cd38ae"
+      },
+      "$ratio": 5.09,
+      "$cvd": 4.57,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-81_96-0_0103-155_05-1": {
+      "$type": "color-pair",
+      "$pairSha": "c28f62897b5a",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-81_96-0_0103-155_05-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-81_96-0_0103-155_05-1": "ee24a3313898"
+      },
+      "$ratio": 4.72,
+      "$cvd": 4.46,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-94_45-0_015-164_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "1e4d1bca9189",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-94_45-0_015-164_72-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-94_45-0_015-164_72-1": "425765ba0df1"
+      },
+      "$ratio": 7.02,
+      "$cvd": 6.65,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-94_9-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "c34e38a54048",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-94_9-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-41_69-0_0817-166_22-1": "4b43be0b0527",
+        "oklch-94_9-0_0124-91_52-1": "b16600d6a50d"
+      },
+      "$ratio": 7.08,
+      "$cvd": 6.62,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-80_78-0-0-1": {
+      "$type": "color-pair",
+      "$pairSha": "1d0f20bcfae2",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-80_78-0-0-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-80_78-0-0-1": "33e70c09f224"
+      },
+      "$ratio": 5.13,
+      "$cvd": 5.05,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-80_78-0-0-1": {
+      "$type": "color-pair",
+      "$pairSha": "9ec7b6ef4288",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-80_78-0-0-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-80_78-0-0-1": "33e70c09f224"
+      },
+      "$ratio": 6.74,
+      "$cvd": 6.46,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-80_78-0-0-1": {
+      "$type": "color-pair",
+      "$pairSha": "6d618cb16e3a",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-80_78-0-0-1"
+      ],
+      "$colorShas": {
+        "oklch-51_27-0_022-162_31-1": "ffc361338b99",
+        "oklch-80_78-0-0-1": "33e70c09f224"
+      },
+      "$ratio": 3.09,
+      "$cvd": 3.03,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-80_78-0-0-1": {
+      "$type": "color-pair",
+      "$pairSha": "1490a81a7023",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-80_78-0-0-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-80_78-0-0-1": "33e70c09f224"
+      },
+      "$ratio": 4.51,
+      "$cvd": 4.44,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-80_78-0-0-1": {
+      "$type": "color-pair",
+      "$pairSha": "bc1b87ef8faa",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-80_78-0-0-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-80_78-0-0-1": "33e70c09f224"
+      },
+      "$ratio": 8.09,
+      "$cvd": 7.99,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-80_78-0-0-1": {
+      "$type": "color-pair",
+      "$pairSha": "6c37bffb5f59",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-80_78-0-0-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-80_78-0-0-1": "33e70c09f224"
+      },
+      "$ratio": 6.57,
+      "$cvd": 6.47,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-80_78-0-0-1": {
+      "$type": "color-pair",
+      "$pairSha": "b420575b2cbe",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-80_78-0-0-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-80_78-0-0-1": "33e70c09f224"
+      },
+      "$ratio": 7.08,
+      "$cvd": 6.89,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-80_78-0-0-1": {
+      "$type": "color-pair",
+      "$pairSha": "6cb20e1bdec3",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-80_78-0-0-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-80_78-0-0-1": "33e70c09f224"
+      },
+      "$ratio": 7.31,
+      "$cvd": 7.29,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-80_78-0-0-1": {
+      "$type": "color-pair",
+      "$pairSha": "f8561991caba",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-80_78-0-0-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-80_78-0-0-1": "33e70c09f224"
+      },
+      "$ratio": 7.44,
+      "$cvd": 7.35,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-85_58-0_0289-165_35-1": {
+      "$type": "color-pair",
+      "$pairSha": "cea4b8ccc12a",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-85_58-0_0289-165_35-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-85_58-0_0289-165_35-1": "cba2c7b6e7a2"
+      },
+      "$ratio": 6.09,
+      "$cvd": 6.08,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-82_77-0_0525-166_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "384c7db9d9eb",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-82_77-0_0525-166_36-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-82_77-0_0525-166_36-1": "54c29b27ae96"
+      },
+      "$ratio": 5.61,
+      "$cvd": 5.54,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-90_05-0_0261-165_59-1": {
+      "$type": "color-pair",
+      "$pairSha": "822f4db873ba",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-90_05-0_0261-165_59-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-90_05-0_0261-165_59-1": "e045e35b40a6"
+      },
+      "$ratio": 7,
+      "$cvd": 7,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-86_19-0_0811-164_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "1b4a3d09fae3",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-86_19-0_0811-164_56-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-86_19-0_0811-164_56-1": "b0005ecf9557"
+      },
+      "$ratio": 6.34,
+      "$cvd": 6.2,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-84_8-0_0879-84_45-1": {
+      "$type": "color-pair",
+      "$pairSha": "ad48ca0d38e3",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-84_8-0_0879-84_45-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-84_8-0_0879-84_45-1": "e222d241bf1b"
+      },
+      "$ratio": 5.84,
+      "$cvd": 5.47,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-71_01-0_0599-167_47-1": {
+      "$type": "color-pair",
+      "$pairSha": "184eff2d3336",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-71_01-0_0599-167_47-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-71_01-0_0599-167_47-1": "a2e3f3bc5ec0"
+      },
+      "$ratio": 3.73,
+      "$cvd": 3.66,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-79_81-0_1206-79_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "bc62abc40e8c",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-79_81-0_1206-79_72-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-79_81-0_1206-79_72-1": "35fbd3bb1bef"
+      },
+      "$ratio": 4.91,
+      "$cvd": 4.45,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-80_53-0_0536-166_8-1": {
+      "$type": "color-pair",
+      "$pairSha": "1b5eaaa7938d",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-80_53-0_0536-166_8-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-80_53-0_0536-166_8-1": "e3f11ce60ac6"
+      },
+      "$ratio": 5.2,
+      "$cvd": 5.13,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-73_68-0_0677-168_43-1": {
+      "$type": "color-pair",
+      "$pairSha": "2a1b1e0409cc",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-73_68-0_0677-168_43-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-73_68-0_0677-168_43-1": "09328151d6c1"
+      },
+      "$ratio": 4.12,
+      "$cvd": 4.03,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-94_7-0_0034-145_55-1": {
+      "$type": "color-pair",
+      "$pairSha": "6f72975cb7b2",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-94_7-0_0034-145_55-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-94_7-0_0034-145_55-1": "2eb85f917111"
+      },
+      "$ratio": 8,
+      "$cvd": 7.88,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-93_11-0_0153-90_24-1": {
+      "$type": "color-pair",
+      "$pairSha": "c68442183300",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-93_11-0_0153-90_24-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-93_11-0_0153-90_24-1": "bf7c5ec0dacd"
+      },
+      "$ratio": 7.62,
+      "$cvd": 7.45,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-76_83-0_0209-159_6-1": {
+      "$type": "color-pair",
+      "$pairSha": "44e75f90930d",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-76_83-0_0209-159_6-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-76_83-0_0209-159_6-1": "3d4443f89b55"
+      },
+      "$ratio": 4.52,
+      "$cvd": 4.5,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-83_39-0_1155-160_92-1": {
+      "$type": "color-pair",
+      "$pairSha": "59ede1cc4e08",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-83_39-0_1155-160_92-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-83_39-0_1155-160_92-1": "aae9fc42d778"
+      },
+      "$ratio": 5.86,
+      "$cvd": 5.67,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-70_45-0_1337-160_87-1": {
+      "$type": "color-pair",
+      "$pairSha": "af2c829f136a",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-70_45-0_1337-160_87-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-70_45-0_1337-160_87-1": "5b35b646e013"
+      },
+      "$ratio": 3.77,
+      "$cvd": 3.6,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-85_75-0_0187-155_76-1": {
+      "$type": "color-pair",
+      "$pairSha": "83caf48ff0a8",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-85_75-0_0187-155_76-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-85_75-0_0187-155_76-1": "37f06466499e"
+      },
+      "$ratio": 6.09,
+      "$cvd": 6.05,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-84_57-0_0722-166_44-1": {
+      "$type": "color-pair",
+      "$pairSha": "abf8d0f4282c",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-84_57-0_0722-166_44-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-84_57-0_0722-166_44-1": "566cf91d0bee"
+      },
+      "$ratio": 5.99,
+      "$cvd": 5.87,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-89_71-0_0143-155_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "1de9f8b54ac6",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-89_71-0_0143-155_56-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-89_71-0_0143-155_56-1": "ca76cfd317fe"
+      },
+      "$ratio": 6.9,
+      "$cvd": 6.83,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-84_47-0_0715-81_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "222a842c6231",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-84_47-0_0715-81_36-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-84_47-0_0715-81_36-1": "507da1cd38ae"
+      },
+      "$ratio": 5.78,
+      "$cvd": 5.44,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-66_87-0_0216-154_68-1": {
+      "$type": "color-pair",
+      "$pairSha": "15459e708bf9",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-66_87-0_0216-154_68-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-66_87-0_0216-154_68-1": "17e272d113c4"
+      },
+      "$ratio": 3.13,
+      "$cvd": 3.12,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-81_96-0_0103-155_05-1": {
+      "$type": "color-pair",
+      "$pairSha": "eb9330a1fb86",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-81_96-0_0103-155_05-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-81_96-0_0103-155_05-1": "ee24a3313898"
+      },
+      "$ratio": 5.36,
+      "$cvd": 5.3,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-94_45-0_015-164_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "9a6cafa28341",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-94_45-0_015-164_72-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-94_45-0_015-164_72-1": "425765ba0df1"
+      },
+      "$ratio": 7.98,
+      "$cvd": 7.92,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-39_41-0_0224-160_14-1<>oklch-94_9-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "9e21109ce3ee",
+      "$colors": [
+        "oklch-39_41-0_0224-160_14-1",
+        "oklch-94_9-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-39_41-0_0224-160_14-1": "095160bbb996",
+        "oklch-94_9-0_0124-91_52-1": "b16600d6a50d"
+      },
+      "$ratio": 8.04,
+      "$cvd": 7.87,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-85_58-0_0289-165_35-1": {
+      "$type": "color-pair",
+      "$pairSha": "4407a3957d04",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-85_58-0_0289-165_35-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-85_58-0_0289-165_35-1": "cba2c7b6e7a2"
+      },
+      "$ratio": 8,
+      "$cvd": 7.8,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-85_58-0_0289-165_35-1": {
+      "$type": "color-pair",
+      "$pairSha": "de350e849e8f",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-85_58-0_0289-165_35-1"
+      ],
+      "$colorShas": {
+        "oklch-51_27-0_022-162_31-1": "ffc361338b99",
+        "oklch-85_58-0_0289-165_35-1": "cba2c7b6e7a2"
+      },
+      "$ratio": 3.66,
+      "$cvd": 3.66,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-85_58-0_0289-165_35-1": {
+      "$type": "color-pair",
+      "$pairSha": "d7f8f56a9187",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-85_58-0_0289-165_35-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-85_58-0_0289-165_35-1": "cba2c7b6e7a2"
+      },
+      "$ratio": 5.35,
+      "$cvd": 5.34,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-85_58-0_0289-165_35-1": {
+      "$type": "color-pair",
+      "$pairSha": "c74905520ee6",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-85_58-0_0289-165_35-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-85_58-0_0289-165_35-1": "cba2c7b6e7a2"
+      },
+      "$ratio": 9.6,
+      "$cvd": 9.57,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-85_58-0_0289-165_35-1": {
+      "$type": "color-pair",
+      "$pairSha": "3af675e51c3d",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-85_58-0_0289-165_35-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-85_58-0_0289-165_35-1": "cba2c7b6e7a2"
+      },
+      "$ratio": 7.8,
+      "$cvd": 7.78,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-85_58-0_0289-165_35-1": {
+      "$type": "color-pair",
+      "$pairSha": "ba71ef870b06",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-85_58-0_0289-165_35-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-85_58-0_0289-165_35-1": "cba2c7b6e7a2"
+      },
+      "$ratio": 8.4,
+      "$cvd": 8.33,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-85_58-0_0289-165_35-1": {
+      "$type": "color-pair",
+      "$pairSha": "a11f3694752d",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-85_58-0_0289-165_35-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-85_58-0_0289-165_35-1": "cba2c7b6e7a2"
+      },
+      "$ratio": 8.67,
+      "$cvd": 8.55,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-85_58-0_0289-165_35-1": {
+      "$type": "color-pair",
+      "$pairSha": "2d2ae6fbafe5",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-85_58-0_0289-165_35-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-85_58-0_0289-165_35-1": "cba2c7b6e7a2"
+      },
+      "$ratio": 8.83,
+      "$cvd": 8.79,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-82_77-0_0525-166_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "a0fed0edc929",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-82_77-0_0525-166_36-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-82_77-0_0525-166_36-1": "54c29b27ae96"
+      },
+      "$ratio": 7.36,
+      "$cvd": 7.27,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-82_77-0_0525-166_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "67f38be99846",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-82_77-0_0525-166_36-1"
+      ],
+      "$colorShas": {
+        "oklch-51_27-0_022-162_31-1": "ffc361338b99",
+        "oklch-82_77-0_0525-166_36-1": "54c29b27ae96"
+      },
+      "$ratio": 3.37,
+      "$cvd": 3.34,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-82_77-0_0525-166_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "56c715147b0e",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-82_77-0_0525-166_36-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-82_77-0_0525-166_36-1": "54c29b27ae96"
+      },
+      "$ratio": 4.93,
+      "$cvd": 4.87,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-82_77-0_0525-166_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "a8609955de61",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-82_77-0_0525-166_36-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-82_77-0_0525-166_36-1": "54c29b27ae96"
+      },
+      "$ratio": 8.84,
+      "$cvd": 8.71,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-82_77-0_0525-166_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "47826ad9fcc0",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-82_77-0_0525-166_36-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-82_77-0_0525-166_36-1": "54c29b27ae96"
+      },
+      "$ratio": 7.18,
+      "$cvd": 7.09,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-82_77-0_0525-166_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "8fd1cbc24d67",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-82_77-0_0525-166_36-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-82_77-0_0525-166_36-1": "54c29b27ae96"
+      },
+      "$ratio": 7.74,
+      "$cvd": 7.7,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-82_77-0_0525-166_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "f6d121b79a84",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-82_77-0_0525-166_36-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-82_77-0_0525-166_36-1": "54c29b27ae96"
+      },
+      "$ratio": 7.98,
+      "$cvd": 7.78,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-82_77-0_0525-166_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "56ac4f9b8cf7",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-82_77-0_0525-166_36-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-82_77-0_0525-166_36-1": "54c29b27ae96"
+      },
+      "$ratio": 8.13,
+      "$cvd": 8.01,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-90_05-0_0261-165_59-1": {
+      "$type": "color-pair",
+      "$pairSha": "3f5388acc204",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-90_05-0_0261-165_59-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-90_05-0_0261-165_59-1": "e045e35b40a6"
+      },
+      "$ratio": 9.2,
+      "$cvd": 8.96,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-90_05-0_0261-165_59-1": {
+      "$type": "color-pair",
+      "$pairSha": "1dedcb56e3dd",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-90_05-0_0261-165_59-1"
+      ],
+      "$colorShas": {
+        "oklch-51_27-0_022-162_31-1": "ffc361338b99",
+        "oklch-90_05-0_0261-165_59-1": "e045e35b40a6"
+      },
+      "$ratio": 4.22,
+      "$cvd": 4.21,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-90_05-0_0261-165_59-1": {
+      "$type": "color-pair",
+      "$pairSha": "28367dc0eea4",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-90_05-0_0261-165_59-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-90_05-0_0261-165_59-1": "e045e35b40a6"
+      },
+      "$ratio": 6.16,
+      "$cvd": 6.16,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-90_05-0_0261-165_59-1": {
+      "$type": "color-pair",
+      "$pairSha": "f3ccf54eed83",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-90_05-0_0261-165_59-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-90_05-0_0261-165_59-1": "e045e35b40a6"
+      },
+      "$ratio": 11.05,
+      "$cvd": 11.03,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-90_05-0_0261-165_59-1": {
+      "$type": "color-pair",
+      "$pairSha": "41e2c2ca1ee4",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-90_05-0_0261-165_59-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-90_05-0_0261-165_59-1": "e045e35b40a6"
+      },
+      "$ratio": 8.97,
+      "$cvd": 8.97,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-90_05-0_0261-165_59-1": {
+      "$type": "color-pair",
+      "$pairSha": "8bce1e827c6d",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-90_05-0_0261-165_59-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-90_05-0_0261-165_59-1": "e045e35b40a6"
+      },
+      "$ratio": 9.67,
+      "$cvd": 9.56,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-90_05-0_0261-165_59-1": {
+      "$type": "color-pair",
+      "$pairSha": "70e6c98efbc5",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-90_05-0_0261-165_59-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-90_05-0_0261-165_59-1": "e045e35b40a6"
+      },
+      "$ratio": 9.98,
+      "$cvd": 9.85,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-90_05-0_0261-165_59-1": {
+      "$type": "color-pair",
+      "$pairSha": "f5aaccbd0cc7",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-90_05-0_0261-165_59-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-90_05-0_0261-165_59-1": "e045e35b40a6"
+      },
+      "$ratio": 10.16,
+      "$cvd": 10.14,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-86_19-0_0811-164_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "43856ebbe3dc",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-86_19-0_0811-164_56-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-86_19-0_0811-164_56-1": "b0005ecf9557"
+      },
+      "$ratio": 8.32,
+      "$cvd": 8.21,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-84_8-0_0879-84_45-1": {
+      "$type": "color-pair",
+      "$pairSha": "2f2943c1fbab",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-84_8-0_0879-84_45-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-84_8-0_0879-84_45-1": "e222d241bf1b"
+      },
+      "$ratio": 7.68,
+      "$cvd": 7,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-71_01-0_0599-167_47-1": {
+      "$type": "color-pair",
+      "$pairSha": "eb23e9d57739",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-71_01-0_0599-167_47-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-71_01-0_0599-167_47-1": "a2e3f3bc5ec0"
+      },
+      "$ratio": 4.9,
+      "$cvd": 4.84,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-79_81-0_1206-79_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "d4ca8bb155c1",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-79_81-0_1206-79_72-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-79_81-0_1206-79_72-1": "35fbd3bb1bef"
+      },
+      "$ratio": 6.45,
+      "$cvd": 5.69,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-80_53-0_0536-166_8-1": {
+      "$type": "color-pair",
+      "$pairSha": "e5c4eb8c4419",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-80_53-0_0536-166_8-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-80_53-0_0536-166_8-1": "e3f11ce60ac6"
+      },
+      "$ratio": 6.84,
+      "$cvd": 6.75,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-73_68-0_0677-168_43-1": {
+      "$type": "color-pair",
+      "$pairSha": "bced38c824b1",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-73_68-0_0677-168_43-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-73_68-0_0677-168_43-1": "09328151d6c1"
+      },
+      "$ratio": 5.42,
+      "$cvd": 5.35,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-94_7-0_0034-145_55-1": {
+      "$type": "color-pair",
+      "$pairSha": "6fb3f3769214",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-94_7-0_0034-145_55-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-94_7-0_0034-145_55-1": "2eb85f917111"
+      },
+      "$ratio": 10.51,
+      "$cvd": 10.09,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-62_6-0_021-157_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "ecbc04b46e01",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-62_6-0_021-157_56-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-62_6-0_021-157_56-1": "9396d558715a"
+      },
+      "$ratio": 3.48,
+      "$cvd": 3.38,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-93_11-0_0153-90_24-1": {
+      "$type": "color-pair",
+      "$pairSha": "5a6b4d87db01",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-93_11-0_0153-90_24-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-93_11-0_0153-90_24-1": "bf7c5ec0dacd"
+      },
+      "$ratio": 10.01,
+      "$cvd": 9.53,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-76_83-0_0209-159_6-1": {
+      "$type": "color-pair",
+      "$pairSha": "c9ea4450f0fb",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-76_83-0_0209-159_6-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-76_83-0_0209-159_6-1": "3d4443f89b55"
+      },
+      "$ratio": 5.93,
+      "$cvd": 5.76,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-83_39-0_1155-160_92-1": {
+      "$type": "color-pair",
+      "$pairSha": "64b9597735a8",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-83_39-0_1155-160_92-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-83_39-0_1155-160_92-1": "aae9fc42d778"
+      },
+      "$ratio": 7.7,
+      "$cvd": 7.57,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-70_45-0_1337-160_87-1": {
+      "$type": "color-pair",
+      "$pairSha": "ca780fce7ccf",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-70_45-0_1337-160_87-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-70_45-0_1337-160_87-1": "5b35b646e013"
+      },
+      "$ratio": 4.95,
+      "$cvd": 4.82,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-85_75-0_0187-155_76-1": {
+      "$type": "color-pair",
+      "$pairSha": "eef7d63fef0d",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-85_75-0_0187-155_76-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-85_75-0_0187-155_76-1": "37f06466499e"
+      },
+      "$ratio": 8,
+      "$cvd": 7.74,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-69_16-0_1278-76_79-1": {
+      "$type": "color-pair",
+      "$pairSha": "605e24111ca6",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-69_16-0_1278-76_79-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-69_16-0_1278-76_79-1": "d1a67fd489e2"
+      },
+      "$ratio": 4.37,
+      "$cvd": 3.77,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-84_57-0_0722-166_44-1": {
+      "$type": "color-pair",
+      "$pairSha": "de14d5260eeb",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-84_57-0_0722-166_44-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-84_57-0_0722-166_44-1": "566cf91d0bee"
+      },
+      "$ratio": 7.88,
+      "$cvd": 7.77,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-89_71-0_0143-155_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "8f9d51e8f80e",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-89_71-0_0143-155_56-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-89_71-0_0143-155_56-1": "ca76cfd317fe"
+      },
+      "$ratio": 9.06,
+      "$cvd": 8.75,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-84_47-0_0715-81_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "eb6f6974102c",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-84_47-0_0715-81_36-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-84_47-0_0715-81_36-1": "507da1cd38ae"
+      },
+      "$ratio": 7.59,
+      "$cvd": 6.97,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-66_87-0_0216-154_68-1": {
+      "$type": "color-pair",
+      "$pairSha": "f9c622cad6ed",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-66_87-0_0216-154_68-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-66_87-0_0216-154_68-1": "17e272d113c4"
+      },
+      "$ratio": 4.12,
+      "$cvd": 4,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-81_96-0_0103-155_05-1": {
+      "$type": "color-pair",
+      "$pairSha": "0d92ac7543a8",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-81_96-0_0103-155_05-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-81_96-0_0103-155_05-1": "ee24a3313898"
+      },
+      "$ratio": 7.04,
+      "$cvd": 6.79,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-94_45-0_015-164_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "061ddbe9fe03",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-94_45-0_015-164_72-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-94_45-0_015-164_72-1": "425765ba0df1"
+      },
+      "$ratio": 10.48,
+      "$cvd": 10.13,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-94_9-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "f46409aa2e7a",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-94_9-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-32_14-0_0619-166_35-1": "63fa3a2b663f",
+        "oklch-94_9-0_0124-91_52-1": "b16600d6a50d"
+      },
+      "$ratio": 10.57,
+      "$cvd": 10.08,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-86_19-0_0811-164_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "5b7998619b5b",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-86_19-0_0811-164_56-1"
+      ],
+      "$colorShas": {
+        "oklch-51_27-0_022-162_31-1": "ffc361338b99",
+        "oklch-86_19-0_0811-164_56-1": "b0005ecf9557"
+      },
+      "$ratio": 3.81,
+      "$cvd": 3.73,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-86_19-0_0811-164_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "56f3907ba5c0",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-86_19-0_0811-164_56-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-86_19-0_0811-164_56-1": "b0005ecf9557"
+      },
+      "$ratio": 5.57,
+      "$cvd": 5.44,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-86_19-0_0811-164_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "ee51169cb71f",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-86_19-0_0811-164_56-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-86_19-0_0811-164_56-1": "b0005ecf9557"
+      },
+      "$ratio": 10,
+      "$cvd": 9.75,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-86_19-0_0811-164_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "d2c41e91ec51",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-86_19-0_0811-164_56-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-86_19-0_0811-164_56-1": "b0005ecf9557"
+      },
+      "$ratio": 8.12,
+      "$cvd": 7.93,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-86_19-0_0811-164_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "fddad65abf78",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-86_19-0_0811-164_56-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-86_19-0_0811-164_56-1": "b0005ecf9557"
+      },
+      "$ratio": 8.74,
+      "$cvd": 8.61,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-86_19-0_0811-164_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "cbd6577db60a",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-86_19-0_0811-164_56-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-86_19-0_0811-164_56-1": "b0005ecf9557"
+      },
+      "$ratio": 9.02,
+      "$cvd": 8.71,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-86_19-0_0811-164_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "2abdbe009579",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-86_19-0_0811-164_56-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-86_19-0_0811-164_56-1": "b0005ecf9557"
+      },
+      "$ratio": 9.19,
+      "$cvd": 8.96,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-84_8-0_0879-84_45-1": {
+      "$type": "color-pair",
+      "$pairSha": "d9bcbc4a0f48",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-84_8-0_0879-84_45-1"
+      ],
+      "$colorShas": {
+        "oklch-51_27-0_022-162_31-1": "ffc361338b99",
+        "oklch-84_8-0_0879-84_45-1": "e222d241bf1b"
+      },
+      "$ratio": 3.52,
+      "$cvd": 3.29,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-84_8-0_0879-84_45-1": {
+      "$type": "color-pair",
+      "$pairSha": "0d9de52f69b7",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-84_8-0_0879-84_45-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-84_8-0_0879-84_45-1": "e222d241bf1b"
+      },
+      "$ratio": 5.14,
+      "$cvd": 4.81,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-84_8-0_0879-84_45-1": {
+      "$type": "color-pair",
+      "$pairSha": "f7d1083ab376",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-84_8-0_0879-84_45-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-84_8-0_0879-84_45-1": "e222d241bf1b"
+      },
+      "$ratio": 9.22,
+      "$cvd": 8.66,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-84_8-0_0879-84_45-1": {
+      "$type": "color-pair",
+      "$pairSha": "f62bfc11eb5c",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-84_8-0_0879-84_45-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-84_8-0_0879-84_45-1": "e222d241bf1b"
+      },
+      "$ratio": 7.49,
+      "$cvd": 7.01,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-84_8-0_0879-84_45-1": {
+      "$type": "color-pair",
+      "$pairSha": "0a7bd3e027e3",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-84_8-0_0879-84_45-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-84_8-0_0879-84_45-1": "e222d241bf1b"
+      },
+      "$ratio": 8.07,
+      "$cvd": 7.47,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-84_8-0_0879-84_45-1": {
+      "$type": "color-pair",
+      "$pairSha": "1e7c5fc62ed1",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-84_8-0_0879-84_45-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-84_8-0_0879-84_45-1": "e222d241bf1b"
+      },
+      "$ratio": 8.32,
+      "$cvd": 7.95,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-84_8-0_0879-84_45-1": {
+      "$type": "color-pair",
+      "$pairSha": "e591bc33737f",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-84_8-0_0879-84_45-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-84_8-0_0879-84_45-1": "e222d241bf1b"
+      },
+      "$ratio": 8.48,
+      "$cvd": 7.96,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-71_01-0_0599-167_47-1": {
+      "$type": "color-pair",
+      "$pairSha": "f4a1e0fe9844",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-71_01-0_0599-167_47-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-71_01-0_0599-167_47-1": "a2e3f3bc5ec0"
+      },
+      "$ratio": 3.28,
+      "$cvd": 3.22,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-71_01-0_0599-167_47-1": {
+      "$type": "color-pair",
+      "$pairSha": "eb3581d3ca92",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-71_01-0_0599-167_47-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-71_01-0_0599-167_47-1": "a2e3f3bc5ec0"
+      },
+      "$ratio": 5.88,
+      "$cvd": 5.76,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-71_01-0_0599-167_47-1": {
+      "$type": "color-pair",
+      "$pairSha": "050cce0790f8",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-71_01-0_0599-167_47-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-71_01-0_0599-167_47-1": "a2e3f3bc5ec0"
+      },
+      "$ratio": 4.78,
+      "$cvd": 4.68,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-71_01-0_0599-167_47-1": {
+      "$type": "color-pair",
+      "$pairSha": "3dc0dbe13c46",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-71_01-0_0599-167_47-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-71_01-0_0599-167_47-1": "a2e3f3bc5ec0"
+      },
+      "$ratio": 5.15,
+      "$cvd": 5.09,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-71_01-0_0599-167_47-1": {
+      "$type": "color-pair",
+      "$pairSha": "b7a6e85b3c4c",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-71_01-0_0599-167_47-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-71_01-0_0599-167_47-1": "a2e3f3bc5ec0"
+      },
+      "$ratio": 5.31,
+      "$cvd": 5.15,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-71_01-0_0599-167_47-1": {
+      "$type": "color-pair",
+      "$pairSha": "f71c616459d5",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-71_01-0_0599-167_47-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-71_01-0_0599-167_47-1": "a2e3f3bc5ec0"
+      },
+      "$ratio": 5.41,
+      "$cvd": 5.29,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-79_81-0_1206-79_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "a3c88cdc6eaf",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-79_81-0_1206-79_72-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-79_81-0_1206-79_72-1": "35fbd3bb1bef"
+      },
+      "$ratio": 4.32,
+      "$cvd": 3.91,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-79_81-0_1206-79_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "4b3bab62308b",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-79_81-0_1206-79_72-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-79_81-0_1206-79_72-1": "35fbd3bb1bef"
+      },
+      "$ratio": 7.75,
+      "$cvd": 7.04,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-79_81-0_1206-79_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "c05eae436fef",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-79_81-0_1206-79_72-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-79_81-0_1206-79_72-1": "35fbd3bb1bef"
+      },
+      "$ratio": 6.29,
+      "$cvd": 5.7,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-79_81-0_1206-79_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "5a967b3ed62e",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-79_81-0_1206-79_72-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-79_81-0_1206-79_72-1": "35fbd3bb1bef"
+      },
+      "$ratio": 6.77,
+      "$cvd": 6.07,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-79_81-0_1206-79_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "7ddc04ccbaf2",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-79_81-0_1206-79_72-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-79_81-0_1206-79_72-1": "35fbd3bb1bef"
+      },
+      "$ratio": 6.99,
+      "$cvd": 6.46,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-79_81-0_1206-79_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "b7054108e79a",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-79_81-0_1206-79_72-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-79_81-0_1206-79_72-1": "35fbd3bb1bef"
+      },
+      "$ratio": 7.12,
+      "$cvd": 6.47,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-80_53-0_0536-166_8-1": {
+      "$type": "color-pair",
+      "$pairSha": "6981a8039839",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-80_53-0_0536-166_8-1"
+      ],
+      "$colorShas": {
+        "oklch-51_27-0_022-162_31-1": "ffc361338b99",
+        "oklch-80_53-0_0536-166_8-1": "e3f11ce60ac6"
+      },
+      "$ratio": 3.13,
+      "$cvd": 3.09,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-80_53-0_0536-166_8-1": {
+      "$type": "color-pair",
+      "$pairSha": "ccb83d56f4bc",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-80_53-0_0536-166_8-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-80_53-0_0536-166_8-1": "e3f11ce60ac6"
+      },
+      "$ratio": 4.58,
+      "$cvd": 4.51,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-80_53-0_0536-166_8-1": {
+      "$type": "color-pair",
+      "$pairSha": "cc8df3497797",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-80_53-0_0536-166_8-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-80_53-0_0536-166_8-1": "e3f11ce60ac6"
+      },
+      "$ratio": 8.21,
+      "$cvd": 8.08,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-80_53-0_0536-166_8-1": {
+      "$type": "color-pair",
+      "$pairSha": "b4df040f7378",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-80_53-0_0536-166_8-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-80_53-0_0536-166_8-1": "e3f11ce60ac6"
+      },
+      "$ratio": 6.67,
+      "$cvd": 6.57,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-80_53-0_0536-166_8-1": {
+      "$type": "color-pair",
+      "$pairSha": "fef3ff7a8ffe",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-80_53-0_0536-166_8-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-80_53-0_0536-166_8-1": "e3f11ce60ac6"
+      },
+      "$ratio": 7.18,
+      "$cvd": 7.14,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-80_53-0_0536-166_8-1": {
+      "$type": "color-pair",
+      "$pairSha": "9697d7e45385",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-80_53-0_0536-166_8-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-80_53-0_0536-166_8-1": "e3f11ce60ac6"
+      },
+      "$ratio": 7.41,
+      "$cvd": 7.22,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-80_53-0_0536-166_8-1": {
+      "$type": "color-pair",
+      "$pairSha": "fed934ca815e",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-80_53-0_0536-166_8-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-80_53-0_0536-166_8-1": "e3f11ce60ac6"
+      },
+      "$ratio": 7.55,
+      "$cvd": 7.43,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-73_68-0_0677-168_43-1": {
+      "$type": "color-pair",
+      "$pairSha": "6fd80f9a3f2b",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-73_68-0_0677-168_43-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-73_68-0_0677-168_43-1": "09328151d6c1"
+      },
+      "$ratio": 3.63,
+      "$cvd": 3.54,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-73_68-0_0677-168_43-1": {
+      "$type": "color-pair",
+      "$pairSha": "c59bb3e50e96",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-73_68-0_0677-168_43-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-73_68-0_0677-168_43-1": "09328151d6c1"
+      },
+      "$ratio": 6.51,
+      "$cvd": 6.35,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-73_68-0_0677-168_43-1": {
+      "$type": "color-pair",
+      "$pairSha": "cb42641607ad",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-73_68-0_0677-168_43-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-73_68-0_0677-168_43-1": "09328151d6c1"
+      },
+      "$ratio": 5.28,
+      "$cvd": 5.16,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-73_68-0_0677-168_43-1": {
+      "$type": "color-pair",
+      "$pairSha": "d0d7d2cba9ec",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-73_68-0_0677-168_43-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-73_68-0_0677-168_43-1": "09328151d6c1"
+      },
+      "$ratio": 5.69,
+      "$cvd": 5.6,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-73_68-0_0677-168_43-1": {
+      "$type": "color-pair",
+      "$pairSha": "e0867c9d2d99",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-73_68-0_0677-168_43-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-73_68-0_0677-168_43-1": "09328151d6c1"
+      },
+      "$ratio": 5.87,
+      "$cvd": 5.67,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-73_68-0_0677-168_43-1": {
+      "$type": "color-pair",
+      "$pairSha": "864047f1025b",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-73_68-0_0677-168_43-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-73_68-0_0677-168_43-1": "09328151d6c1"
+      },
+      "$ratio": 5.98,
+      "$cvd": 5.83,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-94_7-0_0034-145_55-1": {
+      "$type": "color-pair",
+      "$pairSha": "0b213700c269",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-94_7-0_0034-145_55-1"
+      ],
+      "$colorShas": {
+        "oklch-51_27-0_022-162_31-1": "ffc361338b99",
+        "oklch-94_7-0_0034-145_55-1": "2eb85f917111"
+      },
+      "$ratio": 4.82,
+      "$cvd": 4.74,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-93_11-0_0153-90_24-1": {
+      "$type": "color-pair",
+      "$pairSha": "ee0c034e9dd0",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-93_11-0_0153-90_24-1"
+      ],
+      "$colorShas": {
+        "oklch-51_27-0_022-162_31-1": "ffc361338b99",
+        "oklch-93_11-0_0153-90_24-1": "bf7c5ec0dacd"
+      },
+      "$ratio": 4.59,
+      "$cvd": 4.48,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-83_39-0_1155-160_92-1": {
+      "$type": "color-pair",
+      "$pairSha": "d1d4b30f82c3",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-83_39-0_1155-160_92-1"
+      ],
+      "$colorShas": {
+        "oklch-51_27-0_022-162_31-1": "ffc361338b99",
+        "oklch-83_39-0_1155-160_92-1": "aae9fc42d778"
+      },
+      "$ratio": 3.53,
+      "$cvd": 3.41,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-85_75-0_0187-155_76-1": {
+      "$type": "color-pair",
+      "$pairSha": "06da5fe789f3",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-85_75-0_0187-155_76-1"
+      ],
+      "$colorShas": {
+        "oklch-51_27-0_022-162_31-1": "ffc361338b99",
+        "oklch-85_75-0_0187-155_76-1": "37f06466499e"
+      },
+      "$ratio": 3.67,
+      "$cvd": 3.64,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-84_57-0_0722-166_44-1": {
+      "$type": "color-pair",
+      "$pairSha": "176a87d031ca",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-84_57-0_0722-166_44-1"
+      ],
+      "$colorShas": {
+        "oklch-51_27-0_022-162_31-1": "ffc361338b99",
+        "oklch-84_57-0_0722-166_44-1": "566cf91d0bee"
+      },
+      "$ratio": 3.61,
+      "$cvd": 3.54,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-89_71-0_0143-155_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "5d69510128c2",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-89_71-0_0143-155_56-1"
+      ],
+      "$colorShas": {
+        "oklch-51_27-0_022-162_31-1": "ffc361338b99",
+        "oklch-89_71-0_0143-155_56-1": "ca76cfd317fe"
+      },
+      "$ratio": 4.15,
+      "$cvd": 4.11,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-84_47-0_0715-81_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "438b8196e7b8",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-84_47-0_0715-81_36-1"
+      ],
+      "$colorShas": {
+        "oklch-51_27-0_022-162_31-1": "ffc361338b99",
+        "oklch-84_47-0_0715-81_36-1": "507da1cd38ae"
+      },
+      "$ratio": 3.48,
+      "$cvd": 3.27,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-81_96-0_0103-155_05-1": {
+      "$type": "color-pair",
+      "$pairSha": "b7b8a32e5e3a",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-81_96-0_0103-155_05-1"
+      ],
+      "$colorShas": {
+        "oklch-51_27-0_022-162_31-1": "ffc361338b99",
+        "oklch-81_96-0_0103-155_05-1": "ee24a3313898"
+      },
+      "$ratio": 3.23,
+      "$cvd": 3.19,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-94_45-0_015-164_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "92e43a2392b0",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-94_45-0_015-164_72-1"
+      ],
+      "$colorShas": {
+        "oklch-51_27-0_022-162_31-1": "ffc361338b99",
+        "oklch-94_45-0_015-164_72-1": "425765ba0df1"
+      },
+      "$ratio": 4.8,
+      "$cvd": 4.76,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-94_9-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "7da6c9b4397d",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-94_9-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-51_27-0_022-162_31-1": "ffc361338b99",
+        "oklch-94_9-0_0124-91_52-1": "b16600d6a50d"
+      },
+      "$ratio": 4.84,
+      "$cvd": 4.73,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-94_7-0_0034-145_55-1": {
+      "$type": "color-pair",
+      "$pairSha": "6e505d5591df",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-94_7-0_0034-145_55-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-94_7-0_0034-145_55-1": "2eb85f917111"
+      },
+      "$ratio": 7.04,
+      "$cvd": 6.94,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-93_11-0_0153-90_24-1": {
+      "$type": "color-pair",
+      "$pairSha": "9b83091a1e25",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-93_11-0_0153-90_24-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-93_11-0_0153-90_24-1": "bf7c5ec0dacd"
+      },
+      "$ratio": 6.7,
+      "$cvd": 6.56,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-76_83-0_0209-159_6-1": {
+      "$type": "color-pair",
+      "$pairSha": "d6fc777c3e71",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-76_83-0_0209-159_6-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-76_83-0_0209-159_6-1": "3d4443f89b55"
+      },
+      "$ratio": 3.97,
+      "$cvd": 3.96,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-83_39-0_1155-160_92-1": {
+      "$type": "color-pair",
+      "$pairSha": "d69940118066",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-83_39-0_1155-160_92-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-83_39-0_1155-160_92-1": "aae9fc42d778"
+      },
+      "$ratio": 5.16,
+      "$cvd": 4.98,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-70_45-0_1337-160_87-1": {
+      "$type": "color-pair",
+      "$pairSha": "f1fa44232d1e",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-70_45-0_1337-160_87-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-70_45-0_1337-160_87-1": "5b35b646e013"
+      },
+      "$ratio": 3.32,
+      "$cvd": 3.16,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-85_75-0_0187-155_76-1": {
+      "$type": "color-pair",
+      "$pairSha": "0207fdbca05b",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-85_75-0_0187-155_76-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-85_75-0_0187-155_76-1": "37f06466499e"
+      },
+      "$ratio": 5.36,
+      "$cvd": 5.33,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-84_57-0_0722-166_44-1": {
+      "$type": "color-pair",
+      "$pairSha": "11fae6e47e5a",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-84_57-0_0722-166_44-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-84_57-0_0722-166_44-1": "566cf91d0bee"
+      },
+      "$ratio": 5.27,
+      "$cvd": 5.16,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-89_71-0_0143-155_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "7cba11e294e7",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-89_71-0_0143-155_56-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-89_71-0_0143-155_56-1": "ca76cfd317fe"
+      },
+      "$ratio": 6.07,
+      "$cvd": 6.02,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-84_47-0_0715-81_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "7d92ab575c61",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-84_47-0_0715-81_36-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-84_47-0_0715-81_36-1": "507da1cd38ae"
+      },
+      "$ratio": 5.08,
+      "$cvd": 4.79,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-81_96-0_0103-155_05-1": {
+      "$type": "color-pair",
+      "$pairSha": "85119db6ecad",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-81_96-0_0103-155_05-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-81_96-0_0103-155_05-1": "ee24a3313898"
+      },
+      "$ratio": 4.71,
+      "$cvd": 4.67,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-94_45-0_015-164_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "97df868e005e",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-94_45-0_015-164_72-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-94_45-0_015-164_72-1": "425765ba0df1"
+      },
+      "$ratio": 7.02,
+      "$cvd": 6.97,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-42_46-0_021-158_37-1<>oklch-94_9-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "ca46652c04e8",
+      "$colors": [
+        "oklch-42_46-0_021-158_37-1",
+        "oklch-94_9-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-42_46-0_021-158_37-1": "be8632f3fa07",
+        "oklch-94_9-0_0124-91_52-1": "b16600d6a50d"
+      },
+      "$ratio": 7.07,
+      "$cvd": 6.93,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-94_7-0_0034-145_55-1": {
+      "$type": "color-pair",
+      "$pairSha": "b3cd464d7760",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-94_7-0_0034-145_55-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-94_7-0_0034-145_55-1": "2eb85f917111"
+      },
+      "$ratio": 12.63,
+      "$cvd": 12.48,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-94_7-0_0034-145_55-1": {
+      "$type": "color-pair",
+      "$pairSha": "66e89e39b648",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-94_7-0_0034-145_55-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-94_7-0_0034-145_55-1": "2eb85f917111"
+      },
+      "$ratio": 10.25,
+      "$cvd": 10.11,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-94_7-0_0034-145_55-1": {
+      "$type": "color-pair",
+      "$pairSha": "e543468ec7f4",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-94_7-0_0034-145_55-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-94_7-0_0034-145_55-1": "2eb85f917111"
+      },
+      "$ratio": 11.04,
+      "$cvd": 10.77,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-94_7-0_0034-145_55-1": {
+      "$type": "color-pair",
+      "$pairSha": "9df141d0e36d",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-94_7-0_0034-145_55-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-94_7-0_0034-145_55-1": "2eb85f917111"
+      },
+      "$ratio": 11.4,
+      "$cvd": 11.37,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-94_7-0_0034-145_55-1": {
+      "$type": "color-pair",
+      "$pairSha": "aefacf35c149",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-94_7-0_0034-145_55-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-94_7-0_0034-145_55-1": "2eb85f917111"
+      },
+      "$ratio": 11.61,
+      "$cvd": 11.48,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-62_6-0_021-157_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "4a015c887e40",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-62_6-0_021-157_56-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-62_6-0_021-157_56-1": "9396d558715a"
+      },
+      "$ratio": 4.18,
+      "$cvd": 4.18,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-62_6-0_021-157_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "2db6f923e9f5",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-62_6-0_021-157_56-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-62_6-0_021-157_56-1": "9396d558715a"
+      },
+      "$ratio": 3.4,
+      "$cvd": 3.39,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-62_6-0_021-157_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "0d9b1f15ffca",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-62_6-0_021-157_56-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-62_6-0_021-157_56-1": "9396d558715a"
+      },
+      "$ratio": 3.66,
+      "$cvd": 3.61,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-62_6-0_021-157_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "b0c5de127b09",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-62_6-0_021-157_56-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-62_6-0_021-157_56-1": "9396d558715a"
+      },
+      "$ratio": 3.78,
+      "$cvd": 3.73,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-62_6-0_021-157_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "f644bde32174",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-62_6-0_021-157_56-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-62_6-0_021-157_56-1": "9396d558715a"
+      },
+      "$ratio": 3.85,
+      "$cvd": 3.84,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-93_11-0_0153-90_24-1": {
+      "$type": "color-pair",
+      "$pairSha": "84f1fb5a94a9",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-93_11-0_0153-90_24-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-93_11-0_0153-90_24-1": "bf7c5ec0dacd"
+      },
+      "$ratio": 12.03,
+      "$cvd": 11.8,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-93_11-0_0153-90_24-1": {
+      "$type": "color-pair",
+      "$pairSha": "3537c128e372",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-93_11-0_0153-90_24-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-93_11-0_0153-90_24-1": "bf7c5ec0dacd"
+      },
+      "$ratio": 9.76,
+      "$cvd": 9.55,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-93_11-0_0153-90_24-1": {
+      "$type": "color-pair",
+      "$pairSha": "e609d337e612",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-93_11-0_0153-90_24-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-93_11-0_0153-90_24-1": "bf7c5ec0dacd"
+      },
+      "$ratio": 10.52,
+      "$cvd": 10.18,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-93_11-0_0153-90_24-1": {
+      "$type": "color-pair",
+      "$pairSha": "e7d82a53bbb9",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-93_11-0_0153-90_24-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-93_11-0_0153-90_24-1": "bf7c5ec0dacd"
+      },
+      "$ratio": 10.86,
+      "$cvd": 10.83,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-93_11-0_0153-90_24-1": {
+      "$type": "color-pair",
+      "$pairSha": "d4999a937045",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-93_11-0_0153-90_24-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-93_11-0_0153-90_24-1": "bf7c5ec0dacd"
+      },
+      "$ratio": 11.06,
+      "$cvd": 10.85,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-76_83-0_0209-159_6-1": {
+      "$type": "color-pair",
+      "$pairSha": "7b6d30bbb353",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-76_83-0_0209-159_6-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-76_83-0_0209-159_6-1": "3d4443f89b55"
+      },
+      "$ratio": 7.13,
+      "$cvd": 7.12,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-76_83-0_0209-159_6-1": {
+      "$type": "color-pair",
+      "$pairSha": "39b8c1e61e74",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-76_83-0_0209-159_6-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-76_83-0_0209-159_6-1": "3d4443f89b55"
+      },
+      "$ratio": 5.78,
+      "$cvd": 5.77,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-76_83-0_0209-159_6-1": {
+      "$type": "color-pair",
+      "$pairSha": "4d017dc0c005",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-76_83-0_0209-159_6-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-76_83-0_0209-159_6-1": "3d4443f89b55"
+      },
+      "$ratio": 6.23,
+      "$cvd": 6.15,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-76_83-0_0209-159_6-1": {
+      "$type": "color-pair",
+      "$pairSha": "9c19b6daad89",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-76_83-0_0209-159_6-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-76_83-0_0209-159_6-1": "3d4443f89b55"
+      },
+      "$ratio": 6.43,
+      "$cvd": 6.36,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-76_83-0_0209-159_6-1": {
+      "$type": "color-pair",
+      "$pairSha": "223b476e7e58",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-76_83-0_0209-159_6-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-76_83-0_0209-159_6-1": "3d4443f89b55"
+      },
+      "$ratio": 6.55,
+      "$cvd": 6.55,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-83_39-0_1155-160_92-1": {
+      "$type": "color-pair",
+      "$pairSha": "01befd3014b5",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-83_39-0_1155-160_92-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-83_39-0_1155-160_92-1": "aae9fc42d778"
+      },
+      "$ratio": 9.25,
+      "$cvd": 8.91,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-70_45-0_1337-160_87-1": {
+      "$type": "color-pair",
+      "$pairSha": "e97a953835de",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-70_45-0_1337-160_87-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-70_45-0_1337-160_87-1": "5b35b646e013"
+      },
+      "$ratio": 5.95,
+      "$cvd": 5.66,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-85_75-0_0187-155_76-1": {
+      "$type": "color-pair",
+      "$pairSha": "ea8fbb00375d",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-85_75-0_0187-155_76-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-85_75-0_0187-155_76-1": "37f06466499e"
+      },
+      "$ratio": 9.61,
+      "$cvd": 9.58,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-69_16-0_1278-76_79-1": {
+      "$type": "color-pair",
+      "$pairSha": "ac5342b6d8a4",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-69_16-0_1278-76_79-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-69_16-0_1278-76_79-1": "d1a67fd489e2"
+      },
+      "$ratio": 5.25,
+      "$cvd": 4.67,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-84_57-0_0722-166_44-1": {
+      "$type": "color-pair",
+      "$pairSha": "0cc811dc16fe",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-84_57-0_0722-166_44-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-84_57-0_0722-166_44-1": "566cf91d0bee"
+      },
+      "$ratio": 9.46,
+      "$cvd": 9.24,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-89_71-0_0143-155_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "f31bda6a194c",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-89_71-0_0143-155_56-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-89_71-0_0143-155_56-1": "ca76cfd317fe"
+      },
+      "$ratio": 10.88,
+      "$cvd": 10.83,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-84_47-0_0715-81_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "032f77a3999f",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-84_47-0_0715-81_36-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-84_47-0_0715-81_36-1": "507da1cd38ae"
+      },
+      "$ratio": 9.12,
+      "$cvd": 8.62,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-66_87-0_0216-154_68-1": {
+      "$type": "color-pair",
+      "$pairSha": "6efdd0d70474",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-66_87-0_0216-154_68-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-66_87-0_0216-154_68-1": "17e272d113c4"
+      },
+      "$ratio": 4.94,
+      "$cvd": 4.94,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-81_96-0_0103-155_05-1": {
+      "$type": "color-pair",
+      "$pairSha": "1f46eea53fba",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-81_96-0_0103-155_05-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-81_96-0_0103-155_05-1": "ee24a3313898"
+      },
+      "$ratio": 8.46,
+      "$cvd": 8.4,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-94_45-0_015-164_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "ba5110cc98fc",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-94_45-0_015-164_72-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-94_45-0_015-164_72-1": "425765ba0df1"
+      },
+      "$ratio": 12.59,
+      "$cvd": 12.54,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-27_45-0_022-160_99-1<>oklch-94_9-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "d4d4be322b1f",
+      "$colors": [
+        "oklch-27_45-0_022-160_99-1",
+        "oklch-94_9-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-27_45-0_022-160_99-1": "5ba3b8f3bc87",
+        "oklch-94_9-0_0124-91_52-1": "b16600d6a50d"
+      },
+      "$ratio": 12.69,
+      "$cvd": 12.47,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-83_39-0_1155-160_92-1": {
+      "$type": "color-pair",
+      "$pairSha": "e97b8b523da9",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-83_39-0_1155-160_92-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-83_39-0_1155-160_92-1": "aae9fc42d778"
+      },
+      "$ratio": 7.51,
+      "$cvd": 7.25,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-70_45-0_1337-160_87-1": {
+      "$type": "color-pair",
+      "$pairSha": "586a4516a444",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-70_45-0_1337-160_87-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-70_45-0_1337-160_87-1": "5b35b646e013"
+      },
+      "$ratio": 4.83,
+      "$cvd": 4.6,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-85_75-0_0187-155_76-1": {
+      "$type": "color-pair",
+      "$pairSha": "68faa475c051",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-85_75-0_0187-155_76-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-85_75-0_0187-155_76-1": "37f06466499e"
+      },
+      "$ratio": 7.8,
+      "$cvd": 7.76,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-69_16-0_1278-76_79-1": {
+      "$type": "color-pair",
+      "$pairSha": "43a0fac4cd32",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-69_16-0_1278-76_79-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-69_16-0_1278-76_79-1": "d1a67fd489e2"
+      },
+      "$ratio": 4.26,
+      "$cvd": 3.78,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-84_57-0_0722-166_44-1": {
+      "$type": "color-pair",
+      "$pairSha": "fff0a05088ed",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-84_57-0_0722-166_44-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-84_57-0_0722-166_44-1": "566cf91d0bee"
+      },
+      "$ratio": 7.68,
+      "$cvd": 7.52,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-89_71-0_0143-155_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "138d6ec1e2b9",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-89_71-0_0143-155_56-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-89_71-0_0143-155_56-1": "ca76cfd317fe"
+      },
+      "$ratio": 8.84,
+      "$cvd": 8.77,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-84_47-0_0715-81_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "40b96fc7920e",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-84_47-0_0715-81_36-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-84_47-0_0715-81_36-1": "507da1cd38ae"
+      },
+      "$ratio": 7.4,
+      "$cvd": 6.98,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-66_87-0_0216-154_68-1": {
+      "$type": "color-pair",
+      "$pairSha": "2569da9859c9",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-66_87-0_0216-154_68-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-66_87-0_0216-154_68-1": "17e272d113c4"
+      },
+      "$ratio": 4.01,
+      "$cvd": 4.01,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-81_96-0_0103-155_05-1": {
+      "$type": "color-pair",
+      "$pairSha": "0ab3b8fcfdf7",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-81_96-0_0103-155_05-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-81_96-0_0103-155_05-1": "ee24a3313898"
+      },
+      "$ratio": 6.87,
+      "$cvd": 6.8,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-94_45-0_015-164_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "c4b0c8731843",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-94_45-0_015-164_72-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-94_45-0_015-164_72-1": "425765ba0df1"
+      },
+      "$ratio": 10.22,
+      "$cvd": 10.16,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-33_28-0_0243-156_63-1<>oklch-94_9-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "4ea701466485",
+      "$colors": [
+        "oklch-33_28-0_0243-156_63-1",
+        "oklch-94_9-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-33_28-0_0243-156_63-1": "74432ae70aaf",
+        "oklch-94_9-0_0124-91_52-1": "b16600d6a50d"
+      },
+      "$ratio": 10.3,
+      "$cvd": 10.1,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-83_39-0_1155-160_92-1": {
+      "$type": "color-pair",
+      "$pairSha": "3aa435bbb507",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-83_39-0_1155-160_92-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-83_39-0_1155-160_92-1": "aae9fc42d778"
+      },
+      "$ratio": 8.09,
+      "$cvd": 7.87,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-83_39-0_1155-160_92-1": {
+      "$type": "color-pair",
+      "$pairSha": "277b30e72dc4",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-83_39-0_1155-160_92-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-83_39-0_1155-160_92-1": "aae9fc42d778"
+      },
+      "$ratio": 8.35,
+      "$cvd": 7.96,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-83_39-0_1155-160_92-1": {
+      "$type": "color-pair",
+      "$pairSha": "853ace506c45",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-83_39-0_1155-160_92-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-83_39-0_1155-160_92-1": "aae9fc42d778"
+      },
+      "$ratio": 8.5,
+      "$cvd": 8.19,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-70_45-0_1337-160_87-1": {
+      "$type": "color-pair",
+      "$pairSha": "fec5f3e7657c",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-70_45-0_1337-160_87-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-70_45-0_1337-160_87-1": "5b35b646e013"
+      },
+      "$ratio": 5.2,
+      "$cvd": 5,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-70_45-0_1337-160_87-1": {
+      "$type": "color-pair",
+      "$pairSha": "b809376cb03b",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-70_45-0_1337-160_87-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-70_45-0_1337-160_87-1": "5b35b646e013"
+      },
+      "$ratio": 5.37,
+      "$cvd": 5.06,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-70_45-0_1337-160_87-1": {
+      "$type": "color-pair",
+      "$pairSha": "307443bf151c",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-70_45-0_1337-160_87-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-70_45-0_1337-160_87-1": "5b35b646e013"
+      },
+      "$ratio": 5.47,
+      "$cvd": 5.2,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-85_75-0_0187-155_76-1": {
+      "$type": "color-pair",
+      "$pairSha": "b226cf4fd80f",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-85_75-0_0187-155_76-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-85_75-0_0187-155_76-1": "37f06466499e"
+      },
+      "$ratio": 8.41,
+      "$cvd": 8.27,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-85_75-0_0187-155_76-1": {
+      "$type": "color-pair",
+      "$pairSha": "71c071835bfe",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-85_75-0_0187-155_76-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-85_75-0_0187-155_76-1": "37f06466499e"
+      },
+      "$ratio": 8.68,
+      "$cvd": 8.6,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-85_75-0_0187-155_76-1": {
+      "$type": "color-pair",
+      "$pairSha": "d12639a9a160",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-85_75-0_0187-155_76-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-85_75-0_0187-155_76-1": "37f06466499e"
+      },
+      "$ratio": 8.84,
+      "$cvd": 8.81,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-69_16-0_1278-76_79-1": {
+      "$type": "color-pair",
+      "$pairSha": "991702b665f9",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-69_16-0_1278-76_79-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-69_16-0_1278-76_79-1": "d1a67fd489e2"
+      },
+      "$ratio": 4.59,
+      "$cvd": 4.03,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-69_16-0_1278-76_79-1": {
+      "$type": "color-pair",
+      "$pairSha": "b3ed583c8d20",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-69_16-0_1278-76_79-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-69_16-0_1278-76_79-1": "d1a67fd489e2"
+      },
+      "$ratio": 4.74,
+      "$cvd": 4.28,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-69_16-0_1278-76_79-1": {
+      "$type": "color-pair",
+      "$pairSha": "3411ab533b02",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-69_16-0_1278-76_79-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-69_16-0_1278-76_79-1": "d1a67fd489e2"
+      },
+      "$ratio": 4.83,
+      "$cvd": 4.29,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-84_57-0_0722-166_44-1": {
+      "$type": "color-pair",
+      "$pairSha": "79af8c706071",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-84_57-0_0722-166_44-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-84_57-0_0722-166_44-1": "566cf91d0bee"
+      },
+      "$ratio": 8.27,
+      "$cvd": 8.16,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-84_57-0_0722-166_44-1": {
+      "$type": "color-pair",
+      "$pairSha": "42891afb6a4e",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-84_57-0_0722-166_44-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-84_57-0_0722-166_44-1": "566cf91d0bee"
+      },
+      "$ratio": 8.54,
+      "$cvd": 8.26,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-84_57-0_0722-166_44-1": {
+      "$type": "color-pair",
+      "$pairSha": "677d88f3c85e",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-84_57-0_0722-166_44-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-84_57-0_0722-166_44-1": "566cf91d0bee"
+      },
+      "$ratio": 8.7,
+      "$cvd": 8.5,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-89_71-0_0143-155_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "fce1b2e75a2d",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-89_71-0_0143-155_56-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-89_71-0_0143-155_56-1": "ca76cfd317fe"
+      },
+      "$ratio": 9.52,
+      "$cvd": 9.34,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-84_47-0_0715-81_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "0a92d5ce2ee9",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-84_47-0_0715-81_36-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-84_47-0_0715-81_36-1": "507da1cd38ae"
+      },
+      "$ratio": 7.98,
+      "$cvd": 7.43,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-66_87-0_0216-154_68-1": {
+      "$type": "color-pair",
+      "$pairSha": "5031948cb9dc",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-66_87-0_0216-154_68-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-66_87-0_0216-154_68-1": "17e272d113c4"
+      },
+      "$ratio": 4.32,
+      "$cvd": 4.27,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-81_96-0_0103-155_05-1": {
+      "$type": "color-pair",
+      "$pairSha": "0d4f4f96c207",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-81_96-0_0103-155_05-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-81_96-0_0103-155_05-1": "ee24a3313898"
+      },
+      "$ratio": 7.4,
+      "$cvd": 7.24,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-94_45-0_015-164_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "491eb23d5e9e",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-94_45-0_015-164_72-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-94_45-0_015-164_72-1": "425765ba0df1"
+      },
+      "$ratio": 11.01,
+      "$cvd": 10.82,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-31_1-0_04-163_78-1<>oklch-94_9-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "80d4e7ec3754",
+      "$colors": [
+        "oklch-31_1-0_04-163_78-1",
+        "oklch-94_9-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-31_1-0_04-163_78-1": "c968afd0dbe3",
+        "oklch-94_9-0_0124-91_52-1": "b16600d6a50d"
+      },
+      "$ratio": 11.1,
+      "$cvd": 10.75,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-89_71-0_0143-155_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "43c63f0775fc",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-89_71-0_0143-155_56-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-89_71-0_0143-155_56-1": "ca76cfd317fe"
+      },
+      "$ratio": 9.83,
+      "$cvd": 9.76,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-89_71-0_0143-155_56-1": {
+      "$type": "color-pair",
+      "$pairSha": "e418b4678b24",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-89_71-0_0143-155_56-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-89_71-0_0143-155_56-1": "ca76cfd317fe"
+      },
+      "$ratio": 10.01,
+      "$cvd": 9.95,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-84_47-0_0715-81_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "9c081b696f85",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-84_47-0_0715-81_36-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-84_47-0_0715-81_36-1": "507da1cd38ae"
+      },
+      "$ratio": 8.23,
+      "$cvd": 7.91,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-84_47-0_0715-81_36-1": {
+      "$type": "color-pair",
+      "$pairSha": "5cbc5db498f5",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-84_47-0_0715-81_36-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-84_47-0_0715-81_36-1": "507da1cd38ae"
+      },
+      "$ratio": 8.38,
+      "$cvd": 7.93,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-66_87-0_0216-154_68-1": {
+      "$type": "color-pair",
+      "$pairSha": "0cbe3a2fca54",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-66_87-0_0216-154_68-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-66_87-0_0216-154_68-1": "17e272d113c4"
+      },
+      "$ratio": 4.46,
+      "$cvd": 4.41,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-81_96-0_0103-155_05-1": {
+      "$type": "color-pair",
+      "$pairSha": "5764bb929d6e",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-81_96-0_0103-155_05-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-81_96-0_0103-155_05-1": "ee24a3313898"
+      },
+      "$ratio": 7.63,
+      "$cvd": 7.59,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-94_45-0_015-164_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "9f02b5f4a13e",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-94_45-0_015-164_72-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-94_45-0_015-164_72-1": "425765ba0df1"
+      },
+      "$ratio": 11.36,
+      "$cvd": 11.27,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-30_56-0_0305-113_38-1<>oklch-94_9-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "5deef98fdef2",
+      "$colors": [
+        "oklch-30_56-0_0305-113_38-1",
+        "oklch-94_9-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-30_56-0_0305-113_38-1": "98f0b355a13a",
+        "oklch-94_9-0_0124-91_52-1": "b16600d6a50d"
+      },
+      "$ratio": 11.46,
+      "$cvd": 11.44,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-66_87-0_0216-154_68-1": {
+      "$type": "color-pair",
+      "$pairSha": "5e4ecf7e37b3",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-66_87-0_0216-154_68-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-66_87-0_0216-154_68-1": "17e272d113c4"
+      },
+      "$ratio": 4.54,
+      "$cvd": 4.54,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-81_96-0_0103-155_05-1": {
+      "$type": "color-pair",
+      "$pairSha": "e426a8cfde7d",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-81_96-0_0103-155_05-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-81_96-0_0103-155_05-1": "ee24a3313898"
+      },
+      "$ratio": 7.78,
+      "$cvd": 7.72,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-94_45-0_015-164_72-1": {
+      "$type": "color-pair",
+      "$pairSha": "288258568f83",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-94_45-0_015-164_72-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-94_45-0_015-164_72-1": "425765ba0df1"
+      },
+      "$ratio": 11.57,
+      "$cvd": 11.53,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-29_96-0_0206-159_28-1<>oklch-94_9-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$pairSha": "69a377697309",
+      "$colors": [
+        "oklch-29_96-0_0206-159_28-1",
+        "oklch-94_9-0_0124-91_52-1"
+      ],
+      "$colorShas": {
+        "oklch-29_96-0_0206-159_28-1": "d1e420ef7949",
+        "oklch-94_9-0_0124-91_52-1": "b16600d6a50d"
+      },
+      "$ratio": 11.67,
+      "$cvd": 11.46,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    }
+  }
+}

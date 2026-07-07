@@ -6,7 +6,9 @@ import css from "npm:@webref/css";
 
 const d = await css.listAll() as { types?: { name: string; value?: string }[] };
 const kw = (name: string) => (d.types?.find((t) => t.name === name)?.value ?? "").split("|").map((s) => s.trim()).filter((s) => /^[\w-]+$/.test(s));
-const generics = [...kw("generic-font-complete"), ...kw("generic-font-incomplete")].sort();
+// webref generic-font-complete + generic-font-incomplete (fall back to the spec list if unparsed)
+let generics = [...kw("generic-font-complete"), ...kw("generic-font-incomplete")].sort();
+if (generics.length === 0) generics = ["cursive", "fantasy", "math", "monospace", "sans-serif", "serif", "system-ui", "ui-monospace", "ui-rounded", "ui-sans-serif", "ui-serif"];
 
 // the OS "default" system fonts on the web — system-ui first (the native UI font), with the classic
 // stack behind it for older engines. These are the platform defaults: SF (Apple), Segoe UI

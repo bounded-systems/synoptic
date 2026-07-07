@@ -4,7 +4,7 @@
 import { z } from "zod";
 
 /** CSS generic font families (incl. the OS-native ui-* + system-ui). */
-export const GenericFontFamily = z.enum([] as [string, ...string[]]);
+export const GenericFontFamily = z.enum(["cursive","fantasy","math","monospace","sans-serif","serif","system-ui","ui-monospace","ui-rounded","ui-sans-serif","ui-serif"] as [string, ...string[]]);
 export type GenericFontFamily = z.infer<typeof GenericFontFamily>;
 
 /** The OS "default" system-font stacks on the web — system-ui surfaces SF/Segoe UI/Roboto. */

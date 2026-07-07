@@ -1,0 +1,125 @@
+{
+  "primitive": {
+    "$description": "Derived primitives — a palette's real colors, names derived from their oklch coordinates, descriptions generated from computed contrast under normal + deuteranopia/protanopia/tritanopia vision. No brand named; the name IS the color; the doc is computed from the value so it cannot drift.",
+    "oklch-0-0-0-1": {
+      "$type": "color",
+      "$value": {
+        "$type": "CSSOKLCH",
+        "l": 0,
+        "c": 0,
+        "h": 0,
+        "alpha": 1
+      },
+      "$sha": "2f3b1b5a7388",
+      "$description": "A pure black. As text on light backgrounds it reaches 16.2 to 1 — past the 4.5:1 minimum for readable text — and still holds 15.9 to 1 for color-blind readers. So it stays legible for everyone, including the three common kinds of color-blindness."
+    },
+    "oklch-23_84-0_0204-162_64-1": {
+      "$type": "color",
+      "$value": {
+        "$type": "CSSOKLCH",
+        "l": 23.84,
+        "c": 0.0204,
+        "h": 162.64,
+        "alpha": 1
+      },
+      "$sha": "04844ca53d30",
+      "$description": "A deep green. As text on light backgrounds it reaches 12.7 to 1 — past the 4.5:1 minimum for readable text — and still holds 12.3 to 1 for color-blind readers. So it stays legible for everyone, including the three common kinds of color-blindness."
+    },
+    "oklch-93_69-0_0124-91_52-1": {
+      "$type": "color",
+      "$value": {
+        "$type": "CSSOKLCH",
+        "l": 93.69,
+        "c": 0.0124,
+        "h": 91.52,
+        "alpha": 1
+      },
+      "$sha": "6dc7fc8aab73",
+      "$description": "An off-white. As text on dark backgrounds it reaches 13.6 to 1 — past the 4.5:1 minimum for readable text — and still holds 13.4 to 1 for color-blind readers. So it stays legible for everyone, including the three common kinds of color-blindness."
+    },
+    "oklch-51_39-0_0211-155_37-1": {
+      "$type": "color",
+      "$value": {
+        "$type": "CSSOKLCH",
+        "l": 51.39,
+        "c": 0.0211,
+        "h": 155.37,
+        "alpha": 1
+      },
+      "$sha": "d5090d787e45",
+      "$description": "A mid-tone green. As borders and dividers on light backgrounds it reaches 4.3 to 1 — past the 3:1 minimum for non-text — and still holds 4.2 to 1 for color-blind readers. So it stays legible for everyone, including the three common kinds of color-blindness."
+    },
+    "oklch-51_27-0_022-162_31-1": {
+      "$type": "color",
+      "$value": {
+        "$type": "CSSOKLCH",
+        "l": 51.27,
+        "c": 0.022,
+        "h": 162.31,
+        "alpha": 1
+      },
+      "$sha": "ffc361338b99",
+      "$description": "A mid-tone green. As borders and dividers on light backgrounds it reaches 4.3 to 1 — past the 3:1 minimum for non-text — and still holds 4.2 to 1 for color-blind readers. So it stays legible for everyone, including the three common kinds of color-blindness."
+    },
+    "oklch-47_45-0_122-33_85-1": {
+      "$type": "color",
+      "$value": {
+        "$type": "CSSOKLCH",
+        "l": 47.45,
+        "c": 0.122,
+        "h": 33.85,
+        "alpha": 1
+      },
+      "$sha": "2db21f14062b",
+      "$description": "A mid-tone warm clay. As text on light backgrounds it reaches 5.5 to 1 — past the 4.5:1 minimum for readable text — and still holds 5.0 to 1 for color-blind readers. So it stays legible for everyone, including the three common kinds of color-blindness."
+    },
+    "oklch-61-0_0228-91_69-1": {
+      "$type": "color",
+      "$value": {
+        "$type": "CSSOKLCH",
+        "l": 61,
+        "c": 0.0228,
+        "h": 91.69,
+        "alpha": 1
+      },
+      "$sha": "a7e6e51ba75e",
+      "$description": "A mid-tone warm gold. As borders and dividers on dark backgrounds it reaches 4.3 to 1 — past the 3:1 minimum for non-text — and still holds 4.2 to 1 for color-blind readers. So it stays legible for everyone, including the three common kinds of color-blindness."
+    },
+    "oklch-91_51-0_0236-37_38-1": {
+      "$type": "color",
+      "$value": {
+        "$type": "CSSOKLCH",
+        "l": 91.51,
+        "c": 0.0236,
+        "h": 37.38,
+        "alpha": 1
+      },
+      "$sha": "00ad788b94ba",
+      "$description": "A very light warm clay. As text on dark backgrounds it reaches 12.7 to 1 — past the 4.5:1 minimum for readable text — and still holds 12.3 to 1 for color-blind readers. So it stays legible for everyone, including the three common kinds of color-blindness."
+    },
+    "oklch-100-0-0-1": {
+      "$type": "color",
+      "$value": {
+        "$type": "CSSOKLCH",
+        "l": 100,
+        "c": 0,
+        "h": 0,
+        "alpha": 1
+      },
+      "$sha": "a178b05826cf",
+      "$description": "A pure white. As text on dark backgrounds it reaches 16.4 to 1 — past the 4.5:1 minimum for readable text — and still holds 16.2 to 1 for color-blind readers. So it stays legible for everyone, including the three common kinds of color-blindness."
+    },
+    "oklch-95_85-0_0098-87_47-1": {
+      "$type": "color",
+      "$value": {
+        "$type": "CSSOKLCH",
+        "l": 95.85,
+        "c": 0.0098,
+        "h": 87.47,
+        "alpha": 1
+      },
+      "$sha": "edc01ab6f95c",
+      "$description": "An off-white. As text on dark backgrounds it reaches 14.5 to 1 — past the 4.5:1 minimum for readable text — and still holds 14.3 to 1 for color-blind readers. So it stays legible for everyone, including the three common kinds of color-blindness."
+    }
+  }
+}
