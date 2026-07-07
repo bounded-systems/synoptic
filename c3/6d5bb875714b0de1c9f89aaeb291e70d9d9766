@@ -1,0 +1,24 @@
+tokens/dimension-constraints.ts
+  s_70508ca017cb29::t_e732224ba1a55f 1-53
+tokens/verbs.ts
+  s_70508ca017cb29::t_ff5decef2dee24 263-271
+  s_70508ca017cb29::t_128ec14c88f95c 26
+  s_70508ca017cb29::t_fbf4b7f1fa6631 281
+  s_70508ca017cb29::t_f4633108031cb4 111-119
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "c36d5bb875714b0de1c9f89aaeb291e70d9d9766",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
