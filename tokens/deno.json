@@ -1,8 +1,11 @@
 {
   "imports": {
-    "zod": "npm:zod@^4.4.3"
+    "zod": "npm:zod@^4.4.3",
+    "verbspec": "jsr:@bounded-systems/verbspec@^0.3.1"
   },
   "tasks": {
-    "validate": "deno run --allow-read validate.ts"
+    "validate": "deno run --allow-read validate.ts",
+    "primitives": "deno run verbs.ts primitives",
+    "pairs": "deno run verbs.ts primitive-pairs"
   }
 }
