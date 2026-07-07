@@ -4,7 +4,7 @@
 import { assert, assertEquals } from "jsr:@std/assert@^1";
 import { cssOklch, hexToOklch } from "./color.ts";
 import { derivePrimitivePairs } from "./verbs.ts";
-import { loadPairSet, type ResolvedNode, resolveTree } from "./resolve.ts";
+import { checkTextSpacing, loadPairSet, type ResolvedNode, resolveTree } from "./resolve.ts";
 
 const palette: string[] = JSON.parse(Deno.readTextFileSync(new URL("examples/example.palette.json", import.meta.url)));
 const set = loadPairSet({ "primitive-pairs": derivePrimitivePairs(palette).pairs as Record<string, unknown> });
@@ -60,4 +60,9 @@ Deno.test("nested tree — walks parent→child recursively across a re-painted 
   const pairs = resolveTree(tree, set); // page→card (dark on white) and card→title (white on dark)
   assertEquals(pairs.length, 2);
   assert(pairs.every((p) => p.$status === "resolved" && p.$pairSha !== UNSET), "both are validated pairs");
+});
+
+Deno.test("text-spacing (1.4.12) — resilient vs clipping", () => {
+  assertEquals(checkTextSpacing({ id: "p", overflowsUnderSpacing: false }).status, "resilient");
+  assertEquals(checkTextSpacing({ id: "card", overflowsUnderSpacing: true }).status, "fails");
 });

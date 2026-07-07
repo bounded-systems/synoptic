@@ -79,6 +79,17 @@ export function resolveTree(root: ResolvedNode, set: PairSet): NodePair[] {
   return out;
 }
 
+// ── text-spacing resilience (WCAG 1.4.12) — a CHECK, not tokens ──────────────────────────────
+// The user may override spacing to these minimums; the requirement is that the layout survives
+// (no clipping/overlap). There is nothing to mint — only to verify. The browser adapter applies
+// the spacing and reports whether the node overflows; this core turns that into a claim.
+export const TEXT_SPACING = { letterSpacing: "0.12em", wordSpacing: "0.16em", lineHeight: 1.5, paragraphSpacing: "2em" } as const;
+export function checkTextSpacing(node: { id: string; overflowsUnderSpacing: boolean }): { node: string; status: "resilient" | "fails"; concern: "1.4.12"; reason?: string } {
+  return node.overflowsUnderSpacing
+    ? { node: node.id, status: "fails", concern: "1.4.12", reason: "content clips or overlaps when the user applies text-spacing (letter 0.12em / word 0.16em / line-height 1.5 / paragraph 2em)" }
+    : { node: node.id, status: "resilient", concern: "1.4.12" };
+}
+
 // ── browser adapter (computedStyleMap) — runs in a browser / headless renderer ────────────────
 // Deno has no computedStyleMap; this is the sketch of how the ResolvedTree is produced there.
 // deno-lint-ignore no-explicit-any

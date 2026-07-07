@@ -22,7 +22,7 @@ import {
   type Oklch,
   sha,
 } from "./color.ts";
-import { ColorPair, Dimension, NumberValue, PrimitiveColor, PropertyPair, PropertyToken, RootFontSize } from "./schema.ts";
+import { ColorPair, Dimension, Measure, NumberValue, PrimitiveColor, PropertyPair, PropertyToken, RootFontSize } from "./schema.ts";
 import { TYPE_SCALE_BOUNDS } from "./dimension-constraints.ts";
 
 /** The color-valued CSS properties, DERIVED from @webref/css (committed artifact). */
@@ -250,6 +250,22 @@ export const contrastPairsVerb = defineVerb({
   run: () => deriveContrastPairs(),
 });
 
+/** The lone `measure` token — reading width in ch, capped at the 1.4.8 ceiling. */
+export function deriveMeasure(ideal = 66, ceiling = 80): z.infer<typeof Measure> {
+  const ch = (v: number) => ({ $type: "CSSUnitValue" as const, value: v, unit: "ch" });
+  const width = Math.min(ideal, ceiling);
+  return { $type: "measure", $value: ch(width), $ceiling: ch(ceiling), $sha: sha(`${width}ch`), $description: `Reading width ${width}ch (max ${ceiling}ch — WCAG 1.4.8 AAA). In ch so ~${width} characters per line holds across font sizes; apply as max-width on text containers. One token, not a scale.` };
+}
+
+export const measureVerb = defineVerb({
+  id: "measure",
+  summary: "The reading-width token — ch-relative, ≤80ch (WCAG 1.4.8 AAA). One token, not a family.",
+  actor: "brand",
+  input: z.object({ ideal: z.number().positive().default(66), ceiling: z.number().positive().default(80) }),
+  output: Measure,
+  run: ({ ideal, ceiling }) => deriveMeasure(ideal, ceiling),
+});
+
 const ScaleInput = z.object({ scale: z.array(z.number().nonnegative()).min(1) });
 export const dimensionsVerb = defineVerb({
   id: "dimensions",
@@ -287,7 +303,7 @@ export const rootVerb = defineVerb({
   run: ({ fluid }) => deriveRoot(fluid),
 });
 
-export const VERBS: Registry = { primitives: primitivesVerb, "primitive-pairs": primitivePairsVerb, "property-tokens": propertyTokensVerb, "contrast-pairs": contrastPairsVerb, dimensions: dimensionsVerb, numbers: numbersVerb, "type-scale": typeScaleVerb, root: rootVerb };
+export const VERBS: Registry = { primitives: primitivesVerb, "primitive-pairs": primitivePairsVerb, "property-tokens": propertyTokensVerb, "contrast-pairs": contrastPairsVerb, dimensions: dimensionsVerb, numbers: numbersVerb, "type-scale": typeScaleVerb, measure: measureVerb, root: rootVerb };
 
 if (import.meta.main) {
   const result = await dispatch(VERBS, Deno.args, "deno run verbs.ts");

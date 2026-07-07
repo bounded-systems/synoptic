@@ -43,6 +43,18 @@ export const NumberValue = z.object({
 });
 export type NumberValue = z.infer<typeof NumberValue>;
 
+// ── measure — the reading width, in ch (character-relative), so ~N characters per line holds
+// across font sizes. One token + an 80ch ceiling (WCAG 1.4.8 AAA). Not a family.
+export const Ch = CSSUnitValue.refine((v) => v.unit === "ch", "measure is character-relative (unit: ch)");
+export const Measure = z.object({
+  $type: z.literal("measure"),
+  $value: Ch, // the ideal reading width, e.g. 66ch
+  $ceiling: Ch, // ≤ 80ch (1.4.8 AAA)
+  $sha: Sha12,
+  $description: z.string(),
+});
+export type Measure = z.infer<typeof Measure>;
+
 // ── The ROOT font-size — the reference every rem floats on. Must have a rem FLOOR so the user's
 // preference is always respected; a vw term without a rem floor is unconstructable (fails 1.4.4).
 // The fluid form is a clamp() — a CSSMathClamp — with a rem floor and rem cap.
