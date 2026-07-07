@@ -1,0 +1,29 @@
+tokens/color.ts
+  s_70508ca017cb29::t_b11db5262631b6 59,63
+  s_70508ca017cb29::t_64f8b6d0d3892b 74,78
+  s_70508ca017cb29::t_7f278dc38c0a26 62
+  s_70508ca017cb29::t_27b2b4d17d7a46 43-44
+  s_70508ca017cb29::t_06972ffdc12073 20-35,37-38
+  s_70508ca017cb29::t_58509c8cae3ca4 55-56
+tokens/constants.ts
+  s_70508ca017cb29::t_b2fdb74950a631 22-25
+tokens/verbs.ts
+  s_70508ca017cb29::t_525564bbfa5143 26-27
+  s_70508ca017cb29::t_213501ae365efb 40
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "5b8e2f835f1cca33545b5cb6d64428974dda2ef9",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
