@@ -1,0 +1,28 @@
+name: tokens
+
+on:
+  push:
+    paths: ["tokens/**"]
+  pull_request:
+    paths: ["tokens/**"]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tokens
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: typecheck
+        run: deno check *.ts
+      # The gate RE-DERIVES from each brand config and asserts the committed style.css + token JSON
+      # are byte-identical, then runs the full-indirection audit + CVD-hue scan. A hand-edit to any
+      # generated file fails here — the derivation can't be circumvented.
+      - name: gate — burnt-orange
+        run: deno run --allow-read --allow-write --allow-run check.ts brands/burnt-orange/brand.json examples/mock-orange
+      - name: gate — deep-blue
+        run: deno run --allow-read --allow-write --allow-run check.ts brands/deep-blue/brand.json examples/mock-blue
