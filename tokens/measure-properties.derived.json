@@ -1,0 +1,35 @@
+{
+  "$source": "@webref/css",
+  "$note": "inline-sizing (line-length) properties a ch measure applies to; false-friends (stroke-width, border-image-width, contain-intrinsic-*) excluded",
+  "count": 7,
+  "properties": [
+    {
+      "name": "column-width",
+      "appliesTo": "block containers except table wrapper boxes"
+    },
+    {
+      "name": "inline-size",
+      "appliesTo": "Same as height and width"
+    },
+    {
+      "name": "max-inline-size",
+      "appliesTo": "same as height and width"
+    },
+    {
+      "name": "max-width",
+      "appliesTo": "all elements that accept width or height"
+    },
+    {
+      "name": "min-inline-size",
+      "appliesTo": "same as height and width"
+    },
+    {
+      "name": "min-width",
+      "appliesTo": "all elements that accept width or height"
+    },
+    {
+      "name": "width",
+      "appliesTo": "all elements except non-replaced inlines"
+    }
+  ]
+}

@@ -52,9 +52,33 @@ for (const [name, syn] of Object.entries(propSyntax)) {
 }
 colorProps.sort((a, b) => a.name.localeCompare(b.name));
 
+// length-reaching properties (the dimension surface) — same transitive closure as color, on <length>
+const hasLength = new Set<string>(["<length>", "<length-percentage>"]);
+for (const n of Object.keys(typeSyntax)) if (/^<length/.test(n)) hasLength.add(n);
+let ch2 = true;
+while (ch2) {
+  ch2 = false;
+  for (const [n, s] of Object.entries(typeSyntax)) {
+    if (hasLength.has(n)) continue;
+    if (/<length/.test(s) || refs(s).some((r) => hasLength.has(r))) { hasLength.add(n); ch2 = true; }
+  }
+}
+const reachesLen = (syn: string) => /<length/.test(syn) || refs(syn).some((r) => hasLength.has(r));
+const lengthProps = allProps.filter((n) => reachesLen(propSyntax[n])).sort();
+// measure = the inline-sizing family only (container line-length); false-friends (stroke-width,
+// border-image-width, contain-intrinsic-*) excluded by the strict name pattern.
+const measureProps = allProps.filter((n) => /^(min-|max-)?(width|inline-size)$|^column-width$/.test(n)).sort();
+
 const out = `// GENERATED from @webref/css by gen-properties.ts — do not edit by hand.\nimport { z } from "zod";\n\n` +
   `/** Every CSS property name (webref). */\nexport const CssProperty = z.enum(${JSON.stringify(allProps)} as [string, ...string[]]);\nexport type CssProperty = z.infer<typeof CssProperty>;\n\n` +
-  `/** Properties whose value grammar reaches <color> (resolved transitively). */\nexport const ColorProperty = z.enum(${JSON.stringify(colorProps.map((c) => c.name))} as [string, ...string[]]);\nexport type ColorProperty = z.infer<typeof ColorProperty>;\n`;
+  `/** Properties whose value grammar reaches <color> (resolved transitively). */\nexport const ColorProperty = z.enum(${JSON.stringify(colorProps.map((c) => c.name))} as [string, ...string[]]);\nexport type ColorProperty = z.infer<typeof ColorProperty>;\n\n` +
+  `/** Properties whose value grammar reaches <length> — the dimension surface. */\nexport const LengthProperty = z.enum(${JSON.stringify(lengthProps)} as [string, ...string[]]);\nexport type LengthProperty = z.infer<typeof LengthProperty>;\n\n` +
+  `/** Inline-sizing properties a reading measure (ch) applies to — max-inline-size/width family; false-friends (stroke-width, …) excluded. */\nexport const MeasureProperty = z.enum(${JSON.stringify(measureProps)} as [string, ...string[]]);\nexport type MeasureProperty = z.infer<typeof MeasureProperty>;\n`;
 Deno.writeTextFileSync(new URL("properties.ts", import.meta.url), out);
-Deno.writeTextFileSync(new URL("color-properties.derived.json", import.meta.url), JSON.stringify({ $source: "@webref/css", count: colorProps.length, singleCount: colorProps.filter((c) => c.single).length, properties: colorProps }, null, 2) + "\n");
-console.log(`generated properties.ts — CssProperty (${allProps.length}) + ColorProperty (${colorProps.length}); color-properties.derived.json rewritten.`);
+
+// ALWAYS formalize appliesTo — every derived property set carries the HTML nodes it applies to.
+const withApplies = (names: string[]) => names.map((n) => ({ name: n, appliesTo: appliesTo[n] ?? "see individual properties" }));
+Deno.writeTextFileSync(new URL("color-properties.derived.json", import.meta.url), JSON.stringify({ $source: "@webref/css", $reaches: "<color>", count: colorProps.length, singleCount: colorProps.filter((c) => c.single).length, properties: colorProps }, null, 2) + "\n");
+Deno.writeTextFileSync(new URL("length-properties.derived.json", import.meta.url), JSON.stringify({ $source: "@webref/css", $reaches: "<length>", $note: "the dimension surface — every property whose value reaches <length>, with appliesTo", count: lengthProps.length, properties: withApplies(lengthProps) }, null, 2) + "\n");
+Deno.writeTextFileSync(new URL("measure-properties.derived.json", import.meta.url), JSON.stringify({ $source: "@webref/css", $note: "inline-sizing (line-length) properties a ch measure applies to; false-friends (stroke-width, border-image-width, contain-intrinsic-*) excluded", count: measureProps.length, properties: withApplies(measureProps) }, null, 2) + "\n");
+console.log(`generated properties.ts — CssProperty (${allProps.length}), ColorProperty (${colorProps.length}), LengthProperty (${lengthProps.length}), MeasureProperty (${measureProps.length}); *-properties.derived.json (each with appliesTo) rewritten.`);

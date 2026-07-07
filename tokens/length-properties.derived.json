@@ -1,0 +1,576 @@
+{
+  "$source": "@webref/css",
+  "$reaches": "<length>",
+  "$note": "the dimension surface — every property whose value reaches <length>, with appliesTo",
+  "count": 142,
+  "properties": [
+    {
+      "name": "-webkit-border-radius",
+      "appliesTo": "see individual properties"
+    },
+    {
+      "name": "-webkit-perspective",
+      "appliesTo": "see individual properties"
+    },
+    {
+      "name": "-webkit-transform-origin",
+      "appliesTo": "see individual properties"
+    },
+    {
+      "name": "animation-range-center",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "animation-range-end",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "animation-range-start",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "background-position-block",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "background-position-inline",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "background-position-x",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "background-position-y",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "baseline-shift",
+      "appliesTo": "inline-level boxes and SVG text content elements"
+    },
+    {
+      "name": "block-step-size",
+      "appliesTo": "block-level boxes"
+    },
+    {
+      "name": "border-block-end-clip",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "border-block-end-radius",
+      "appliesTo": "all elements (but see prose)"
+    },
+    {
+      "name": "border-block-start-clip",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "border-block-start-radius",
+      "appliesTo": "all elements (but see prose)"
+    },
+    {
+      "name": "border-bottom-clip",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "border-bottom-radius",
+      "appliesTo": "all elements (but see prose)"
+    },
+    {
+      "name": "border-image-outset",
+      "appliesTo": "All elements, except internal table elements when border-collapse is collapse"
+    },
+    {
+      "name": "border-image-width",
+      "appliesTo": "All elements, except internal table elements when border-collapse is collapse"
+    },
+    {
+      "name": "border-inline-end-clip",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "border-inline-end-radius",
+      "appliesTo": "all elements (but see prose)"
+    },
+    {
+      "name": "border-inline-start-clip",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "border-inline-start-radius",
+      "appliesTo": "all elements (but see prose)"
+    },
+    {
+      "name": "border-left-clip",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "border-left-radius",
+      "appliesTo": "all elements (but see prose)"
+    },
+    {
+      "name": "border-limit",
+      "appliesTo": "all elements, except table element when border-collapse is collapse"
+    },
+    {
+      "name": "border-radius",
+      "appliesTo": "see individual properties"
+    },
+    {
+      "name": "border-right-clip",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "border-right-radius",
+      "appliesTo": "all elements (but see prose)"
+    },
+    {
+      "name": "border-spacing",
+      "appliesTo": "table grid boxes when border-collapse is separate"
+    },
+    {
+      "name": "border-top-clip",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "border-top-radius",
+      "appliesTo": "all elements (but see prose)"
+    },
+    {
+      "name": "bottom",
+      "appliesTo": "positioned elements"
+    },
+    {
+      "name": "box-shadow-blur",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "box-shadow-offset",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "box-shadow-spread",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "column-gap",
+      "appliesTo": "multi-column containers, flex containers, grid containers"
+    },
+    {
+      "name": "column-height",
+      "appliesTo": "block containers except table wrapper boxes"
+    },
+    {
+      "name": "column-width",
+      "appliesTo": "block containers except table wrapper boxes"
+    },
+    {
+      "name": "contain-intrinsic-block-size",
+      "appliesTo": "elements with size containment"
+    },
+    {
+      "name": "contain-intrinsic-height",
+      "appliesTo": "elements with size containment"
+    },
+    {
+      "name": "contain-intrinsic-inline-size",
+      "appliesTo": "elements with size containment"
+    },
+    {
+      "name": "contain-intrinsic-size",
+      "appliesTo": "see individual properties"
+    },
+    {
+      "name": "contain-intrinsic-width",
+      "appliesTo": "elements with size containment"
+    },
+    {
+      "name": "cx",
+      "appliesTo": "‘circle’ and ‘ellipse’ elements"
+    },
+    {
+      "name": "cy",
+      "appliesTo": "‘circle’ and ‘ellipse’ elements"
+    },
+    {
+      "name": "float-offset",
+      "appliesTo": "floats"
+    },
+    {
+      "name": "flow-tolerance",
+      "appliesTo": "grid lanes containers"
+    },
+    {
+      "name": "font-size",
+      "appliesTo": "all elements and text"
+    },
+    {
+      "name": "grid-column-gap",
+      "appliesTo": "see individual properties"
+    },
+    {
+      "name": "grid-row-gap",
+      "appliesTo": "see individual properties"
+    },
+    {
+      "name": "height",
+      "appliesTo": "all elements except non-replaced inlines"
+    },
+    {
+      "name": "hyphenate-limit-zone",
+      "appliesTo": "block containers"
+    },
+    {
+      "name": "initial-letter-wrap",
+      "appliesTo": "certain inline-level boxes and ::first-letter and inside ::marker boxes (see prose)"
+    },
+    {
+      "name": "inset-block-end",
+      "appliesTo": "positioned elements"
+    },
+    {
+      "name": "inset-block-start",
+      "appliesTo": "positioned elements"
+    },
+    {
+      "name": "inset-inline-end",
+      "appliesTo": "positioned elements"
+    },
+    {
+      "name": "inset-inline-start",
+      "appliesTo": "positioned elements"
+    },
+    {
+      "name": "left",
+      "appliesTo": "positioned elements"
+    },
+    {
+      "name": "letter-spacing",
+      "appliesTo": "inline boxes and text"
+    },
+    {
+      "name": "line-height",
+      "appliesTo": "non-replaced inline boxes and SVG text content elements"
+    },
+    {
+      "name": "line-height-step",
+      "appliesTo": "block containers"
+    },
+    {
+      "name": "line-padding",
+      "appliesTo": "inline boxes"
+    },
+    {
+      "name": "margin-bottom",
+      "appliesTo": "all elements except internal table elements, ruby base containers, and ruby annotation containers"
+    },
+    {
+      "name": "margin-left",
+      "appliesTo": "all elements except internal table elements, ruby base containers, and ruby annotation containers"
+    },
+    {
+      "name": "margin-right",
+      "appliesTo": "all elements except internal table elements, ruby base containers, and ruby annotation containers"
+    },
+    {
+      "name": "margin-top",
+      "appliesTo": "all elements except internal table elements, ruby base containers, and ruby annotation containers"
+    },
+    {
+      "name": "max-height",
+      "appliesTo": "all elements that accept width or height"
+    },
+    {
+      "name": "max-width",
+      "appliesTo": "all elements that accept width or height"
+    },
+    {
+      "name": "min-height",
+      "appliesTo": "all elements that accept width or height"
+    },
+    {
+      "name": "min-width",
+      "appliesTo": "all elements that accept width or height"
+    },
+    {
+      "name": "offset-distance",
+      "appliesTo": "transformable elements"
+    },
+    {
+      "name": "outline-offset",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "overflow-clip-margin",
+      "appliesTo": "boxes to which overflow applies"
+    },
+    {
+      "name": "overflow-clip-margin-block",
+      "appliesTo": "boxes to which overflow applies"
+    },
+    {
+      "name": "overflow-clip-margin-block-end",
+      "appliesTo": "boxes to which overflow applies"
+    },
+    {
+      "name": "overflow-clip-margin-block-start",
+      "appliesTo": "boxes to which overflow applies"
+    },
+    {
+      "name": "overflow-clip-margin-bottom",
+      "appliesTo": "boxes to which overflow applies"
+    },
+    {
+      "name": "overflow-clip-margin-inline",
+      "appliesTo": "boxes to which overflow applies"
+    },
+    {
+      "name": "overflow-clip-margin-inline-end",
+      "appliesTo": "boxes to which overflow applies"
+    },
+    {
+      "name": "overflow-clip-margin-inline-start",
+      "appliesTo": "boxes to which overflow applies"
+    },
+    {
+      "name": "overflow-clip-margin-left",
+      "appliesTo": "boxes to which overflow applies"
+    },
+    {
+      "name": "overflow-clip-margin-right",
+      "appliesTo": "boxes to which overflow applies"
+    },
+    {
+      "name": "overflow-clip-margin-top",
+      "appliesTo": "boxes to which overflow applies"
+    },
+    {
+      "name": "padding-bottom",
+      "appliesTo": "all elements except: internal table elements other than table cells, ruby base containers, and ruby annotation containers"
+    },
+    {
+      "name": "padding-left",
+      "appliesTo": "all elements except: internal table elements other than table cells, ruby base containers, and ruby annotation containers"
+    },
+    {
+      "name": "padding-right",
+      "appliesTo": "all elements except: internal table elements other than table cells, ruby base containers, and ruby annotation containers"
+    },
+    {
+      "name": "padding-top",
+      "appliesTo": "all elements except: internal table elements other than table cells, ruby base containers, and ruby annotation containers"
+    },
+    {
+      "name": "path-length",
+      "appliesTo": "‘path’, ‘circle’, ‘ellipse’, ‘line’, ‘polygon’, ‘polyline’, ‘rect’"
+    },
+    {
+      "name": "perspective",
+      "appliesTo": "transformable elements"
+    },
+    {
+      "name": "r",
+      "appliesTo": "‘circle’ element"
+    },
+    {
+      "name": "right",
+      "appliesTo": "positioned elements"
+    },
+    {
+      "name": "row-gap",
+      "appliesTo": "multi-column containers, flex containers, grid containers"
+    },
+    {
+      "name": "rx",
+      "appliesTo": "‘ellipse’, ‘rect’ elements"
+    },
+    {
+      "name": "ry",
+      "appliesTo": "‘ellipse’, ‘rect’"
+    },
+    {
+      "name": "scroll-margin",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "scroll-margin-block",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "scroll-margin-block-end",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "scroll-margin-block-start",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "scroll-margin-bottom",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "scroll-margin-inline",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "scroll-margin-inline-end",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "scroll-margin-inline-start",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "scroll-margin-left",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "scroll-margin-right",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "scroll-margin-top",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "scroll-padding",
+      "appliesTo": "scroll containers"
+    },
+    {
+      "name": "scroll-padding-block",
+      "appliesTo": "scroll containers"
+    },
+    {
+      "name": "scroll-padding-block-end",
+      "appliesTo": "scroll containers"
+    },
+    {
+      "name": "scroll-padding-block-start",
+      "appliesTo": "scroll containers"
+    },
+    {
+      "name": "scroll-padding-bottom",
+      "appliesTo": "scroll containers"
+    },
+    {
+      "name": "scroll-padding-inline",
+      "appliesTo": "scroll containers"
+    },
+    {
+      "name": "scroll-padding-inline-end",
+      "appliesTo": "scroll containers"
+    },
+    {
+      "name": "scroll-padding-inline-start",
+      "appliesTo": "scroll containers"
+    },
+    {
+      "name": "scroll-padding-left",
+      "appliesTo": "scroll containers"
+    },
+    {
+      "name": "scroll-padding-right",
+      "appliesTo": "scroll containers"
+    },
+    {
+      "name": "scroll-padding-top",
+      "appliesTo": "scroll containers"
+    },
+    {
+      "name": "shape-margin",
+      "appliesTo": "floats and initial letter boxes"
+    },
+    {
+      "name": "shape-padding",
+      "appliesTo": "block-level elements"
+    },
+    {
+      "name": "stroke-dash-corner",
+      "appliesTo": "text and SVG shapes"
+    },
+    {
+      "name": "stroke-dasharray",
+      "appliesTo": "text and SVG shapes"
+    },
+    {
+      "name": "stroke-dashcorner",
+      "appliesTo": "shapes and text content elements"
+    },
+    {
+      "name": "stroke-dashoffset",
+      "appliesTo": "text and SVG shapes"
+    },
+    {
+      "name": "stroke-width",
+      "appliesTo": "text and SVG shapes"
+    },
+    {
+      "name": "tab-size",
+      "appliesTo": "text"
+    },
+    {
+      "name": "text-decoration-inset",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "text-decoration-thickness",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "text-indent",
+      "appliesTo": "block containers"
+    },
+    {
+      "name": "text-underline-offset",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "timeline-trigger-activation-range-end",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "timeline-trigger-activation-range-start",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "timeline-trigger-active-range-end",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "timeline-trigger-active-range-start",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "top",
+      "appliesTo": "positioned elements"
+    },
+    {
+      "name": "transform-origin",
+      "appliesTo": "transformable elements"
+    },
+    {
+      "name": "translate",
+      "appliesTo": "transformable elements"
+    },
+    {
+      "name": "view-timeline-inset",
+      "appliesTo": "all elements"
+    },
+    {
+      "name": "width",
+      "appliesTo": "all elements except non-replaced inlines"
+    },
+    {
+      "name": "word-spacing",
+      "appliesTo": "text"
+    },
+    {
+      "name": "x",
+      "appliesTo": "‘svg’, ‘rect’, ‘image’, ‘foreignObject’ elements"
+    },
+    {
+      "name": "y",
+      "appliesTo": "‘svg’, ‘rect’, ‘image’, ‘foreignObject’ elements"
+    }
+  ]
+}

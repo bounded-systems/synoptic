@@ -1,5 +1,6 @@
 {
   "$source": "@webref/css",
+  "$reaches": "<color>",
   "count": 42,
   "singleCount": 10,
   "properties": [
