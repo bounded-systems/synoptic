@@ -32,7 +32,10 @@ export const SPACE = {
   snug: SPACING_STOPS[3], base: SPACING_STOPS[4], md: SPACING_STOPS[5], lg: SPACING_STOPS[6], xl: SPACING_STOPS[8],
 } as const;
 
-// ── Seed → palette ladder (OKLCH L per derived role) + neutral tint ──
-export const SEED_LADDER = { surface: 96, wash: 91, muted: 55, dark: 20, text: 13, accent: 62, link: 46 } as const;
-export const SEED_TINT = 0.014; // faint neutral tint toward the brand hue — cohesion without a color cast
-export const SEED_ACCENT_C_MIN = CHROMA_REF, SEED_LINK_C_MIN = CHROMA_REF - 0.01; // keep the accent/link vibrant
+// ── Seed → palette: a neutral lightness ramp (tinted toward the hue) + chromatic accent shades ──
+// FULLER than the roles need, so a brand can tune WHERE each role sits (softer/harder) via targetL
+// without authoring a new palette. Every step is still gamut-clamped + the roles enforce the tiers.
+export const SEED_NEUTRALS = [97, 92, 84, 70, 55, 40, 28, 18, 12] as const; // light → dark (OKLCH L)
+export const SEED_ACCENTS = [64, 52, 44] as const; //                          fill · mid · link-dark (at the hue)
+export const SEED_TINT = 0.014; //  faint neutral tint toward the brand hue — cohesion without a color cast
+export const SEED_ACCENT_C_MIN = CHROMA_REF; // floor so the accent stays vibrant

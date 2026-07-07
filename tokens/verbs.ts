@@ -23,23 +23,16 @@ import {
   type Oklch,
   sha,
 } from "./color.ts";
-import { SEED_ACCENT_C_MIN, SEED_LADDER, SEED_LINK_C_MIN, SEED_TINT } from "./constants.ts";
+import { SEED_ACCENT_C_MIN, SEED_ACCENTS, SEED_NEUTRALS, SEED_TINT } from "./constants.ts";
 
 /** deriveSeedPalette — from ONE brand seed color, generate the full palette: warm neutrals faintly
  * tinted toward the seed hue + the accent ladder (vibrant fill + AA-clearing link). The brand seed
  * supplies the HUE; the constraints (AAA/AA lightnesses) generate the set. Sudoku the game. */
 export function deriveSeedPalette(seed: string): string[] {
   const { h, c } = hexToOklch(seed);
-  const T = SEED_TINT, L = SEED_LADDER;
-  return [
-    oklchToHex(L.surface, T, h), // warm cream
-    oklchToHex(L.wash, T * 1.3, h), // wash / light-on-dark
-    oklchToHex(L.muted, T * 1.6, h), // muted grey
-    oklchToHex(L.dark, T * 1.2, h), // dark surface
-    oklchToHex(L.text, T, h), // text — near-black warm
-    oklchToHex(L.accent, Math.max(c, SEED_ACCENT_C_MIN), h), // accent — the vibrant brand fill
-    oklchToHex(L.link, Math.max(c * 0.9, SEED_LINK_C_MIN), h), // link — a darker accent, clears AA on the surface
-  ];
+  const neutrals = SEED_NEUTRALS.map((L, i) => oklchToHex(L, SEED_TINT * (1 + i * 0.12), h)); // ramp, mid-tones a touch warmer
+  const accents = SEED_ACCENTS.map((L) => oklchToHex(L, Math.max(c, SEED_ACCENT_C_MIN), h)); // fill · mid · link-dark
+  return [...neutrals, ...accents];
 }
 import { ColorPair, Dimension, Measure, NumberValue, PrimitiveColor, PropertyPair, PropertyToken, RootFontSize } from "./schema.ts";
 import { TYPE_SCALE_BOUNDS } from "./dimension-constraints.ts";

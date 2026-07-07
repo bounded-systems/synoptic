@@ -49,17 +49,19 @@ export const RolePref = z.object({
   fallback: Role.optional(),
 });
 export type RolePref = z.infer<typeof RolePref>;
+// Defaults tuned SOFT (still AAA — the picker enforces the tiers; these just sit less at the extremes):
+// a dark-slate text on an off-white ground, a slate panel, a slightly muted accent. Fiddle per brand.
 export const DEFAULT_ROLE_PREFS: Record<Role, RolePref> = {
-  surface: { targetL: 94, chromatic: false, minL: 78 },
-  "surface-dark": { targetL: 18, chromatic: false, maxL: 35 },
-  text: { targetL: 12, chromatic: false },
-  "on-dark": { targetL: 94, chromatic: false },
-  heading: { targetL: 12, chromatic: false, fallback: "text" },
-  accent: { targetL: 62, chromatic: true, field: "warm", fallback: "link" },
-  "on-accent": { targetL: 15, chromatic: false, fallback: "text" },
-  link: { targetL: 46, chromatic: true, field: "warm", fallback: "text" },
-  muted: { targetL: 45, chromatic: false, fallback: "text" },
-  border: { targetL: 65, chromatic: true, fallback: "on-dark" },
+  surface: { targetL: 96, chromatic: false, minL: 78 },
+  "surface-dark": { targetL: 26, chromatic: false, maxL: 42 }, // a dark slate panel, not near-black
+  text: { targetL: 28, chromatic: false }, // dark slate, not pure black (still ~9:1 on the surface)
+  "on-dark": { targetL: 92, chromatic: false },
+  heading: { targetL: 20, chromatic: false, fallback: "text" }, // a touch darker than body for hierarchy
+  accent: { targetL: 64, chromatic: true, field: "warm", fallback: "link" },
+  "on-accent": { targetL: 18, chromatic: false, fallback: "text" },
+  link: { targetL: 48, chromatic: true, field: "warm", fallback: "text" },
+  muted: { targetL: 50, chromatic: false, fallback: "text" },
+  border: { targetL: 60, chromatic: true, fallback: "on-dark" },
 };
 
 // ── Selectors as named items (never a bare string in the emitter) ──
