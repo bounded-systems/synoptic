@@ -1,0 +1,31 @@
+brand-property-tokens.mjs
+  s_70508ca017cb29::t_d7e09ba467ba26 1,6,8-9,23
+  s_70508ca017cb29::t_eb335a85e49af6 2-5,7,10-22,24-29
+brand-primitives-derive.mjs
+  s_70508ca017cb29::t_ac624881be9cc4 7-8
+  s_70508ca017cb29::t_3e05493dd63143 83
+package.json
+  s_70508ca017cb29::t_fff181ea2d07d1 3,45-46
+tokens/color-properties.derived.json
+  s_70508ca017cb29::t_60e2e854c5eb01 1-218
+tokens/primitives.derived.json
+  s_70508ca017cb29::t_abc32ec8dd4fd8 1-101
+tokens/property.tokens.json
+  s_70508ca017cb29::t_7d3edc59adf0dd 1-299
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "682e059345794e0f19ae88004ce1dc5cd5b13fc3",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
