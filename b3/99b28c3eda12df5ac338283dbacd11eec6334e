@@ -1,0 +1,21 @@
+tokens/check.ts
+  s_70508ca017cb29::t_3ab413cbe92777 1-34
+.github/workflows/tokens-check.yml
+  s_70508ca017cb29::t_4275cc9959c671 1-28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "b399b28c3eda12df5ac338283dbacd11eec6334e",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
