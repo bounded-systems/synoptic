@@ -1,0 +1,22 @@
+brand-primitives-derive.mjs
+  s_70508ca017cb29::t_353e4ba60adaa7 17
+  s_70508ca017cb29::t_9dc4ff8f23ee39 48-54,56-61
+package.json
+  s_70508ca017cb29::t_6210f09dd150a1 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "6c7b8fbf08b4fa70ccf6580bd225334772cb85e3",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
