@@ -19,6 +19,10 @@ export const HAIRLINE_REM = AAA_CONSTRAINTS["focus-outline"].min; //   0.125rem 
 export const MEASURE_MAX_CH = AAA_CONSTRAINTS["measure"].max; //       80ch (1.4.8)
 /** Heading line-height — a typographic DECISION (tighter leading for large type); no SC. */
 export const LINE_HEIGHT_HEADING = 1.2;
+/** CSS initial root font-size — `font-size: medium` ≈ 16px (a CSS fact, for px-equivalent prose). */
+export const PX_PER_REM = 16;
+/** Ideal reading measure (declared decision) — comfortable line length, under the 80ch ceiling. */
+export const MEASURE_IDEAL_CH = 66;
 
 // ── Fluid root (CSS clamp) — the "normalize on rem, fluid base" story ──
 export const ROOT_FONT = { floorRem: 1, baseRem: 0.5, slopeVw: 0.5, ceilRem: 1.25 } as const;

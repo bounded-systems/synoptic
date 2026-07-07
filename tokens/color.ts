@@ -17,19 +17,31 @@ export const merkleRoot = (leaves: string[]): string => {
 export interface Oklch { l: number; c: number; h: number; alpha: number }
 const round = (n: number, d = 4): number => { const f = 10 ** d; return Math.round(n * f) / f; };
 
+// ── sRGB + OKLab primitives — grounded facts, named (no bare coefficients) ─────────────────────
+/** sRGB electro-optical transfer function constants (IEC 61966-2-1). */
+const SRGB = { linThresh: 0.04045, linSlope: 12.92, alpha: 0.055, gamma: 2.4, invThresh: 0.0031308 } as const;
+/** Rec. 709 / WCAG 2.x relative-luminance coefficients. */
+const LUMINANCE_COEFF = [0.2126, 0.7152, 0.0722] as const;
+/** The flare term in the WCAG contrast-ratio formula. */
+const CONTRAST_FLARE = 0.05;
+/** OKLab matrices (Ottosson 2020 / CSS Color 4 §oklab): lin-sRGB→LMS, LMS→Lab, and their inverses. */
+const OKLAB_LMS = [[0.4122214708, 0.5363325363, 0.0514459929], [0.2119034982, 0.6806995451, 0.1073969566], [0.0883024619, 0.2817188376, 0.6299787005]] as const;
+const OKLAB_LAB = [[0.2104542553, 0.7936177850, -0.0040720468], [1.9779984951, -2.4285922050, 0.4505937099], [0.0259040371, 0.7827717662, -0.8086757660]] as const;
+const OKLAB_LMS_INV = [[1, 0.3963377774, 0.2158037573], [1, -0.1055613458, -0.0638541728], [1, -0.0894841775, -1.2914855480]] as const;
+const OKLAB_RGB = [[4.0767416621, -3.3077115913, 0.2309699292], [-1.2684380046, 2.6097574011, -0.3413193965], [-0.0041960863, -0.7034186147, 1.7076147010]] as const;
+/** sRGB-gamut search: declared numerical tolerance + iterations, and the OKLCh chroma ceiling (~0.4). */
+const GAMUT = { epsilon: 0.001, chromaMax: 0.4, bisectIters: 24 } as const;
+const dot = (row: readonly number[], v: readonly number[]): number => row[0] * v[0] + row[1] * v[1] + row[2] * v[2];
+
 const hexToRgb = (h: string): [number, number, number] => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255) as [number, number, number];
-const toLinear = (c: number): number => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
-const fromLinear = (c: number): number => (c <= 0.0031308 ? 12.92 * c : 1.055 * c ** (1 / 2.4) - 0.055);
+const toLinear = (c: number): number => (c <= SRGB.linThresh ? c / SRGB.linSlope : ((c + SRGB.alpha) / (1 + SRGB.alpha)) ** SRGB.gamma);
+const fromLinear = (c: number): number => (c <= SRGB.invThresh ? SRGB.linSlope * c : (1 + SRGB.alpha) * c ** (1 / SRGB.gamma) - SRGB.alpha);
 
 /** hex → OKLCh (l as %, c, h in degrees, alpha). */
 export function hexToOklch(hex: string): Oklch {
   const [r, g, b] = hexToRgb(hex).map(toLinear);
-  const l = Math.cbrt(0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b);
-  const m = Math.cbrt(0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b);
-  const s = Math.cbrt(0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b);
-  const L = 0.2104542553 * l + 0.7936177850 * m - 0.0040720468 * s;
-  const A = 1.9779984951 * l - 2.4285922050 * m + 0.4505937099 * s;
-  const B = 0.0259040371 * l + 0.7827717662 * m - 0.8086757660 * s;
+  const [l, m, s] = OKLAB_LMS.map((row) => Math.cbrt(dot(row, [r, g, b])));
+  const [L, A, B] = OKLAB_LAB.map((row) => dot(row, [l, m, s]));
   const c = round(Math.hypot(A, B), 4);
   let h = Math.atan2(B, A) * 180 / Math.PI;
   if (h < 0) h += 360;
@@ -40,21 +52,15 @@ export function hexToOklch(hex: string): Oklch {
 /** OKLCh → linear sRGB (for gamut + luminance). */
 function oklchToLinear(L: number, C: number, h: number): [number, number, number] {
   const a = C * Math.cos(h * Math.PI / 180), b = C * Math.sin(h * Math.PI / 180), Ln = L / 100;
-  const l = (Ln + 0.3963377774 * a + 0.2158037573 * b) ** 3;
-  const m = (Ln - 0.1055613458 * a - 0.0638541728 * b) ** 3;
-  const s = (Ln - 0.0894841775 * a - 1.2914855480 * b) ** 3;
-  return [
-    4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s,
-    -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s,
-    -0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s,
-  ];
+  const lms = OKLAB_LMS_INV.map((row) => dot(row, [Ln, a, b]) ** 3);
+  return OKLAB_RGB.map((row) => dot(row, lms)) as [number, number, number];
 }
 
-const inGamut = (L: number, C: number, h: number): boolean => oklchToLinear(L, C, h).every((c) => c >= -0.001 && c <= 1.001);
+const inGamut = (L: number, C: number, h: number): boolean => oklchToLinear(L, C, h).every((c) => c >= -GAMUT.epsilon && c <= 1 + GAMUT.epsilon);
 /** Max in-gamut chroma at a given L and hue (the "lens"). */
 export function chromaCeiling(L: number, h: number): number {
-  let lo = 0, hi = 0.4;
-  for (let i = 0; i < 24; i++) { const m = (lo + hi) / 2; inGamut(L, m, h) ? (lo = m) : (hi = m); }
+  let lo = 0, hi: number = GAMUT.chromaMax;
+  for (let i = 0; i < GAMUT.bisectIters; i++) { const m = (lo + hi) / 2; inGamut(L, m, h) ? (lo = m) : (hi = m); }
   return lo;
 }
 
@@ -65,11 +71,11 @@ export function oklchToHex(L: number, C: number, h: number): string {
   return "#" + rgb.map((x) => x.toString(16).padStart(2, "0")).join("");
 }
 
-const relLum = ([r, g, b]: number[]): number => 0.2126 * r + 0.7152 * g + 0.0722 * b;
+const relLum = (rgb: readonly number[]): number => dot(LUMINANCE_COEFF, rgb);
 const clamp = (c: number): number => Math.max(0, Math.min(1, c));
 export const luminanceOklch = (L: number, C: number, h: number): number => relLum(oklchToLinear(L, C, h).map(clamp));
 export const luminanceHex = (hex: string): number => relLum(hexToRgb(hex).map(toLinear));
-export const contrast = (y1: number, y2: number): number => { const [hi, lo] = y1 >= y2 ? [y1, y2] : [y2, y1]; return (hi + 0.05) / (lo + 0.05); };
+export const contrast = (y1: number, y2: number): number => { const [hi, lo] = y1 >= y2 ? [y1, y2] : [y2, y1]; return (hi + CONTRAST_FLARE) / (lo + CONTRAST_FLARE); };
 
 // Machado 2009 dichromat matrices (severity 1.0), applied in linear RGB
 const CVD_MATRICES = {

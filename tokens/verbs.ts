@@ -23,7 +23,8 @@ import {
   type Oklch,
   sha,
 } from "./color.ts";
-import { SEED_ACCENT_C_MIN, SEED_ACCENTS, SEED_NEUTRALS, SEED_TINT } from "./constants.ts";
+import { HAIRLINE_REM, LINE_HEIGHT_BODY, MEASURE_IDEAL_CH, MEASURE_MAX_CH, PX_PER_REM, ROOT_FONT, SEED_ACCENT_C_MIN, SEED_ACCENTS, SEED_NEUTRALS, SEED_TINT, TARGET_MIN_REM } from "./constants.ts";
+import { WcagTier } from "./roles.ts";
 
 /** deriveSeedPalette — from ONE brand seed color, generate the full palette: warm neutrals faintly
  * tinted toward the seed hue + the accent ladder (vibrant fill + AA-clearing link). The brand seed
@@ -36,7 +37,7 @@ export function deriveSeedPalette(seed: string): string[] {
 }
 import { ColorPair, Dimension, Measure, NumberValue, PrimitiveColor, PropertyPair, PropertyToken, RootFontSize } from "./schema.ts";
 import { TYPE_SCALE_BOUNDS } from "./dimension-constraints.ts";
-import { hueName } from "./hue.ts";
+import { hueName, isCool, isWarm } from "./hue.ts";
 
 /** The color-valued CSS properties, DERIVED from @webref/css (committed artifact). */
 const DERIVED_PROPS: string[] = (JSON.parse(Deno.readTextFileSync(new URL("color-properties.derived.json", import.meta.url))) as { properties: { name: string }[] }).properties.map((p) => p.name);
@@ -68,7 +69,7 @@ function describe(hex: string, o: Oklch, bands: Record<string, string[]>): strin
   let noun: string, useShade = true;
   if (o.c < 0.02) {
     if (o.l >= 98) { noun = "pure white"; useShade = false; } else if (o.l >= 86) { noun = "off-white"; useShade = false; } else if (o.l <= 6) { noun = "pure black"; useShade = false; } else if (o.l <= 24) { noun = "near-black"; useShade = false; } else noun = "grey";
-  } else noun = `${(o.h >= 20 && o.h <= 110) ? "warm " : (o.h >= 195 && o.h <= 300) ? "cool " : ""}${hueName(o.h)}`;
+  } else noun = `${isWarm(o.h) ? "warm " : isCool(o.h) ? "cool " : ""}${hueName(o.h)}`;
   const article = /^[aeiou]/i.test(useShade ? shadeWord : noun) ? "An" : "A";
   const opener = useShade ? `${article} ${shadeWord} ${noun}.` : `${article} ${noun}.`;
   const pairs: { band: string; n: number; v: number; bar: number }[] = [];
@@ -77,11 +78,11 @@ function describe(hex: string, o: Oklch, bands: Record<string, string[]>): strin
     if (!usable.length) continue;
     const n = Math.min(...usable.map((g) => contrast(luminanceHex(hex), luminanceHex(g))));
     const v = Math.min(...usable.map((g) => contrastCVD(hex, g)));
-    if (n >= 3) pairs.push({ band, n, v, bar: n >= 4.5 ? 4.5 : 3 });
+    if (n >= WcagTier.nonText) pairs.push({ band, n, v, bar: n >= WcagTier.aaText ? WcagTier.aaText : WcagTier.nonText });
   }
   pairs.sort((a, b) => b.n - a.n);
   if (!pairs.length) return `${opener} It's a background surface — other colors sit on it, rather than it on them.`;
-  const parts = pairs.map((p) => `As ${p.bar >= 4.5 ? "text" : "borders and dividers"} on ${p.band} it reaches ${p.n.toFixed(1)} to 1 — past ${p.bar >= 4.5 ? "the 4.5:1 minimum for readable text" : "the 3:1 minimum for non-text"} — and still holds ${p.v.toFixed(1)} to 1 for color-blind readers`);
+  const parts = pairs.map((p) => `As ${p.bar >= WcagTier.aaText ? "text" : "borders and dividers"} on ${p.band} it reaches ${p.n.toFixed(1)} to 1 — past ${p.bar >= WcagTier.aaText ? "the 4.5:1 minimum for readable text" : "the 3:1 minimum for non-text"} — and still holds ${p.v.toFixed(1)} to 1 for color-blind readers`);
   return `${opener} ${parts.join("; ")}. So it stays legible for everyone, including the three common kinds of color-blindness.`;
 }
 
@@ -98,10 +99,10 @@ export function derivePrimitives(palette: readonly string[]): Record<string, z.i
 
 /** Plain-English description of a rem dimension: its size, the AAA floors it meets, why rem. */
 function describeDim(rem: number): string {
-  const px = Math.round(rem * 16 * 100) / 100;
+  const px = Math.round(rem * PX_PER_REM * 100) / 100;
   const meets: string[] = [];
-  if (rem >= 2.75) meets.push("large enough for a 44px minimum target (WCAG 2.5.5 AAA)");
-  else if (rem >= 0.125) meets.push("clears the 2px minimum focus outline (WCAG 2.4.11)");
+  if (rem >= TARGET_MIN_REM) meets.push("large enough for a 44px minimum target (WCAG 2.5.5 AAA)");
+  else if (rem >= HAIRLINE_REM) meets.push("clears the 2px minimum focus outline (WCAG 2.4.11)");
   const note = meets.length ? " " + meets.join("; ") + "." : "";
   return `${rem}rem — ${px}px at the default root (font-size: medium), and it scales with the user's setting.${note} A rem, so it resizes and reflows (1.4.4 / 1.4.10) by construction — never a fixed px.`;
 }
@@ -109,7 +110,7 @@ function describeDim(rem: number): string {
 /** LAYER: dimension — rem atoms on a GEOMETRIC step function. Size JND is a Weber ratio (~2-3%),
  * so steps are a fixed ratio (default 1.2, well above the JND), anchored at the root's 1rem — like
  * a type scale. Values within one JND collapse to the same step. px/em/ch are unconstructable. */
-export function deriveDimensions(scale: readonly number[], ratio = 1.2): Record<string, z.infer<typeof Dimension>> {
+export function deriveDimensions(scale: readonly number[], ratio: number = TYPE_SCALE_BOUNDS.stepRatioTypical): Record<string, z.infer<typeof Dimension>> {
   const snap = (r: number) => (r <= 0 ? 0 : Math.round(ratio ** Math.round(Math.log(r) / Math.log(ratio)) * 1000) / 1000);
   const out: Record<string, z.infer<typeof Dimension>> = {};
   for (const raw of scale) {
@@ -132,7 +133,7 @@ export function generateScale(floor: number = TYPE_SCALE_BOUNDS.floorRem, ceilin
   let h = 1;
   for (const dim of sorted) {
     const v = dim.$value.value;
-    const role = v > 1.03 ? `h${h++}` : Math.abs(v - 1) < 0.06 ? "body" : "small";
+    const role = v > TYPE_SCALE_BOUNDS.stepRatioMin ? `h${h++}` : Math.abs(v - 1) < 0.06 ? "body" : "small";
     dim.$description += ` Heading role: ${role} — one size per level; declaring the count avoids skipping (WCAG 1.3.1 / 2.4.10).`;
   }
   return dims;
@@ -144,12 +145,12 @@ export function deriveRoot(fluid = true): z.infer<typeof RootFontSize> {
   if (!fluid) {
     return { $type: "root-font-size", $css: "medium", $floor: rem(1), $fluid: false, $description: "Root = the CSS keyword `medium` — the user's default font-size, and the anchor of the absolute-size keyword scale. Every rem floats on it; resizes with the user (1.4.4) by construction." };
   }
-  return { $type: "root-font-size", $css: "clamp(1rem, 0.5rem + 0.5vw, 1.25rem)", $floor: rem(1), $cap: rem(1.25), $fluid: true, $description: "Root = clamp(1rem, 0.5rem + 0.5vw, 1.25rem) — a CSSMathClamp. Fluid with the viewport, but FLOORED at the user's 1rem (respects Resize 1.4.4) and capped at 1.25rem. Half the preferred term is rem, so it also scales with the user's own font-size setting." };
+  return { $type: "root-font-size", $css: `clamp(\${ROOT_FONT.floorRem}rem, \${ROOT_FONT.baseRem}rem + \${ROOT_FONT.slopeVw}vw, \${ROOT_FONT.ceilRem}rem)`, $floor: rem(ROOT_FONT.floorRem), $cap: rem(ROOT_FONT.ceilRem), $fluid: true, $description: "Root = clamp(1rem, 0.5rem + 0.5vw, 1.25rem) — a CSSMathClamp. Fluid with the viewport, but FLOORED at the user's 1rem (respects Resize 1.4.4) and capped at 1.25rem. Half the preferred term is rem, so it also scales with the user's own font-size setting." };
 }
 
 /** LAYER: number — a unitless ratio (line-height, scale ratio). The 1.5 line-height floor is AAA. */
 function describeNumber(n: number): string {
-  const note = n >= 1.5 ? " Meets the 1.5 minimum line-height for body text (WCAG 1.4.8 AAA)." : n >= 1 ? " Below 1.5 — fine for headings/large text, not body copy." : "";
+  const note = n >= LINE_HEIGHT_BODY ? " Meets the 1.5 minimum line-height for body text (WCAG 1.4.8 AAA)." : n >= 1 ? " Below 1.5 — fine for headings/large text, not body copy." : "";
   return `A unitless ratio of ${n}.${note} Applied to a length (e.g. line-height × font-size), so it scales with whatever it multiplies.`;
 }
 export function deriveNumbers(ratios: readonly number[], ratio = 1.06): Record<string, z.infer<typeof NumberValue>> {
@@ -157,7 +158,7 @@ export function deriveNumbers(ratios: readonly number[], ratio = 1.06): Record<s
   // line-height floor (1.4.8): a value at/just above 1.5 snaps to exactly 1.5, never below.
   const snap = (r: number) => {
     if (r <= 0) return 0;
-    if (r >= 1.5 && r < 1.5 * ratio) return 1.5;
+    if (r >= LINE_HEIGHT_BODY && r < LINE_HEIGHT_BODY * ratio) return LINE_HEIGHT_BODY;
     return Math.round(ratio ** Math.round(Math.log(r) / Math.log(ratio)) * 1000) / 1000;
   };
   const out: Record<string, z.infer<typeof NumberValue>> = {};
@@ -179,9 +180,9 @@ export function derivePrimitivePairs(palette: readonly string[]): { $merkleRoot:
       const n = contrast(luminanceHex(oks[i].hex), luminanceHex(oks[j].hex)), v = contrastCVD(oks[i].hex, oks[j].hex);
       if (n < 3 || v < 3) continue;
       const clears: ("non-text-3" | "text-AA-4.5" | "text-AAA-7")[] = [];
-      if (n >= 3 && v >= 3) clears.push("non-text-3");
-      if (n >= 4.5 && v >= 4.5) clears.push("text-AA-4.5");
-      if (n >= 7 && v >= 7) clears.push("text-AAA-7");
+      if (n >= WcagTier.nonText && v >= WcagTier.nonText) clears.push("non-text-3");
+      if (n >= WcagTier.aaText && v >= WcagTier.aaText) clears.push("text-AA-4.5");
+      if (n >= WcagTier.aaaText && v >= WcagTier.aaaText) clears.push("text-AAA-7");
       const cs = [casName(oks[i].o), casName(oks[j].o)].sort() as [string, string];
       const pairSha = sha(cs.map((c) => colorSha[c]).sort().join(":"));
       pairs[cs.join("<>")] = { $type: "color-pair", $pairSha: pairSha, $colors: cs, $colorShas: Object.fromEntries(cs.map((c) => [c, colorSha[c]])), $ratio: Math.round(n * 100) / 100, $cvd: Math.round(v * 100) / 100, $clears: clears };
@@ -263,7 +264,7 @@ export const contrastPairsVerb = defineVerb({
 });
 
 /** The lone `measure` token — reading width in ch, capped at the 1.4.8 ceiling. */
-export function deriveMeasure(ideal = 66, ceiling = 80): z.infer<typeof Measure> {
+export function deriveMeasure(ideal: number = MEASURE_IDEAL_CH, ceiling: number = MEASURE_MAX_CH): z.infer<typeof Measure> {
   const ch = (v: number) => ({ $type: "CSSUnitValue" as const, value: v, unit: "ch" });
   const width = Math.min(ideal, ceiling);
   return { $type: "measure", $value: ch(width), $ceiling: ch(ceiling), $sha: sha(`${width}ch`), $description: `Reading width ${width}ch (max ${ceiling}ch — WCAG 1.4.8 AAA). In ch so ~${width} characters per line holds across font sizes; apply as max-width on text containers. One token, not a scale.` };
