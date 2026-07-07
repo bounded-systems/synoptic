@@ -2,7 +2,7 @@
 // non-conforming token fails here. Also checks the merkle invariant — every primitive-pair's
 // $pairSha recomputes from its color hashes, and the root recomputes from the leaves.
 import { z } from "zod";
-import { ColorPair, PrimitiveColor, PropertyPair, PropertyToken } from "./schema.ts";
+import { ColorPair, Dimension, PrimitiveColor, PropertyPair, PropertyToken, RootFontSize } from "./schema.ts";
 import { crypto } from "jsr:@std/crypto@^1/crypto";
 import { encodeHex } from "jsr:@std/encoding@^1/hex";
 
@@ -34,6 +34,8 @@ allOk = check("examples/primitives.derived.json", "primitive", PrimitiveColor) &
 allOk = check("examples/primitive-pairs.json", "primitive-pairs", ColorPair) && allOk;
 allOk = check("examples/property.tokens.json", "property", PropertyToken) && allOk;
 allOk = check("examples/contrast-pairs.json", "contrast-pairs", PropertyPair) && allOk;
+allOk = check("examples/dimensions.derived.json", "dimension", Dimension) && allOk;
+{ const dim = JSON.parse(Deno.readTextFileSync(new URL("examples/dimensions.derived.json", import.meta.url))); const r = RootFontSize.safeParse(dim.dimension.$root); console.log(`  ${r.success ? "✓" : "✗"} examples/dimensions.derived.json  $root (RootFontSize + rem-floor invariant)`); allOk = r.success && allOk; }
 
 // merkle invariant: recompute each $pairSha and the root
 console.log("\nmerkle invariant:");

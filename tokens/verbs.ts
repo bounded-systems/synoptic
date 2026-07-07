@@ -22,7 +22,7 @@ import {
   type Oklch,
   sha,
 } from "./color.ts";
-import { ColorPair, PrimitiveColor, PropertyPair, PropertyToken } from "./schema.ts";
+import { ColorPair, Dimension, PrimitiveColor, PropertyPair, PropertyToken, RootFontSize } from "./schema.ts";
 
 /** The color-valued CSS properties, DERIVED from @webref/css (committed artifact). */
 const DERIVED_PROPS: string[] = (JSON.parse(Deno.readTextFileSync(new URL("color-properties.derived.json", import.meta.url))) as { properties: { name: string }[] }).properties.map((p) => p.name);
@@ -81,6 +81,37 @@ export function derivePrimitives(palette: readonly string[]): Record<string, z.i
     out[casName(o)] = { $type: "color", $value: cssOklch(o), $sha: sha(oklchString(o)), $description: describe(hex, o, bands) };
   }
   return out;
+}
+
+/** Plain-English description of a rem dimension: its size, the AAA floors it meets, why rem. */
+function describeDim(rem: number): string {
+  const px = Math.round(rem * 16 * 100) / 100;
+  const meets: string[] = [];
+  if (rem >= 2.75) meets.push("large enough for a 44px minimum target (WCAG 2.5.5 AAA)");
+  else if (rem >= 0.125) meets.push("clears the 2px minimum focus outline (WCAG 2.4.11)");
+  const note = meets.length ? " " + meets.join("; ") + "." : "";
+  return `${rem}rem — ${px}px at the default root (font-size: medium), and it scales with the user's setting.${note} A rem, so it resizes and reflows (1.4.4 / 1.4.10) by construction — never a fixed px.`;
+}
+
+/** LAYER: dimension — rem atoms, snapped to a 0.25rem grid. px/em/ch are unconstructable. */
+export function deriveDimensions(scale: readonly number[]): Record<string, z.infer<typeof Dimension>> {
+  const snap = (r: number) => Math.round(r / 0.125) * 0.125; // 0.125rem (2px) grid — fine enough for the 2px focus floor
+  const out: Record<string, z.infer<typeof Dimension>> = {};
+  for (const raw of scale) {
+    const v = Math.max(0, snap(raw));
+    const value = { $type: "CSSUnitValue" as const, value: v, unit: "rem" };
+    out[`rem-${String(v).replace(/\./g, "_")}`] = { $type: "dimension", $value: value, $sha: sha(`${v}rem`), $description: describeDim(v) };
+  }
+  return out;
+}
+
+/** The ROOT font-size — the reference every rem floats on. Fluid = clamp() with a rem floor. */
+export function deriveRoot(fluid = true): z.infer<typeof RootFontSize> {
+  const rem = (v: number) => ({ $type: "CSSUnitValue" as const, value: v, unit: "rem" });
+  if (!fluid) {
+    return { $type: "root-font-size", $css: "medium", $floor: rem(1), $fluid: false, $description: "Root = the CSS keyword `medium` — the user's default font-size, and the anchor of the absolute-size keyword scale. Every rem floats on it; resizes with the user (1.4.4) by construction." };
+  }
+  return { $type: "root-font-size", $css: "clamp(1rem, 0.5rem + 0.5vw, 1.25rem)", $floor: rem(1), $cap: rem(1.25), $fluid: true, $description: "Root = clamp(1rem, 0.5rem + 0.5vw, 1.25rem) — a CSSMathClamp. Fluid with the viewport, but FLOORED at the user's 1rem (respects Resize 1.4.4) and capped at 1.25rem. Half the preferred term is rem, so it also scales with the user's own font-size setting." };
 }
 
 /** LAYER: primitive-pair — every valid color pair, merkle-committed. */
@@ -176,7 +207,26 @@ export const contrastPairsVerb = defineVerb({
   run: () => deriveContrastPairs(),
 });
 
-export const VERBS: Registry = { primitives: primitivesVerb, "primitive-pairs": primitivePairsVerb, "property-tokens": propertyTokensVerb, "contrast-pairs": contrastPairsVerb };
+const ScaleInput = z.object({ scale: z.array(z.number().nonnegative()).min(1) });
+export const dimensionsVerb = defineVerb({
+  id: "dimensions",
+  summary: "Derive the dimension tier — rem atoms (px/em/ch unconstructable), snapped to a 0.25rem grid; root is font-size: medium.",
+  actor: "brand",
+  input: ScaleInput,
+  output: z.record(z.string(), Dimension),
+  run: ({ scale }) => deriveDimensions(scale),
+});
+
+export const rootVerb = defineVerb({
+  id: "root",
+  summary: "The root font-size every rem floats on — clamp() with a rem floor (fluid) or `medium`. A vw term without a rem floor is unconstructable (1.4.4).",
+  actor: "brand",
+  input: z.object({ fluid: z.boolean().default(true) }),
+  output: RootFontSize,
+  run: ({ fluid }) => deriveRoot(fluid),
+});
+
+export const VERBS: Registry = { primitives: primitivesVerb, "primitive-pairs": primitivePairsVerb, "property-tokens": propertyTokensVerb, "contrast-pairs": contrastPairsVerb, dimensions: dimensionsVerb, root: rootVerb };
 
 if (import.meta.main) {
   const result = await dispatch(VERBS, Deno.args, "deno run verbs.ts");

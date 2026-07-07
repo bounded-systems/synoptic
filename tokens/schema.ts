@@ -2,7 +2,7 @@
 // "semantic" tier used to do — and because the schema is the spec, a token that doesn't conform
 // cannot be emitted. Layers: primitive · primitive-pair · property · property-pair · node-pair.
 import { z } from "zod";
-import { CSSOKLCH } from "./typed-om.ts"; // GENERATED from the CSS Typed OM IDL — the real spec type
+import { CSSOKLCH, CSSUnitValue } from "./typed-om.ts"; // GENERATED from the CSS Typed OM IDL — the real spec types
 import { ColorProperty } from "./properties.ts"; // GENERATED from @webref/css — the typed property names
 
 // ── content addresses ────────────────────────────────────────────────
@@ -18,6 +18,31 @@ export const PrimitiveColor = z.object({
   $sha: Sha12,
   $description: z.string(),
 });
+
+// ── LAYER: dimension — a length, LOCKED to rem. The root is `font-size: medium` (the spec's
+// keyword for the user's default — a CSSKeywordValue), so every rem floats on the user's size.
+// px/em/ch are unconstructable here: they fail Resize (1.4.4) / Reflow (1.4.10).
+export const Rem = CSSUnitValue.refine((v) => v.unit === "rem", "dimensions must be rem — px/em/ch fail 1.4.4/1.4.10");
+export const Dimension = z.object({
+  $type: z.literal("dimension"),
+  $value: Rem, // a CSSUnitValue whose unit can only be "rem"
+  $sha: Sha12,
+  $description: z.string(),
+});
+export type Dimension = z.infer<typeof Dimension>;
+
+// ── The ROOT font-size — the reference every rem floats on. Must have a rem FLOOR so the user's
+// preference is always respected; a vw term without a rem floor is unconstructable (fails 1.4.4).
+// The fluid form is a clamp() — a CSSMathClamp — with a rem floor and rem cap.
+export const RootFontSize = z.object({
+  $type: z.literal("root-font-size"),
+  $css: z.string(), // the declaration: "medium", "100%", or "clamp(1rem, 0.5rem + 0.5vw, 1.25rem)"
+  $floor: Rem, // the rem floor — REQUIRED; guarantees text never drops below the user's size
+  $cap: Rem.optional(), // rem ceiling (fluid case)
+  $fluid: z.boolean(),
+  $description: z.string(),
+}).refine((r) => !/\bvw\b/i.test(r.$css) || /rem/i.test(r.$css), "a vw term requires a rem floor (1.4.4)");
+export type RootFontSize = z.infer<typeof RootFontSize>;
 export type PrimitiveColor = z.infer<typeof PrimitiveColor>;
 
 // ── LAYER: primitive-pair — two colors validated together (merkle leaf)
