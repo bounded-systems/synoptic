@@ -65,10 +65,10 @@ export type CSSHSL = z.infer<typeof CSSHSL>;
 /** CSS Typed OM `CSSHWB` : CSSColorValue — generated from IDL. */
 export const CSSHWB = z.object({
   $type: z.literal("CSSHWB"),
-  h: z.number(),
-  w: z.number(),
-  b: z.number(),
-  alpha: z.number(),
+  h: z.unknown(),
+  w: z.unknown(),
+  b: z.unknown(),
+  alpha: z.unknown(),
 });
 export type CSSHWB = z.infer<typeof CSSHWB>;
 
@@ -77,7 +77,7 @@ export const CSSColor = z.object({
   $type: z.literal("CSSColor"),
   colorSpace: z.string(),
   channels: z.unknown(),
-  alpha: z.number(),
+  alpha: z.unknown(),
 });
 export type CSSColor = z.infer<typeof CSSColor>;
 
@@ -111,6 +111,71 @@ export const CSSVariableReferenceValue = z.object({
 });
 export type CSSVariableReferenceValue = z.infer<typeof CSSVariableReferenceValue>;
 
+/** CSS Typed OM `CSSNumericValue` : CSSStyleValue — generated from IDL. */
+export const CSSNumericValue = z.object({
+  $type: z.literal("CSSNumericValue"),
+
+});
+export type CSSNumericValue = z.infer<typeof CSSNumericValue>;
+
+/** CSS Typed OM `CSSMathSum` : CSSMathValue — generated from IDL. */
+export const CSSMathSum = z.object({
+  $type: z.literal("CSSMathSum"),
+  operator: z.string(),
+  values: z.array(z.unknown()),
+});
+export type CSSMathSum = z.infer<typeof CSSMathSum>;
+
+/** CSS Typed OM `CSSMathProduct` : CSSMathValue — generated from IDL. */
+export const CSSMathProduct = z.object({
+  $type: z.literal("CSSMathProduct"),
+  operator: z.string(),
+  values: z.array(z.unknown()),
+});
+export type CSSMathProduct = z.infer<typeof CSSMathProduct>;
+
+/** CSS Typed OM `CSSMathNegate` : CSSMathValue — generated from IDL. */
+export const CSSMathNegate = z.object({
+  $type: z.literal("CSSMathNegate"),
+  operator: z.string(),
+  value: z.unknown(),
+});
+export type CSSMathNegate = z.infer<typeof CSSMathNegate>;
+
+/** CSS Typed OM `CSSMathInvert` : CSSMathValue — generated from IDL. */
+export const CSSMathInvert = z.object({
+  $type: z.literal("CSSMathInvert"),
+  operator: z.string(),
+  value: z.unknown(),
+});
+export type CSSMathInvert = z.infer<typeof CSSMathInvert>;
+
+/** CSS Typed OM `CSSMathMin` : CSSMathValue — generated from IDL. */
+export const CSSMathMin = z.object({
+  $type: z.literal("CSSMathMin"),
+  operator: z.string(),
+  values: z.array(z.unknown()),
+});
+export type CSSMathMin = z.infer<typeof CSSMathMin>;
+
+/** CSS Typed OM `CSSMathMax` : CSSMathValue — generated from IDL. */
+export const CSSMathMax = z.object({
+  $type: z.literal("CSSMathMax"),
+  operator: z.string(),
+  values: z.array(z.unknown()),
+});
+export type CSSMathMax = z.infer<typeof CSSMathMax>;
+
+/** CSS Typed OM `CSSMathClamp` : CSSMathValue — generated from IDL. */
+export const CSSMathClamp = z.object({
+  $type: z.literal("CSSMathClamp"),
+  operator: z.string(),
+  lower: z.unknown(),
+  value: z.unknown(),
+  upper: z.unknown(),
+});
+export type CSSMathClamp = z.infer<typeof CSSMathClamp>;
+
 /** Any Typed OM value a token can hold. */
-export const CSSStyleValue = z.discriminatedUnion("$type", [CSSOKLCH, CSSOKLab, CSSLCH, CSSLab, CSSRGB, CSSHSL, CSSHWB, CSSColor, CSSUnitValue, CSSKeywordValue, CSSUnparsedValue, CSSVariableReferenceValue]);
+export const CSSStyleValue = z.discriminatedUnion("$type", [CSSOKLCH, CSSOKLab, CSSLCH, CSSLab, CSSRGB, CSSHSL, CSSHWB, CSSColor, CSSUnitValue, CSSKeywordValue, CSSUnparsedValue, CSSVariableReferenceValue, CSSNumericValue, CSSMathSum, CSSMathProduct, CSSMathNegate, CSSMathInvert, CSSMathMin, CSSMathMax, CSSMathClamp]);
 export type CSSStyleValue = z.infer<typeof CSSStyleValue>;

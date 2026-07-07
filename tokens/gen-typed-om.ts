@@ -15,13 +15,17 @@ function attrs(name: string): { name: string; type: string }[] {
   return [...base, ...own];
 }
 const zodOf = (t: string): string =>
-  /Percent|Angle|ColorNumber|Numberish|Numeric|double|float|long/i.test(t) ? "z.number()"
+  /Operator/i.test(t) ? "z.string()"                              // CSSMathOperator enum
+  : /Array/i.test(t) ? "z.array(z.unknown())"                     // CSSNumericArray
+  : /NumericValue|Numberish/i.test(t) ? "z.unknown()"             // a nested typed value (recursive)
+  : /Percent|Angle|ColorNumber|Numeric|double|float|long/i.test(t) ? "z.number()"
   : /String|Keywordish/i.test(t) ? "z.string()"
   : t === "boolean" ? "z.boolean()"
   : "z.unknown()";
 
-// the value types a design token can hold (colors, dimensions, keywords, var refs)
-const VALUE_TYPES = ["CSSOKLCH", "CSSOKLab", "CSSLCH", "CSSLab", "CSSRGB", "CSSHSL", "CSSHWB", "CSSColor", "CSSUnitValue", "CSSKeywordValue", "CSSUnparsedValue", "CSSVariableReferenceValue"];
+// the value types a design token can hold: colors, dimensions, keywords, var refs — AND the math
+// tree (calc), because a DERIVATION (one axis, multiply-only) is a CSSMathProduct/Sum/Clamp.
+const VALUE_TYPES = ["CSSOKLCH", "CSSOKLab", "CSSLCH", "CSSLab", "CSSRGB", "CSSHSL", "CSSHWB", "CSSColor", "CSSUnitValue", "CSSKeywordValue", "CSSUnparsedValue", "CSSVariableReferenceValue", "CSSNumericValue", "CSSMathSum", "CSSMathProduct", "CSSMathNegate", "CSSMathInvert", "CSSMathMin", "CSSMathMax", "CSSMathClamp"];
 
 let out = `// GENERATED from @webref/idl (css-typed-om) by gen-typed-om.ts — do not edit by hand.\n// The CSS Typed OM value interfaces, projected to Zod. Our color tokens ARE CSSOKLCH.\nimport { z } from "zod";\n\n`;
 const names: string[] = [];
