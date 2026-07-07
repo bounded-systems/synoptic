@@ -2,8 +2,11 @@
   "version": "5",
   "specifiers": {
     "jsr:@bounded-systems/verbspec@~0.3.1": "0.3.1",
+    "jsr:@std/assert@1": "1.0.13",
     "jsr:@std/crypto@1": "1.0.5",
     "jsr:@std/encoding@1": "1.0.11",
+    "jsr:@std/internal@^1.0.6": "1.0.6",
+    "npm:@webref/css@*": "8.6.1_css-tree@3.2.1",
     "npm:@webref/idl@*": "3.81.2_webidl2@24.5.0",
     "npm:zod@^4.4.3": "4.4.3"
   },
@@ -14,19 +17,47 @@
         "npm:zod"
       ]
     },
+    "@std/assert@1.0.13": {
+      "integrity": "ae0d31e41919b12c656c742b22522c32fb26ed0cba32975cb0de2a273cb68b29",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
     "@std/crypto@1.0.5": {
       "integrity": "0dcfbb319fe0bba1bd3af904ceb4f948cde1b92979ec1614528380ed308a3b40"
     },
     "@std/encoding@1.0.11": {
       "integrity": "e7cef2f0b3153bccc17431e7c864a1de03a4b6d9647389c43e08aaa775d37385"
+    },
+    "@std/internal@1.0.6": {
+      "integrity": "9533b128f230f73bd209408bb07a4b12f8d4255ab2a4d22a1fd6d87304aca9a4"
     }
   },
   "npm": {
+    "@webref/css@8.6.1_css-tree@3.2.1": {
+      "integrity": "sha512-eY5rwSLOSDIQz0Js++txlzgGTef6A4bVMYBGbV9tGT6RsrIVGUiPHYQePQEZ/GlPaAhM4WOnuknNUs+ADeLokA==",
+      "dependencies": [
+        "css-tree"
+      ]
+    },
     "@webref/idl@3.81.2_webidl2@24.5.0": {
       "integrity": "sha512-jxiIRfEALas9WukstOruzSfPPrG7Pqa40ka1ZkPpS2fu4vrFU4STt7jerW4q2MWiGu/3TPUEDr1DUFiHK6ZkMQ==",
       "dependencies": [
         "webidl2"
       ]
+    },
+    "css-tree@3.2.1": {
+      "integrity": "sha512-X7sjQzceUhu1u7Y/ylrRZFU2FS6LRiFVp6rKLPg23y3x3c3DOKAwuXGDp+PAGjh6CSnCjYeAul8pcT8bAl+lSA==",
+      "dependencies": [
+        "mdn-data",
+        "source-map-js"
+      ]
+    },
+    "mdn-data@2.27.1": {
+      "integrity": "sha512-9Yubnt3e8A0OKwxYSXyhLymGW4sCufcLG6VdiDdUGVkPhpqLxlvP5vl1983gQjJl3tqbrM731mjaZaP68AgosQ=="
+    },
+    "source-map-js@1.2.1": {
+      "integrity": "sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA=="
     },
     "webidl2@24.5.0": {
       "integrity": "sha512-fxOigKkIem1iAgQ9t4cFOP+kWEA8y6Be/uh50FpJh0FijoeeT/VMrOyJzNLUgjy0rGMEcHeReKDCqj0g9dIe9A=="

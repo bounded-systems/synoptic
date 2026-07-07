@@ -3,6 +3,7 @@
 // cannot be emitted. Layers: primitive · primitive-pair · property · property-pair · node-pair.
 import { z } from "zod";
 import { CSSOKLCH } from "./typed-om.ts"; // GENERATED from the CSS Typed OM IDL — the real spec type
+import { ColorProperty } from "./properties.ts"; // GENERATED from @webref/css — the typed property names
 
 // ── content addresses ────────────────────────────────────────────────
 export const Sha8 = z.string().regex(/^[0-9a-f]{8}$/, "8-hex content address");
@@ -46,9 +47,9 @@ export type PropertyToken = z.infer<typeof PropertyToken>;
 // ── LAYER: property-pair — the contrast relation (two properties) ─────
 export const PropertyPair = z.object({
   $type: z.literal("contrast-pair"),
-  $properties: z.array(z.string()).min(1).max(2),
-  $foreground: z.string().optional(),
-  $background: z.string().optional(),
+  $properties: z.array(ColorProperty).min(1).max(2), // typed property names, not free strings
+  $foreground: ColorProperty.optional(),
+  $background: ColorProperty.optional(),
   $tierFrom: z.string(),                            // "node" — the tier is resolved by the node, not fixed
   $candidate: z.string(),
   $note: z.string().optional(),

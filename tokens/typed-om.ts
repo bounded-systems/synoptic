@@ -176,6 +176,21 @@ export const CSSMathClamp = z.object({
 });
 export type CSSMathClamp = z.infer<typeof CSSMathClamp>;
 
+/** CSS Typed OM `CSSImageValue` : CSSStyleValue — generated from IDL. */
+export const CSSImageValue = z.object({
+  $type: z.literal("CSSImageValue"),
+
+});
+export type CSSImageValue = z.infer<typeof CSSImageValue>;
+
+/** CSS Typed OM `CSSTransformValue` : CSSStyleValue — generated from IDL. */
+export const CSSTransformValue = z.object({
+  $type: z.literal("CSSTransformValue"),
+  length: z.number(),
+  is2D: z.boolean(),
+});
+export type CSSTransformValue = z.infer<typeof CSSTransformValue>;
+
 /** Any Typed OM value a token can hold. */
-export const CSSStyleValue = z.discriminatedUnion("$type", [CSSOKLCH, CSSOKLab, CSSLCH, CSSLab, CSSRGB, CSSHSL, CSSHWB, CSSColor, CSSUnitValue, CSSKeywordValue, CSSUnparsedValue, CSSVariableReferenceValue, CSSNumericValue, CSSMathSum, CSSMathProduct, CSSMathNegate, CSSMathInvert, CSSMathMin, CSSMathMax, CSSMathClamp]);
+export const CSSStyleValue = z.discriminatedUnion("$type", [CSSOKLCH, CSSOKLab, CSSLCH, CSSLab, CSSRGB, CSSHSL, CSSHWB, CSSColor, CSSUnitValue, CSSKeywordValue, CSSUnparsedValue, CSSVariableReferenceValue, CSSNumericValue, CSSMathSum, CSSMathProduct, CSSMathNegate, CSSMathInvert, CSSMathMin, CSSMathMax, CSSMathClamp, CSSImageValue, CSSTransformValue]);
 export type CSSStyleValue = z.infer<typeof CSSStyleValue>;

@@ -1,218 +1,217 @@
 {
-  "$source": "@webref/css (listAll)",
-  "$note": "Every CSS property whose value grammar reaches <color>, resolved transitively. `single`=value is a color (color-token settable); else the color is part of a shorthand.",
+  "$source": "@webref/css",
   "count": 42,
   "singleCount": 10,
   "properties": [
     {
       "name": "-webkit-text-fill-color",
-      "takesColor": true,
-      "single": true
+      "single": true,
+      "appliesTo": "all elements"
     },
     {
       "name": "-webkit-text-stroke",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "See individual properties"
     },
     {
       "name": "-webkit-text-stroke-color",
-      "takesColor": true,
-      "single": true
+      "single": true,
+      "appliesTo": "all elements"
     },
     {
       "name": "accent-color",
-      "takesColor": true,
-      "single": true
+      "single": true,
+      "appliesTo": "all elements"
     },
     {
       "name": "background-color",
-      "takesColor": true,
-      "single": true
+      "single": true,
+      "appliesTo": "all elements"
     },
     {
       "name": "border",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "see individual properties"
     },
     {
       "name": "border-block",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "see individual properties"
     },
     {
       "name": "border-block-color",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "see individual properties"
     },
     {
       "name": "border-block-end",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
     },
     {
       "name": "border-block-end-color",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
     },
     {
       "name": "border-block-start",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
     },
     {
       "name": "border-block-start-color",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
     },
     {
       "name": "border-bottom",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
     },
     {
       "name": "border-bottom-color",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
     },
     {
       "name": "border-color",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "see individual properties"
     },
     {
       "name": "border-inline",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "see individual properties"
     },
     {
       "name": "border-inline-color",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "see individual properties"
     },
     {
       "name": "border-inline-end",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
     },
     {
       "name": "border-inline-end-color",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
     },
     {
       "name": "border-inline-start",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
     },
     {
       "name": "border-inline-start-color",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
     },
     {
       "name": "border-left",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
     },
     {
       "name": "border-left-color",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
     },
     {
       "name": "border-right",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
     },
     {
       "name": "border-right-color",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
     },
     {
       "name": "border-top",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
     },
     {
       "name": "border-top-color",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "all elements except ruby base containers and ruby annotation containers"
     },
     {
       "name": "box-shadow-color",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "all elements"
     },
     {
       "name": "caret",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "text or elements that accept text input"
     },
     {
       "name": "caret-color",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "text or elements that accept text input"
     },
     {
       "name": "color",
-      "takesColor": true,
-      "single": true
+      "single": true,
+      "appliesTo": "all elements and text"
     },
     {
       "name": "fill-color",
-      "takesColor": true,
-      "single": true
+      "single": true,
+      "appliesTo": "text and SVG shapes"
     },
     {
       "name": "flood-color",
-      "takesColor": true,
-      "single": true
+      "single": true,
+      "appliesTo": "feFlood and feDropShadow elements"
     },
     {
       "name": "lighting-color",
-      "takesColor": true,
-      "single": true
+      "single": true,
+      "appliesTo": "feDiffuseLighting and feSpecularLighting elements"
     },
     {
       "name": "outline-color",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "all elements"
     },
     {
       "name": "scrollbar-color",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "scroll containers"
     },
     {
       "name": "stop-color",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "see individual properties"
     },
     {
       "name": "stroke-color",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "text and SVG shapes"
     },
     {
       "name": "text-decoration",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "see individual properties"
     },
     {
       "name": "text-decoration-color",
-      "takesColor": true,
-      "single": true
+      "single": true,
+      "appliesTo": "all elements"
     },
     {
       "name": "text-emphasis",
-      "takesColor": true,
-      "single": false
+      "single": false,
+      "appliesTo": "see individual properties"
     },
     {
       "name": "text-emphasis-color",
-      "takesColor": true,
-      "single": true
+      "single": true,
+      "appliesTo": "text"
     }
   ]
 }

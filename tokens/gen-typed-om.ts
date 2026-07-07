@@ -25,7 +25,7 @@ const zodOf = (t: string): string =>
 
 // the value types a design token can hold: colors, dimensions, keywords, var refs — AND the math
 // tree (calc), because a DERIVATION (one axis, multiply-only) is a CSSMathProduct/Sum/Clamp.
-const VALUE_TYPES = ["CSSOKLCH", "CSSOKLab", "CSSLCH", "CSSLab", "CSSRGB", "CSSHSL", "CSSHWB", "CSSColor", "CSSUnitValue", "CSSKeywordValue", "CSSUnparsedValue", "CSSVariableReferenceValue", "CSSNumericValue", "CSSMathSum", "CSSMathProduct", "CSSMathNegate", "CSSMathInvert", "CSSMathMin", "CSSMathMax", "CSSMathClamp"];
+const VALUE_TYPES = ["CSSOKLCH", "CSSOKLab", "CSSLCH", "CSSLab", "CSSRGB", "CSSHSL", "CSSHWB", "CSSColor", "CSSUnitValue", "CSSKeywordValue", "CSSUnparsedValue", "CSSVariableReferenceValue", "CSSNumericValue", "CSSMathSum", "CSSMathProduct", "CSSMathNegate", "CSSMathInvert", "CSSMathMin", "CSSMathMax", "CSSMathClamp", "CSSImageValue", "CSSTransformValue"];
 
 let out = `// GENERATED from @webref/idl (css-typed-om) by gen-typed-om.ts — do not edit by hand.\n// The CSS Typed OM value interfaces, projected to Zod. Our color tokens ARE CSSOKLCH.\nimport { z } from "zod";\n\n`;
 const names: string[] = [];
