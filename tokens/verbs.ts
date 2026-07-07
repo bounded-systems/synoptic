@@ -23,6 +23,7 @@ import {
   sha,
 } from "./color.ts";
 import { ColorPair, Dimension, NumberValue, PrimitiveColor, PropertyPair, PropertyToken, RootFontSize } from "./schema.ts";
+import { TYPE_SCALE_BOUNDS } from "./dimension-constraints.ts";
 
 /** The color-valued CSS properties, DERIVED from @webref/css (committed artifact). */
 const DERIVED_PROPS: string[] = (JSON.parse(Deno.readTextFileSync(new URL("color-properties.derived.json", import.meta.url))) as { properties: { name: string }[] }).properties.map((p) => p.name);
@@ -105,6 +106,15 @@ export function deriveDimensions(scale: readonly number[], ratio = 1.2): Record<
     out[`rem-${String(v).replace(/\./g, "_")}`] = { $type: "dimension", $value: value, $sha: sha(`${v}rem`), $description: describeDim(v) };
   }
   return out;
+}
+
+/** GENERATE the complete valid type scale — the bounds FORCE the ratio (like the color constraints
+ * force the palette): given the floor, ceiling, and markdown's role count, the geometric ratio is
+ * DETERMINED, not chosen. Returns the distinct rem sizes, snapped to the geometric grid. */
+export function generateScale(floor = TYPE_SCALE_BOUNDS.floorRem, ceiling = TYPE_SCALE_BOUNDS.ceilingRem, roles = TYPE_SCALE_BOUNDS.maxRoles): Record<string, z.infer<typeof Dimension>> {
+  const ratio = (ceiling / floor) ** (1 / (roles - 1)); // forced by [floor, ceiling] and the role count
+  const sizes = Array.from({ length: roles }, (_, i) => Math.round(floor * ratio ** i * 1000) / 1000);
+  return deriveDimensions(sizes, ratio);
 }
 
 /** The ROOT font-size — the reference every rem floats on. Fluid = clamp() with a rem floor. */
@@ -250,6 +260,15 @@ export const numbersVerb = defineVerb({
   run: ({ ratios }) => deriveNumbers(ratios),
 });
 
+export const typeScaleVerb = defineVerb({
+  id: "type-scale",
+  summary: "Generate the complete valid type scale — the bounds (floor, ceiling, markdown's 7 roles) FORCE the ratio; returns the derived rem sizes.",
+  actor: "brand",
+  input: z.object({ floor: z.number().positive().default(TYPE_SCALE_BOUNDS.floorRem), ceiling: z.number().positive().default(TYPE_SCALE_BOUNDS.ceilingRem), roles: z.number().int().min(2).max(7).default(TYPE_SCALE_BOUNDS.maxRoles) }),
+  output: z.record(z.string(), Dimension),
+  run: ({ floor, ceiling, roles }) => generateScale(floor, ceiling, roles),
+});
+
 export const rootVerb = defineVerb({
   id: "root",
   summary: "The root font-size every rem floats on — clamp() with a rem floor (fluid) or `medium`. A vw term without a rem floor is unconstructable (1.4.4).",
@@ -259,7 +278,7 @@ export const rootVerb = defineVerb({
   run: ({ fluid }) => deriveRoot(fluid),
 });
 
-export const VERBS: Registry = { primitives: primitivesVerb, "primitive-pairs": primitivePairsVerb, "property-tokens": propertyTokensVerb, "contrast-pairs": contrastPairsVerb, dimensions: dimensionsVerb, numbers: numbersVerb, root: rootVerb };
+export const VERBS: Registry = { primitives: primitivesVerb, "primitive-pairs": primitivePairsVerb, "property-tokens": propertyTokensVerb, "contrast-pairs": contrastPairsVerb, dimensions: dimensionsVerb, numbers: numbersVerb, "type-scale": typeScaleVerb, root: rootVerb };
 
 if (import.meta.main) {
   const result = await dispatch(VERBS, Deno.args, "deno run verbs.ts");
