@@ -14,7 +14,7 @@ const PRIM = {
 };
 // the grounds a color is placed against, by BAND (no names — light vs dark). The worst contrast
 // across a band is the guarantee for that band.
-const BANDS = { "light grounds":["#EDEAE1","#FFFFFF"], "dark grounds":["#0C5A42","#073D2C","#16221C"] };
+const BANDS = { "light backgrounds":["#EDEAE1","#FFFFFF"], "dark backgrounds":["#0C5A42","#073D2C","#16221C"] };
 
 const hex2rgb=(h)=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)/255);
 const toLin=(c)=>c<=0.04045?c/12.92:((c+0.055)/1.055)**2.4;
@@ -45,14 +45,20 @@ for(const [name,hex] of Object.entries(PRIM)){
     if(n>=3) pairs.push({band,n,v,tier:n>=4.5?"text AA 4.5:1":"non-text 3:1",bar:n>=4.5?4.5:3});
   }
   pairs.sort((a,b)=>b.n-a.n);
-  const chroma=t.c<0.02?"near-neutral":t.c<0.05?"low-chroma":"chromatic";
-  const warm=(t.h>=20&&t.h<=110)?"warm":(t.h>=200&&t.h<=300)?"cool":"—";
-  let desc=`${chroma} ${warm==="—"?"":warm+" "}oklch(${t.l}% ${t.c} ${t.h}).`;
-  if(pairs.length){
-    const p=pairs.map(p=>`on ${p.band} ≥${p.n.toFixed(2)}:1 (${p.tier} ✓; worst-CVD ${p.v.toFixed(2)}:1 ${p.v>=p.bar?"✓":"✗"})`).join("; ");
-    desc+=` ${p}. CVD-checked (deuteranopia/protanopia/tritanopia).`;
+  // name the color in plain words
+  const hueName=(h)=>{for(const[deg,nm]of[[18,"red"],[45,"clay"],[78,"amber"],[105,"gold"],[140,"lime"],[172,"green"],[195,"teal"],[240,"blue"],[290,"indigo"],[335,"magenta"],[360,"red"]])if(h<=deg)return nm;return"red";};
+  const shade=t.l>=88?"very light":t.l>=66?"light":t.l>=44?"mid-tone":t.l>=24?"dark":"deep";
+  const color=t.c<0.02?(t.l>=88?"off-white":t.l<=22?"near-black":"grey"):`${(t.h>=20&&t.h<=110)?"warm ":(t.h>=195&&t.h<=300)?"cool ":""}${hueName(t.h)}`;
+  let desc;
+  if(!pairs.length){
+    desc=`A ${shade} ${color}. It's a background surface — other colors sit on it, rather than it on them.`;
   } else {
-    desc+=` Neither band clears 3:1 — a surface/ground itself, not placed on one.`;
+    const parts=pairs.map(p=>{
+      const use=p.bar>=4.5?"text":"borders and dividers";
+      const floor=p.bar>=4.5?"the 4.5:1 minimum for readable text":"the 3:1 minimum for non-text";
+      return `As ${use} on ${p.band} it reaches ${p.n.toFixed(1)} to 1 — past ${floor} — and still holds ${p.v.toFixed(1)} to 1 for color-blind readers`;
+    });
+    desc=`A ${shade} ${color}. ${parts.join("; ")}. So it stays legible for everyone, including the three common kinds of color-blindness.`;
   }
   out[name]={ was:name, cas, value:`oklch(${t.l}% ${t.c} ${t.h} / ${t.alpha})`, hex, desc };
 }
