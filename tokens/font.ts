@@ -46,3 +46,19 @@ export const FontFamily = z.object({
   $description: z.string(),
 });
 export type FontFamily = z.infer<typeof FontFamily>;
+
+/** font-palette reification (CSS Fonts 4 §font-palette, via CSS Typed OM reify). For both specified
+ * and computed values: `normal | light | dark` reify to an IDENTIFIER (CSSKeywordValue); any other
+ * value (a `<palette-identifier>` like `--brand`) reifies to a generic CSSStyleValue. */
+export const FontPaletteKeyword = z.enum(["normal", "light", "dark"]);
+export type FontPaletteKeyword = z.infer<typeof FontPaletteKeyword>;
+export const FontPalette = z.object({
+  $type: z.literal("font-palette"),
+  $value: z.union([FontPaletteKeyword, z.string().regex(/^--/, "a <palette-identifier>")]),
+  $reifiesTo: z.union([z.literal("CSSKeywordValue"), z.literal("CSSStyleValue")]),
+  $description: z.string(),
+});
+export type FontPalette = z.infer<typeof FontPalette>;
+/** Which Typed OM type a font-palette value reifies to — the spec's branch, made executable. */
+export const reifyFontPalette = (value: string): "CSSKeywordValue" | "CSSStyleValue" =>
+  FontPaletteKeyword.safeParse(value).success ? "CSSKeywordValue" : "CSSStyleValue";
