@@ -2,7 +2,7 @@
   "contrast-pairs": {
     "$description": "Valid contrast pairs, keyed by the two CSS color properties in alphabetical order joined with '<>'. Only foregrounds that require contrast against background-color; exempt properties (flood/lighting/stop/box-shadow-color) omitted. Derived from the webref color-property set.",
     "$tierResolution": "The tier (text vs non-text) is NOT fixed by the property — it comes from the NODE carrying the foreground: does it render text, at what size (large → 4.5:1), text-element or shape? The property only proposes a candidate.",
-    "$treeResolution": "A pair spans the node tree, not one node. The foreground (e.g. color) INHERITS — it may come from the node or an ancestor. The background (background-color) does NOT inherit — the effective background is the nearest ancestor that paints one. So the two colors usually sit on different nodes; parent and child colors both matter when resolving a pair.",
+    "$treeResolution": "Use RESOLVED (computed) colors per node — not the cascade/inheritance chain. A concrete pair is a parent→child edge whose resolved colors DIFFER; if parent and child resolve to the same color there is no pair (nothing to distinguish). The background side is the parent's resolved background-color, the foreground the child's resolved color.",
     "-webkit-text-fill-color<>background-color": {
       "$type": "contrast-pair",
       "$properties": [
@@ -14,7 +14,7 @@
       "$tierFrom": "node",
       "$candidate": "text (only ever paints text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `-webkit-text-fill-color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`-webkit-text-fill-color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `-webkit-text-fill-color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "-webkit-text-stroke<>background-color": {
       "$type": "contrast-pair",
@@ -27,7 +27,7 @@
       "$tierFrom": "node",
       "$candidate": "text (only ever paints text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `-webkit-text-stroke`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`-webkit-text-stroke` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `-webkit-text-stroke` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "-webkit-text-stroke-color<>background-color": {
       "$type": "contrast-pair",
@@ -40,7 +40,7 @@
       "$tierFrom": "node",
       "$candidate": "text (only ever paints text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `-webkit-text-stroke-color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`-webkit-text-stroke-color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `-webkit-text-stroke-color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "accent-color<>background-color": {
       "$type": "contrast-pair",
@@ -53,7 +53,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `accent-color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`accent-color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `accent-color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border": {
       "$type": "contrast-pair",
@@ -66,7 +66,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-block": {
       "$type": "contrast-pair",
@@ -79,7 +79,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-block`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-block` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-block` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-block-color": {
       "$type": "contrast-pair",
@@ -92,7 +92,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-block-color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-block-color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-block-color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-block-end": {
       "$type": "contrast-pair",
@@ -105,7 +105,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-block-end`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-block-end` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-block-end` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-block-end-color": {
       "$type": "contrast-pair",
@@ -118,7 +118,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-block-end-color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-block-end-color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-block-end-color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-block-start": {
       "$type": "contrast-pair",
@@ -131,7 +131,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-block-start`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-block-start` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-block-start` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-block-start-color": {
       "$type": "contrast-pair",
@@ -144,7 +144,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-block-start-color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-block-start-color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-block-start-color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-bottom": {
       "$type": "contrast-pair",
@@ -157,7 +157,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-bottom`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-bottom` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-bottom` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-bottom-color": {
       "$type": "contrast-pair",
@@ -170,7 +170,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-bottom-color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-bottom-color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-bottom-color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-color": {
       "$type": "contrast-pair",
@@ -183,7 +183,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-inline": {
       "$type": "contrast-pair",
@@ -196,7 +196,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-inline`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-inline` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-inline` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-inline-color": {
       "$type": "contrast-pair",
@@ -209,7 +209,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-inline-color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-inline-color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-inline-color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-inline-end": {
       "$type": "contrast-pair",
@@ -222,7 +222,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-inline-end`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-inline-end` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-inline-end` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-inline-end-color": {
       "$type": "contrast-pair",
@@ -235,7 +235,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-inline-end-color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-inline-end-color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-inline-end-color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-inline-start": {
       "$type": "contrast-pair",
@@ -248,7 +248,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-inline-start`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-inline-start` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-inline-start` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-inline-start-color": {
       "$type": "contrast-pair",
@@ -261,7 +261,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-inline-start-color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-inline-start-color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-inline-start-color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-left": {
       "$type": "contrast-pair",
@@ -274,7 +274,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-left`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-left` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-left` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-left-color": {
       "$type": "contrast-pair",
@@ -287,7 +287,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-left-color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-left-color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-left-color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-right": {
       "$type": "contrast-pair",
@@ -300,7 +300,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-right`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-right` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-right` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-right-color": {
       "$type": "contrast-pair",
@@ -313,7 +313,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-right-color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-right-color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-right-color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-top": {
       "$type": "contrast-pair",
@@ -326,7 +326,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-top`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-top` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-top` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>border-top-color": {
       "$type": "contrast-pair",
@@ -339,7 +339,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `border-top-color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`border-top-color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `border-top-color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>caret": {
       "$type": "contrast-pair",
@@ -352,7 +352,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `caret`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`caret` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `caret` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>caret-color": {
       "$type": "contrast-pair",
@@ -365,7 +365,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `caret-color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`caret-color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `caret-color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>color": {
       "$type": "contrast-pair",
@@ -378,7 +378,7 @@
       "$tierFrom": "node",
       "$candidate": "text (only ever paints text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>fill-color": {
       "$type": "contrast-pair",
@@ -391,7 +391,7 @@
       "$tierFrom": "node",
       "$candidate": "depends — text on a <text> node, non-text on a shape",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `fill-color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`fill-color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `fill-color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>outline-color": {
       "$type": "contrast-pair",
@@ -404,7 +404,7 @@
       "$tierFrom": "node",
       "$candidate": "non-text (never text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `outline-color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`outline-color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `outline-color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "scrollbar-color<>scrollbar-color": {
       "$type": "contrast-pair",
@@ -426,7 +426,7 @@
       "$tierFrom": "node",
       "$candidate": "depends — text on a <text> node, non-text on a shape",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `stroke-color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`stroke-color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `stroke-color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>text-decoration": {
       "$type": "contrast-pair",
@@ -439,7 +439,7 @@
       "$tierFrom": "node",
       "$candidate": "text (only ever paints text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `text-decoration`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`text-decoration` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `text-decoration` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>text-decoration-color": {
       "$type": "contrast-pair",
@@ -452,7 +452,7 @@
       "$tierFrom": "node",
       "$candidate": "text (only ever paints text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `text-decoration-color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`text-decoration-color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `text-decoration-color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>text-emphasis": {
       "$type": "contrast-pair",
@@ -465,7 +465,7 @@
       "$tierFrom": "node",
       "$candidate": "text (only ever paints text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `text-emphasis`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`text-emphasis` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `text-emphasis` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     },
     "background-color<>text-emphasis-color": {
       "$type": "contrast-pair",
@@ -478,7 +478,7 @@
       "$tierFrom": "node",
       "$candidate": "text (only ever paints text)",
       "$note": "The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying `text-emphasis-color`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.",
-      "$resolvesAcrossTree": "`text-emphasis-color` inherits, so the foreground may come from this node or an ancestor; `background-color` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter."
+      "$check": "Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved `text-emphasis-color` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish)."
     }
   }
 }

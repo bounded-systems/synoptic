@@ -1,0 +1,765 @@
+{
+  "primitive-pairs": {
+    "$description": "Contrast pairs between the derived primitive atoms. Unordered (contrast is symmetric), keyed by the two CAS names alphabetically joined with '<>'. Only valid pairs: >=3:1 both normally and under deuteranopia/protanopia/tritanopia. $clears lists the tiers this color pair CAN satisfy; which tier a given node NEEDS comes from the node.",
+    "oklch-41_69-0_0817-166_22-1<>oklch-93_19-0_0117-162_04-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-93_19-0_0117-162_04-1"
+      ],
+      "$ratio": 6.75,
+      "$cvd": 6.38,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-89_39-0_0185-161_08-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-89_39-0_0185-161_08-1"
+      ],
+      "$ratio": 6.02,
+      "$cvd": 5.72,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-84_22-0_0256-174_61-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-84_22-0_0256-174_61-1"
+      ],
+      "$ratio": 5.12,
+      "$cvd": 4.9,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-69_75-0_0955-171_28-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-69_75-0_0955-171_28-1"
+      ],
+      "$ratio": 3.19,
+      "$cvd": 3.12,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$ratio": 6.83,
+      "$cvd": 6.38,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-41_69-0_0817-166_22-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-41_69-0_0817-166_22-1"
+      ],
+      "$ratio": 8.21,
+      "$cvd": 7.72,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-95_44-0_0141-39_42-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-95_44-0_0141-39_42-1"
+      ],
+      "$ratio": 7.16,
+      "$cvd": 6.65,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-41_69-0_0817-166_22-1<>oklch-93_49-0_0267-80_25-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-41_69-0_0817-166_22-1",
+        "oklch-93_49-0_0267-80_25-1"
+      ],
+      "$ratio": 6.78,
+      "$cvd": 6.27,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-93_19-0_0117-162_04-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-93_19-0_0117-162_04-1"
+      ],
+      "$ratio": 10.08,
+      "$cvd": 9.72,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-89_39-0_0185-161_08-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-89_39-0_0185-161_08-1"
+      ],
+      "$ratio": 8.99,
+      "$cvd": 8.7,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-84_22-0_0256-174_61-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-84_22-0_0256-174_61-1"
+      ],
+      "$ratio": 7.64,
+      "$cvd": 7.46,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-69_75-0_0955-171_28-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-69_75-0_0955-171_28-1"
+      ],
+      "$ratio": 4.75,
+      "$cvd": 4.66,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-59_2-0_0593-158_89-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-59_2-0_0593-158_89-1"
+      ],
+      "$ratio": 3.1,
+      "$cvd": 3.05,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$ratio": 10.19,
+      "$cvd": 9.72,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-32_14-0_0619-166_35-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-32_14-0_0619-166_35-1"
+      ],
+      "$ratio": 12.26,
+      "$cvd": 11.75,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-61-0_0228-91_69-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-61-0_0228-91_69-1"
+      ],
+      "$ratio": 3.24,
+      "$cvd": 3.06,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-95_44-0_0141-39_42-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-95_44-0_0141-39_42-1"
+      ],
+      "$ratio": 10.69,
+      "$cvd": 10.13,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-32_14-0_0619-166_35-1<>oklch-93_49-0_0267-80_25-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-32_14-0_0619-166_35-1",
+        "oklch-93_49-0_0267-80_25-1"
+      ],
+      "$ratio": 10.11,
+      "$cvd": 9.55,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-59_2-0_0593-158_89-1<>oklch-93_19-0_0117-162_04-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-59_2-0_0593-158_89-1",
+        "oklch-93_19-0_0117-162_04-1"
+      ],
+      "$ratio": 3.25,
+      "$cvd": 3.15,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-93_19-0_0117-162_04-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-93_19-0_0117-162_04-1"
+      ],
+      "$ratio": 13.49,
+      "$cvd": 13.44,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-93_19-0_0117-162_04-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-93_19-0_0117-162_04-1"
+      ],
+      "$ratio": 4.62,
+      "$cvd": 4.57,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-61-0_0228-91_69-1<>oklch-93_19-0_0117-162_04-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-61-0_0228-91_69-1",
+        "oklch-93_19-0_0117-162_04-1"
+      ],
+      "$ratio": 3.11,
+      "$cvd": 3.07,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-49_39-0_1334-32_95-1<>oklch-93_19-0_0117-162_04-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-49_39-0_1334-32_95-1",
+        "oklch-93_19-0_0117-162_04-1"
+      ],
+      "$ratio": 5.4,
+      "$cvd": 4.78,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-50_76-0_1018-66_29-1<>oklch-93_19-0_0117-162_04-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-50_76-0_1018-66_29-1",
+        "oklch-93_19-0_0117-162_04-1"
+      ],
+      "$ratio": 4.9,
+      "$cvd": 4.56,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-89_39-0_0185-161_08-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-89_39-0_0185-161_08-1"
+      ],
+      "$ratio": 12.03,
+      "$cvd": 12.03,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-89_39-0_0185-161_08-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-89_39-0_0185-161_08-1"
+      ],
+      "$ratio": 4.12,
+      "$cvd": 4.09,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-49_39-0_1334-32_95-1<>oklch-89_39-0_0185-161_08-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-49_39-0_1334-32_95-1",
+        "oklch-89_39-0_0185-161_08-1"
+      ],
+      "$ratio": 4.81,
+      "$cvd": 4.25,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-50_76-0_1018-66_29-1<>oklch-89_39-0_0185-161_08-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-50_76-0_1018-66_29-1",
+        "oklch-89_39-0_0185-161_08-1"
+      ],
+      "$ratio": 4.37,
+      "$cvd": 4.06,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-84_22-0_0256-174_61-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-84_22-0_0256-174_61-1"
+      ],
+      "$ratio": 10.23,
+      "$cvd": 10.17,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-84_22-0_0256-174_61-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-84_22-0_0256-174_61-1"
+      ],
+      "$ratio": 3.5,
+      "$cvd": 3.5,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-49_39-0_1334-32_95-1<>oklch-84_22-0_0256-174_61-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-49_39-0_1334-32_95-1",
+        "oklch-84_22-0_0256-174_61-1"
+      ],
+      "$ratio": 4.09,
+      "$cvd": 3.59,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-50_76-0_1018-66_29-1<>oklch-84_22-0_0256-174_61-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-50_76-0_1018-66_29-1",
+        "oklch-84_22-0_0256-174_61-1"
+      ],
+      "$ratio": 3.71,
+      "$cvd": 3.43,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-69_75-0_0955-171_28-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-69_75-0_0955-171_28-1"
+      ],
+      "$ratio": 6.36,
+      "$cvd": 6.09,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-59_2-0_0593-158_89-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-59_2-0_0593-158_89-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$ratio": 3.29,
+      "$cvd": 3.15,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-59_2-0_0593-158_89-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-59_2-0_0593-158_89-1"
+      ],
+      "$ratio": 3.96,
+      "$cvd": 3.81,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-59_2-0_0593-158_89-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-59_2-0_0593-158_89-1"
+      ],
+      "$ratio": 4.14,
+      "$cvd": 4.06,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-59_2-0_0593-158_89-1<>oklch-95_44-0_0141-39_42-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-59_2-0_0593-158_89-1",
+        "oklch-95_44-0_0141-39_42-1"
+      ],
+      "$ratio": 3.45,
+      "$cvd": 3.28,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-59_2-0_0593-158_89-1<>oklch-93_49-0_0267-80_25-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-59_2-0_0593-158_89-1",
+        "oklch-93_49-0_0267-80_25-1"
+      ],
+      "$ratio": 3.27,
+      "$cvd": 3.09,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$ratio": 13.64,
+      "$cvd": 13.43,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$ratio": 4.67,
+      "$cvd": 4.57,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-61-0_0228-91_69-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-61-0_0228-91_69-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$ratio": 3.15,
+      "$cvd": 3.13,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-49_39-0_1334-32_95-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-49_39-0_1334-32_95-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$ratio": 5.46,
+      "$cvd": 4.87,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-50_76-0_1018-66_29-1<>oklch-93_69-0_0124-91_52-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-50_76-0_1018-66_29-1",
+        "oklch-93_69-0_0124-91_52-1"
+      ],
+      "$ratio": 4.95,
+      "$cvd": 4.65,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-23_84-0_0204-162_64-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-23_84-0_0204-162_64-1"
+      ],
+      "$ratio": 16.41,
+      "$cvd": 16.25,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-51_27-0_022-162_31-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-51_27-0_022-162_31-1"
+      ],
+      "$ratio": 5.62,
+      "$cvd": 5.52,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-61-0_0228-91_69-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-61-0_0228-91_69-1"
+      ],
+      "$ratio": 3.79,
+      "$cvd": 3.76,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-49_39-0_1334-32_95-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-49_39-0_1334-32_95-1"
+      ],
+      "$ratio": 6.57,
+      "$cvd": 5.84,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-100-0-0-1<>oklch-50_76-0_1018-66_29-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-100-0-0-1",
+        "oklch-50_76-0_1018-66_29-1"
+      ],
+      "$ratio": 5.96,
+      "$cvd": 5.57,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-61-0_0228-91_69-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-61-0_0228-91_69-1"
+      ],
+      "$ratio": 4.33,
+      "$cvd": 4.24,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-95_44-0_0141-39_42-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-95_44-0_0141-39_42-1"
+      ],
+      "$ratio": 14.31,
+      "$cvd": 14,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-23_84-0_0204-162_64-1<>oklch-93_49-0_0267-80_25-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-23_84-0_0204-162_64-1",
+        "oklch-93_49-0_0267-80_25-1"
+      ],
+      "$ratio": 13.54,
+      "$cvd": 13.2,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5",
+        "text-AAA-7"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-95_44-0_0141-39_42-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-95_44-0_0141-39_42-1"
+      ],
+      "$ratio": 4.9,
+      "$cvd": 4.76,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-51_27-0_022-162_31-1<>oklch-93_49-0_0267-80_25-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-51_27-0_022-162_31-1",
+        "oklch-93_49-0_0267-80_25-1"
+      ],
+      "$ratio": 4.63,
+      "$cvd": 4.49,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-61-0_0228-91_69-1<>oklch-95_44-0_0141-39_42-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-61-0_0228-91_69-1",
+        "oklch-95_44-0_0141-39_42-1"
+      ],
+      "$ratio": 3.3,
+      "$cvd": 3.3,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-61-0_0228-91_69-1<>oklch-93_49-0_0267-80_25-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-61-0_0228-91_69-1",
+        "oklch-93_49-0_0267-80_25-1"
+      ],
+      "$ratio": 3.12,
+      "$cvd": 3.12,
+      "$clears": [
+        "non-text-3"
+      ]
+    },
+    "oklch-49_39-0_1334-32_95-1<>oklch-95_44-0_0141-39_42-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-49_39-0_1334-32_95-1",
+        "oklch-95_44-0_0141-39_42-1"
+      ],
+      "$ratio": 5.73,
+      "$cvd": 5.14,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-49_39-0_1334-32_95-1<>oklch-93_49-0_0267-80_25-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-49_39-0_1334-32_95-1",
+        "oklch-93_49-0_0267-80_25-1"
+      ],
+      "$ratio": 5.42,
+      "$cvd": 4.87,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-50_76-0_1018-66_29-1<>oklch-95_44-0_0141-39_42-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-50_76-0_1018-66_29-1",
+        "oklch-95_44-0_0141-39_42-1"
+      ],
+      "$ratio": 5.2,
+      "$cvd": 4.9,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    },
+    "oklch-50_76-0_1018-66_29-1<>oklch-93_49-0_0267-80_25-1": {
+      "$type": "color-pair",
+      "$colors": [
+        "oklch-50_76-0_1018-66_29-1",
+        "oklch-93_49-0_0267-80_25-1"
+      ],
+      "$ratio": 4.92,
+      "$cvd": 4.64,
+      "$clears": [
+        "non-text-3",
+        "text-AA-4.5"
+      ]
+    }
+  }
+}

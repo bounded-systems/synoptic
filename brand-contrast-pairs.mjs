@@ -22,7 +22,7 @@ for (const p of derived) {
     pairs[props.join("<>")]={ "$type":"contrast-pair", "$properties":props, "$foreground":p, "$background":"background-color",
       "$tierFrom":"node", "$candidate":candidate[r],
       "$note":`The tier (text 7:1/4.5:1 or non-text 3:1) and the exact ratio come from the NODE carrying \`${p}\`: does it render text, and at what size (large text → 4.5:1)? The property only proposes the candidate.`,
-      "$resolvesAcrossTree":`\`${p}\` inherits, so the foreground may come from this node or an ancestor; \`background-color\` does NOT inherit, so the background is the nearest ancestor that paints one. The two colors usually live on DIFFERENT nodes — parent and child both matter.` };
+      "$check":`Use RESOLVED colors. A concrete pair is a parent→child edge where the resolved \`${p}\` differs from the parent's resolved background-color; equal colors are skipped (nothing to distinguish).` };
   } else if (r==="self") {
     pairs["scrollbar-color<>scrollbar-color"]={ "$type":"contrast-pair", "$properties":["scrollbar-color"],
       "$note":"self-contained — thumb color vs track color, both in one property; non-text, 3:1", "$tierFrom":"property (fixed)", "$candidate":"non-text" };
@@ -32,7 +32,7 @@ for (const p of derived) {
 const doc={ "contrast-pairs":{
   "$description":"Valid contrast pairs, keyed by the two CSS color properties in alphabetical order joined with '<>'. Only foregrounds that require contrast against background-color; exempt properties (flood/lighting/stop/box-shadow-color) omitted. Derived from the webref color-property set.",
   "$tierResolution":"The tier (text vs non-text) is NOT fixed by the property — it comes from the NODE carrying the foreground: does it render text, at what size (large → 4.5:1), text-element or shape? The property only proposes a candidate.",
-  "$treeResolution":"A pair spans the node tree, not one node. The foreground (e.g. color) INHERITS — it may come from the node or an ancestor. The background (background-color) does NOT inherit — the effective background is the nearest ancestor that paints one. So the two colors usually sit on different nodes; parent and child colors both matter when resolving a pair.",
+  "$treeResolution":"Use RESOLVED (computed) colors per node — not the cascade/inheritance chain. A concrete pair is a parent→child edge whose resolved colors DIFFER; if parent and child resolve to the same color there is no pair (nothing to distinguish). The background side is the parent's resolved background-color, the foreground the child's resolved color.",
   ...pairs } };
 if (process.argv.includes("--json")) { console.log(JSON.stringify(doc,null,2)); process.exit(0); }
 
