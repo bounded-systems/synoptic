@@ -7,10 +7,11 @@ import { z } from "zod";
 import { serialize, syntaxOf, varRef } from "./serialize.ts";
 import { deriveDimensions, deriveMeasure, derivePrimitives, deriveSeedPalette, generateScale } from "./verbs.ts";
 import { deriveWeights } from "./extras.ts";
-import { CssProperty } from "./properties.ts";
-import { isWarm } from "./hue.ts";
+import { CssProperty, PROP } from "./properties.ts";
+import { hueField } from "./hue.ts";
 import { contrast, luminanceOklch } from "./color.ts";
-import { ROLE_ORDER, ROLE_SPEC, type Role, type RoleSpec, SEL, type Selector } from "./roles.ts";
+import { DEFAULT_ROLE_PREFS, ROLE_CONTRACT, ROLE_ORDER, type Role, SEL, type Selector } from "./roles.ts";
+import { CHROMA_REF, CHROMATIC_THRESHOLD, HAIRLINE_REM, LINE_HEIGHT_BODY, LINE_HEIGHT_HEADING, ROOT_FONT, SPACE, SPACING_RATIO, SPACING_STOPS, TARGET_MIN_REM } from "./constants.ts";
 import { loadBrand } from "./config.ts";
 
 const brand = loadBrand(Deno.args[0]);
@@ -23,7 +24,7 @@ const prims = derivePrimitives(palette);
 interface A { cas: string; value: { $type: "CSSOKLCH"; l: number; c: number; h: number; alpha: number }; l: number; c: number; h: number; Y: number }
 const atoms: A[] = Object.entries(prims).map(([cas, p]) => ({ cas, value: p.$value as A["value"], l: p.$value.l, c: p.$value.c, h: p.$value.h, Y: luminanceOklch(p.$value.l, p.$value.c, p.$value.h) }));
 const clears = (fg: A, bg: A, r: number) => contrast(fg.Y, bg.Y) >= r;
-const score = (a: A, t: number) => brandBias * Math.min(a.c / 0.15, 1) * 100 + (1 - brandBias) * (100 - Math.abs(a.l - t));
+const score = (a: A, t: number) => brandBias * Math.min(a.c / CHROMA_REF, 1) * 100 + (1 - brandBias) * (100 - Math.abs(a.l - t));
 const pick = (cs: A[], t: number): A | null => (cs.length ? [...cs].sort((x, y) => score(y, t) - score(x, t))[0] : null); // chroma-preferring accents
 const pickN = (cs: A[], t: number): A | null => (cs.length ? [...cs].sort((x, y) => (Math.abs(x.l - t) - Math.abs(y.l - t)) || (x.c - y.c))[0] : null); // crisp neutrals
 const fail = (m: string): never => { console.error(`✗ unsatisfiable role — ${m}. Surfacing rather than emitting an invalid style.`); Deno.exit(1); };
@@ -31,21 +32,22 @@ const lightest = atoms.reduce((a, b) => (a.l > b.l ? a : b)), darkest = atoms.re
 
 const roles = {} as Record<Role, A>;
 for (const role of ROLE_ORDER) {
-  const spec: RoleSpec = { ...ROLE_SPEC[role], ...(brand.roleOverrides[role] ?? {}) };
+  const pref = { ...DEFAULT_ROLE_PREFS[role], ...(brand.roles[role] ?? {}) }; // decisions (config) merged over defaults
+  const { tier, on } = ROLE_CONTRACT[role]; // the REQUIRED WCAG tier (invariant)
   const cands = atoms.filter((a) =>
-    (spec.minL === undefined || a.l >= spec.minL) &&
-    (spec.maxL === undefined || a.l <= spec.maxL) &&
-    (!spec.on || !spec.tier || clears(a, roles[spec.on], spec.tier)) &&
-    (!spec.chromatic || a.c > 0.06) &&
-    (spec.field !== "warm" || isWarm(a.h)));
-  roles[role] = (spec.chromatic ? pick : pickN)(cands, spec.targetL) ??
-    (spec.fallback ? roles[spec.fallback] : role === "surface" ? lightest : role === "surface-dark" ? darkest : fail(`${role} clears no color at its tier`));
+    (pref.minL === undefined || a.l >= pref.minL) &&
+    (pref.maxL === undefined || a.l <= pref.maxL) &&
+    (!on || !tier || clears(a, roles[on], tier)) &&
+    (!pref.chromatic || a.c > CHROMATIC_THRESHOLD) &&
+    (!pref.field || hueField(a.h) === pref.field));
+  roles[role] = (pref.chromatic ? pick : pickN)(cands, pref.targetL) ??
+    (pref.fallback ? roles[pref.fallback] : role === "surface" ? lightest : role === "surface-dark" ? darkest : fail(`${role} clears no color at its ${tier}:1 tier`));
 }
 
 // ── dimension + weight tokens (type scale from the brand config) ───────────────
 const ts = brand.typeScale;
 const typeScale = generateScale(ts.floorRem, ts.ceilingRem, ts.roles);
-const spacing = deriveDimensions([0.125, 0.25, 0.5, 0.75, 1, 1.5, 2, 2.75, 3], 1.5);
+const spacing = deriveDimensions([...SPACING_STOPS], SPACING_RATIO);
 const dimTokens = { ...spacing, ...typeScale };
 const dimList = Object.entries(dimTokens).map(([cas, dm]) => ({ cas, v: (dm.$value as { value: number }).value }));
 const sizeOf = (role: string) => { const e = Object.entries(typeScale).find(([, x]) => x.$description.includes(`role: ${role}`)); return e ? varRef(`--${e[0]}`) : varRef("--zero"); };
@@ -69,69 +71,69 @@ const seen = new Set<string>();
 const tok = (name: string, value: unknown) => { if (!seen.has(name)) { seen.add(name); root.push({ selector: SEL.root, property: `--${name}`, value }); } return varRef(`--${name}`); };
 const zero = tok("zero", rem(0)); // even 0 is a var — no direct literal in an element rule
 const d = (rmv: number) => (rmv === 0 ? zero : varRef(`--${dimList.reduce((a, b) => (Math.abs(b.v - rmv) < Math.abs(a.v - rmv) ? b : a)).cas}`));
-const rootFont = tok("root-font", { $type: "CSSMathClamp" as const, lower: rem(1), value: { $type: "CSSMathSum" as const, values: [rem(0.5), vw(0.5)] }, upper: rem(1.25) });
+const rootFont = tok("root-font", { $type: "CSSMathClamp" as const, lower: rem(ROOT_FONT.floorRem), value: { $type: "CSSMathSum" as const, values: [rem(ROOT_FONT.baseRem), vw(ROOT_FONT.slopeVw)] }, upper: rem(ROOT_FONT.ceilRem) });
 const measure = tok("measure", deriveMeasure(brand.measure).$value);
-const lhBody = tok("lh-body", num(1.5)), lhTight = tok("lh-tight", num(1.2));
+const lhBody = tok("lh-body", num(LINE_HEIGHT_BODY)), lhTight = tok("lh-tight", num(LINE_HEIGHT_HEADING));
 const font = tok("font-sans", kw(brand.font));
 const wBody = varRef(`--w-${brand.weights.body}`), wHead = varRef(`--w-${brand.weights.heading}`);
 const kSolid = tok("kw-solid", kw("solid")), kUnderline = tok("kw-underline", kw("underline")), kAuto = tok("kw-auto", kw("auto")), kBlock = tok("kw-block", kw("block"));
-const targetMin = tok("target-min", rem(2.75));
+const targetMin = tok("target-min", rem(TARGET_MIN_REM));
 
 // ── element rules — EVERY value is a var(); every selector + property a named item ──
 const elems: Decl[] = [
-  { selector: SEL.root, property: "font-size", value: rootFont },
-  { selector: SEL.body, property: "background-color", value: varRef("--surface") },
-  { selector: SEL.body, property: "color", value: varRef("--text") },
-  { selector: SEL.body, property: "max-inline-size", value: measure },
-  { selector: SEL.body, property: "line-height", value: lhBody },
-  { selector: SEL.body, property: "font-family", value: font },
-  { selector: SEL.body, property: "font-weight", value: wBody },
-  { selector: SEL.body, property: "margin-block", value: d(2) },
-  { selector: SEL.body, property: "margin-inline", value: kAuto },
-  { selector: SEL.body, property: "padding-inline", value: d(1) },
-  { selector: SEL.h1, property: "font-size", value: sizeOf("h1") },
-  { selector: SEL.h1, property: "color", value: varRef("--heading") },
-  { selector: SEL.h1, property: "font-weight", value: wHead },
-  { selector: SEL.h1, property: "line-height", value: lhTight },
-  { selector: SEL.h1, property: "margin-block-start", value: d(0) },
-  { selector: SEL.h1, property: "margin-block-end", value: d(1) },
-  { selector: SEL.h2, property: "font-size", value: sizeOf("h2") },
-  { selector: SEL.h2, property: "color", value: varRef("--heading") },
-  { selector: SEL.h2, property: "font-weight", value: wHead },
-  { selector: SEL.h2, property: "line-height", value: lhTight },
-  { selector: SEL.h2, property: "margin-block-start", value: d(2) },
-  { selector: SEL.h2, property: "margin-block-end", value: d(0.75) },
-  { selector: SEL.h3, property: "font-size", value: sizeOf("h3") },
-  { selector: SEL.h3, property: "font-weight", value: wHead },
-  { selector: SEL.h3, property: "margin-block-start", value: d(0) },
-  { selector: SEL.h3, property: "margin-block-end", value: d(0.75) },
-  { selector: SEL.p, property: "margin-block-start", value: d(0) },
-  { selector: SEL.p, property: "margin-block-end", value: d(1) },
-  { selector: SEL.a, property: "color", value: varRef("--link") },
-  { selector: SEL.a, property: "text-decoration-line", value: kUnderline },
-  { selector: SEL.a, property: "text-decoration-color", value: varRef("--link") },
-  { selector: SEL.a, property: "text-underline-offset", value: d(0.125) },
-  { selector: SEL.card, property: "background-color", value: varRef("--surface-dark") },
-  { selector: SEL.card, property: "color", value: varRef("--on-dark") },
-  { selector: SEL.card, property: "border-width", value: d(0.125) },
-  { selector: SEL.card, property: "border-style", value: kSolid },
-  { selector: SEL.card, property: "border-color", value: varRef("--border") },
-  { selector: SEL.card, property: "border-radius", value: d(0.5) },
-  { selector: SEL.card, property: "padding", value: d(1.5) },
-  { selector: SEL.card, property: "margin-block", value: d(3) },
-  { selector: SEL.cardLast, property: "margin-block-end", value: zero },
-  { selector: SEL.cardText, property: "color", value: varRef("--on-dark") },
-  { selector: SEL.small, property: "font-size", value: sizeOf("small") },
-  { selector: SEL.small, property: "color", value: varRef("--muted") },
-  { selector: SEL.small, property: "display", value: kBlock },
-  { selector: SEL.small, property: "margin-block-start", value: d(1.5) },
-  { selector: SEL.button, property: "background-color", value: varRef("--accent") },
-  { selector: SEL.button, property: "color", value: varRef("--on-accent") },
-  { selector: SEL.button, property: "min-block-size", value: targetMin },
-  { selector: SEL.button, property: "padding-block", value: d(0.75) },
-  { selector: SEL.button, property: "padding-inline", value: d(1.5) },
-  { selector: SEL.button, property: "border-radius", value: d(0.25) },
-  { selector: SEL.button, property: "margin-block-start", value: d(1.5) },
+  { selector: SEL.root, property: PROP.fontSize, value: rootFont },
+  { selector: SEL.body, property: PROP.backgroundColor, value: varRef("--surface") },
+  { selector: SEL.body, property: PROP.color, value: varRef("--text") },
+  { selector: SEL.body, property: PROP.maxInlineSize, value: measure },
+  { selector: SEL.body, property: PROP.lineHeight, value: lhBody },
+  { selector: SEL.body, property: PROP.fontFamily, value: font },
+  { selector: SEL.body, property: PROP.fontWeight, value: wBody },
+  { selector: SEL.body, property: PROP.marginBlock, value: d(SPACE.lg) },
+  { selector: SEL.body, property: PROP.marginInline, value: kAuto },
+  { selector: SEL.body, property: PROP.paddingInline, value: d(SPACE.base) },
+  { selector: SEL.h1, property: PROP.fontSize, value: sizeOf("h1") },
+  { selector: SEL.h1, property: PROP.color, value: varRef("--heading") },
+  { selector: SEL.h1, property: PROP.fontWeight, value: wHead },
+  { selector: SEL.h1, property: PROP.lineHeight, value: lhTight },
+  { selector: SEL.h1, property: PROP.marginBlockStart, value: d(SPACE.none) },
+  { selector: SEL.h1, property: PROP.marginBlockEnd, value: d(SPACE.base) },
+  { selector: SEL.h2, property: PROP.fontSize, value: sizeOf("h2") },
+  { selector: SEL.h2, property: PROP.color, value: varRef("--heading") },
+  { selector: SEL.h2, property: PROP.fontWeight, value: wHead },
+  { selector: SEL.h2, property: PROP.lineHeight, value: lhTight },
+  { selector: SEL.h2, property: PROP.marginBlockStart, value: d(SPACE.lg) },
+  { selector: SEL.h2, property: PROP.marginBlockEnd, value: d(SPACE.snug) },
+  { selector: SEL.h3, property: PROP.fontSize, value: sizeOf("h3") },
+  { selector: SEL.h3, property: PROP.fontWeight, value: wHead },
+  { selector: SEL.h3, property: PROP.marginBlockStart, value: d(SPACE.none) },
+  { selector: SEL.h3, property: PROP.marginBlockEnd, value: d(SPACE.snug) },
+  { selector: SEL.p, property: PROP.marginBlockStart, value: d(SPACE.none) },
+  { selector: SEL.p, property: PROP.marginBlockEnd, value: d(SPACE.base) },
+  { selector: SEL.a, property: PROP.color, value: varRef("--link") },
+  { selector: SEL.a, property: PROP.textDecorationLine, value: kUnderline },
+  { selector: SEL.a, property: PROP.textDecorationColor, value: varRef("--link") },
+  { selector: SEL.a, property: PROP.textUnderlineOffset, value: d(SPACE.hair) },
+  { selector: SEL.card, property: PROP.backgroundColor, value: varRef("--surface-dark") },
+  { selector: SEL.card, property: PROP.color, value: varRef("--on-dark") },
+  { selector: SEL.card, property: PROP.borderWidth, value: d(SPACE.hair) },
+  { selector: SEL.card, property: PROP.borderStyle, value: kSolid },
+  { selector: SEL.card, property: PROP.borderColor, value: varRef("--border") },
+  { selector: SEL.card, property: PROP.borderRadius, value: d(SPACE.sm) },
+  { selector: SEL.card, property: PROP.padding, value: d(SPACE.md) },
+  { selector: SEL.card, property: PROP.marginBlock, value: d(SPACE.xl) },
+  { selector: SEL.cardLast, property: PROP.marginBlockEnd, value: zero },
+  { selector: SEL.cardText, property: PROP.color, value: varRef("--on-dark") },
+  { selector: SEL.small, property: PROP.fontSize, value: sizeOf("small") },
+  { selector: SEL.small, property: PROP.color, value: varRef("--muted") },
+  { selector: SEL.small, property: PROP.display, value: kBlock },
+  { selector: SEL.small, property: PROP.marginBlockStart, value: d(SPACE.md) },
+  { selector: SEL.button, property: PROP.backgroundColor, value: varRef("--accent") },
+  { selector: SEL.button, property: PROP.color, value: varRef("--on-accent") },
+  { selector: SEL.button, property: PROP.minBlockSize, value: targetMin },
+  { selector: SEL.button, property: PROP.paddingBlock, value: d(SPACE.snug) },
+  { selector: SEL.button, property: PROP.paddingInline, value: d(SPACE.md) },
+  { selector: SEL.button, property: PROP.borderRadius, value: d(SPACE.xs) },
+  { selector: SEL.button, property: PROP.marginBlockStart, value: d(SPACE.md) },
 ];
 
 const decls = [...root, ...elems];

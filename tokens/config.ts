@@ -2,6 +2,7 @@
 // palette + a handful of knobs; everything downstream (roles, scale, weights) derives from this.
 // Validated by Zod so a malformed brand fails at the door.
 import { z } from "zod";
+import { RolePref } from "./roles.ts";
 
 export const BrandConfig = z.object({
   name: z.string(),
@@ -19,8 +20,9 @@ export const BrandConfig = z.object({
   font: z.string().default("system-ui, sans-serif"),
   /** measure ceiling in ch (≤80, WCAG 1.4.8) */
   measure: z.number().max(80).default(66),
-  /** optional per-role target-lightness / chroma overrides (keyed by Role) */
-  roleOverrides: z.record(z.string(), z.object({ targetL: z.number().optional(), chromatic: z.boolean().optional() })).default({}),
+  /** the PREFERENCE layer, pushed to the config: per-role decisions (targetL / chroma / field / …)
+   * deep-merged onto DEFAULT_ROLE_PREFS. The REQUIRED WCAG tiers stay in roles.ts (ROLE_CONTRACT). */
+  roles: z.record(z.string(), RolePref.partial()).default({}),
 });
 export type BrandConfig = z.infer<typeof BrandConfig>;
 

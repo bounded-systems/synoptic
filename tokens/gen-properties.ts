@@ -69,8 +69,11 @@ const lengthProps = allProps.filter((n) => reachesLen(propSyntax[n])).sort();
 // border-image-width, contain-intrinsic-*) excluded by the strict name pattern.
 const measureProps = allProps.filter((n) => /^(min-|max-)?(width|inline-size)$|^column-width$/.test(n)).sort();
 
+const identCamel = (s: string): string => s.replace(/^-+/, "").replace(/-([a-z0-9])/g, (_m, c: string) => c.toUpperCase());
+const propObj = "{\n" + allProps.map((p) => `  ${JSON.stringify(identCamel(p))}: ${JSON.stringify(p)},`).join("\n") + "\n} as const";
 const out = `// GENERATED from @webref/css by gen-properties.ts — do not edit by hand.\nimport { z } from "zod";\n\n` +
   `/** Every CSS property name (webref). */\nexport const CssProperty = z.enum(${JSON.stringify(allProps)} as [string, ...string[]]);\nexport type CssProperty = z.infer<typeof CssProperty>;\n\n` +
+  `/** Every property as a camelCase enum member — PROP.marginBlockStart === "margin-block-start". */\nexport const PROP = ${propObj};\n\n` +
   `/** Properties whose value grammar reaches <color> (resolved transitively). */\nexport const ColorProperty = z.enum(${JSON.stringify(colorProps.map((c) => c.name))} as [string, ...string[]]);\nexport type ColorProperty = z.infer<typeof ColorProperty>;\n\n` +
   `/** Properties whose value grammar reaches <length> — the dimension surface. */\nexport const LengthProperty = z.enum(${JSON.stringify(lengthProps)} as [string, ...string[]]);\nexport type LengthProperty = z.infer<typeof LengthProperty>;\n\n` +
   `/** Inline-sizing properties a reading measure (ch) applies to — max-inline-size/width family; false-friends (stroke-width, …) excluded. */\nexport const MeasureProperty = z.enum(${JSON.stringify(measureProps)} as [string, ...string[]]);\nexport type MeasureProperty = z.infer<typeof MeasureProperty>;\n`;

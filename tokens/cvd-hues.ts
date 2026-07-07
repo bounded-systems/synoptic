@@ -4,6 +4,7 @@
 // field — the yellow–blue axis that red-green CVD preserves (warm↔cool), not the red-green axis.
 // Run: deno run --allow-read cvd-hues.ts <palette.json>
 import { hexToOklch } from "./color.ts";
+import { DELTA_E_JND } from "./constants.ts";
 
 const hex2rgb = (h: string) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255);
 const toLin = (c: number) => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
@@ -25,7 +26,7 @@ const dE = (h1: string, h2: string) => { const A = oklab(hexToOklch(h1)), B = ok
 
 const palette = JSON.parse(Deno.readTextFileSync(Deno.args[0])) as string[];
 const chromatic = palette.map((hex) => ({ hex, o: hexToOklch(hex) })).filter((x) => x.o.c > 0.04);
-const JND = 0.02, HUE_DIFF = 18; // ΔEOK≈0.02 is the edge of visibility; only flag genuinely-different hues
+const JND = DELTA_E_JND, HUE_DIFF = 18; // ΔEOK JND is the edge of visibility; only flag genuinely-different hues
 const confusable: string[] = [];
 for (let i = 0; i < chromatic.length; i++) {
   for (let j = i + 1; j < chromatic.length; j++) {

@@ -13,10 +13,12 @@ export const HUE_RANGES: readonly (readonly [number, Hue])[] = [
 ] as const;
 export const hueName = (deg: number): Hue => { for (const [max, name] of HUE_RANGES) if (deg <= max) return name; return "red"; };
 
-/** The CVD-preserved field: warm↔cool rides the yellow–blue axis red-green blindness keeps.
+/** The CVD-preserved fields: warm↔cool ride the yellow–blue axis red-green blindness keeps.
  * Chromatic hues should sit in ONE field so they never collapse for a color-blind viewer (1.4.1). */
-export const HUE_FIELD = { warm: [20, 110], cool: [195, 300] } as const;
+export const HueField = z.enum(["warm", "cool"]);
+export type HueField = z.infer<typeof HueField>;
+export const HUE_FIELD: Record<HueField, readonly [number, number]> = { warm: [20, 110], cool: [195, 300] };
 export const isWarm = (deg: number) => deg >= HUE_FIELD.warm[0] && deg <= HUE_FIELD.warm[1];
 export const isCool = (deg: number) => deg >= HUE_FIELD.cool[0] && deg <= HUE_FIELD.cool[1];
 /** Which CVD-safe field a hue belongs to (or "neutral-axis" — the red-green axis CVD deletes). */
-export const hueField = (deg: number): "warm" | "cool" | "neutral-axis" => (isWarm(deg) ? "warm" : isCool(deg) ? "cool" : "neutral-axis");
+export const hueField = (deg: number): HueField | "neutral-axis" => (isWarm(deg) ? "warm" : isCool(deg) ? "cool" : "neutral-axis");

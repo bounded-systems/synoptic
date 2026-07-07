@@ -23,21 +23,22 @@ import {
   type Oklch,
   sha,
 } from "./color.ts";
+import { SEED_ACCENT_C_MIN, SEED_LADDER, SEED_LINK_C_MIN, SEED_TINT } from "./constants.ts";
 
 /** deriveSeedPalette — from ONE brand seed color, generate the full palette: warm neutrals faintly
  * tinted toward the seed hue + the accent ladder (vibrant fill + AA-clearing link). The brand seed
  * supplies the HUE; the constraints (AAA/AA lightnesses) generate the set. Sudoku the game. */
 export function deriveSeedPalette(seed: string): string[] {
   const { h, c } = hexToOklch(seed);
-  const tint = 0.014; // a faint neutral tint toward the brand hue — cohesion without color-cast
+  const T = SEED_TINT, L = SEED_LADDER;
   return [
-    oklchToHex(96, tint, h), // surface — warm cream
-    oklchToHex(91, tint * 1.3, h), // wash / light-on-dark
-    oklchToHex(55, tint * 1.6, h), // muted grey
-    oklchToHex(20, tint * 1.2, h), // dark surface
-    oklchToHex(13, tint, h), // text — near-black warm
-    oklchToHex(62, Math.max(c, 0.15), h), // accent — the vibrant brand fill
-    oklchToHex(46, Math.max(c * 0.9, 0.14), h), // link — a darker accent that clears AA on the surface
+    oklchToHex(L.surface, T, h), // warm cream
+    oklchToHex(L.wash, T * 1.3, h), // wash / light-on-dark
+    oklchToHex(L.muted, T * 1.6, h), // muted grey
+    oklchToHex(L.dark, T * 1.2, h), // dark surface
+    oklchToHex(L.text, T, h), // text — near-black warm
+    oklchToHex(L.accent, Math.max(c, SEED_ACCENT_C_MIN), h), // accent — the vibrant brand fill
+    oklchToHex(L.link, Math.max(c * 0.9, SEED_LINK_C_MIN), h), // link — a darker accent, clears AA on the surface
   ];
 }
 import { ColorPair, Dimension, Measure, NumberValue, PrimitiveColor, PropertyPair, PropertyToken, RootFontSize } from "./schema.ts";
