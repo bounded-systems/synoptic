@@ -1,0 +1,48 @@
+tokens/to-css.ts
+  s_70508ca017cb29::t_55f887e4429210 8
+  s_70508ca017cb29::t_526dc7257d3e97 128-129
+  s_70508ca017cb29::t_6c45c23de80bd0 141-142
+  s_70508ca017cb29::t_cf7f549e4e75a4 18-19
+  s_70508ca017cb29::t_270503c381d25e 1-6,13-14,16,21,27-28,32-47,50-52,59-60,62-65,69-71,73,75-76,80,82-127,130-134,147,149
+  s_70508ca017cb29::t_7d047980f73159 9,11
+tokens/color.ts
+  s_70508ca017cb29::t_f412d425042611 61-67
+tokens/verbs.ts
+  s_70508ca017cb29::t_238fe7d86f6ecf 22,26-42
+  s_70508ca017cb29::t_e2a92e52bf99e3 45
+tokens/roles.ts
+  s_70508ca017cb29::t_dc725923accc5d 8-9,11,13-18,21-24
+  s_70508ca017cb29::t_312f5df0bff494 29,37-40
+  s_70508ca017cb29::t_fd7bfcd514f4c0 1-7,10,12,19-20,25-28,30-36,41-50
+tokens/config.ts
+  s_70508ca017cb29::t_d5168342d39b7a 1-7,12-30
+  s_70508ca017cb29::t_c2e701d87565f1 8-11
+tokens/hue.ts
+  s_70508ca017cb29::t_36303db9446f9a 1-22
+tokens/brands/bdelanghe/brand.json
+  s_70508ca017cb29::t_1188012ef7f721 1-16
+tokens/brands/burnt-orange/brand.json
+  s_70508ca017cb29::t_ca32e45b809f49 1
+tokens/brands/burnt-orange/palette.json
+  s_70508ca017cb29::t_7da8c97e1ebe0e 1
+tokens/examples/mock-orange/index.html
+  s_70508ca017cb29::t_ec45169e7699fe 1-20
+tokens/examples/mock-orange/style.css
+  s_70508ca017cb29::t_35b65e4be0106a 1-165
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "870437fed6215af652539376b57639acd6add577",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
