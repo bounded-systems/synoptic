@@ -58,7 +58,9 @@ for(const [name,hex] of Object.entries(PRIM)){
   } else {
     noun=`${(t.h>=20&&t.h<=110)?"warm ":(t.h>=195&&t.h<=300)?"cool ":""}${hueName(t.h)}`;
   }
-  const opener=useShade?`A ${shadeWord} ${noun}.`:`A ${noun}.`;
+  const firstWord=useShade?shadeWord:noun;
+  const article=/^[aeiou]/i.test(firstWord)?"An":"A";
+  const opener=useShade?`${article} ${shadeWord} ${noun}.`:`${article} ${noun}.`;
   let desc;
   if(!pairs.length){
     desc=`${opener} It's a background surface — other colors sit on it, rather than it on them.`;
