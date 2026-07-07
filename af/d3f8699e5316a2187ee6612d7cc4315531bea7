@@ -1,0 +1,28 @@
+tokens/gen-properties.ts
+  s_70508ca017cb29::t_6db5f65be66a24 78-84
+  s_70508ca017cb29::t_5b91d1772038c6 55-71,74-76
+tokens/color-properties.derived.json
+  s_70508ca017cb29::t_b028b4275681a8 3
+tokens/length-properties.derived.json
+  s_70508ca017cb29::t_9330e7e1ef2ab6 1-576
+tokens/measure-properties.derived.json
+  s_70508ca017cb29::t_3c12bf1ffce35d 1-35
+tokens/properties.ts
+  s_70508ca017cb29::t_ea89476524603f 11-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "afd3f8699e5316a2187ee6612d7cc4315531bea7",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
