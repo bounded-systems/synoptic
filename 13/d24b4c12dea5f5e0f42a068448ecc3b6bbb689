@@ -1,0 +1,23 @@
+brand-contrast-pairs.mjs
+  s_70508ca017cb29::t_0093318c4421f7 36-37
+package.json
+  s_70508ca017cb29::t_90914ea02110ff 3
+tokens/contrast-pairs.json
+  s_70508ca017cb29::t_1fd6810e6dc550 6-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "13d24b4c12dea5f5e0f42a068448ecc3b6bbb689",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
