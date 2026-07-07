@@ -1,0 +1,26 @@
+brand-primitive-pairs.mjs
+  s_70508ca017cb29::t_9acd4928647e9a 1-40
+brand-contrast-pairs.mjs
+  s_70508ca017cb29::t_0b2c7f67671b92 25
+  s_70508ca017cb29::t_e7e6cef2dd068a 35
+tokens/contrast-pairs.json
+  s_70508ca017cb29::t_44acb74fc44ed3 5,17,30,43,56,69,82,95,108,121,134,147,160,173,186,199,212,225,238,251,264,277,290,303,316,329,342,355,368,381,394,407,429,442,455,468,481
+tokens/primitive-pairs.json
+  s_70508ca017cb29::t_4b0b504e4d325c 1-765
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "4a4705793583f647f87afddd3e29d5bbbe75f3a2",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
