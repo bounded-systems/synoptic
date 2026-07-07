@@ -1,0 +1,21 @@
+tokens/font.ts
+  s_70508ca017cb29::t_40e442d6df0d90 49-64
+tokens/gen-font.ts
+  s_70508ca017cb29::t_cc90f9c6201d14 27-28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "17850ebbe9525e7b86e03569cbc2588a52dfcc83",
+  "prompts": {},
+  "sessions": {
+    "s_70508ca017cb29": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d283f13f-34c8-429b-8cb1-b020e645c0e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Robert DeLanghe <1240090+bdelanghe@users.noreply.github.com>"
+    }
+  }
+}
