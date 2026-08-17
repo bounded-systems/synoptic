@@ -19,12 +19,12 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
         with: { repository: bounded-systems/synoptic, ref: "${{ inputs.synoptic-ref }}", path: .synoptic, persist-credentials: false }
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
         with: { repository: bounded-systems/conformance-kit, ref: "${{ inputs.kit-ref }}", path: .conformance-kit, persist-credentials: false }
-      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with: { node-version: "${{ inputs.node-version }}" }
       - run: npm ci
       - run: npm --prefix .conformance-kit ci --omit=dev || npm --prefix .conformance-kit install --omit=dev
@@ -39,14 +39,14 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
         with: { repository: bounded-systems/conformance-kit, ref: "${{ inputs.kit-ref }}", path: .conformance-kit, persist-credentials: false }
-      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with: { node-version: "${{ inputs.node-version }}" }
       - run: npm ci
       - run: npm --prefix .conformance-kit ci --omit=dev || npm --prefix .conformance-kit install --omit=dev
       - run: ${{ inputs.build-command }}
-      - uses: DeterminateSystems/nix-installer-action@21a544727d0c62386e78b4befe52d19ad12692e3 # v12
+      - uses: DeterminateSystems/nix-installer-action@ef8a148080ab6020fd15196c2084a2eea5ff2d25 # v12
       - name: browser gates on WebKit (tezcatl)
         run: for g in ${{ inputs.browser-gates }}; do AXE_RUNNER=tezcatl nix shell github:bdelanghe/tezcatl-flake -c node ".conformance-kit/gates/$g" dist; done
