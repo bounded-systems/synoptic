@@ -24,6 +24,9 @@ Grounded in the namespace mechanisms (one idea, many surfaces):
 | `intoto` | https://in-toto.io/Statement/v1 | attestations | in-toto |
 | `spdx` | https://spdx.dev/ | the claims SBOM | SPDX 2.3 |
 | `claim` | https://bounded.tools/synoptic/claim/1.0 | predicates (`is-a`, `alias-of`, `derived-from`, …) | **TODO: give the predicate vocab a URI** |
+| `fd` | https://bounded.tools/ns/front-desk# | front-desk mirror vocabulary (`fd:Item`, `fd:dependsOn`, `fd:origin`, …) | `sh:declare` in front-desk-scheduler `specs/shacl/front-desk-shapes.ttl` |
+| `verb` | https://bounded.tools/ns/verb# | the action-frame vocabulary (`verb:ClaimGrant`, `verb:agent`) | front-desk-scheduler `specs/claim-e2e` (executable worked example) |
+| `basis` | https://bounded.tools/ns/basis# | fold-engine vault vocabulary | fold-engine#32 (remint from the reserved example.org namespace) |
 | `--bs-` | (prefix) https://bounded.tools/tokens/ | design tokens | CSS Variables convention |
 
 ## Consequence for the tokens (from the live audit)
