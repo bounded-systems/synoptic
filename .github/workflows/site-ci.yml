@@ -47,6 +47,6 @@ jobs:
       - run: npm ci
       - run: npm --prefix .conformance-kit ci --omit=dev || npm --prefix .conformance-kit install --omit=dev
       - run: ${{ inputs.build-command }}
-      - uses: DeterminateSystems/nix-installer-action@ef8a148080ab6020fd15196c2084a2eea5ff2d25 # v12
+      - uses: DeterminateSystems/nix-installer-action@3138316df39ed29be04236d7ffc686fa525866aa # v12
       - name: browser gates on WebKit (tezcatl)
         run: for g in ${{ inputs.browser-gates }}; do AXE_RUNNER=tezcatl nix shell github:bdelanghe/tezcatl-flake -c node ".conformance-kit/gates/$g" dist; done
