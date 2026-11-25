@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bounded.tools/synoptic/spec/font-face.schema.json",
+  "title": "FontFace",
+  "description": "An EMBEDDED WEBFONT token (CSS Fonts 4 §4 @font-face): one typeface whose bytes ride INLINE in the generated style.css as a data: URI (RFC 2397), so the stylesheet stays self-contained — no CDN, no third origin, a CSP needs only `font-src data:`. The opt-in alternative to the zero-load system stack (tokens/font.ts SYSTEM_FONT_STACKS); the family is prepended to the brand stack, which stays the fallback. This schema is the STRUCTURE; tokens/font-face.ts (Zod) additionally decodes src and enforces the file signature (wOF2/wOFF), the decoded-size budget (131072 bytes), weight.min <= weight.max, and that family is not a generic keyword. Tradeoff (size, licensing) documented in tokens/GROUNDING.md, 'Typeface'.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$type": { "const": "font-face" },
+    "$value": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "family": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9 -]{0,63}$",
+          "description": "the face's family name, emitted as a quoted CSS string (letters, digits, spaces, hyphens). MUST NOT be a generic family keyword (CSS Fonts 4 §5.1.1)."
+        },
+        "src": {
+          "type": "string",
+          "pattern": "^data:font/(woff2|woff);base64,[A-Za-z0-9+/]+={0,2}$",
+          "contentEncoding": "base64",
+          "description": "the font file as a base64 data: URI — font/woff2 (preferred) or font/woff (RFC 8081). Never a URL: an embedded face fetches nothing."
+        },
+        "weight": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "min": { "type": "integer", "minimum": 1, "maximum": 1000 },
+            "max": { "type": "integer", "minimum": 1, "maximum": 1000 }
+          },
+          "required": ["min", "max"],
+          "description": "the font-weight descriptor range (CSS Fonts 4 §4.5); min = max for a static face, a span for a variable font. min <= max."
+        },
+        "style": { "enum": ["normal", "italic"], "description": "the font-style descriptor." },
+        "display": { "const": "swap", "description": "font-display (CSS Fonts 4 §4.9), locked to swap: text paints at once in the fallback stack, never invisible while the face decodes." },
+        "license": {
+          "enum": ["OFL-1.1", "Apache-2.0", "MIT", "CC0-1.0", "Ubuntu-font-1.0"],
+          "description": "SPDX id of the font's license. Embedding redistributes the file to every visitor, so only licenses permitting redistribution + embedding are constructable (fail-closed)."
+        }
+      },
+      "required": ["family", "src", "weight", "style", "display", "license"]
+    },
+    "$sha": { "type": "string", "pattern": "^[0-9a-f]{12}$", "description": "content address: sha256 of family|weight|style|src, first 12 hex." },
+    "$description": { "type": "string" }
+  },
+  "required": ["$type", "$value", "$sha", "$description"],
+  "examples": [
+    {
+      "$type": "font-face",
+      "$value": { "family": "Space Grotesk", "src": "data:font/woff2;base64,d09GMgABAAA=", "weight": { "min": 300, "max": 700 }, "style": "normal", "display": "swap", "license": "OFL-1.1" },
+      "$sha": "0123456789ab",
+      "$description": "Embedded face \"Space Grotesk\" (OFL-1.1), weight 300–700."
+    }
+  ]
+}

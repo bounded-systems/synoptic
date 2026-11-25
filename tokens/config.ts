@@ -3,6 +3,7 @@
 // Validated by Zod so a malformed brand fails at the door.
 import { z } from "zod";
 import { RolePref } from "./roles.ts";
+import { FontFaceConfig } from "./font-face.ts";
 
 export const BrandConfig = z.object({
   name: z.string(),
@@ -18,6 +19,10 @@ export const BrandConfig = z.object({
   weights: z.object({ body: z.number(), heading: z.number() }).default({ body: 400, heading: 600 }),
   /** font stack (reifies to a generic CSSStyleValue) */
   font: z.string().default("system-ui, sans-serif"),
+  /** OPTIONAL embedded webfont (font-face.ts) — prepended to `font`, emitted as an inline @font-face.
+   * Absent = the zero-load system stack. `src` is a data: URI or a .woff2/.woff path relative to
+   * this brand.json. Spec: spec/font-face.schema.json. */
+  fontFace: FontFaceConfig.optional(),
   /** measure ceiling in ch (≤80, WCAG 1.4.8) */
   measure: z.number().max(80).default(66),
   /** the PREFERENCE layer, pushed to the config: per-role decisions (targetL / chroma / field / …)

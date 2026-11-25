@@ -63,7 +63,8 @@ CG         Community Group Report    de-facto, not W3C track          (DTCG)
 | `value/shadow`     | **CSS Backgrounds 3** · CRD §7 | w3.org/TR/css-backgrounds-3/ | composite: merkle of color+dimensions |
 | `value/typography` | **CSS Fonts 3/4** REC/WD + **DTCG** §9.8 | w3.org/TR/css-fonts-3/ · css-fonts-4/ | composite: merkle of fontFamily+size+weight+leading+tracking |
 | all value types    | **DTCG** · CG · 2025.10 | designtokens.org/tr/2025.10/format/ | typed-token alignment (union in value.schema.json) |
-| font resources (LATER) | **CSS Fonts 3** · REC (@font-face) | w3.org/TR/css-fonts-3/ | self-hosted font files as CAS atoms + @font-face claims |
+| `font-face` (token) | **CSS Fonts 4** · WD §4 (@font-face: src, font-weight range, font-display) + **RFC 2397** (data:) + **RFC 8081** (font/woff2, font/woff) | w3.org/TR/css-fonts-4/ | ONE embedded face, bytes inline as a data: URI in style.css (no CDN); spec/font-face.schema.json; tradeoff in tokens/GROUNDING.md "Typeface" |
+| font resources (LATER) | **CSS Fonts 3** · REC (@font-face) | w3.org/TR/css-fonts-3/ | font files as CAS atoms + @font-face *claims* extracted from sites (the `font-face` token above covers emitting one) |
 | **layout** (LATER) | **CSS Display 3** · CR · **Flexbox 1** · CR · **Grid 2** · CR · **Box 3/4** · **Position 3** | w3.org/TR/css-display-3/ · css-flexbox-1/ · css-grid-2/ | display/flex/grid/position — mostly keyword+number+dimension atoms (already typed); grid track-lists are composites; not yet EXTRACTED (css-project KEYS are design, not structure) |
 | basic UI (LATER) | **CSS UI 3** · REC | w3.org/TR/css-ui-3/ | box-sizing, outline, cursor, text-overflow, resize |
 | logical props / i18n (LATER) | **CSS Writing Modes 3** · REC | w3.org/TR/css-writing-modes-3/ | block/inline logical properties, direction, orientation (we already see border-block-end / padding-inline in the extraction) |

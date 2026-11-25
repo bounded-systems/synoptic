@@ -2,9 +2,9 @@ name: tokens
 
 on:
   push:
-    paths: ["tokens/**"]
+    paths: ["tokens/**", "spec/font-face.schema.json"]
   pull_request:
-    paths: ["tokens/**"]
+    paths: ["tokens/**", "spec/font-face.schema.json"]
 
 jobs:
   check:
@@ -19,6 +19,8 @@ jobs:
           deno-version: v2.x
       - name: typecheck
         run: deno check *.ts
+      - name: test
+        run: deno task test
       # The gate RE-DERIVES from each brand config and asserts the committed style.css + token JSON
       # are byte-identical, then runs the full-indirection audit + CVD-hue scan. A hand-edit to any
       # generated file fails here — the derivation can't be circumvented.
