@@ -1,6 +1,6 @@
 {
   "imports": {
-    "zod": "npm:zod@^4.4.3",
+    "zod": "npm:zod@^4.6.6",
     "verbspec": "jsr:@bounded-systems/verbspec@^0.3.1"
   },
   "tasks": {
