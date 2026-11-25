@@ -146,5 +146,9 @@ export function fontFaceRule(t: FontFace): string {
   return `@font-face { font-family: ${quoteFamily(v.family)}; src: url("${v.src}") format("${FONT_FORMATS[mediaType].format}"); font-weight: ${weight}; font-style: ${v.style}; font-display: ${v.display}; }`;
 }
 
+/** Does the face's weight range include `w`? (A face outside the body weight would still be picked
+ * for body text by font matching, CSS Fonts 4 §5.2 — rendering every paragraph at the wrong weight.) */
+export const faceCoversWeight = (t: FontFace, w: number) => t.$value.weight.min <= w && w <= t.$value.weight.max;
+
 /** The brand stack with the embedded face in front — the system stack stays the fallback. */
 export const stackWithFace = (t: FontFace | undefined, stack: string) => (t ? `${quoteFamily(t.$value.family)}, ${stack}` : stack);

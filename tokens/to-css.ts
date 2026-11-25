@@ -12,16 +12,19 @@ import { ROLE_ORDER, type Role, SEL, type Selector } from "./roles.ts";
 import { HAIRLINE_REM, LINE_HEIGHT_BODY, LINE_HEIGHT_HEADING, ROOT_FONT, SPACE, SPACING_RATIO, SPACING_STOPS, TARGET_MIN_REM } from "./constants.ts";
 import { deriveAtoms, deriveRoles } from "./derive.ts";
 import { loadBrand } from "./config.ts";
-import { deriveFontFace, fontFaceRule, stackWithFace } from "./font-face.ts";
+import { deriveFontFace, faceCoversWeight, fontFaceRule, stackWithFace } from "./font-face.ts";
+import { resolve, toFileUrl } from "jsr:@std/path@^1";
 
 const brand = loadBrand(Deno.args[0]);
 const outDir = Deno.args[1] ?? ".";
 // the optional embedded face — validated (format, budget, license) or the build fails here
-const face = brand.fontFace ? deriveFontFace(brand.fontFace, new URL(Deno.args[0], `file://${Deno.cwd()}/`)) : undefined;
+const face = brand.fontFace ? deriveFontFace(brand.fontFace, toFileUrl(resolve(Deno.args[0]))) : undefined;
 // ── THE DERIVATION (shared with to-tokens.ts) ──
 const atoms = deriveAtoms(brand);
 const roles = deriveRoles(atoms, brand);
 const fail = (m: string): never => { console.error(`✗ ${m}`); Deno.exit(1); };
+// a face that can't render the body weight would be used for it anyway (wrong weight on all text)
+if (face && !faceCoversWeight(face, brand.weights.body)) fail(`fontFace "${face.$value.family}" weight ${face.$value.weight.min}–${face.$value.weight.max} does not cover the body weight ${brand.weights.body}`);
 
 // ── dimension + weight tokens (type scale from the brand config) ───────────────
 const ts = brand.typeScale;

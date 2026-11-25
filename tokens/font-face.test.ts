@@ -4,7 +4,7 @@
 // the full-indirection audit; a brand without one is untouched.
 // Run: deno test --allow-read --allow-write --allow-run --allow-env
 import { assert, assertEquals, assertMatch, assertThrows } from "jsr:@std/assert@^1";
-import { Ajv2020 } from "npm:ajv@8.17.1/dist/2020.js";
+import { Ajv2020 } from "npm:ajv@8.18.0/dist/2020.js";
 import {
   decodeFontDataUri,
   deriveFontFace,
@@ -119,6 +119,25 @@ Deno.test("build — a brand with a face emits an inline @font-face that passes 
   assert(!plainCss.includes("@font-face"), "no face → the zero-load system stack, unchanged");
   assertEquals(plainCss, Deno.readTextFileSync(new URL("examples/mock-blue/style.css", import.meta.url)));
   assertEquals(css.replace(/^@font-face.*\n/m, "").replace(`"Space Grotesk", `, ""), plainCss, "face adds one rule + one stack entry, nothing else");
+});
+
+Deno.test("build — brand path with a space and '#' resolves the face file (path, not URL, semantics)", async () => {
+  const dir = `${Deno.makeTempDirSync()}/a b#c`;
+  Deno.mkdirSync(dir);
+  Deno.writeFileSync(`${dir}/face.woff2`, fakeFont("wOF2"));
+  Deno.writeTextFileSync(`${dir}/brand.json`, JSON.stringify({ ...deepBlue, fontFace: { family: "Brand Sans", src: "face.woff2", weight: { min: 100, max: 900 }, license: "OFL-1.1" } }));
+  const built = await run("to-css.ts", `${dir}/brand.json`, dir);
+  assertEquals(built.code, 0, built.out);
+  assertMatch(Deno.readTextFileSync(`${dir}/style.css`), /^@font-face \{ font-family: "Brand Sans";/m);
+});
+
+Deno.test("build — a face that doesn't cover the body weight fails the build", async () => {
+  const dir = Deno.makeTempDirSync();
+  Deno.writeFileSync(`${dir}/face.woff2`, fakeFont("wOF2"));
+  Deno.writeTextFileSync(`${dir}/brand.json`, JSON.stringify({ ...deepBlue, fontFace: { family: "Brand Sans", src: "face.woff2", weight: 700, license: "OFL-1.1" } }));
+  const built = await run("to-css.ts", `${dir}/brand.json`, dir);
+  assert(built.code !== 0);
+  assertMatch(built.out, /does not cover the body weight 400/);
 });
 
 Deno.test("build — an unlicensed face fails the build (non-zero), no stylesheet written", async () => {
