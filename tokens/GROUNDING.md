@@ -41,5 +41,22 @@ The exceptions are few and deliberate — each because that unit's *relativity i
 
 So: **`rem` for lengths; a specific non-rem unit only where its relativity is the point** — `em` for text-relative spacing, `ch` for measure, unitless for line-height, `%`/`clamp` for the root. Everything else is `rem` or it is unconstructable.
 
+## Typeface — the system stack (default) vs one embedded webfont
+The `font` token is a **system stack** (`font.ts` `SYSTEM_FONT_STACKS`; `system-ui` surfaces SF / Segoe UI / Roboto): **0 bytes, 0 requests, nothing to license**, and it is what the reader's OS already renders well. It stays the default.
+
+A brand that must match a specific typeface (e.g. Space Grotesk) can opt into **one embedded face** — `fontFace` in the brand config → a `font-face` token (`font-face.ts`, spec `spec/font-face.schema.json`) → an `@font-face` at the top of `style.css`, its bytes **inline as a `data:` URI**. The family is *prepended* to the stack, so the system stack remains the fallback and the swap face. Grounded: **CSS Fonts 4 §4** (`src`, `font-weight` range, `font-display`), **RFC 2397** (`data:`), **RFC 8081** (`font/woff2`, `font/woff`).
+
+What it costs, and how each cost is bounded (unconstructable past the bound, not warned):
+
+| | system stack | embedded face | bound in `font-face.ts` |
+|---|---|---|---|
+| **bytes** | 0 | file × 4/3 (base64) inside `style.css` — on every load, render-blocking, not cached separately from the CSS | woff2/woff only (no raw ttf/otf); decoded ≤ `FONT_FACE_BOUNDS.maxBytes` (128 KiB). Subset to the scripts you use; a latin variable woff2 is typically 20–60 KiB |
+| **requests / origins** | none | none — no CDN, no third origin; a CSP needs only `font-src data:` | `src` must be a `data:` URI (a URL is refused); the build inlines a local `.woff2` path |
+| **licensing** | none (the OS's fonts) | embedding **redistributes the file** to every visitor | `license` must be an SPDX id in `EMBEDDABLE_LICENSES` (OFL-1.1, Apache-2.0, MIT, CC0-1.0, Ubuntu-font-1.0). Most commercial web licenses forbid self-encoding into a `data:` URI, so they are rejected |
+| **rendering** | instant | the face decodes after the CSS parses | `font-display` locked to `swap` — text paints at once in the fallback, never invisible |
+| **integrity** | — | — | the bytes must carry the format's signature (`wOF2` / `wOFF`); the family can't be a generic keyword or break out of its CSS string |
+
+No WCAG SC constrains the typeface itself (the a11y rules sit on size, spacing, and color), so the choice is brand + cost, not conformance. When in doubt, keep the stack.
+
 ## One line
 Colors are coordinates (Color 4), values are Typed OM objects (Houdini L1/L2), properties are webref names bound by `[[associatedProperty]]`, constraints are WCAG SCs, steps are Weber ratios. **Nothing invented.**

@@ -3,12 +3,13 @@
 //   2. no px lengths (rem/relative only — 1.4.4/1.4.10)
 //   3. colors are oklch (no hex/rgb/hsl)
 //   4. properties are valid CssProperty (from webref)
-// :root token definitions (--x: …) and @property blocks DEFINE tokens, so they may hold literals.
+// :root token definitions (--x: …), @property blocks, and the @font-face block (font-face.ts) DEFINE
+// tokens, so they may hold literals.
 // Exits non-zero on any violation. Run: deno run --allow-read audit.ts <style.css>
 import { CssProperty } from "./properties.ts";
 
 const css = Deno.readTextFileSync(Deno.args[0]);
-const body = css.replace(/@property[^}]*\}/g, ""); // strip token registrations
+const body = css.replace(/@property[^}]*\}/g, "").replace(/@font-face[^}]*\}/g, ""); // strip token registrations + the embedded face (descriptors define, like @property)
 const v: string[] = [];
 let real = 0;
 for (const rule of body.matchAll(/([^{}]+)\{([^}]*)\}/g)) {
